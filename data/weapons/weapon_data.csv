@@ -1,0 +1,2 @@
+name,id,range,damage/second,damage/shot,flux,impact,turn rate,OPs,ammo,type,energy/shot,energy/second,chargeup,chargedown,burst size,burst delay,min spread,max spread,spread/shot,spread decay/sec,beam speed,proj speed,launch speed,flight time,proj hitpoints,hints,number
+Light Blaster,nom_light_blaster,400,,40,,15,65,7,,ENERGY,32,,,0.300,,,,,,,,675,,,,,1337100

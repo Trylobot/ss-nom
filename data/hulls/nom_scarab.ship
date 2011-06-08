@@ -1,0 +1,110 @@
+{
+    "bounds": [
+        52, 0,
+        51, -7,
+        -1, -14,
+        -2, -21,
+        -41, -23,
+        -41, -15,
+        -32, -15,
+        -24, -2,
+        -24, 2,
+        -32, 15,
+        -41, 15,
+        -41, 23,
+        -2, 21,
+        -1, 14,
+        51, 7
+    ],
+    "center": [
+        26, 42
+    ],
+    "collisionRadius": 58,
+    "engineSlots": [
+        {
+            "angle": 180,
+            "contrailSize": 60,
+            "length": 60,
+            "location": [
+                -42,
+                19
+            ],
+            "style": "HIGH_TECH",
+            "width": 20
+        },
+        {
+            "angle": 180,
+            "contrailSize": 60,
+            "length": 60,
+            "location": [
+                -42,
+                -19
+            ],
+            "style": "HIGH_TECH",
+            "width": 20
+        }
+    ],
+    "height": 100,
+    "hullId": "gsp_kitsune",
+    "hullName": "Kitsune",
+    "hullSize": "FRIGATE",
+    "shieldCenter": [
+        6,
+        0
+    ],
+    "shieldRadius": 70,
+    "spriteName": "graphics/gsp/ships/gsp_kitsune.png",
+    "style": "HIGH_TECH",
+    "viewOffset": 50,
+    "weaponSlots": [
+        {
+            "angle": 0,
+            "arc": 145,
+            "id": "WS 001",
+            "locations": [
+                25,
+                0
+            ],
+            "mount": "TURRET",
+            "size": "MEDIUM",
+            "type": "BALLISTIC"
+        },
+        {
+            "angle": 0,
+            "arc": 270,
+            "id": "WS 002",
+            "locations": [
+                38,
+                5
+            ],
+            "mount": "TURRET",
+            "size": "SMALL",
+            "type": "BALLISTIC"
+        },
+        {
+            "angle": 0,
+            "arc": 270,
+            "id": "WS 003",
+            "locations": [
+                38,
+                -5
+            ],
+            "mount": "TURRET",
+            "size": "SMALL",
+            "type": "BALLISTIC"
+        },
+        {
+            "angle": 0,
+            "arc": 5,
+            "id": "WS 004",
+            "locations": [
+                -22,
+                0
+            ],
+            "mount": "HARDPOINT",
+            "size": "SMALL",
+            "type": "MISSILE"
+        }
+    ],
+    "width": 52
+}
