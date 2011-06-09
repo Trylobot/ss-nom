@@ -60,112 +60,112 @@
         {
             "angle": 180,
             "contrailSize": 24,
-            "length": 20,
+            "length": 30,
             "location": [
                 -66, 27
             ],
             "style": "LOW_TECH",
-            "width": 10
+            "width": 12
         },
         {
             "angle": 180,
             "contrailSize": 24,
-            "length": 20,
+            "length": 30,
             "location": [
                 -71, 22
             ],
             "style": "LOW_TECH",
-            "width": 10
+            "width": 12
         },
         {
             "angle": 180,
             "contrailSize": 24,
-            "length": 26,
+            "length": 50,
             "location": [
                 -79, 17
             ],
             "style": "LOW_TECH",
-            "width": 16
+            "width": 20
         },
         {
             "angle": 180,
             "contrailSize": 24,
-            "length": 20,
+            "length": 30,
             "location": [
                 -74, 13
             ],
             "style": "LOW_TECH",
-            "width": 10
+            "width": 12
         },
         {
             "angle": 180,
             "contrailSize": 24,
-            "length": 26,
+            "length": 50,
             "location": [
                 -77, 8
             ],
             "style": "LOW_TECH",
-            "width": 16
+            "width": 20
         },
         {
             "angle": 180,
             "contrailSize": 24,
-            "length": 20,
+            "length": 30,
             "location": [
                 -71, 1
             ],
             "style": "LOW_TECH",
-            "width": 10
+            "width": 12
         },
         {
             "angle": 180,
             "contrailSize": 24,
-            "length": 20,
+            "length": 30,
             "location": [
                 -73, -3
             ],
             "style": "LOW_TECH",
-            "width": 10
+            "width": 12
         },
         {
             "angle": 180,
             "contrailSize": 24,
-            "length": 26,
+            "length": 50,
             "location": [
                 -75, -8
             ],
             "style": "LOW_TECH",
-            "width": 16
+            "width": 20
         },
         {
             "angle": 180,
             "contrailSize": 24,
-            "length": 20,
+            "length": 30,
             "location": [
                 -72, -12
             ],
             "style": "LOW_TECH",
-            "width": 10
+            "width": 12
         },
         {
             "angle": 180,
             "contrailSize": 24,
-            "length": 20,
+            "length": 30,
             "location": [
                 -72, -19
             ],
             "style": "LOW_TECH",
-            "width": 10
+            "width": 12
         },
         {
             "angle": 180,
             "contrailSize": 24,
-            "length": 26,
+            "length": 50,
             "location": [
                 -77, -24
             ],
             "style": "LOW_TECH",
-            "width": 16
+            "width": 20
         },
     ],
     "height": 200,
@@ -197,7 +197,7 @@
             "arc": 220,
             "id": "WS 002",
             "locations": [
-                72, -6
+                74, -6
             ],
             "mount": "TURRET",
             "size": "MEDIUM",
@@ -208,7 +208,7 @@
             "arc": 220,
             "id": "WS 003",
             "locations": [
-                61, -16
+                54, -16
             ],
             "mount": "TURRET",
             "size": "MEDIUM",
