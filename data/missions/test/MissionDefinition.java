@@ -16,9 +16,10 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 
 		// Set up the player's fleet
 		api.addToFleet(FleetSide.PLAYER, "nom_komodo_assault", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.PLAYER, "nom_wurm_assault", FleetMemberType.SHIP, true);
 
 		// Set up the enemy fleet
-		api.addToFleet(FleetSide.ENEMY, "tempest_Attack", FleetMemberType.SHIP, false);
+		api.addToFleet(FleetSide.ENEMY, "hammerhead_Balanced", FleetMemberType.SHIP, false);
 		
 		// Set up the map.
 		float width = 10000f;
