@@ -1,9 +1,2 @@
 "name",	"id",	"designation",	"fleet pts",	"hitpoints",	"armor rating",	"max flux",	"flux dissipation",	"ordnance points",	"max speed",	"acceleration",	"deceleration",	"max turn rate",	"turn acceleration",	"mass",	"shield type",	"shield arc",	"shield upkeep",	"shield efficiency",	"number"
-Kitsune,	gsp_kitsune,	Frigate,	5,	2000,	300,	250,	130,	15,	210,	180,	135,	110,	330,	190,	NONE,	0,	0,	1,	1337001
-Okami,	gsp_okami,	Frigate,	7,	2300,	325,	400,	300,	25,	190,	170,	135,	95,	300,	210,	NONE,	0,	0,	1,	1337002
-Pyuma,	gsp_pyuma,	Frigate,	6,	1950,	290,	300,	225,	20,	190,	165,	120,	90,	290,	200,	NONE,	0,	0,	1,	1337003
-Taka,	gsp_taka,	,	,	150,	160,	100,	80,	10,	225,	200,	180,	110,	210,	15,	NONE,	0,	0,	1,	1337004
-Hyou,	gsp_hyou,	,	,	190,	200,	100,	80,	15,	150,	120,	110,	90,	100,	30,	NONE,	0,	0,	1,	1337005
-Hayabusa,	gsp_hayabusa,	,	,	140,	130,	80,	80,	10,	200,	180,	110,	90,	100,	30,	NONE,	0,	0,	1,	1337006
-Washi,	gsp_washi,	Carrier,	18,	10000,	1250,	400,	200,	190,	55,	35,	25,	20,	30,	2500,	NONE,	0,	0,	1,	1337007
-Senkan,	gsp_senkan,	Battleship,	25,	15000,	1750,	800,	400,	220,	35,	23,	20,	15,	15,	2650,	NONE,	0,	0,	1,	1337008
+Komodo,nom_komodo,Destroyer,10,5000,400,1800,200,45,80,50,40,28,60,400,OMNI,150,0.2,0.4,1337103

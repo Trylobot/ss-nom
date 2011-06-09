@@ -1,0 +1,31 @@
+{
+	"displayName":"Komodo",
+	"hullId":"nom_komodo",
+	"variantId":"nom_komodo_assault",
+	"fluxVents":0,
+	"fluxCapacitors":0,
+	"mods":[], # array of strings
+	
+	# mode is either LINKED or ALTERNATING
+	# slot ids (WS ***) must match what's in the .ship file
+	"weaponGroups":[
+		{
+      "mode":"LINKED",
+      "weapons":{
+        "WS 001":"nom_heavy_blaster",
+        "WS 002":"nom_heavy_blaster",
+        "WS 003":"nom_heavy_blaster",
+		  },
+		},
+		{
+      "mode":"LINKED",
+      "weapons":{
+        "WS 004":"nom_light_blaster",
+        "WS 005":"nom_light_blaster",
+        "WS 006":"nom_light_blaster",
+        "WS 007":"nom_light_blaster",
+        "WS 008":"nom_light_blaster",
+      },
+		},
+	],
+}

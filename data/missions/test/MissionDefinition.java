@@ -15,10 +15,10 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.initFleet(FleetSide.ENEMY, "TTS", FleetGoal.ATTACK, true);
 
 		// Set up the player's fleet
-		api.addToFleet(FleetSide.PLAYER, "tempest_test", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.PLAYER, "nom_komodo_assault", FleetMemberType.SHIP, true);
 
 		// Set up the enemy fleet
-		api.addToFleet(FleetSide.ENEMY, "wolf_Support", FleetMemberType.SHIP, false);
+		api.addToFleet(FleetSide.ENEMY, "tempest_Attack", FleetMemberType.SHIP, false);
 		
 		// Set up the map.
 		float width = 10000f;
