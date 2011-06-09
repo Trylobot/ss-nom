@@ -113,7 +113,7 @@
         0,
         0
     ],
-    "shieldRadius": 48,
+    "shieldRadius": 55,
     "spriteName": "graphics/nom/ships/nom_wurm.png",
     "style": "LOW_TECH",
     "viewOffset": 50,
