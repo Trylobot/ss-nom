@@ -4,9 +4,9 @@
 	"type":"ENERGY",
 	"size":"SMALL",
 	"displayArcRadius":400,
-	"turretSprite":"graphics/nom/weapons/nom_light_blaster_turret_base.png",
-	"turretGunSprite":"graphics/nom/weapons/nom_light_blaster_turret_recoil.png",
-	"hardpointSprite":"graphics/nom/weapons/nom_light_blaster_turret_base.png",
+	"turretSprite":      "graphics/nom/weapons/nom_light_blaster_turret_base.png",
+	"turretGunSprite":   "graphics/nom/weapons/nom_light_blaster_turret_recoil.png",
+	"hardpointSprite":   "graphics/nom/weapons/nom_light_blaster_turret_base.png",
 	"hardpointGunSprite":"graphics/nom/weapons/nom_light_blaster_turret_recoil.png",
 	"visualRecoil": 6.0,  # the gun sprites are only used if this is non-0
 	"turretOffsets":[13, 0],
