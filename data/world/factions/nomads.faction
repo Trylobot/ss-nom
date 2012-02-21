@@ -7,11 +7,6 @@
 		"fringe":1,
 	},
 	"portraits":{
-		"standard_male":[
-			"graphics/nom/portraits/portrait_nomad_male_01.png",
-			"graphics/nom/portraits/portrait_nomad_male_02.png",
-			"graphics/nom/portraits/portrait_nomad_male_03.png",
-		],
 		"standard_female":[
 			"graphics/nom/portraits/portrait_nomad_female_01.png",
 		],
