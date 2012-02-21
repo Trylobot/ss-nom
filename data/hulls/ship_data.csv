@@ -1,3 +1,4 @@
 name,id,designation,fleet pts,hitpoints,armor rating,max flux,flux dissipation,ordnance points,max speed,acceleration,deceleration,max turn rate,turn acceleration,mass,shield type,shield arc,shield upkeep,shield efficiency,number
-Komodo,nom_komodo,Destroyer,10,5000,400,2000,300,45,80,50,40,28,60,400,OMNI,160,0.2,0.4,1337103
-Wurm,nom_wurm,Frigate,4,1250,150,1000,250,25,150,140,120,100,270,150,OMNI,120,0.2,0.4,1337102
+Komodo,nom_komodo,Destroyer,10,5000,400,2000,300,50,80,50,40,28,60,400,OMNI,160,0.2,0.4,1337103
+Wurm,nom_wurm,Frigate,4,1250,150,1000,250,30,150,140,120,100,270,150,OMNI,120,0.2,0.4,1337102
+Iguana,nom_iguana,Frigate,2,750,150,550,200,20,170,150,120,110,300,100,OMNI,120,0.2,0.4,1337101
