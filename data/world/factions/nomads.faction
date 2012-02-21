@@ -7,6 +7,9 @@
 		"fringe":1,
 	},
 	"portraits":{
+		"standard_male":[
+			"graphics/nom/portraits/portrait_nomad_female_01.png",
+		],
 		"standard_female":[
 			"graphics/nom/portraits/portrait_nomad_female_01.png",
 		],
@@ -21,7 +24,7 @@
 			"marinesPercent":[0, 0],
 			"ships":{
 				"nom_scarab_wing":[0, 1],
-				"nom_iguana":[0, 1],
+				"nom_iguana_assault":[0, 1],
 			},
 		},
 		"longRangeScout":{
@@ -33,8 +36,8 @@
 			"marinesPercent":[20, 30],
 			"ships":{
 				"nom_scarab_wing":[0, 4],
-				"nom_iguana":[0, 2],
-				"nom_wurm":[0, 1],
+				"nom_iguana_assault":[0, 2],
+				"nom_wurm_assault":[0, 1],
 			},
 		
 		},
@@ -47,9 +50,9 @@
 			"marinesPercent":[20, 30],
 			"ships":{
 				"nom_scarab_wing":[0, 5],
-				"nom_iguana":[0, 5],
-				"nom_wurm":[0, 4],
-				"nom_komodo":[0, 1],
+				"nom_iguana_assault":[0, 5],
+				"nom_wurm_assault":[0, 4],
+				"nom_komodo_assault":[0, 1],
 			},
 		
 		},
@@ -62,9 +65,9 @@
 			"marinesPercent":[20, 30],
 			"ships":{
 				"nom_scarab_wing":[0, 6],
-				"nom_iguana":[0, 7],
-				"nom_wurm":[0, 6],
-				"nom_komodo":[0, 3],
+				"nom_iguana_assault":[0, 7],
+				"nom_wurm_assault":[0, 6],
+				"nom_komodo_assault":[0, 3],
 			},
 		},
 	},

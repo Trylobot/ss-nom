@@ -6,6 +6,8 @@ import com.fs.starfarer.api.campaign.LocationAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 
+import data.scripts.world.*;
+
 public class NomadSpawnPoint extends BaseSpawnPoint {
 
 	public NomadSpawnPoint(SectorAPI sector, LocationAPI location, 

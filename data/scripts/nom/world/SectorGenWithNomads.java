@@ -14,14 +14,15 @@ import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.campaign.CargoAPI.CrewXPLevel;
 import com.fs.starfarer.api.fleet.FleetMemberType;
 
-import data.scripts.world.SectorGen;
+import data.scripts.world.*;
 
 @SuppressWarnings("unchecked")
 public class SectorGenWithNomads extends SectorGen {
 
 	public void generate(SectorAPI sector) {
 		
-    super.generate( sector );
+    //super.generate( sector );
+ 		StarSystemAPI system = sector.getStarSystem("Corvus");
     
     NomadSpawnPoint nomadSpawn = new NomadSpawnPoint( sector, system, 10, 2, null );
     system.addSpawnPoint( nomadSpawn );
