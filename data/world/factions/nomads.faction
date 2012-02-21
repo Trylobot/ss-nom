@@ -1,0 +1,96 @@
+{
+	"id":"nomads",
+	"color":[234,214,124,255],
+	"displayName":"Nomad",
+	"description":"",
+	"names":{
+		"fringe":1,
+	},
+	"portraits":{
+		"standard_male":[
+			"graphics/nom/portraits/portrait_nomad_male_01.png",
+			"graphics/nom/portraits/portrait_nomad_male_02.png",
+			"graphics/nom/portraits/portrait_nomad_male_03.png",
+		],
+		"standard_female":[
+			"graphics/nom/portraits/portrait_nomad_female_01.png",
+		],
+	},
+	"fleetCompositions":{
+		"scout":{
+			"displayName":"Scout",
+			"maxFleetPoints":0,
+			"daysWorthOfSupplies":[30, 40],
+			"lyWorthOfFuel":[40, 50],
+			"extraCrewPercent":[50, 50],
+			"marinesPercent":[0, 0],
+			"ships":{
+				"nom_scarab_wing":[0, 1],
+				"nom_iguana":[0, 1],
+			},
+		},
+		"longRangeScout":{
+			"displayName":"Long-Range Scout",
+			"maxFleetPoints":15,
+			"daysWorthOfSupplies":[30, 50],
+			"lyWorthOfFuel":[20, 40],
+			"extraCrewPercent":[20, 30],
+			"marinesPercent":[20, 30],
+			"ships":{
+				"nom_scarab_wing":[0, 4],
+				"nom_iguana":[0, 2],
+				"nom_wurm":[0, 1],
+			},
+		
+		},
+		"battleGroup":{
+			"displayName":"Battle Group",
+			"maxFleetPoints":35,
+			"daysWorthOfSupplies":[30, 50],
+			"lyWorthOfFuel":[20, 40],
+			"extraCrewPercent":[20, 30],
+			"marinesPercent":[20, 30],
+			"ships":{
+				"nom_scarab_wing":[0, 5],
+				"nom_iguana":[0, 5],
+				"nom_wurm":[0, 4],
+				"nom_komodo":[0, 1],
+			},
+		
+		},
+		"royalGuard":{
+			"displayName":"Royal Guard",
+			"maxFleetPoints":70,
+			"daysWorthOfSupplies":[30, 50],
+			"lyWorthOfFuel":[20, 40],
+			"extraCrewPercent":[20, 30],
+			"marinesPercent":[20, 30],
+			"ships":{
+				"nom_scarab_wing":[0, 6],
+				"nom_iguana":[0, 7],
+				"nom_wurm":[0, 6],
+				"nom_komodo":[0, 3],
+			},
+		},
+	},
+	"traits":{
+		"admiral":{
+			
+		},
+		"captain":{
+			"cowardly":1,
+			"cautious":1,
+			"steady":1,
+			"aggressive":1,
+			"suicidal":1,
+			"fearless":1,
+		},
+	},
+	"dialogue":{
+		"greetingFriendly":"We greet you with arms wide.",
+		"greetingNeutral":"Do we have business, traveler?",
+		"greetingHostileAggressive":"Your ship looks.. valuable.",
+		"greetingHostileTimid":"Leave us be, we mean you no harm!",
+	}
+	
+},
