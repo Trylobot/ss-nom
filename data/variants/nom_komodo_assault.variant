@@ -2,9 +2,9 @@
 	"displayName":"Komodo",
 	"hullId":"nom_komodo",
 	"variantId":"nom_komodo_assault",
-	"fluxVents":0,
-	"fluxCapacitors":0,
-	"mods":[], # array of strings
+	"fluxVents":7,
+	"fluxCapacitors":2,
+	"mods":["hardenedshieldemitter"], # array of strings
 	
 	# mode is either LINKED or ALTERNATING
 	# slot ids (WS ***) must match what's in the .ship file

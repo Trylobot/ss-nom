@@ -2,9 +2,9 @@
 	"displayName":"Wurm",
 	"hullId":"nom_wurm",
 	"variantId":"nom_wurm_assault",
-	"fluxVents":0,
+	"fluxVents":2,
 	"fluxCapacitors":0,
-	"mods":[], # array of strings
+	"mods":["targetingunit"], # array of strings
 	
 	# mode is either LINKED or ALTERNATING
 	# slot ids (WS ***) must match what's in the .ship file
