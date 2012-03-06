@@ -1,7 +1,7 @@
 {
   "id":"nomads", # internal id
 	"name":"The Nomads", # displayed to the player
-	"version":"0.3",
+	"version":"0.4",
 	"description":"Adds content for The Nomads faction",
   "gameVersion":"0.35a",
 }
