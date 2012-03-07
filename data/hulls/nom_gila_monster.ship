@@ -80,7 +80,7 @@
 	"hullSize": "CAPITAL_SHIP",
 	"shieldCenter": [0, 0],
 	"shieldRadius": "285",
-	"spriteName": "path/to/sprite",
+	"spriteName": "graphics/nom/ships/nom_gila_monster.png",
 	"style": "LOW_TECH",
 	"viewOffset": 0,
 	"weaponSlots": [{
