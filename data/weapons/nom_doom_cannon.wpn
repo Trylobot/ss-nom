@@ -9,9 +9,9 @@
 	"hardpointSprite":   "graphics/nom/weapons/nom_doom_cannon_hardpoint_base.png",
 	"hardpointGunSprite":"graphics/nom/weapons/nom_doom_cannon_hardpoint_recoil.png",
 	"visualRecoil": 35.0,  # the gun sprites are only used if this is non-0
-	"turretOffsets":[58, 75],
+	"turretOffsets":[73, 0],
 	"turretAngleOffsets":[0],
-	"hardpointOffsets":[58, 75],
+	"hardpointOffsets":[73, 0],
 	"hardpointAngleOffsets":[0],
 	"renderHints":[RENDER_BARREL_BELOW],
 	"barrelMode":"LINKED", # or LINKED.  whether barrels fire at the same time or alternate.
@@ -26,6 +26,6 @@
     "particleColor":[245,160,160,180]
   },
 	"projectileSpecId":"nom_doom_cannon_shot",  # projectile that will be fired
-	"fireSoundOne":"beam_heavy_intro",
-	"fireSoundTwo":"energy_pulse_blaster",
+	"fireSoundOne":"beam_medium_intro",
+	"fireSoundTwo":"nom_doom_cannon_fire",
 }
