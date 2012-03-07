@@ -1,1 +1,20 @@
-{"displayName":"Iguana","hullId":"nom_iguana","variantId":"nom_iguana_assault","fluxVents":4,"fluxCapacitors":0,"mods":[],"weaponGroups":[{"mode":"LINKED","weapons":{"WS 001":"nom_heavy_blaster"}},{"mode":"LINKED","weapons":{"WS 002":"nom_light_blaster","WS 003":"nom_light_blaster"}}]}
+{
+	"displayName": "Iguana",
+	"hullId": "nom_iguana",
+	"variantId": "nom_iguana_assault",
+	"fluxVents": 4,
+	"fluxCapacitors": 0,
+	"mods": [],
+	"weaponGroups": [{
+		"mode": "LINKED",
+		"weapons": {
+			"WS 001": "nom_heavy_blaster"
+		}
+	}, {
+		"mode": "LINKED",
+		"weapons": {
+			"WS 002": "nom_light_blaster",
+			"WS 003": "nom_light_blaster"
+		}
+	}]
+}

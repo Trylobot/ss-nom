@@ -2,9 +2,9 @@
 	"displayName": "Gila Monster Anti-Battleship",
 	"hullId": "nom_gila_monster",
 	"variantId": "nom_gila_monster_antibattleship",
-	"fluxVents": 0,
+	"fluxVents": 4,
 	"fluxCapacitors": 0,
-	"mods": [],
+	"mods": ["advancedshieldemitter", "armoredweapons"],
 	"weaponGroups": [{
 		"mode": "LINKED",
 		"weapons": {
