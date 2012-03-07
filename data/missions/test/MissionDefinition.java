@@ -15,11 +15,18 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.initFleet(FleetSide.ENEMY, "TTS", FleetGoal.ATTACK, true);
 
 		// Set up the player's fleet
+		api.addToFleet(FleetSide.PLAYER, "nom_gila_monster_antibattleship", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_komodo_assault", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_wurm_assault", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.PLAYER, "nom_iguana_assault", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.PLAYER, "nom_scarab_assault", FleetMemberType.FIGHTER_WING, false);
 
 		// Set up the enemy fleet
+		api.addToFleet(FleetSide.ENEMY, "onslaught_Outdated", FleetMemberType.SHIP, false);
 		api.addToFleet(FleetSide.ENEMY, "hammerhead_Balanced", FleetMemberType.SHIP, false);
+		api.addToFleet(FleetSide.ENEMY, "hound_Assault", FleetMemberType.SHIP, false);
+		api.addToFleet(FleetSide.ENEMY, "lasher_CS", FleetMemberType.SHIP, false);
+		api.addToFleet(FleetSide.ENEMY, "wasp_wing", FleetMemberType.FIGHTER_WING, false);
 		
 		// Set up the map.
 		float width = 10000f;
