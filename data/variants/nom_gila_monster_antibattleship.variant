@@ -10,5 +10,22 @@
 		"weapons": {
 			"WS001": "nom_doom_cannon"
 		}
+	}, {
+		"mode": "LINKED",
+		"weapons": {
+			"WS002": "nom_light_blaster",
+			"WS003": "nom_light_blaster",
+			"WS004": "nom_light_blaster",
+			"WS010": "nom_light_blaster"
+		}
+	}, {
+		"mode": "LINKED",
+		"weapons": {
+			"WS005": "nom_light_blaster",
+			"WS006": "nom_light_blaster",
+			"WS007": "nom_light_blaster",
+			"WS008": "nom_light_blaster",
+			"WS009": "nom_light_blaster"
+		}
 	}]
 }

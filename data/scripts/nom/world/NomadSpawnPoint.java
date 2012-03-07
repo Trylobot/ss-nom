@@ -20,15 +20,14 @@ public class NomadSpawnPoint extends BaseSpawnPoint {
 		
 		String type = null;
 		float r = (float) Math.random();
-		if        (r > 0.75f) {
-			type = "scout";          // 25%
-		} else if (r > 0.45f) {
-			type = "longRangeScout"; // 30%
-		} else if (r > 0.20f) { 
-			type = "battleGroup";    // 25%
-		} else {
-			type = "royalGuard";     // 20%
-		}
+		float p = 1.00f - r;
+		
+		//       p   0.00f
+		if      (p < 0.250f) type = "scout";          // 25%
+		else if (p < 0.500f) type = "longRangeScout"; // 25%
+		else if (p < 0.700f) type = "battleGroup";    // 20%
+		else if (p < 0.875f) type = "royalGuard";     // 17.5%
+		else  /* p < 1.000f*/type = "jihadFleet";     // 12.5%
 		
 		CampaignFleetAPI fleet = getSector().createFleet("nomads", type);
 		getLocation().spawnFleet(getAnchor(), 0, 0, fleet);

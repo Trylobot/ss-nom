@@ -80,16 +80,88 @@
 	"hullSize": "CAPITAL_SHIP",
 	"shieldCenter": [0, 0],
 	"shieldRadius": "285",
-	"spriteName": "graphics/nom/ships/nom_gila_monster.png",
+	"spriteName": "path/to/sprite",
 	"style": "LOW_TECH",
 	"viewOffset": 0,
 	"weaponSlots": [{
 		"angle": "0",
 		"arc": "0",
 		"id": "WS001",
-		"locations": [22,41],
+		"locations": [22, 41],
 		"mount": "HARDPOINT",
 		"size": "LARGE",
+		"type": "ENERGY"
+	}, {
+		"angle": "72",
+		"arc": "230",
+		"id": "WS002",
+		"locations": [-34, 166],
+		"mount": "TURRET",
+		"size": "SMALL",
+		"type": "ENERGY"
+	}, {
+		"angle": "72",
+		"arc": "230",
+		"id": "WS003",
+		"locations": [17, 159],
+		"mount": "TURRET",
+		"size": "SMALL",
+		"type": "ENERGY"
+	}, {
+		"angle": "30",
+		"arc": "230",
+		"id": "WS004",
+		"locations": [59, 130],
+		"mount": "TURRET",
+		"size": "SMALL",
+		"type": "ENERGY"
+	}, {
+		"angle": "-55",
+		"arc": "230",
+		"id": "WS005",
+		"locations": [138, -83],
+		"mount": "TURRET",
+		"size": "SMALL",
+		"type": "ENERGY"
+	}, {
+		"angle": "-55",
+		"arc": "230",
+		"id": "WS006",
+		"locations": [83, -112],
+		"mount": "TURRET",
+		"size": "SMALL",
+		"type": "ENERGY"
+	}, {
+		"angle": "-55",
+		"arc": "230",
+		"id": "WS007",
+		"locations": [14, -152],
+		"mount": "TURRET",
+		"size": "SMALL",
+		"type": "ENERGY"
+	}, {
+		"angle": "-160",
+		"arc": "230",
+		"id": "WS008",
+		"locations": [-54, -78],
+		"mount": "TURRET",
+		"size": "SMALL",
+		"type": "ENERGY"
+	}, {
+		"angle": "-120",
+		"arc": "230",
+		"id": "WS009",
+		"locations": [-171, -69],
+		"mount": "TURRET",
+		"size": "SMALL",
+		"type": "ENERGY"
+	}, {
+		"angle": "-230",
+		"arc": "230",
+		"id": "WS010",
+		"locations": [-105, 82],
+		"mount": "TURRET",
+		"size": "SMALL",
 		"type": "ENERGY"
 	}]
 }

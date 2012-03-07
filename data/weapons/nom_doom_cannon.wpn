@@ -17,15 +17,15 @@
 	"barrelMode":"LINKED", # or LINKED.  whether barrels fire at the same time or alternate.
 	"animationType":"MUZZLE_FLASH",
 	"muzzleFlashSpec":{
-    "length":50.0,   # only used if animationType = MUZZLE_FLASH
-    "spread":35.0,
+    "length":80.0,   # only used if animationType = MUZZLE_FLASH
+    "spread":50.0,
     "particleSizeMin":8.0,
-    "particleSizeRange":30.0,
-    "particleDuration":0.30,
-    "particleCount":18,
-    "particleColor":[245,160,160,180]
+    "particleSizeRange":100.0,
+    "particleDuration":0.10,
+    "particleCount":25,
+    "particleColor":[240,98,98,120]
   },
 	"projectileSpecId":"nom_doom_cannon_shot",  # projectile that will be fired
-	"fireSoundOne":"beam_medium_intro",
+	"fireSoundOne":"nom_doom_cannon_chargeup",
 	"fireSoundTwo":"nom_doom_cannon_fire",
 }

@@ -1,4 +1,8 @@
 {
+  "nom_doom_cannon_chargeup":[{
+    "file":"sounds/fx/beams/fire_beam_heavy_intro01a.ogg",
+    "pitch":2, "volume":1.25
+  }],
   "nom_doom_cannon_fire":[{
     "file":"sounds/nom/fx/34205__themfish__zoup.wav",
     "pitch":1, "volume":1.00
