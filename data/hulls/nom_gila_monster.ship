@@ -163,5 +163,18 @@
 		"mount": "TURRET",
 		"size": "SMALL",
 		"type": "ENERGY"
+	}, {
+    "angle": 0,
+    "arc": 360,
+    "id": "WS011",
+    "locations": [
+      215, -31,
+      215, -48,
+      185, -48,
+      185, -31
+    ],
+    "mount": "HIDDEN",
+    "size": "LARGE",
+    "type": "LAUNCH_BAY"
 	}]
 }
