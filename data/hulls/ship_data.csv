@@ -1,5 +1,5 @@
 name,id,designation,fleet pts,hitpoints,armor rating,max flux,8/6/5/4%,flux dissipation,ordnance points,max speed,acceleration,deceleration,max turn rate,turn acceleration,mass,shield type,shield arc,shield upkeep,shield efficiency,min crew,max crew,cargo,fuel,fuel/ly,range,hangar,base value,number
-Gila Monster,nom_gila_monster,Battleship,21,16500,1500,20000,20000,1150,150,50,20,17.5,15,12.5,3000,OMNI,220,0.12,0.6,400,1550,700,900,10,60,20,100000,1337104
+Gila Monster,nom_gila_monster,Battleship,23,16500,1500,29500,20000,1050,150,45,18,16,6,5,4500,OMNI,220,0.15,0.5,500,1750,800,1100,10,60,20,150000,1337104
 Komodo,nom_komodo,Destroyer,10,5000,400,2000,2000,300,65,80,50,40,28,60,400,OMNI,160,0.2,0.4,30,60,150,150,1,50,3,9000,1337103
 Wurm,nom_wurm,Frigate,4,1250,150,1000,1000,250,30,150,140,120,100,270,150,OMNI,120,0.2,0.4,12,24,75,75,0.25,60,1,5000,1337102
 Iguana,nom_iguana,Frigate,2,750,100,550,550,200,20,175,150,120,110,300,100,OMNI,120,0.2,0.4,8,16,50,50,0.125,60,,2000,1337101
