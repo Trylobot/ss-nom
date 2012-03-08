@@ -1,4 +1,4 @@
-package data.missions.nomads_demo;
+package data.missions.nomads_demo_2;
 
 import com.fs.starfarer.api.fleet.FleetGoal;
 import com.fs.starfarer.api.fleet.FleetMemberType;
