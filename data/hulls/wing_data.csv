@@ -1,2 +1,3 @@
 id,variant,fleet pts,hyperdrive,formation,num,role,refit,base value,,,,,,,,,,,,,number
-nom_scarab_wing,nom_scarab_assault,3,,BOX,4,FIGHTER,10,3000,,,,,,,,,,,,,1337106
+nom_scarab_wing,nom_scarab_assault,6,,CLAW,6,FIGHTER,8,4250,,,,,,,,,,,,,1337106
+nom_iguana_wing,nom_iguana_assault,7,,V,2,FIGHTER,10,6000,,,,,,,,,,,,,1337107

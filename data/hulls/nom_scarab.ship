@@ -1,39 +1,68 @@
 {
-	"bounds": [6, 4.5, 1, -3.5, -5, 5.5],
-	"center": [6, 11],
-	"collisionRadius": "17",
-	"engineSlots": [{
-		"angle": "180",
-		"contrailSize": "64",
-		"length": "20",
-		"location": [-10, 2],
-		"style": "LOW_TECH",
-		"width": "12"
-	}, {
-		"angle": "180",
-		"contrailSize": "64",
-		"length": "20",
-		"location": [-11, -1],
-		"style": "LOW_TECH",
-		"width": "12"
-	}],
-	"height": 24,
-	"hullId": "nom_scarab",
-	"hullName": "Scarab",
-	"hullSize": "FIGHTER",
-	"shieldCenter": [-1, 1],
-	"shieldRadius": "15",
-	"spriteName": "graphics/nom/ships/nom_scarab.png",
-	"style": "LOW_TECH",
-	"viewOffset": 0,
-	"weaponSlots": [{
-		"angle": "0",
-		"arc": "360",
-		"id": "WS 001",
-		"locations": [0, -1],
-		"mount": "HIDDEN",
-		"size": "SMALL",
-		"type": "ENERGY"
-	}],
-	"width": 19
+  "bounds": [
+    9,
+    4,
+    5,
+    -7,
+    -9.5,
+    -3.5,
+    -5.5,
+    8.5
+  ],
+  "center": [
+    11,
+    11.5
+  ],
+  "collisionRadius": 13.9,
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 11,
+      "length": 19.5,
+      "location": [
+        -10.5,
+        2
+      ],
+      "style": "LOW_TECH",
+      "width": 11
+    },
+    {
+      "angle": 180,
+      "contrailSize": 10,
+      "length": 20.5,
+      "location": [
+        -10.5,
+        -3
+      ],
+      "style": "LOW_TECH",
+      "width": 10
+    }
+  ],
+  "height": 24,
+  "width": 19,
+  "hullId": "nom_scarab",
+  "hullName": "Scarab",
+  "hullSize": "FIGHTER",
+  "shieldCenter": [
+    0,
+    0
+  ],
+  "shieldRadius": 14.2,
+  "spriteName": "graphics/nom/ships/nom_scarab.png",
+  "style": "LOW_TECH",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 0,
+      "arc": 339.4,
+      "id": "WS 001",
+      "locations": [
+        3.5,
+        -2
+      ],
+      "mount": "HIDDEN",
+      "size": "SMALL",
+      "type": "ENERGY"
+    }
+  ]
 }

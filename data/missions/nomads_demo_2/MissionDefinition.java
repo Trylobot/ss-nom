@@ -26,14 +26,14 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.addToFleet(FleetSide.PLAYER, "nom_wurm_assault", FleetMemberType.SHIP, false);
 		api.addToFleet(FleetSide.PLAYER, "nom_wurm_assault", FleetMemberType.SHIP, false);
 		api.addToFleet(FleetSide.PLAYER, "nom_wurm_assault", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.PLAYER, "nom_iguana_assault", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.PLAYER, "nom_iguana_assault", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.PLAYER, "nom_iguana_assault", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.PLAYER, "nom_iguana_assault", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.PLAYER, "nom_iguana_assault", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.PLAYER, "nom_iguana_assault", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.PLAYER, "nom_iguana_assault", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.PLAYER, "nom_iguana_assault", FleetMemberType.SHIP, false);
+		api.addToFleet(FleetSide.PLAYER, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, false);
+		api.addToFleet(FleetSide.PLAYER, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, false);
+		api.addToFleet(FleetSide.PLAYER, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, false);
+		api.addToFleet(FleetSide.PLAYER, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, false);
+		api.addToFleet(FleetSide.PLAYER, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, false);
+		api.addToFleet(FleetSide.PLAYER, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, false);
+		api.addToFleet(FleetSide.PLAYER, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, false);
+		api.addToFleet(FleetSide.PLAYER, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, false);
 		api.addToFleet(FleetSide.PLAYER, "nom_scarab_wing", FleetMemberType.FIGHTER_WING, false);
 		api.addToFleet(FleetSide.PLAYER, "nom_scarab_wing", FleetMemberType.FIGHTER_WING, false);
 		api.addToFleet(FleetSide.PLAYER, "nom_scarab_wing", FleetMemberType.FIGHTER_WING, false);
@@ -93,11 +93,11 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.addObjective(minX + width * 0.25f, minY + height * 0.75f, "comm_relay");
 		api.addObjective(minX + width * 0.5f, minY + height * 0.5f, "sensor_array");
 		
-		// Add a randomized asteroid field, maybe
-		if ((float) Math.random() > 0.5f) {
-			api.addAsteroidField(10f + (float) Math.random() * (width - 20f), 10f + (float) Math.random() * (height - 20f), (float) Math.random() * 360f, (float) Math.random() * 1000 + 1000,
-								 20f, 70f, (int) ((float) Math.random() * 100 + 50));
-		}
+		// // Add a randomized asteroid field, maybe
+		// if ((float) Math.random() > 0.5f) {
+		// 	api.addAsteroidField(10f + (float) Math.random() * (width - 20f), 10f + (float) Math.random() * (height - 20f), (float) Math.random() * 360f, (float) Math.random() * 1000 + 1000,
+		// 						 20f, 70f, (int) ((float) Math.random() * 100 + 50));
+		// }
 	}
 
 }

@@ -1,168 +1,185 @@
 {
-    "bounds": [
-        37, 2,
-        24, 9,
-        18, 18,
-        3, 20,
-        0, 25,
-        -7, 25,
-        -10, 21,
-        -13, 24,
-        -19, 20,
-        -16, 14,
-        -23, 13,
-        -23, 10,
-        -28, 10,
-        -29, 5,
-        -26, -8,
-        -19, -8,
-        -20, -14,
-        -24, -14,
-        -24, -21,
-        -22, -24,
-        -13, -24,
-        -13, -28,
-        -6, -35,
-        -1, -35,
-        4, -27,
-        9, -29,
-        33, -23,
-        43, -7,
-    ],
-    "center": [
-        36, 30
-    ],
-    "collisionRadius": 60,
-    "engineSlots": [
-        {
-            "angle": 180,
-            "contrailSize": 24,
-            "length": 50,
-            "location": [
-                -23, 22
-            ],
-            "style": "LOW_TECH",
-            "width": 12
-        },
-        {
-            "angle": 180,
-            "contrailSize": 24,
-            "length": 80,
-            "location": [
-                -25, 17
-            ],
-            "style": "LOW_TECH",
-            "width": 20
-        },
-        {
-            "angle": 180,
-            "contrailSize": 24,
-            "length": 50,
-            "location": [
-                -27, 7
-            ],
-            "style": "LOW_TECH",
-            "width": 12
-        },
-        {
-            "angle": 180,
-            "contrailSize": 24,
-            "length": 50,
-            "location": [
-                -28, 4
-            ],
-            "style": "LOW_TECH",
-            "width": 12
-        },
-        {
-            "angle": 180,
-            "contrailSize": 24,
-            "length": 50,
-            "location": [
-                -30, -3
-            ],
-            "style": "LOW_TECH",
-            "width": 12
-        },
-        {
-            "angle": 180,
-            "contrailSize": 24,
-            "length": 50,
-            "location": [
-                -29, -8
-            ],
-            "style": "LOW_TECH",
-            "width": 12
-        },
-        {
-            "angle": 180,
-            "contrailSize": 24,
-            "length": 50,
-            "location": [
-                -24, -12
-            ],
-            "style": "LOW_TECH",
-            "width": 12
-        },
-    ],
-    "height": 75,
-    "hullId": "nom_wurm",
-    "hullName": "Wurm",
-    "hullSize": "FRIGATE",
-    "shieldCenter": [
-        0,
-        0
-    ],
-    "shieldRadius": 55,
-    "spriteName": "graphics/nom/ships/nom_wurm.png",
-    "style": "LOW_TECH",
-    "viewOffset": 50,
-    "weaponSlots": [
-        {
-            "angle": 15,
-            "arc": 220,
-            "id": "WS 001",
-            "locations": [
-                20, -4
-            ],
-            "mount": "TURRET",
-            "size": "MEDIUM",
-            "type": "ENERGY"
-        },
-        {
-            "angle": 40,
-            "arc": 310,
-            "id": "WS 002",
-            "locations": [
-                15, 6
-            ],
-            "mount": "TURRET",
-            "size": "SMALL",
-            "type": "ENERGY"
-        },
-        {
-            "angle": 50,
-            "arc": 310,
-            "id": "WS 003",
-            "locations": [
-                2, 12
-            ],
-            "mount": "TURRET",
-            "size": "SMALL",
-            "type": "ENERGY"
-        },
-        {
-            "angle": 90,
-            "arc": 310,
-            "id": "WS 004",
-            "locations": [
-                2, 22
-            ],
-            "mount": "TURRET",
-            "size": "SMALL",
-            "type": "ENERGY"
-        },
-
-    ],
-    "width": 62
+  "bounds": [
+    44,
+    6.5,
+    24,
+    -7,
+    17.5,
+    -18,
+    2,
+    -20,
+    -3.5,
+    -24.5,
+    -19,
+    -17.5,
+    -15,
+    -13,
+    -28,
+    -9,
+    -24,
+    6.5,
+    -16.5,
+    7,
+    -18,
+    12,
+    -23.5,
+    15,
+    -18,
+    23.5,
+    -12.5,
+    22.5,
+    -6,
+    34,
+    3,
+    28.5,
+    30.5,
+    22
+  ],
+  "center": [
+    36,
+    30
+  ],
+  "collisionRadius": 60,
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 24,
+      "length": 50,
+      "location": [
+        -23,
+        22
+      ],
+      "style": "LOW_TECH",
+      "width": 12
+    },
+    {
+      "angle": 180,
+      "contrailSize": 24,
+      "length": 80,
+      "location": [
+        -25,
+        17
+      ],
+      "style": "LOW_TECH",
+      "width": 20
+    },
+    {
+      "angle": 180,
+      "contrailSize": 24,
+      "length": 50,
+      "location": [
+        -27,
+        7
+      ],
+      "style": "LOW_TECH",
+      "width": 12
+    },
+    {
+      "angle": 180,
+      "contrailSize": 24,
+      "length": 50,
+      "location": [
+        -28,
+        4
+      ],
+      "style": "LOW_TECH",
+      "width": 12
+    },
+    {
+      "angle": 180,
+      "contrailSize": 24,
+      "length": 50,
+      "location": [
+        -30,
+        -3
+      ],
+      "style": "LOW_TECH",
+      "width": 12
+    },
+    {
+      "angle": 180,
+      "contrailSize": 24,
+      "length": 50,
+      "location": [
+        -29,
+        -8
+      ],
+      "style": "LOW_TECH",
+      "width": 12
+    },
+    {
+      "angle": 180,
+      "contrailSize": 24,
+      "length": 50,
+      "location": [
+        -24,
+        -12
+      ],
+      "style": "LOW_TECH",
+      "width": 12
+    }
+  ],
+  "height": 75,
+  "width": 62,
+  "hullId": "nom_wurm",
+  "hullName": "Wurm",
+  "hullSize": "FRIGATE",
+  "shieldCenter": [
+    0,
+    0
+  ],
+  "shieldRadius": 55,
+  "spriteName": "graphics/nom/ships/nom_wurm.png",
+  "style": "LOW_TECH",
+  "viewOffset": 50,
+  "weaponSlots": [
+    {
+      "angle": -18.4,
+      "arc": 253.6,
+      "id": "WS 001",
+      "locations": [
+        20,
+        -10.5
+      ],
+      "mount": "TURRET",
+      "size": "MEDIUM",
+      "type": "ENERGY"
+    },
+    {
+      "angle": 20.6,
+      "arc": 310,
+      "id": "WS 002",
+      "locations": [
+        19.5,
+        5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "ENERGY"
+    },
+    {
+      "angle": -53.1,
+      "arc": 310,
+      "id": "WS 003",
+      "locations": [
+        -5.5,
+        -15
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "ENERGY"
+    },
+    {
+      "angle": 54.5,
+      "arc": 310,
+      "id": "WS 004",
+      "locations": [
+        0.5,
+        14.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "ENERGY"
+    }
+  ]
 }

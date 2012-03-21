@@ -1,1 +1,99 @@
-{"bounds":[19,8,14,-1.5,-9,-11,-20,-0.5,-15.5,15,-8,18.5,-2,13,7,16.5],"center":[12,21],"collisionRadius":"35","engineSlots":[{"angle":"180","contrailSize":"24","length":"50","location":[-19,4],"style":"LOW_TECH","width":"12"},{"angle":"180","contrailSize":"24","length":"50","location":[-18,-1],"style":"LOW_TECH","width":"12"},{"angle":"180","contrailSize":"30","length":"30","location":[-17,9],"style":"LOW_TECH","width":"10"}],"height":44,"width":34,"hullId":"nom_iguana","hullName":"Iguana","hullSize":"FRIGATE","shieldCenter":[0,3],"shieldRadius":"25","spriteName":"graphics/nom/ships/nom_iguana.png","style":"LOW_TECH","viewOffset":50,"weaponSlots":[{"angle":"-10","arc":"230","id":"WS 001","locations":[8,0],"mount":"TURRET","size":"MEDIUM","type":"ENERGY"},{"angle":"40","arc":"300","id":"WS 002","locations":[1,8],"mount":"TURRET","size":"SMALL","type":"ENERGY"},{"angle":"-50","arc":"300","id":"WS 003","locations":[-4,-1],"mount":"TURRET","size":"SMALL","type":"ENERGY"}]}
+{
+  "bounds": [
+    19,
+    8,
+    14,
+    -1.5,
+    -9,
+    -11,
+    -20,
+    -0.5,
+    -15.5,
+    15,
+    -8,
+    18.5,
+    -2,
+    13,
+    7,
+    16.5
+  ],
+  "center": [
+    21.5,
+    21
+  ],
+  "collisionRadius": 27.3,
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 24,
+      "length": 50,
+      "location": [
+        -21,
+        4.5
+      ],
+      "style": "LOW_TECH",
+      "width": 12
+    },
+    {
+      "angle": 180,
+      "contrailSize": 24,
+      "length": 50,
+      "location": [
+        -21,
+        -1.5
+      ],
+      "style": "LOW_TECH",
+      "width": 12
+    },
+    {
+      "angle": 180,
+      "contrailSize": 30,
+      "length": 30,
+      "location": [
+        -20,
+        8
+      ],
+      "style": "LOW_TECH",
+      "width": 10
+    }
+  ],
+  "height": 44,
+  "width": 34,
+  "hullId": "nom_iguana",
+  "hullName": "Iguana",
+  "hullSize": "FIGHTER",
+  "shieldCenter": [
+    0,
+    -2
+  ],
+  "shieldRadius": 24.2,
+  "spriteName": "graphics/nom/ships/nom_iguana.png",
+  "style": "LOW_TECH",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 23.2,
+      "arc": 335.3,
+      "id": "WS 001",
+      "locations": [
+        1.5,
+        10.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "ENERGY"
+    },
+    {
+      "angle": -18.4,
+      "arc": 342.1,
+      "id": "WS 002",
+      "locations": [
+        11.5,
+        0.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "ENERGY"
+    }
+  ]
+}

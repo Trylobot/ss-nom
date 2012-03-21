@@ -1,4 +1,5 @@
 name,id,tier,base value,range,damage/second,damage/shot,emp,impact,turn rate,OPs,ammo,type,energy/shot,energy/second,chargeup,chargedown,burst size,burst delay,min spread,max spread,spread/shot,spread decay/sec,beam speed,proj speed,launch speed,flight time,proj hitpoints,hints,number
+Ultralight Blaster,nom_ultralight_blaster,2,150,400,,12.5,,10,75,2,,ENERGY,14,,,0.14,,,,,,,,900,,,75,PD,1337103
 Light Blaster,nom_light_blaster,2,350,400,,30,,15,65,4,,ENERGY,32,,,0.3,,,,,,,,675,,,100,PD,1337100
 Heavy Blaster,nom_heavy_blaster,2,1100,600,,55,,30,45,8,,ENERGY,60,,,0.435,,,,,,,,675,,,200,,1337101
 Doom Cannon,nom_doom_cannon,2,20000,1200,,955,,280,7,80,,ENERGY,1400,,0.35,0.2,,,,,,,,435,,,500,,1337102

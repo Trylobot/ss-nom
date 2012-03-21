@@ -11,7 +11,7 @@
 	"weaponGroups":[
 		{"mode":"LINKED",
 		 "weapons":{
-		 			"WS 001":"nom_light_blaster",
+		 			"WS 001":"nom_ultralight_blaster",
 		 		   },
 		}
 	],

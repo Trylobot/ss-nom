@@ -179,7 +179,7 @@
     "shieldRadius": 120,
     "spriteName": "graphics/nom/ships/nom_komodo.png",
     "style": "LOW_TECH",
-    "viewOffset": 50,
+    "viewOffset": 0,
     "weaponSlots": [
         {
             "angle": 30,
