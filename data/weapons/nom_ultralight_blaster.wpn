@@ -3,7 +3,7 @@
 	"specClass":"projectile",
 	"type":"ENERGY",
 	"size":"SMALL",
-	"displayArcRadius":400,
+	"displayArcRadius":300,
 	"turretSprite":      "graphics/nom/weapons/nom_ultralight_blaster_turret_base.png",
 	"turretGunSprite":   "graphics/nom/weapons/nom_ultralight_blaster_turret_recoil.png",
 	"hardpointSprite":   "graphics/nom/weapons/nom_ultralight_blaster_turret_base.png",
