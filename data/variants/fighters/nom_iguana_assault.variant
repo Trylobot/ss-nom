@@ -4,7 +4,7 @@
 	"variantId": "nom_iguana_assault",
 	"fluxVents": 0,
 	"fluxCapacitors": 0,
-	"mods": [],
+	"hullMods": [],
 	"weaponGroups": [{
 		"mode": "LINKED",
 		"weapons": {

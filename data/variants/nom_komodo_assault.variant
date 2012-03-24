@@ -4,7 +4,7 @@
 	"variantId": "nom_komodo_assault",
 	"fluxVents": 7,
 	"fluxCapacitors": 2,
-	"mods": ["hardenedshieldemitter"],
+	"hullMods": ["hardenedshieldemitter"],
 	# array of strings
 
 	# mode is either LINKED or ALTERNATING # slot ids(WS * * * ) must match what 's in the .ship file

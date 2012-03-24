@@ -4,7 +4,7 @@
 	"variantId": "nom_gila_monster_antibattleship",
 	"fluxVents": 4,
 	"fluxCapacitors": 0,
-	"mods": ["advancedshieldemitter", "armoredweapons"],
+	"hullMods": ["advancedshieldemitter", "armoredweapons"],
 	"weaponGroups": [{
 		"mode": "LINKED",
 		"weapons": {
