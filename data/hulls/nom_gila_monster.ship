@@ -1,180 +1,366 @@
 {
-	"bounds": [179.60000228881836, 37.20001220703125, 166.60000228881836, 81.20001220703125, 193.60000228881836, 92.20001220703125, 203.60000228881836, 116.20001220703125, 191.60000228881836, 124.20001220703125, 173.60000228881836, 125.20001220703125, 166.60000228881836, 132.20001220703125, 103.60000228881836, 142.20001220703125, 95.60000228881836, 130.20001220703125, 75.60000228881836, 132.20001220703125, 46.60000228881836, 167.20001220703125, -59.39999771118164, 183.20001220703125, -98.39999771118164, 167.20001220703125, -105.39999771118164, 124.20001220703125, -204.39999771118164, 112.20001220703125, -212.39999771118164, 102.20001220703125, -209.39999771118164, 90.20001220703125, -246.39999771118164, 81.20001220703125, -221.39999771118164, 68.20001220703125, -243.39999771118164, 59.20001220703125, -223.39999771118164, 50.20001220703125, -258.39999771118164, 45.20001220703125, -260.39999771118164, 23.20001220703125, -265.39999771118164, 9.20001220703125, -244.39999771118164, 2.20001220703125, -267.39999771118164, -4.79998779296875, -248.39999771118164, -12.79998779296875, -230.39999771118164, -23.79998779296875, -208.39999771118164, -48.79998779296875, -236.39999771118164, -52.79998779296875, -223.39999771118164, -72.79998779296875, -105.39999771118164, -128.79998779296875, -102.39999771118164, -106.79998779296875, -89.39999771118164, -99.79998779296875, -51.39999771118164, -135.79998779296875, -17.39999771118164, -139.79998779296875, -24.39999771118164, -175.79998779296875, -3.3999977111816406, -180.79998779296875, 174.60000228881836, -77.79998779296875, 176.60000228881836, -69.79998779296875, 211.60000228881836, -65.79998779296875, 218.60000228881836, -72.79998779296875, 248.60000228881836, -27.79998779296875, 243.60000228881836, 6.20001220703125, 259.60000228881836, 20.20001220703125, 253.60000228881836, 26.20001220703125],
-	"center": [186, 276],
-	"collisionRadius": "300",
-	"engineSlots": [{
-		"angle": "180",
-		"contrailSize": "150",
-		"location": [-249, 80],
-		"length": "90",
-		"width": "40",
-		"style": "LOW_TECH"
-	}, {
-		"angle": "180",
-		"contrailSize": "150",
-		"location": [-248, 60],
-		"length": "90",
-		"width": "40",
-		"style": "LOW_TECH"
-	}, {
-		"angle": "180",
-		"contrailSize": "150",
-		"location": [-264, 29],
-		"length": "90",
-		"width": "40",
-		"style": "LOW_TECH"
-	}, {
-		"angle": "180",
-		"contrailSize": "150",
-		"location": [-272, 13],
-		"length": "90",
-		"width": "40",
-		"style": "LOW_TECH"
-	}, {
-		"angle": "180",
-		"contrailSize": "150",
-		"location": [-257, -14],
-		"length": "90",
-		"width": "40",
-		"style": "LOW_TECH"
-	}, {
-		"angle": "180",
-		"contrailSize": "150",
-		"location": [-240, -29],
-		"length": "90",
-		"width": "40",
-		"style": "LOW_TECH"
-	}, {
-		"angle": "180",
-		"contrailSize": "75",
-		"location": [-228, 90],
-		"length": "45",
-		"width": "20",
-		"style": "LOW_TECH"
-	}, {
-		"angle": "180",
-		"contrailSize": "75",
-		"location": [-245, -52],
-		"length": "45",
-		"width": "20",
-		"style": "LOW_TECH"
-	}, {
-		"angle": "180",
-		"contrailSize": "75",
-		"location": [-228, 68],
-		"length": "45",
-		"width": "20",
-		"style": "LOW_TECH"
-	}, {
-		"angle": "180",
-		"contrailSize": "75",
-		"location": [-243, 20],
-		"length": "45",
-		"width": "20",
-		"style": "LOW_TECH"
-	}],
-	"height": 544,
-	"width": 377,
-	"hullId": "nom_gila_monster",
-	"hullName": "Gila Monster",
-	"hullSize": "CAPITAL_SHIP",
-	"shieldCenter": [0, 0],
-	"shieldRadius": "285",
-	"spriteName": "graphics/nom/ships/nom_gila_monster.png",
-	"style": "LOW_TECH",
-	"viewOffset": 0,
-	"weaponSlots": [{
-		"angle": "0",
-		"arc": "0",
-		"id": "WS001",
-		"locations": [22, 41],
-		"mount": "HARDPOINT",
-		"size": "LARGE",
-		"type": "ENERGY"
-	}, {
-		"angle": "72",
-		"arc": "230",
-		"id": "WS002",
-		"locations": [-34, 166],
-		"mount": "TURRET",
-		"size": "SMALL",
-		"type": "ENERGY"
-	}, {
-		"angle": "72",
-		"arc": "230",
-		"id": "WS003",
-		"locations": [17, 159],
-		"mount": "TURRET",
-		"size": "SMALL",
-		"type": "ENERGY"
-	}, {
-		"angle": "30",
-		"arc": "230",
-		"id": "WS004",
-		"locations": [59, 130],
-		"mount": "TURRET",
-		"size": "SMALL",
-		"type": "ENERGY"
-	}, {
-		"angle": "-55",
-		"arc": "230",
-		"id": "WS005",
-		"locations": [138, -83],
-		"mount": "TURRET",
-		"size": "SMALL",
-		"type": "ENERGY"
-	}, {
-		"angle": "-55",
-		"arc": "230",
-		"id": "WS006",
-		"locations": [83, -112],
-		"mount": "TURRET",
-		"size": "SMALL",
-		"type": "ENERGY"
-	}, {
-		"angle": "-55",
-		"arc": "230",
-		"id": "WS007",
-		"locations": [14, -152],
-		"mount": "TURRET",
-		"size": "SMALL",
-		"type": "ENERGY"
-	}, {
-		"angle": "-160",
-		"arc": "230",
-		"id": "WS008",
-		"locations": [-54, -78],
-		"mount": "TURRET",
-		"size": "SMALL",
-		"type": "ENERGY"
-	}, {
-		"angle": "-120",
-		"arc": "230",
-		"id": "WS009",
-		"locations": [-171, -69],
-		"mount": "TURRET",
-		"size": "SMALL",
-		"type": "ENERGY"
-	}, {
-		"angle": "-230",
-		"arc": "230",
-		"id": "WS010",
-		"locations": [-105, 82],
-		"mount": "TURRET",
-		"size": "SMALL",
-		"type": "ENERGY"
-	}, {
-    "angle": 0,
-    "arc": 360,
-    "id": "WS011",
-    "locations": [
-      215, -31,
-      215, -48,
-      185, -48,
-      185, -31
-    ],
-    "mount": "HIDDEN",
-    "size": "LARGE",
-    "type": "LAUNCH_BAY"
-	}]
+  "bounds": [
+    179.6,
+    37.2,
+    166.6,
+    81.2,
+    193.6,
+    92.2,
+    203.6,
+    116.2,
+    191.6,
+    124.2,
+    173.6,
+    125.2,
+    166.6,
+    132.2,
+    103.6,
+    142.2,
+    95.6,
+    130.2,
+    75.6,
+    132.2,
+    46.6,
+    167.2,
+    -59.4,
+    183.2,
+    -98.4,
+    167.2,
+    -105.4,
+    124.2,
+    -204.4,
+    112.2,
+    -212.4,
+    102.2,
+    -209.4,
+    90.2,
+    -246.4,
+    81.2,
+    -221.4,
+    68.2,
+    -243.4,
+    59.2,
+    -223.4,
+    50.2,
+    -258.4,
+    45.2,
+    -260.4,
+    23.2,
+    -265.4,
+    9.2,
+    -244.4,
+    2.2,
+    -267.4,
+    -4.8,
+    -248.4,
+    -12.8,
+    -230.4,
+    -23.8,
+    -208.4,
+    -48.8,
+    -236.4,
+    -52.8,
+    -223.4,
+    -72.8,
+    -105.4,
+    -128.8,
+    -102.4,
+    -106.8,
+    -89.4,
+    -99.8,
+    -51.4,
+    -135.8,
+    -17.4,
+    -139.8,
+    -24.4,
+    -175.8,
+    -3.4,
+    -180.8,
+    174.6,
+    -77.8,
+    176.6,
+    -69.8,
+    211.6,
+    -65.8,
+    218.6,
+    -72.8,
+    248.6,
+    -27.8,
+    243.6,
+    6.2,
+    259.6,
+    20.2,
+    253.6,
+    26.2
+  ],
+  "center": [
+    191,
+    276
+  ],
+  "collisionRadius": 276,
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 150,
+      "length": 90,
+      "location": [
+        -249,
+        80
+      ],
+      "style": "LOW_TECH",
+      "width": 40
+    },
+    {
+      "angle": 180,
+      "contrailSize": 150,
+      "length": 90,
+      "location": [
+        -248,
+        60
+      ],
+      "style": "LOW_TECH",
+      "width": 40
+    },
+    {
+      "angle": 180,
+      "contrailSize": 150,
+      "length": 90,
+      "location": [
+        -264,
+        29
+      ],
+      "style": "LOW_TECH",
+      "width": 40
+    },
+    {
+      "angle": 180,
+      "contrailSize": 150,
+      "length": 90,
+      "location": [
+        -272,
+        13
+      ],
+      "style": "LOW_TECH",
+      "width": 40
+    },
+    {
+      "angle": 180,
+      "contrailSize": 150,
+      "length": 90,
+      "location": [
+        -257,
+        -14
+      ],
+      "style": "LOW_TECH",
+      "width": 40
+    },
+    {
+      "angle": 180,
+      "contrailSize": 150,
+      "length": 90,
+      "location": [
+        -240,
+        -29
+      ],
+      "style": "LOW_TECH",
+      "width": 40
+    },
+    {
+      "angle": 180,
+      "contrailSize": 75,
+      "length": 45,
+      "location": [
+        -228,
+        90
+      ],
+      "style": "LOW_TECH",
+      "width": 20
+    },
+    {
+      "angle": 180,
+      "contrailSize": 75,
+      "length": 45,
+      "location": [
+        -245,
+        -52
+      ],
+      "style": "LOW_TECH",
+      "width": 20
+    },
+    {
+      "angle": 180,
+      "contrailSize": 75,
+      "length": 45,
+      "location": [
+        -228,
+        68
+      ],
+      "style": "LOW_TECH",
+      "width": 20
+    },
+    {
+      "angle": 180,
+      "contrailSize": 75,
+      "length": 45,
+      "location": [
+        -243,
+        20
+      ],
+      "style": "LOW_TECH",
+      "width": 20
+    }
+  ],
+  "height": 544,
+  "width": 377,
+  "hullId": "nom_gila_monster",
+  "hullName": "Gila Monster",
+  "hullSize": "CAPITAL_SHIP",
+  "shieldCenter": [
+    0,
+    0
+  ],
+  "shieldRadius": 285,
+  "spriteName": "graphics/nom/ships/nom_gila_monster.png",
+  "style": "LOW_TECH",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 0,
+      "arc": 0,
+      "id": "WS001",
+      "locations": [
+        22,
+        43
+      ],
+      "mount": "HARDPOINT",
+      "size": "LARGE",
+      "type": "ENERGY"
+    },
+    {
+      "angle": 72,
+      "arc": 230,
+      "id": "WS002",
+      "locations": [
+        -34,
+        166
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "ENERGY"
+    },
+    {
+      "angle": 72,
+      "arc": 230,
+      "id": "WS003",
+      "locations": [
+        17,
+        159
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "ENERGY"
+    },
+    {
+      "angle": 30,
+      "arc": 230,
+      "id": "WS004",
+      "locations": [
+        59,
+        130
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "ENERGY"
+    },
+    {
+      "angle": -55,
+      "arc": 230,
+      "id": "WS005",
+      "locations": [
+        138,
+        -83
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "ENERGY"
+    },
+    {
+      "angle": -55,
+      "arc": 230,
+      "id": "WS006",
+      "locations": [
+        83,
+        -112
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "ENERGY"
+    },
+    {
+      "angle": -55,
+      "arc": 230,
+      "id": "WS007",
+      "locations": [
+        14,
+        -152
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "ENERGY"
+    },
+    {
+      "angle": -160,
+      "arc": 230,
+      "id": "WS008",
+      "locations": [
+        -54,
+        -78
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "ENERGY"
+    },
+    {
+      "angle": -120,
+      "arc": 230,
+      "id": "WS009",
+      "locations": [
+        -171,
+        -69
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "ENERGY"
+    },
+    {
+      "angle": -230,
+      "arc": 230,
+      "id": "WS010",
+      "locations": [
+        -105,
+        82
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "ENERGY"
+    },
+    {
+      "angle": 0,
+      "arc": 360,
+      "id": "WS011",
+      "locations": [
+        215,
+        -31,
+        215,
+        -48,
+        185,
+        -48,
+        185,
+        -31
+      ],
+      "mount": "HIDDEN",
+      "size": "LARGE",
+      "type": "LAUNCH_BAY"
+    }
+  ]
 }
