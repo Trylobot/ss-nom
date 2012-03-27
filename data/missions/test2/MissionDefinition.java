@@ -24,9 +24,10 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		// Set up the enemy fleet
 		//api.addToFleet(FleetSide.ENEMY, "talon_wing", FleetMemberType.FIGHTER_WING, false);
 		//api.addToFleet(FleetSide.ENEMY, "wolf_CS", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.ENEMY, "broadsword_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "warthog_wing", FleetMemberType.FIGHTER_WING, false);
 		api.addToFleet(FleetSide.ENEMY, "thunder_wing", FleetMemberType.FIGHTER_WING, false);
+		api.addToFleet(FleetSide.ENEMY, "thunder_wing", FleetMemberType.FIGHTER_WING, false);
+		api.addToFleet(FleetSide.ENEMY, "gladius_wing", FleetMemberType.FIGHTER_WING, false);
+		api.addToFleet(FleetSide.ENEMY, "gladius_wing", FleetMemberType.FIGHTER_WING, false);
 
 		// Set up the map.
 		float width = 6500f;
