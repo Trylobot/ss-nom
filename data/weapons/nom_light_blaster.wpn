@@ -26,5 +26,6 @@
     "particleColor":[245,160,160,180]
   },
 	"projectileSpecId":"nom_light_blaster_shot",  # projectile that will be fired
+	"pierceSet":[PROJECTILE_FF,PROJECTILE_NO_FF,PROJECTILE_FIGHTER,MISSILE_FF,MISSILE_NO_FF,FIGHTER],
 	"fireSoundTwo":"energy_pulse",
 }
