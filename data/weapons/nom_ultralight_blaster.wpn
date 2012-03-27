@@ -26,5 +26,5 @@
     "particleColor":[245,160,160,180]
   },
 	"projectileSpecId":"nom_ultralight_blaster_shot",  # projectile that will be fired
-	"fireSoundTwo":"energy_pulse_light",
+	"fireSoundTwo":"nom_ultralight_blaster_fire",
 }
