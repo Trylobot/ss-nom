@@ -25,7 +25,7 @@ public class SectorGenWithNomads extends SectorGen
 
 		// changed name of planet and moved away from star
 		SectorEntityToken star = system.createToken( 0, 0 );
-		SectorEntityToken Adum_Tulek = system.addPlanet( star, "Adum'Tulek", "desert", 90, 150, 3000, 400 );
+		SectorEntityToken Adum_Tulek = system.addPlanet( star, "Adum'Tulek", "desert", 90, 150, 3300, 400 );
 		NomadSpawnPoint nomadSpawn = new NomadSpawnPoint( sector, system, 10, 2, Adum_Tulek );
 		system.addSpawnPoint( nomadSpawn );
 		
