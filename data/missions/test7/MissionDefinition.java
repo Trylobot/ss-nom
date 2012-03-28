@@ -1,4 +1,4 @@
-package data.missions.test6;
+package data.missions.test7;
 
 import com.fs.starfarer.api.fleet.FleetGoal;
 import com.fs.starfarer.api.fleet.FleetMemberType;
@@ -15,12 +15,10 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.initFleet(FleetSide.ENEMY, "TTS", FleetGoal.DEFEND, true);
 
 		// Set up the player's fleet
-		api.addToFleet(FleetSide.PLAYER, "nom_scorpion_assault", FleetMemberType.SHIP, false); // 6
-		api.addToFleet(FleetSide.PLAYER, "nom_scorpion_assault", FleetMemberType.SHIP, false); // 6
+		api.addToFleet(FleetSide.PLAYER, "nom_gila_monster_antibattleship", FleetMemberType.SHIP, false); // 24
 
 		// Set up the enemy fleet
-		api.addToFleet(FleetSide.ENEMY, "talon_wing", FleetMemberType.FIGHTER_WING, false); // 3
-		api.addToFleet(FleetSide.ENEMY, "hammerhead_Elite", FleetMemberType.SHIP, false); // 10
+		api.addToFleet(FleetSide.ENEMY, "onslaught_Outdated", FleetMemberType.SHIP, false); // 20
 
 		// Set up the map.
 		float width = 6500f;

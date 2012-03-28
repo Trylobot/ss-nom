@@ -129,7 +129,7 @@
     80,
     100
   ],
-  "collisionRadius": 107.5,
+  "collisionRadius": 109.5,
   "engineSlots": [
     {
       "angle": 180,
@@ -240,7 +240,7 @@
     9.5,
     0
   ],
-  "shieldRadius": 4,
+  "shieldRadius": 99.6,
   "spriteName": "graphics/nom/ships/nom_scorpion.png",
   "style": "LOW_TECH",
   "viewOffset": 0,
