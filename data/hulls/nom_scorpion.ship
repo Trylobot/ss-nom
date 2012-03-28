@@ -248,19 +248,19 @@
     {
       "angle": 0,
       "arc": 0,
-      "id": "WS 1",
+      "id": "WS 4",
       "locations": [
         1.5,
         40
       ],
       "mount": "HARDPOINT",
-      "size": "LARGE",
+      "size": "MEDIUM",
       "type": "MISSILE"
     },
     {
       "angle": 0,
       "arc": 0,
-      "id": "WS 3",
+      "id": "WS 1",
       "locations": [
         39.5,
         26
@@ -272,7 +272,7 @@
     {
       "angle": 0,
       "arc": 0,
-      "id": "WS 4",
+      "id": "WS 2",
       "locations": [
         39.5,
         -13
@@ -284,10 +284,22 @@
     {
       "angle": 0,
       "arc": 0,
-      "id": "WS 5",
+      "id": "WS 3",
       "locations": [
         39.5,
         -34.5
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "MISSILE"
+    },
+    {
+      "angle": 0,
+      "arc": 0,
+      "id": "WS 7",
+      "locations": [
+        1,
+        -51
       ],
       "mount": "HARDPOINT",
       "size": "MEDIUM",
@@ -297,18 +309,6 @@
       "angle": 0,
       "arc": 0,
       "id": "WS 6",
-      "locations": [
-        1,
-        -51
-      ],
-      "mount": "HARDPOINT",
-      "size": "LARGE",
-      "type": "MISSILE"
-    },
-    {
-      "angle": 0,
-      "arc": 0,
-      "id": "WS 7",
       "locations": [
         0.5,
         -21
@@ -320,7 +320,7 @@
     {
       "angle": 0,
       "arc": 0,
-      "id": "WS 8",
+      "id": "WS 5",
       "locations": [
         1,
         17.5
@@ -330,7 +330,7 @@
       "type": "MISSILE"
     },
     {
-      "angle": 0,
+      "angle": -112.6,
       "arc": 316.4,
       "id": "WS 8",
       "locations": [
@@ -342,7 +342,7 @@
       "type": "ENERGY"
     },
     {
-      "angle": 180,
+      "angle": 119.1,
       "arc": 326.6,
       "id": "WS 9",
       "locations": [

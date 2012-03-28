@@ -2,13 +2,42 @@
   "displayName": "Missile Support",
   "hullId": "nom_scorpion",
   "variantId": "nom_scorpion_assault",
-  "fluxVents": 0,
-  "fluxCapacitors": 0,
-  "hullMods": [],
+  "fluxVents": 8,
+  "fluxCapacitors": 1,
+  "hullMods": [
+    "missleracks",
+    "armoredweapons",
+    "insulatedengine"
+  ],
   "weaponGroups": [
     {
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS 4": "pilum",
+        "WS 5": "pilum",
+        "WS 6": "hurricane"
+      }
+    },
+    {
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS 1": "harpoonpod",
+        "WS 7": "salamanderpod"
+      }
+    },
+    {
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS 2": "swarmer",
+        "WS 3": "swarmer"
+      }
+    },
+    {
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS 8": "nom_ultralight_blaster",
+        "WS 9": "nom_ultralight_blaster"
+      }
     }
   ]
 }
