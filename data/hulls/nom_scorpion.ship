@@ -251,7 +251,7 @@
       "id": "WS 4",
       "locations": [
         1.5,
-        40
+        48
       ],
       "mount": "HARDPOINT",
       "size": "MEDIUM",
@@ -298,7 +298,7 @@
       "arc": 0,
       "id": "WS 7",
       "locations": [
-        1,
+        -1,
         -51
       ],
       "mount": "HARDPOINT",
@@ -310,8 +310,8 @@
       "arc": 0,
       "id": "WS 6",
       "locations": [
-        0.5,
-        -21
+        -4,
+        -20.5
       ],
       "mount": "HARDPOINT",
       "size": "LARGE",
@@ -323,7 +323,7 @@
       "id": "WS 5",
       "locations": [
         1,
-        17.5
+        25
       ],
       "mount": "HARDPOINT",
       "size": "MEDIUM",
