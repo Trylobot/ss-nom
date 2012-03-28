@@ -1,31 +1,49 @@
 {
-	"displayName": "Gila Monster Anti-Battleship",
-	"hullId": "nom_gila_monster",
-	"variantId": "nom_gila_monster_antibattleship",
-	"fluxVents": 4,
-	"fluxCapacitors": 0,
-	"hullMods": ["advancedshieldemitter", "armoredweapons"],
-	"weaponGroups": [{
-		"mode": "LINKED",
-		"weapons": {
-			"WS001": "nom_doom_cannon"
-		}
-	}, {
-		"mode": "LINKED",
-		"weapons": {
-			"WS002": "nom_light_blaster",
-			"WS003": "nom_light_blaster",
-			"WS004": "nom_light_blaster",
-			"WS010": "nom_light_blaster"
-		}
-	}, {
-		"mode": "LINKED",
-		"weapons": {
-			"WS005": "nom_light_blaster",
-			"WS006": "nom_light_blaster",
-			"WS007": "nom_light_blaster",
-			"WS008": "nom_light_blaster",
-			"WS009": "nom_light_blaster"
-		}
-	}]
+  "displayName": "Gila Monster Anti-Battleship",
+  "hullId": "nom_gila_monster",
+  "variantId": "nom_gila_monster_antibattleship",
+  "fluxVents": 10,
+  "fluxCapacitors": 3,
+  "hullMods": [
+    "turretgyros"
+  ],
+  "weaponGroups": [
+    {
+      "mode": "LINKED",
+      "weapons": {
+        "WS001": "nom_doom_cannon"
+      }
+    },
+    {
+      "mode": "LINKED",
+      "weapons": {
+        "WS002": "nom_light_blaster",
+        "WS003": "nom_light_blaster",
+        "WS004": "nom_light_blaster",
+        "WS005": "nom_light_blaster",
+        "WS006": "nom_light_blaster",
+        "WS007": "nom_light_blaster",
+        "WS008": "nom_light_blaster",
+        "WS009": "nom_light_blaster",
+        "WS010": "nom_light_blaster"
+      }
+    },
+    {
+      "mode": "LINKED",
+      "weapons": {
+        "WS 1": "nom_ultralight_blaster",
+        "WS 2": "nom_ultralight_blaster",
+        "WS 3": "nom_ultralight_blaster",
+        "WS 4": "nom_ultralight_blaster",
+        "WS 5": "nom_ultralight_blaster",
+        "WS 6": "nom_ultralight_blaster",
+        "WS 7": "nom_ultralight_blaster",
+        "WS 8": "nom_ultralight_blaster"
+      }
+    },
+    {
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ]
 }

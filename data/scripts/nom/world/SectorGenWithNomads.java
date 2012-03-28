@@ -16,25 +16,35 @@ import com.fs.starfarer.api.fleet.FleetMemberType;
 
 import data.scripts.world.*;
 
-@SuppressWarnings("unchecked")
-public class SectorGenWithNomads extends SectorGen {
+@SuppressWarnings( "unchecked" )
+public class SectorGenWithNomads extends SectorGen
+{
+	public void generate( SectorAPI sector )
+	{
+		StarSystemAPI system = sector.getStarSystem( "Corvus" );
 
-	public void generate(SectorAPI sector) {
+		// changed name of planet and moved away from star
+		SectorEntityToken star = system.createToken( 0, 0 );
+		SectorEntityToken Adum_Tulek = system.addPlanet( star, "Adum'Tulek", "desert", 90, 150, 3000, 400 );
+		NomadSpawnPoint nomadSpawn = new NomadSpawnPoint( sector, system, 10, 2, Adum_Tulek );
+		system.addSpawnPoint( nomadSpawn );
 		
-    //super.generate( sector );
- 		StarSystemAPI system = sector.getStarSystem("Corvus");
-    
-    NomadSpawnPoint nomadSpawn = new NomadSpawnPoint( sector, system, 10, 2, null );
-    system.addSpawnPoint( nomadSpawn );
-    for( int i = 0; i < 10; ++i )
-      nomadSpawn.spawnFleet();
-    
-		FactionAPI hegemony = sector.getFaction("hegemony");
-		FactionAPI tritachyon = sector.getFaction("tritachyon");
-    FactionAPI nomads = sector.getFaction("nomads");
-    nomads.setRelationship( hegemony.getId(), -1 );
-    nomads.setRelationship( tritachyon.getId(), -1 );
-    
+		// spawn points changed from 10 --> 8
+		system.addSpawnPoint( nomadSpawn );
+		for( int i = 0; i < 8; ++i )
+		{
+		  nomadSpawn.spawnFleet();
+		}
+		
+		// faction api's referenced by string to increase standalone compatibility
+		FactionAPI nomads = sector.getFaction( "nomads" );
+		nomads.setRelationship( "hegemony",     -1 );
+		nomads.setRelationship( "tritachyon",   -1 );
+		nomads.setRelationship( "pirates",      -1 );
+		nomads.setRelationship( "independent",  -1 );
+		nomads.setRelationship( "nomads",       -1 );
+		nomads.setRelationship( "junk_pirates", -1 );
+		nomads.setRelationship( "player",       -1 );
 	}
 	
 }
