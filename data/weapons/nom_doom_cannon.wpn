@@ -3,7 +3,7 @@
 	"specClass":"projectile",
 	"type":"ENERGY",
 	"size":"LARGE",
-	"displayArcRadius":  1200,
+	"displayArcRadius":  1000,
 	"turretSprite":      "graphics/nom/weapons/nom_doom_cannon_hardpoint_base.png",
 	"turretGunSprite":   "graphics/nom/weapons/nom_doom_cannon_hardpoint_recoil.png",
 	"hardpointSprite":   "graphics/nom/weapons/nom_doom_cannon_hardpoint_base.png",
