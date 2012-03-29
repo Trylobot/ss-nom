@@ -1,13 +1,13 @@
 {
-	"id":"nom_ultralight_blaster",  # this id must match what's in the spreadsheet
+	"id":"nom_ultralight_electron_maser",  # this id must match what's in the spreadsheet
 	"specClass":"projectile",
 	"type":"ENERGY",
 	"size":"SMALL",
 	"displayArcRadius":300,
-	"turretSprite":      "graphics/nom/weapons/nom_ultralight_blaster_turret_base.png",
-	"turretGunSprite":   "graphics/nom/weapons/nom_ultralight_blaster_turret_recoil.png",
-	"hardpointSprite":   "graphics/nom/weapons/nom_ultralight_blaster_turret_base.png",
-	"hardpointGunSprite":"graphics/nom/weapons/nom_ultralight_blaster_turret_recoil.png",
+	"turretSprite":      "graphics/nom/weapons/nom_ultralight_electron_maser_turret_base.png",
+	"turretGunSprite":   "graphics/nom/weapons/nom_ultralight_electron_maser_turret_recoil.png",
+	"hardpointSprite":   "graphics/nom/weapons/nom_ultralight_electron_maser_turret_base.png",
+	"hardpointGunSprite":"graphics/nom/weapons/nom_ultralight_electron_maser_turret_recoil.png",
 	"visualRecoil": 4.0,  # the gun sprites are only used if this is non-0
 	"turretOffsets":[7, 0],
 	"turretAngleOffsets":[0],
@@ -25,7 +25,7 @@
     "particleCount":8,
     "particleColor":[245,160,160,180]
   },
-	"projectileSpecId":"nom_ultralight_blaster_shot",  # projectile that will be fired
+	"projectileSpecId":"nom_ultralight_electron_maser_shot",  # projectile that will be fired
 	"pierceSet":[PROJECTILE_FF,PROJECTILE_NO_FF,PROJECTILE_FIGHTER,MISSILE_FF,MISSILE_NO_FF,FIGHTER],
-	"fireSoundTwo":"nom_ultralight_blaster_fire",
+	"fireSoundTwo":"nom_ultralight_electron_maser_fire",
 }

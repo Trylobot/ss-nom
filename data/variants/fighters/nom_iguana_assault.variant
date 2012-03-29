@@ -8,8 +8,8 @@
 	"weaponGroups": [{
 		"mode": "LINKED",
 		"weapons": {
-			"WS 001": "nom_ultralight_blaster",
-			"WS 002": "nom_light_blaster"
+			"WS 001": "nom_ultralight_electron_maser",
+			"WS 002": "nom_light_electron_maser"
 		}
 	}]
 }

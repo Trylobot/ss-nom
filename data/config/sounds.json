@@ -8,7 +8,7 @@
     "pitch":1, "volume":1.00
   }],
 
-  "nom_ultralight_blaster_fire":[{
+  "nom_ultralight_electron_maser_fire":[{
   	"file":"sounds/fx/beams/fire_beam_burst01.ogg",
 		"pitch":4,"volume":0.275
 	}],

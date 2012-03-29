@@ -35,8 +35,8 @@
     {
       "mode": "LINKED",
       "weapons": {
-        "WS 8": "nom_ultralight_blaster",
-        "WS 9": "nom_ultralight_blaster"
+        "WS 8": "nom_ultralight_electron_maser",
+        "WS 9": "nom_ultralight_electron_maser"
       }
     }
   ]

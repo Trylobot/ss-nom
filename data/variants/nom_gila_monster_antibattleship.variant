@@ -17,28 +17,28 @@
     {
       "mode": "LINKED",
       "weapons": {
-        "WS002": "nom_light_blaster",
-        "WS003": "nom_light_blaster",
-        "WS004": "nom_light_blaster",
-        "WS005": "nom_light_blaster",
-        "WS006": "nom_light_blaster",
-        "WS007": "nom_light_blaster",
-        "WS008": "nom_light_blaster",
-        "WS009": "nom_light_blaster",
-        "WS010": "nom_light_blaster"
+        "WS002": "nom_light_electron_maser",
+        "WS003": "nom_light_electron_maser",
+        "WS004": "nom_light_electron_maser",
+        "WS005": "nom_light_electron_maser",
+        "WS006": "nom_light_electron_maser",
+        "WS007": "nom_light_electron_maser",
+        "WS008": "nom_light_electron_maser",
+        "WS009": "nom_light_electron_maser",
+        "WS010": "nom_light_electron_maser"
       }
     },
     {
       "mode": "LINKED",
       "weapons": {
-        "WS 1": "nom_ultralight_blaster",
-        "WS 2": "nom_ultralight_blaster",
-        "WS 3": "nom_ultralight_blaster",
-        "WS 4": "nom_ultralight_blaster",
-        "WS 5": "nom_ultralight_blaster",
-        "WS 6": "nom_ultralight_blaster",
-        "WS 7": "nom_ultralight_blaster",
-        "WS 8": "nom_ultralight_blaster"
+        "WS 1": "nom_ultralight_electron_maser",
+        "WS 2": "nom_ultralight_electron_maser",
+        "WS 3": "nom_ultralight_electron_maser",
+        "WS 4": "nom_ultralight_electron_maser",
+        "WS 5": "nom_ultralight_electron_maser",
+        "WS 6": "nom_ultralight_electron_maser",
+        "WS 7": "nom_ultralight_electron_maser",
+        "WS 8": "nom_ultralight_electron_maser"
       }
     },
     {

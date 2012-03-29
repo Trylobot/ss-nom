@@ -1,5 +1,5 @@
 {
-	"id":"nom_ultralight_blaster_shot",
+	"id":"nom_ultralight_electron_maser_shot",
 	"specClass":"projectile",
 	"spawnType":"BEAM",
 	"collisionClass":"RAY",
