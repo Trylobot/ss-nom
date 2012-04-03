@@ -1,5 +1,5 @@
 {
-	"id":"nom_heavy_electron_maser",  # this id must match what's in the spreadsheet
+	"id":"nom_twin_electron_maser",  # this id must match what's in the spreadsheet
 	"specClass":"projectile",
 	"type":"ENERGY",
 	"size":"LARGE",
