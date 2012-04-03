@@ -5,9 +5,9 @@
 	"size":"LARGE",
 	"displayArcRadius":815,
 	"turretSprite":      "graphics/nom/weapons/nom_twin_electron_maser_turret_base.png",
-	"turretGunSprite":   "graphics/nom/weapons/nom_heavy_electron_maser_turret_recoil.png",
+	"turretGunSprite":   "graphics/nom/weapons/nom_twin_electron_maser_turret_recoil.png",
 	"hardpointSprite":   "graphics/nom/weapons/nom_twin_electron_maser_turret_base.png",
-	"hardpointGunSprite":"graphics/nom/weapons/nom_heavy_electron_maser_turret_recoil.png",
+	"hardpointGunSprite":"graphics/nom/weapons/nom_twin_electron_maser_turret_recoil.png",
 	"visualRecoil": 14.0,  # the gun sprites are only used if this is non-0
 	"turretOffsets":[21, -3,   21, 3],
 	"turretAngleOffsets":[0, 0],
