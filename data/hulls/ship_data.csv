@@ -1,5 +1,5 @@
 name,id,designation,fleet pts,hitpoints,armor rating,max flux,8/6/5/4%,flux dissipation,ordnance points,max speed,acceleration,deceleration,max turn rate,turn acceleration,mass,shield type,shield arc,shield upkeep,shield efficiency,min crew,max crew,cargo,fuel,fuel/ly,range,hangar,base value,number
-Sandstorm,nom_sandstorm,Battleship,19,17500,1350,24000,,925,275,50,20,15,10,7.5,3000,OMNI,130,0.3,0.55,400,600,200,300,2,50,2,100000,1337106
+Sandstorm,nom_sandstorm,Battleship,20,15000,1200,24000,,925,275,50,20,15,10,6,3000,OMNI,130,0.4,0.6,400,600,200,300,2,50,2,100000,1337106
 Gila Monster,nom_gila_monster,Battleship,24,25000,800,28000,,1000,150,30,15,10,4.25,3.12,5100,OMNI,165,0.4,0.65,550,1500,600,1200,30,40,30,160000,1337104
 Scorpion,nom_scorpion,Destroyer,10,3000,225,1200,,225,105,65,50,20,30,30,200,OMNI,220,0.15,0.5,10,15,100,100,2,50,5,9000,1337105
 Komodo,nom_komodo,Destroyer,8,5000,400,2000,,300,65,80,50,40,28,60,400,OMNI,160,0.2,0.4,30,60,150,150,1,50,3,10000,1337103
