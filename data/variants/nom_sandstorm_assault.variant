@@ -2,16 +2,16 @@
   "displayName": "Assault",
   "hullId": "nom_sandstorm",
   "variantId": "nom_sandstorm_assault",
-  "fluxVents": 3,
+  "fluxVents": 6,
   "fluxCapacitors": 0,
   "hullMods": [
-    "hardenedshieldemitter"
+    "hardenedshieldemitter",
+    "armoredweapons"
   ],
   "weaponGroups": [
     {
       "mode": "LINKED",
       "weapons": {
-        "WS 1": "nom_twin_electron_maser",
         "WS 10": "nom_twin_electron_maser",
         "WS 11": "nom_twin_electron_maser",
         "WS 2": "nom_twin_electron_maser",

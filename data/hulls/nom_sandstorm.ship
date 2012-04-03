@@ -249,36 +249,24 @@
   "viewOffset": 0.0,
   "weaponSlots": [
     {
-      "angle": 0.0,
-      "arc": 90.0,
-      "id": "WS 1",
-      "locations": [
-        62.5,
-        -0.0
-      ],
-      "mount": "TURRET",
-      "size": "LARGE",
-      "type": "ENERGY"
-    },
-    {
-      "angle": 0.0,
+      "angle": -0.0,
       "arc": 90.0,
       "id": "WS 2",
       "locations": [
-        57.5,
-        23.0
+        58.5,
+        20.0
       ],
       "mount": "TURRET",
       "size": "LARGE",
       "type": "ENERGY"
     },
     {
-      "angle": -0.0,
+      "angle": 0.0,
       "arc": 90.0,
       "id": "WS 3",
       "locations": [
-        57.5,
-        -23.0
+        58.5,
+        -20.0
       ],
       "mount": "TURRET",
       "size": "LARGE",
