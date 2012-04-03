@@ -1,75 +1,75 @@
 {
   "bounds": [
-    19,
-    8,
-    14,
+    19.0,
+    8.0,
+    14.0,
     -1.5,
-    -9,
-    -11,
-    -20,
+    -9.0,
+    -11.0,
+    -20.0,
     -0.5,
     -15.5,
-    15,
-    -8,
+    15.0,
+    -8.0,
     18.5,
-    -2,
-    13,
-    7,
+    -2.0,
+    13.0,
+    7.0,
     16.5
   ],
   "center": [
     21.5,
-    21
+    21.0
   ],
   "collisionRadius": 27.3,
   "engineSlots": [
     {
-      "angle": 180,
-      "contrailSize": 24,
-      "length": 50,
+      "angle": 180.0,
+      "contrailSize": 9.0,
+      "length": 43.5,
       "location": [
-        -21,
+        -21.0,
         4.5
       ],
       "style": "LOW_TECH",
-      "width": 12
+      "width": 9.0
     },
     {
-      "angle": 180,
-      "contrailSize": 24,
-      "length": 50,
+      "angle": 180.0,
+      "contrailSize": 9.0,
+      "length": 32.5,
       "location": [
-        -21,
+        -21.0,
         -1.5
       ],
       "style": "LOW_TECH",
-      "width": 12
+      "width": 9.0
     },
     {
-      "angle": 180,
-      "contrailSize": 30,
-      "length": 30,
+      "angle": 180.0,
+      "contrailSize": 7.0,
+      "length": 18.5,
       "location": [
-        -20,
-        8
+        -20.0,
+        8.0
       ],
       "style": "LOW_TECH",
-      "width": 10
+      "width": 7.0
     }
   ],
-  "height": 44,
-  "width": 34,
+  "height": 44.0,
+  "width": 34.0,
   "hullId": "nom_iguana",
   "hullName": "Iguana",
   "hullSize": "FIGHTER",
   "shieldCenter": [
-    0,
-    -2
+    0.0,
+    -2.0
   ],
   "shieldRadius": 24.2,
   "spriteName": "graphics/nom/ships/nom_iguana.png",
   "style": "LOW_TECH",
-  "viewOffset": 0,
+  "viewOffset": 0.0,
   "weaponSlots": [
     {
       "angle": 23.2,
