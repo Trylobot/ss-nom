@@ -2,5 +2,6 @@ name,id,tier,base value,range,damage/second,damage/shot,emp,impact,turn rate,OPs
 Ultralight Electron Maser,nom_ultralight_electron_maser,1,150,280,,10.75,,10,75,2,,ENERGY,17,,,0.18,,,,,,,,1000,,,75,PD,1337103
 Light Electron Maser,nom_light_electron_maser,1,350,400,,30,,15,65,4,,ENERGY,32,,,0.3,,,,,,,,820,,,100,PD,1337100
 Heavy Electron Maser,nom_heavy_electron_maser,1,1100,600,,55,,30,45,8,,ENERGY,60,,,0.435,,,,,,,,675,,,200,,1337101
+Maser Pulse Beam,nom_maser_pulse_beam,1,1500,2500,,110,,100,20,10,,ENERGY,300,,,0.87,,,,,,,,800,,,200,,1337105
 Twin Electron Maser,nom_twin_electron_maser,1,4000,815,,60,,30,45,18,,ENERGY,60,,,0.289,2,0.2,,,,,,675,,,200,,1337104
 Doom Cannon,nom_doom_cannon,1,18000,1000,,1250,,300,0,75,,ENERGY,2400,,0.6,0.6,,,,,,,,390,,,650,,1337102

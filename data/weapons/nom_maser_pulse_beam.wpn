@@ -1,0 +1,28 @@
+{
+	"id":"nom_maser_pulse_beam",  # this id must match what's in the spreadsheet
+	"specClass":"projectile",
+	"type":"ENERGY",
+	"size":"MEDIUM",
+	"turretSprite":   "graphics/nom/weapons/nom_maser_pulse_beam/nom_maser_pulse_beam_turret_00.png",
+	"hardpointSprite":"graphics/nom/weapons/nom_maser_pulse_beam/nom_maser_pulse_beam_turret_00.png",	
+	"numFrames":4,	
+	"frameRate":4,
+	"turretOffsets":[89, 0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[89, 0],
+	"hardpointAngleOffsets":[0],		
+	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
+	"animationType":"MUZZLE_FLASH",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
+	"interruptibleBurst":true,
+	"muzzleFlashSpec":{"length":35.0,   # only used if animationType = MUZZLE_FLASH
+					   "spread":5.0,
+					   "particleSizeMin":10.0,
+					   "particleSizeRange":16.0,
+					   "particleDuration":0.15,
+					   "particleCount":12,
+					   "particleColor":[255,140,125,200]},	
+	"projectileSpecId":"nom_heavy_electron_maser_shot",  # projectile that will be fired
+	#"fireSoundOne":"gun_mechanicals_medium_up_spin",
+	#"fireSoundTwo":"gun_medium_thump",	
+	#"fireSoundTwo":"gun_light_sharp_quiet",	
+}

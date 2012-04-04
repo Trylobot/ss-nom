@@ -1,0 +1,27 @@
+{
+  "displayName": "Sniper",
+  "hullId": "nom_yellowjacket",
+  "variantId": "nom_yellowjacket_sniper",
+  "fluxVents": 9,
+  "fluxCapacitors": 0,
+  "hullMods": [
+    "advancedoptics",
+    "insulatedengine"
+  ],
+  "weaponGroups": [
+    {
+      "mode": "LINKED",
+      "weapons": {
+        "WS 1": "nom_maser_pulse_beam"
+      }
+    },
+    {
+      "mode": "LINKED",
+      "weapons": {
+        "WS 2": "nom_ultralight_electron_maser",
+        "WS 3": "nom_light_electron_maser",
+        "WS 4": "nom_ultralight_electron_maser"
+      }
+    }
+  ]
+}
