@@ -64,9 +64,9 @@
   "hullSize": "FIGHTER",
   "shieldCenter": [
     0.0,
-    -2.0
+    -4.5
   ],
-  "shieldRadius": 24.2,
+  "shieldRadius": 32.1,
   "spriteName": "graphics/nom/ships/nom_iguana.png",
   "style": "LOW_TECH",
   "viewOffset": 0.0,
