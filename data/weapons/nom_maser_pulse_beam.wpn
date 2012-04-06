@@ -3,14 +3,19 @@
 	"specClass":"projectile",
 	"type":"ENERGY",
 	"size":"MEDIUM",
-	"turretSprite":   "graphics/nom/weapons/nom_maser_pulse_beam/nom_maser_pulse_beam_turret_00.png",
-	"hardpointSprite":"graphics/nom/weapons/nom_maser_pulse_beam/nom_maser_pulse_beam_turret_00.png",	
+	"displayArcRadius":2000,
+	"turretSprite":      "graphics/nom/weapons/nom_maser_pulse_beam/nom_maser_pulse_beam_turret_00.png",
+	"turretGunSprite":   "graphics/nom/weapons/nom_maser_pulse_beam/nom_maser_pulse_beam_recoil.png",
+	"hardpointSprite":   "graphics/nom/weapons/nom_maser_pulse_beam/nom_maser_pulse_beam_turret_00.png",	
+	"hardpointGunSprite":"graphics/nom/weapons/nom_maser_pulse_beam/nom_maser_pulse_beam_recoil.png",	
 	"numFrames":4,	
 	"frameRate":4,
-	"turretOffsets":[89, 0],
+	"visualRecoil":40,
+	"turretOffsets":[96, 0],
 	"turretAngleOffsets":[0],
-	"hardpointOffsets":[89, 0],
+	"hardpointOffsets":[96, 0],
 	"hardpointAngleOffsets":[0],		
+	"renderHints":[RENDER_BARREL_BELOW],
 	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
 	"animationType":"MUZZLE_FLASH",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
 	"interruptibleBurst":true,
@@ -21,7 +26,7 @@
 					   "particleDuration":0.15,
 					   "particleCount":12,
 					   "particleColor":[255,140,125,200]},	
-	"projectileSpecId":"nom_heavy_electron_maser_shot",  # projectile that will be fired
+	"projectileSpecId":"nom_maser_pulse_beam_shot",  # projectile that will be fired
 	#"fireSoundOne":"gun_mechanicals_medium_up_spin",
 	#"fireSoundTwo":"gun_medium_thump",	
 	#"fireSoundTwo":"gun_light_sharp_quiet",	
