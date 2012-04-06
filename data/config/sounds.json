@@ -12,5 +12,10 @@
   	"file":"sounds/fx/beams/fire_beam_burst01.ogg",
 		"pitch":4,"volume":0.275
 	}],
+
+  "nom_maser_pulse_beam_fire":[{
+    "file":"sounds/nom/fx/42108__marcuslee__laser-wrath-6.wav",
+    "pitch":1, "volume":1
+  }],
 }
 

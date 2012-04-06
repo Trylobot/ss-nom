@@ -8,8 +8,8 @@
 	"turretGunSprite":   "graphics/nom/weapons/nom_maser_pulse_beam/nom_maser_pulse_beam_recoil.png",
 	"hardpointSprite":   "graphics/nom/weapons/nom_maser_pulse_beam/nom_maser_pulse_beam_turret_00.png",	
 	"hardpointGunSprite":"graphics/nom/weapons/nom_maser_pulse_beam/nom_maser_pulse_beam_recoil.png",	
-	"numFrames":4,	
-	"frameRate":4,
+	"numFrames":12,	
+	"frameRate":24,
 	"visualRecoil":40,
 	"turretOffsets":[96, 0],
 	"turretAngleOffsets":[0],
@@ -19,15 +19,14 @@
 	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
 	"animationType":"MUZZLE_FLASH",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
 	"interruptibleBurst":true,
-	"muzzleFlashSpec":{"length":35.0,   # only used if animationType = MUZZLE_FLASH
-					   "spread":5.0,
-					   "particleSizeMin":10.0,
-					   "particleSizeRange":16.0,
-					   "particleDuration":0.15,
-					   "particleCount":12,
-					   "particleColor":[255,140,125,200]},	
+	"muzzleFlashSpec":{
+		"length":70.0,   # only used if animationType = MUZZLE_FLASH
+		"spread":2.0,
+		"particleSizeMin":20.0,
+		"particleSizeRange":30.0,
+		"particleDuration":0.30,
+		"particleCount":40,
+		"particleColor":[255,140,125,200]},	
 	"projectileSpecId":"nom_maser_pulse_beam_shot",  # projectile that will be fired
-	#"fireSoundOne":"gun_mechanicals_medium_up_spin",
-	#"fireSoundTwo":"gun_medium_thump",	
-	#"fireSoundTwo":"gun_light_sharp_quiet",	
+	"fireSoundTwo":"nom_maser_pulse_beam_fire",	
 }
