@@ -261,8 +261,8 @@
       "arc": 220.0,
       "id": "WS 001",
       "locations": [
-        33.5,
-        28.0
+        28.5,
+        34.5
       ],
       "mount": "TURRET",
       "size": "MEDIUM",
@@ -273,8 +273,8 @@
       "arc": 90.0,
       "id": "WS 002",
       "locations": [
-        29.5,
-        -9.0
+        43.0,
+        6.5
       ],
       "mount": "TURRET",
       "size": "LARGE",
@@ -285,8 +285,8 @@
       "arc": 220.0,
       "id": "WS 003",
       "locations": [
-        47.0,
-        -33.0
+        45.5,
+        -31.0
       ],
       "mount": "TURRET",
       "size": "MEDIUM",
@@ -309,20 +309,20 @@
       "arc": 310.0,
       "id": "WS 005",
       "locations": [
-        44.5,
-        15.0
+        76.5,
+        11.0
       ],
       "mount": "TURRET",
       "size": "SMALL",
       "type": "ENERGY"
     },
     {
-      "angle": -15.5,
+      "angle": 0.0,
       "arc": 310.0,
       "id": "WS 006",
       "locations": [
-        77.5,
-        -18.5
+        95.0,
+        -16.5
       ],
       "mount": "TURRET",
       "size": "SMALL",

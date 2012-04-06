@@ -5,7 +5,8 @@
   "fluxVents": 6,
   "fluxCapacitors": 0,
   "hullMods": [
-    "augmentedengines"
+    "augmentedengines",
+    "targetingunit"
   ],
   "weaponGroups": [
     {
