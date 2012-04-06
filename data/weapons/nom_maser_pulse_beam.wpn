@@ -20,12 +20,12 @@
 	"animationType":"MUZZLE_FLASH",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
 	"interruptibleBurst":true,
 	"muzzleFlashSpec":{
-		"length":70.0,   # only used if animationType = MUZZLE_FLASH
+		"length":50.0,   # only used if animationType = MUZZLE_FLASH
 		"spread":2.0,
-		"particleSizeMin":20.0,
-		"particleSizeRange":30.0,
-		"particleDuration":0.30,
-		"particleCount":40,
+		"particleSizeMin":10.0,
+		"particleSizeRange":15.0,
+		"particleDuration":0.28,
+		"particleCount":35,
 		"particleColor":[255,140,125,200]},	
 	"projectileSpecId":"nom_maser_pulse_beam_shot",  # projectile that will be fired
 	"fireSoundTwo":"nom_maser_pulse_beam_fire",	
