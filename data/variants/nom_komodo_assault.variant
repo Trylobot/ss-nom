@@ -1,31 +1,31 @@
 {
-	"displayName": "Assault",
-	"hullId": "nom_komodo",
-	"variantId": "nom_komodo_assault",
-	"fluxVents": 7,
-	"fluxCapacitors": 2,
-	"hullMods": ["hardenedshieldemitter"],
-	# array of strings
-
-	# mode is either LINKED or ALTERNATING # slot ids(WS * * * ) must match what 's in the .ship file
-	"weaponGroups":[
-		{
-      "mode":"LINKED",
-      "weapons":{
-        "WS 001":"nom_heavy_electron_maser",
-        "WS 002":"nom_heavy_electron_maser",
-        "WS 003":"nom_heavy_electron_maser",
-		  },
-		},
-		{
-      "mode":"LINKED",
-      "weapons":{
-        "WS 004":"nom_light_electron_maser",
-        "WS 005":"nom_light_electron_maser",
-        "WS 006":"nom_light_electron_maser",
-        "WS 007":"nom_light_electron_maser",
-        "WS 008":"nom_light_electron_maser",
-      },
-		},
-	],
+  "displayName": "Assault",
+  "hullId": "nom_komodo",
+  "variantId": "nom_komodo_assault",
+  "fluxVents": 6,
+  "fluxCapacitors": 0,
+  "hullMods": [
+    "augmentedengines"
+  ],
+  "weaponGroups": [
+    {
+      "mode": "LINKED",
+      "weapons": {
+        "WS 001": "nom_heavy_electron_maser",
+        "WS 002": "nom_twin_electron_maser",
+        "WS 003": "nom_heavy_electron_maser",
+        "WS 005": "nom_light_electron_maser",
+        "WS 006": "nom_light_electron_maser"
+      }
+    },
+    {
+      "mode": "LINKED",
+      "weapons": {
+        "WS 004": "nom_ultralight_electron_maser",
+        "WS 007": "nom_light_electron_maser",
+        "WS 008": "nom_ultralight_electron_maser",
+        "WS 1": "nom_light_electron_maser"
+      }
+    }
+  ]
 }
