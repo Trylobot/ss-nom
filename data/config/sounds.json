@@ -15,7 +15,7 @@
 
   "nom_maser_pulse_beam_fire":[{
     "file":"sounds/nom/fx/42108__marcuslee__laser-wrath-6.wav",
-    "pitch":1, "volume":1
+    "pitch":1, "volume":0.8
   }],
 }
 
