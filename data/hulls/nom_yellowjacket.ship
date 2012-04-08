@@ -57,7 +57,7 @@
     93.0,
     74.0
   ],
-  "collisionRadius": 112.8,
+  "collisionRadius": 100.9,
   "engineSlots": [
     {
       "angle": 180.0,
@@ -165,17 +165,17 @@
   "hullName": "Yellowjacket",
   "hullSize": "FRIGATE",
   "shieldCenter": [
-    -2.5,
-    -22.0
+    -1.5,
+    21.0
   ],
-  "shieldRadius": 87.7,
+  "shieldRadius": 77.1,
   "spriteName": "graphics/nom/ships/nom_yellowjacket.png",
   "style": "LOW_TECH",
   "viewOffset": 0.0,
   "weaponSlots": [
     {
       "angle": 0.0,
-      "arc": 0.0,
+      "arc": 10.0,
       "id": "WS 1",
       "locations": [
         -4.0,

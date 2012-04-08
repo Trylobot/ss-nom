@@ -7,6 +7,7 @@ nom_doom_cannon,WEAPON,"A highly-specialized Nomad pulse wave cannon, designed e
 nom_scarab,SHIP,"Scarabs are light and cheap to build, composed of spare parts found commonly on derelict hulls found throughout the Nomads' system of origin, Adum'Tulek. They are most effectively used as scouts.",,,
 nom_iguana,SHIP,"Iguana have unusually high flux capacity, but with a crew requirement to match. They are classed as Corvettes, yet fly in three-ship wings and can be field-refitted like fighters.",,,
 nom_wurm,SHIP,"Standard Nomad assault frigate, equipped with that staple of Nomad design: the electron maser. Excels at no task in particular, but requires little maintenance.",,,
+nom_yellowjacket,SHIP,Employs a single devastating long-range support maser. Lightly armed and armored otherwise.,,,
 nom_komodo,SHIP,"Equipped with a good mix of light and medium Nomad weaponry to engage faster-moving fighters and frigates, yet able to hold its own against other destroyers for brief periods.",,,
 nom_scorpion,SHIP,"A specialized missile support destroyer. This ship, while expensive to maintain and to field, can bring to bear a frightening volume of long-range ordnance.",,,
 nom_sandstorm,SHIP,"The Sandstorm is designed to charge into a fight with frontal weaponry blazing, and take out its target in a single pass. Prolonged engagements usually expose its high flux requirements.",,,
