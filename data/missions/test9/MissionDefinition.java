@@ -17,36 +17,30 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		// Scarab testing
 		//
 
-		// // Iguana testing
-		// api.addToFleet(FleetSide.PLAYER, "medusa_PD", FleetMemberType.SHIP, false);
-		// api.addToFleet(FleetSide.PLAYER, "hammerhead_Balanced", FleetMemberType.SHIP, false);
-		// api.addToFleet(FleetSide.PLAYER, "hound_Assault", FleetMemberType.SHIP, false);
-		// api.addToFleet(FleetSide.PLAYER, "lasher_Assault", FleetMemberType.SHIP, false);
-		// api.addToFleet(FleetSide.PLAYER, "broadsword_wing", FleetMemberType.FIGHTER_WING, true);
-		// api.addToFleet(FleetSide.PLAYER, "warthog_wing", FleetMemberType.FIGHTER_WING, true);
-		// api.addToFleet(FleetSide.PLAYER, "thunder_wing", FleetMemberType.FIGHTER_WING, true);
-		// api.addToFleet(FleetSide.PLAYER, "wasp_wing", FleetMemberType.FIGHTER_WING, true);
-		// api.addToFleet(FleetSide.PLAYER, "talon_wing", FleetMemberType.FIGHTER_WING, true);
-		// 
-		// api.addToFleet(FleetSide.ENEMY, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, true);
+		// Iguana testing
+		api.addToFleet(FleetSide.PLAYER, "condor_FS", FleetMemberType.SHIP, false);
+		api.addToFleet(FleetSide.PLAYER, "wasp_wing", FleetMemberType.FIGHTER_WING, true);
+		api.addToFleet(FleetSide.PLAYER, "talon_wing", FleetMemberType.FIGHTER_WING, true);
+		
+		api.addToFleet(FleetSide.ENEMY, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, true);
 
 		// Wurm testing
 		//
 
-		// Komodo testing
-		api.addToFleet(FleetSide.PLAYER, "conquest_Elite", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.PLAYER, "enforcer_Assault", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.PLAYER, "enforcer_Balanced", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.PLAYER, "medusa_Attack", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.PLAYER, "hammerhead_Balanced", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.PLAYER, "hammerhead_Elite", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.PLAYER, "gemini_Standard", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.PLAYER, "hound_Assault", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.PLAYER, "lasher_Assault", FleetMemberType.SHIP, false);
-		api.addToFleet(FleetSide.PLAYER, "thunder_wing", FleetMemberType.FIGHTER_WING, true);
-		api.addToFleet(FleetSide.PLAYER, "wasp_wing", FleetMemberType.FIGHTER_WING, true);
-		// 
-		api.addToFleet(FleetSide.ENEMY, "nom_komodo_assault", FleetMemberType.SHIP, true);
+		// // Komodo testing
+		// api.addToFleet(FleetSide.PLAYER, "conquest_Elite", FleetMemberType.SHIP, false);
+		// api.addToFleet(FleetSide.PLAYER, "enforcer_Assault", FleetMemberType.SHIP, false);
+		// api.addToFleet(FleetSide.PLAYER, "enforcer_Balanced", FleetMemberType.SHIP, false);
+		// api.addToFleet(FleetSide.PLAYER, "medusa_Attack", FleetMemberType.SHIP, false);
+		// api.addToFleet(FleetSide.PLAYER, "hammerhead_Balanced", FleetMemberType.SHIP, false);
+		// api.addToFleet(FleetSide.PLAYER, "hammerhead_Elite", FleetMemberType.SHIP, false);
+		// api.addToFleet(FleetSide.PLAYER, "gemini_Standard", FleetMemberType.SHIP, false);
+		// api.addToFleet(FleetSide.PLAYER, "hound_Assault", FleetMemberType.SHIP, false);
+		// api.addToFleet(FleetSide.PLAYER, "lasher_Assault", FleetMemberType.SHIP, false);
+		// api.addToFleet(FleetSide.PLAYER, "thunder_wing", FleetMemberType.FIGHTER_WING, true);
+		// api.addToFleet(FleetSide.PLAYER, "wasp_wing", FleetMemberType.FIGHTER_WING, true);
+		// // 
+		// api.addToFleet(FleetSide.ENEMY, "nom_komodo_assault", FleetMemberType.SHIP, true);
 
 
 		// Set up the map.
