@@ -11,6 +11,7 @@
   ],
   "weaponGroups": [
     {
+      "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
         "WS 4": "pilum",
@@ -19,6 +20,7 @@
       }
     },
     {
+      "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
         "WS 1": "harpoonpod",
@@ -26,6 +28,7 @@
       }
     },
     {
+      "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
         "WS 2": "swarmer",
@@ -33,6 +36,7 @@
       }
     },
     {
+      "autofire": true,
       "mode": "LINKED",
       "weapons": {
         "WS 8": "nom_ultralight_electron_maser",

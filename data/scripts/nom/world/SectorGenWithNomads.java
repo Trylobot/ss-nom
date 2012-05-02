@@ -1,50 +1,39 @@
 package data.scripts.nom.world;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-import com.fs.starfarer.api.campaign.CampaignFleetAPI;
-import com.fs.starfarer.api.campaign.CargoAPI;
-import com.fs.starfarer.api.campaign.FactionAPI;
-import com.fs.starfarer.api.campaign.FleetAssignment;
-import com.fs.starfarer.api.campaign.SectorAPI;
-import com.fs.starfarer.api.campaign.SectorEntityToken;
-import com.fs.starfarer.api.campaign.SectorGeneratorPlugin;
-import com.fs.starfarer.api.campaign.StarSystemAPI;
-import com.fs.starfarer.api.campaign.CargoAPI.CrewXPLevel;
-import com.fs.starfarer.api.fleet.FleetMemberType;
+import com.fs.starfarer.api.campaign.*;
+import com.fs.starfarer.api.fleet.*;
 
 import data.scripts.world.*;
 
 @SuppressWarnings( "unchecked" )
-public class SectorGenWithNomads extends SectorGen
+public class SectorGenWithNomads implements SectorGeneratorPlugin
 {
 	public void generate( SectorAPI sector )
 	{
 		StarSystemAPI system = sector.getStarSystem( "Corvus" );
 
-		// changed name of planet and moved away from star
 		SectorEntityToken star = system.createToken( 0, 0 );
-		SectorEntityToken Adum_Tulek = system.addPlanet( star, "Adum'Tulek", "desert", 90, 450, 4000, 400 );
-		NomadSpawnPoint nomadSpawn = new NomadSpawnPoint( sector, system, 10, 2, Adum_Tulek );
-		system.addSpawnPoint( nomadSpawn );
+		SectorEntityToken planet = system.addPlanet( star, "Adum'Tulek", "desert", 90, 175, 3750, 150);
+
+		NomadSpawnPoint spawner = new NomadSpawnPoint( sector, system, 1, 6, planet );
+		system.addSpawnPoint( spawner );
+		for( int i = 0; i < 6; i++ )
+			spawner.spawnFleet();
 		
-		// spawn points changed from 10 --> 8
-		system.addSpawnPoint( nomadSpawn );
-		for( int i = 0; i < 8; ++i )
-		{
-		  nomadSpawn.spawnFleet();
-		}
-		
-		// faction api's referenced by string to increase standalone compatibility
-		FactionAPI nomads = sector.getFaction( "nomads" );
-		nomads.setRelationship( "hegemony",     -1 );
-		nomads.setRelationship( "tritachyon",   -1 );
-		nomads.setRelationship( "pirates",      -1 );
-		nomads.setRelationship( "independent",  -1 );
-		nomads.setRelationship( "nomads",       -1 );
-		nomads.setRelationship( "junk_pirates", -1 );
-		nomads.setRelationship( "player",       -1 );
+		FactionAPI faction = sector.getFaction( "nomads" );
+		faction.setRelationship( "player",                 -1 );
+		faction.setRelationship( "hegemony",               -1 );
+		faction.setRelationship( "tritachyon",             -1 );
+		faction.setRelationship( "pirates",                -1 );
+		faction.setRelationship( "independent",            -1 );
+		faction.setRelationship( "junk_pirates",           -1 );
+		faction.setRelationship( "interstellarFederation", -1 );
+		faction.setRelationship( "lotus_pirates",          -1 );
 	}
 	
 }

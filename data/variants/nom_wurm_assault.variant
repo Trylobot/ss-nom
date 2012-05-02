@@ -10,12 +10,14 @@
 	# slot ids (WS ***) must match what's in the .ship file
 	"weaponGroups":[
 		{
+      "autofire": false,
       "mode":"LINKED",
       "weapons":{
         "WS 001":"nom_heavy_electron_maser",
 		  },
 		},
 		{
+      "autofire": true,
       "mode":"LINKED",
       "weapons":{
         "WS 002":"nom_light_electron_maser",

@@ -182,7 +182,7 @@
         55.0
       ],
       "mount": "HARDPOINT",
-      "size": "MEDIUM",
+      "size": "LARGE",
       "type": "ENERGY"
     },
     {
@@ -192,30 +192,6 @@
       "locations": [
         30.0,
         20.0
-      ],
-      "mount": "TURRET",
-      "size": "SMALL",
-      "type": "ENERGY"
-    },
-    {
-      "angle": 0.0,
-      "arc": 337.4,
-      "id": "WS 3",
-      "locations": [
-        41.5,
-        4.0
-      ],
-      "mount": "TURRET",
-      "size": "SMALL",
-      "type": "ENERGY"
-    },
-    {
-      "angle": -118.6,
-      "arc": 337.4,
-      "id": "WS 4",
-      "locations": [
-        -12.5,
-        -18.5
       ],
       "mount": "TURRET",
       "size": "SMALL",

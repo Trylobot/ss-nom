@@ -1,7 +1,8 @@
 {
   "id":"nomads",
 	"name":"The Nomads",
-	"version":"0.9",
+	"version":"0.8.1",
 	"description":"Adds content for The Nomads faction",
   "gameVersion":"0.51a",
+  "author":"Trylobot",
 }

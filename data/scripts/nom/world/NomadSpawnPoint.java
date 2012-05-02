@@ -1,10 +1,13 @@
 package data.scripts.nom.world;
 
-import com.fs.starfarer.api.campaign.CampaignFleetAPI;
-import com.fs.starfarer.api.campaign.FleetAssignment;
-import com.fs.starfarer.api.campaign.LocationAPI;
-import com.fs.starfarer.api.campaign.SectorAPI;
-import com.fs.starfarer.api.campaign.SectorEntityToken;
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import com.fs.starfarer.api.*;
+import com.fs.starfarer.api.campaign.*;
+import com.fs.starfarer.api.fleet.*;
 
 import data.scripts.world.*;
 
