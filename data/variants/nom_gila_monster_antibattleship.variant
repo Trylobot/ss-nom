@@ -43,10 +43,6 @@
         "WS 7": "nom_ultralight_electron_maser",
         "WS 8": "nom_ultralight_electron_maser"
       }
-    },
-    {
-      "mode": "LINKED",
-      "weapons": {}
     }
   ]
 }

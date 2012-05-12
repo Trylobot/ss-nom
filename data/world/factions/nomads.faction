@@ -2,6 +2,7 @@
 	"id":"nomads",
 	"color":[234,214,124,255],
 	"displayName":"Nomad",
+	"shipNamePrefix":"ND",
 	"description":"",
 	"names":{
 		"fringe":1,
