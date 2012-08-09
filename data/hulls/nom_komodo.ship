@@ -118,6 +118,7 @@
         27.0
       ],
       "style": "LOW_TECH",
+      "styleSpec": null,
       "width": 8.0
     },
     {
@@ -129,6 +130,7 @@
         22.0
       ],
       "style": "LOW_TECH",
+      "styleSpec": null,
       "width": 7.0
     },
     {
@@ -140,6 +142,7 @@
         17.0
       ],
       "style": "LOW_TECH",
+      "styleSpec": null,
       "width": 10.0
     },
     {
@@ -151,6 +154,7 @@
         13.0
       ],
       "style": "LOW_TECH",
+      "styleSpec": null,
       "width": 6.0
     },
     {
@@ -162,6 +166,7 @@
         8.0
       ],
       "style": "LOW_TECH",
+      "styleSpec": null,
       "width": 13.0
     },
     {
@@ -173,6 +178,7 @@
         1.0
       ],
       "style": "LOW_TECH",
+      "styleSpec": null,
       "width": 9.0
     },
     {
@@ -184,6 +190,7 @@
         -3.0
       ],
       "style": "LOW_TECH",
+      "styleSpec": null,
       "width": 8.0
     },
     {
@@ -195,6 +202,7 @@
         -8.0
       ],
       "style": "LOW_TECH",
+      "styleSpec": null,
       "width": 10.0
     },
     {
@@ -206,6 +214,7 @@
         -12.0
       ],
       "style": "LOW_TECH",
+      "styleSpec": null,
       "width": 9.0
     },
     {
@@ -217,6 +226,7 @@
         -19.0
       ],
       "style": "LOW_TECH",
+      "styleSpec": null,
       "width": 11.0
     },
     {
@@ -228,6 +238,7 @@
         -24.0
       ],
       "style": "LOW_TECH",
+      "styleSpec": null,
       "width": 12.0
     },
     {
@@ -239,6 +250,7 @@
         -26.5
       ],
       "style": "LOW_TECH",
+      "styleSpec": null,
       "width": 4.0
     }
   ],
@@ -251,7 +263,7 @@
     15.5,
     0.0
   ],
-  "shieldRadius": 117.1,
+  "shieldRadius": 117.099998,
   "spriteName": "graphics/nom/ships/nom_komodo.png",
   "style": "LOW_TECH",
   "viewOffset": 0.0,
@@ -305,7 +317,7 @@
       "type": "ENERGY"
     },
     {
-      "angle": 28.3,
+      "angle": 28.299999,
       "arc": 310.0,
       "id": "WS 005",
       "locations": [
@@ -329,7 +341,7 @@
       "type": "ENERGY"
     },
     {
-      "angle": -60.3,
+      "angle": -60.299999,
       "arc": 310.0,
       "id": "WS 007",
       "locations": [
@@ -342,7 +354,7 @@
     },
     {
       "angle": -90.0,
-      "arc": 347.3,
+      "arc": 347.299988,
       "id": "WS 008",
       "locations": [
         -60.5,
