@@ -1,0 +1,9 @@
+{
+  "displayName": "Transport",
+  "hullId": "nom_oasis",
+  "variantId": "nom_oasis_standard",
+  "fluxVents": 0,
+  "fluxCapacitors": 0,
+  "hullMods": [],
+  "weaponGroups": []
+}
