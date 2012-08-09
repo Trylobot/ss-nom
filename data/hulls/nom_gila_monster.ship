@@ -292,7 +292,7 @@
   "weaponSlots": [
     {
       "angle": 0.0,
-      "arc": 0.0,
+      "arc": 3.8,
       "id": "WS001",
       "locations": [
         22.0,
