@@ -102,7 +102,7 @@
 			"extraCrewPercent":[10000, 10000],
 			"marinesPercent":[0, 0],
 			"ships":{
-				"nom_oasis":[1, 1],
+				"nom_oasis_standard":[1, 1],
 				"nom_scorpion_assault":[4, 4],
 				"nom_komodo_assault":[4, 4],
 				"nom_yellowjacket_sniper":[6, 6],

@@ -17,14 +17,11 @@ import org.lwjgl.util.vector.Vector2f;
 public class NomadWaypointArmadaController implements SpawnPointPlugin
 {
 	// Useful constants and enums
-	final private float WAYPOINT_ACHIEVED_DISTANCE = 10.0f;
+	final private float WAYPOINT_ACHIEVED_DISTANCE = 0.5f;
 
-	private enum ARMADA_STATE
-	{
-		OUT_OF_SECTOR,
-		IN_TRANSIT,
-		IDLE_AT_WAYPOINT
-	};
+	final private int OUT_OF_SECTOR    = 10;
+	final private int IN_TRANSIT       = 20;
+	final private int IDLE_AT_WAYPOINT = 30;
 	
 	// current star system
 	private SectorAPI sector;
@@ -54,7 +51,7 @@ public class NomadWaypointArmadaController implements SpawnPointPlugin
 	private CampaignFleetAPI[] escort_fleets = null;
 
 	// State of the controller
-	private ARMADA_STATE state = ARMADA_STATE.OUT_OF_SECTOR;
+	private int state = OUT_OF_SECTOR;
 	private boolean first_run = true;
 	
 	// used for measuring idle time
@@ -92,8 +89,6 @@ public class NomadWaypointArmadaController implements SpawnPointPlugin
 
 		this.star_system = sector.getStarSystem("Corvus");
 		this.clock = sector.getClock();
-		
-		this.location.addSpawnPoint(this);
 	}
 	
 	
@@ -117,7 +112,7 @@ public class NomadWaypointArmadaController implements SpawnPointPlugin
 					this.star_system.spawnFleet( 
 						this.current_route[0], 0, 0, leader_fleet);
 					// controller state
-					change_state( ARMADA_STATE.IN_TRANSIT );
+					change_state( IN_TRANSIT );
 					advance_waypoint_index();
 				}
 				break;
@@ -129,7 +124,7 @@ public class NomadWaypointArmadaController implements SpawnPointPlugin
 				float distance = get_distance( leader_fleet, destination_waypoint );
 				if( distance <= WAYPOINT_ACHIEVED_DISTANCE )
 				{
-					change_state( ARMADA_STATE.IDLE_AT_WAYPOINT );
+					change_state( IDLE_AT_WAYPOINT );
 				}
 				// keep escort fleets moving in formation
 				
@@ -140,7 +135,7 @@ public class NomadWaypointArmadaController implements SpawnPointPlugin
 				if( this.clock.getElapsedDaysSince( this.last_state_change_timestamp ) 
 				    >= this.waypoint_idle_time_days )
 				{
-					change_state( ARMADA_STATE.IN_TRANSIT );
+					change_state( IN_TRANSIT );
 					advance_waypoint_index();
 				}
 				// keep escort fleets in formation while idle
@@ -164,13 +159,17 @@ public class NomadWaypointArmadaController implements SpawnPointPlugin
 		float range = max - min;
 		int route_size = (int)Math.round((float)(Math.random())*range + min);
 		// create an appropriately sized slice of the shuffled pool as the route
-		List route = waypoint_pool.subList( 0, (route_size - 1) );
+		List route_list = waypoint_pool.subList( 0, (route_size - 1) );
 		// create and add entry/exit waypoint
 		SectorEntityToken start = this.star_system.createToken( 0f, 0f );
 		SectorEntityToken end = this.star_system.createToken( 0f, 0f );
-		route.add( 0, start );
-		route.add( end );
-		return (SectorEntityToken[])route.toArray();
+		route_list.add( 0, start );
+		route_list.add( end );
+		SectorEntityToken[] route = new SectorEntityToken[route_list.size()];
+		for( int i = 0; i < route.length; ++i )
+			route[i] = (SectorEntityToken)route_list.get( i );
+		// done
+		return route;
 	}
 	
 	private CampaignFleetAPI create_leader_fleet()
@@ -192,7 +191,7 @@ public class NomadWaypointArmadaController implements SpawnPointPlugin
 		return (float)Math.sqrt( dx*dx + dy*dy );
 	}
 
-	private void change_state( ARMADA_STATE new_state )
+	private void change_state( int new_state )
 	{
 		this.state = new_state;
 		this.last_state_change_timestamp = this.clock.getTimestamp();
@@ -204,7 +203,7 @@ public class NomadWaypointArmadaController implements SpawnPointPlugin
 		// check if last waypoint reached
 		if( this.current_route_waypoint_index >= this.current_route.length )
 		{
-			change_state( ARMADA_STATE.OUT_OF_SECTOR );
+			change_state( OUT_OF_SECTOR );
 			remove_all_fleets();
 		}
 		else // not last waypoint, yet
