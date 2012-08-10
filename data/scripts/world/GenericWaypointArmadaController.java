@@ -16,14 +16,17 @@ import org.lwjgl.util.vector.Vector2f;
 @SuppressWarnings("unchecked")
 public class GenericWaypointArmadaController implements SpawnPointPlugin
 {
-	// Useful constants and enums
-	final private float STAR_SYSTEM_RADIUS = 15000f;
+	// public constants for arguments
+	final public static int ESCORT_ORBIT = 100;
 	
-	final private float WAYPOINT_ACHIEVED_DISTANCE = 0.5f;
+	// constants and enums
+	final private static float STAR_SYSTEM_RADIUS = 15000f;
+	
+	final private static float WAYPOINT_ACHIEVED_DISTANCE = 0.5f;
 
-	final private int OUT_OF_SECTOR    = 10;
-	final private int IN_TRANSIT       = 20;
-	final private int IDLE_AT_WAYPOINT = 30;
+	final private static int OUT_OF_SECTOR    = 10;
+	final private static int IN_TRANSIT       = 20;
+	final private static int IDLE_AT_WAYPOINT = 30;
 	
 	// current star system
 	private SectorAPI sector;
@@ -35,6 +38,8 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 	private int escort_fleet_count;
 	private String[] escort_fleet_composition_pool;
 	private float[] escort_fleet_composition_weights;
+	private int escort_formation;
+	private float escort_formation_separation_distance;
 	private int waypoints_per_trip_minimum;
 	private int waypoints_per_trip_maximum;
 	private int waypoint_idle_time_days;
@@ -77,6 +82,8 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 		int escort_fleet_count,
 		String[] escort_fleet_composition_pool,
 		float[] escort_fleet_composition_weights,
+		int escort_formation,
+		float escort_formation_separation_distance,
 		int waypoint_per_trip_minimum,
 		int waypoint_per_trip_maximum,
 		int waypoint_idle_time_days,
@@ -88,8 +95,11 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 		this.sector = sector;
 		this.location = location;
 		this.escort_fleet_count = escort_fleet_count;
+		// pool and weights assumed to be non-null, non-empty and of equal length
 		this.escort_fleet_composition_pool = escort_fleet_composition_pool;
 		this.escort_fleet_composition_weights = escort_fleet_composition_weights;
+		this.escort_formation = escort_formation;
+		this.escort_formation_separation_distance = escort_formation_separation_distance;
 		this.waypoints_per_trip_minimum = waypoint_per_trip_minimum;
 		this.waypoints_per_trip_maximum = waypoint_per_trip_maximum;
 		this.waypoint_idle_time_days = waypoint_idle_time_days;
@@ -115,10 +125,21 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 					// initialize a route
 					this.current_route = build_fresh_route();
 					this.current_route_waypoint_index = 0;
-					// create fleets
+					// create leader fleet
 					this.leader_fleet = create_leader_fleet();
 					this.star_system.spawnFleet( 
-						this.current_route[0], 0, 0, leader_fleet);
+						this.current_route[0], 
+						STAR_SYSTEM_RADIUS, STAR_SYSTEM_RADIUS, 
+						leader_fleet );
+					// create escort fleets
+					this.escort_fleets = create_escort_fleets();
+					for( int i = 0; i < this.escort_fleets.length; ++i )
+					{
+						this.star_system.spawnFleet(
+							this.current_route[0], 
+							STAR_SYSTEM_RADIUS, STAR_SYSTEM_RADIUS,
+							this.escort_fleets[i] );
+					}
 					// controller state
 					change_state( IN_TRANSIT );
 					advance_waypoint_index();
@@ -135,7 +156,7 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 					change_state( IDLE_AT_WAYPOINT );
 				}
 				// keep escort fleets moving in formation
-				
+				update_escort_fleets();
 				break;
 			////////////////////////////////////////
 			case IDLE_AT_WAYPOINT:
@@ -147,10 +168,9 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 					advance_waypoint_index();
 				}
 				// keep escort fleets in formation while idle
-				
+				update_escort_fleets();
 				break;
 		}
-		
 	}
 	
 	private SectorEntityToken[] build_fresh_route()
@@ -184,14 +204,51 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 	
 	private CampaignFleetAPI create_leader_fleet()
 	{
-		return this.sector.createFleet(this.faction_id, this.leader_fleet_id);
+		return this.sector.createFleet( this.faction_id, this.leader_fleet_id );
 	}
 	
 	private CampaignFleetAPI[] create_escort_fleets()
 	{
+		CampaignFleetAPI[] escort_fleets = new CampaignFleetAPI[this.escort_fleet_count];
+		for( int i = 0; i < escort_fleets.length; ++i )
+		{
+			String fleet_id = weighted_string_pick( 
+				this.escort_fleet_composition_pool,
+				this.escort_fleet_composition_weights );
+			escort_fleets[i] = this.sector.createFleet( this.faction_id, fleet_id );
+		}
+		return escort_fleets;
+	}
+	
+	private String weighted_string_pick( String[] pool, float[] weights )
+	{
+		int len = Math.min( pool.length, weights.length );
+		float sum = 0f;
+		for( int i = 0; i < len; ++i )
+		{
+			sum += weights[i];
+		}
+		float marker = (float)(Math.random())*sum; // pick
+		sum = 0f;
+		for( int i = 0; i < len; ++i )
+		{
+			sum += weights[i];
+			if( marker <= sum )
+			{
+				return pool[i];
+			}
+		}
 		return null;
 	}
 
+	private void update_escort_fleets()
+	{
+		// get position, speed, and direction of leader fleet.
+		// predict position of leader in the near future.
+		// calculate array of target positions based on formation and prediction.
+		// assign orders to escort fleets.
+	}
+	
 	private float get_distance( SectorEntityToken t1, SectorEntityToken t2 )
 	{
 		Vector2f v1 = t1.getLocation();
