@@ -94,6 +94,23 @@
 				"nom_scarab_wing":[1, 6],
 			},
 		},
+		"colonyFleet":{
+			"displayName":"Colony Transport Group",
+			"maxFleetPoints":115,
+			"daysWorthOfSupplies":[100, 300],
+			"lyWorthOfFuel":[100, 300],
+			"extraCrewPercent":[10000, 10000],
+			"marinesPercent":[0, 0],
+			"ships":{
+				"nom_oasis":[1, 1],
+				"nom_scorpion_assault":[4, 4],
+				"nom_komodo_assault":[4, 4],
+				"nom_yellowjacket_sniper":[6, 6],
+				"nom_wurm_assault":[3, 3],
+				"nom_iguana_wing":[4, 4],
+				"nom_scarab_wing":[3, 3],
+			},
+		},
 	},
 	"traits":{
 		"admiral":{
