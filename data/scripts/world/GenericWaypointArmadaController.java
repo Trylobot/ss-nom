@@ -1,4 +1,4 @@
-package data.scripts.nom.world;
+package data.scripts.world;
 
 import com.fs.starfarer.api.campaign.CampaignClockAPI;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
@@ -14,9 +14,11 @@ import java.util.List;
 import org.lwjgl.util.vector.Vector2f;
 
 @SuppressWarnings("unchecked")
-public class NomadWaypointArmadaController implements SpawnPointPlugin
+public class GenericWaypointArmadaController implements SpawnPointPlugin
 {
 	// Useful constants and enums
+	final private float STAR_SYSTEM_RADIUS = 15000f;
+	
 	final private float WAYPOINT_ACHIEVED_DISTANCE = 0.5f;
 
 	final private int OUT_OF_SECTOR    = 10;
@@ -28,6 +30,8 @@ public class NomadWaypointArmadaController implements SpawnPointPlugin
 	private LocationAPI location;
 
 	// basic behavior options
+	private String faction_id;
+	private String leader_fleet_id;
 	private int escort_fleet_count;
 	private String[] escort_fleet_composition_pool;
 	private float[] escort_fleet_composition_weights;
@@ -65,7 +69,9 @@ public class NomadWaypointArmadaController implements SpawnPointPlugin
 	
 	// Constructor also initializes the spawning system and begins spawning fleets
 	//  Spawning is immediate and automatic
-	public NomadWaypointArmadaController( 
+	public GenericWaypointArmadaController( 
+		String faction_id,
+		String leader_fleet_id,
 		SectorAPI sector,
 		LocationAPI location,
 		int escort_fleet_count,
@@ -77,6 +83,8 @@ public class NomadWaypointArmadaController implements SpawnPointPlugin
 		int out_of_sector_time_days )
 	{
 		// setup behaviors; these are not modified by the controller
+		this.faction_id = faction_id;
+		this.leader_fleet_id = leader_fleet_id;
 		this.sector = sector;
 		this.location = location;
 		this.escort_fleet_count = escort_fleet_count;
@@ -161,20 +169,22 @@ public class NomadWaypointArmadaController implements SpawnPointPlugin
 		// create an appropriately sized slice of the shuffled pool as the route
 		List route_list = waypoint_pool.subList( 0, (route_size - 1) );
 		// create and add entry/exit waypoint
-		SectorEntityToken start = this.star_system.createToken( 0f, 0f );
-		SectorEntityToken end = this.star_system.createToken( 0f, 0f );
+		SectorEntityToken start = this.star_system.createToken( STAR_SYSTEM_RADIUS, STAR_SYSTEM_RADIUS );
+		SectorEntityToken end = start;
 		route_list.add( 0, start );
 		route_list.add( end );
 		SectorEntityToken[] route = new SectorEntityToken[route_list.size()];
 		for( int i = 0; i < route.length; ++i )
+		{
 			route[i] = (SectorEntityToken)route_list.get( i );
+		}
 		// done
 		return route;
 	}
 	
 	private CampaignFleetAPI create_leader_fleet()
 	{
-		return this.sector.createFleet("nomads", "colonyFleet");
+		return this.sector.createFleet(this.faction_id, this.leader_fleet_id);
 	}
 	
 	private CampaignFleetAPI[] create_escort_fleets()

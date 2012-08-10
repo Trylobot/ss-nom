@@ -1,13 +1,6 @@
 package data.scripts.nom.world;
 
-import java.awt.Color;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import com.fs.starfarer.api.campaign.*;
-import com.fs.starfarer.api.fleet.*;
-
 import data.scripts.world.*;
 
 @SuppressWarnings( "unchecked" )
@@ -17,7 +10,9 @@ public class SectorGenWithNomads implements SectorGeneratorPlugin
 	{
 		StarSystemAPI system = sector.getStarSystem( "Corvus" );
 		
-		NomadWaypointArmadaController spawner = new NomadWaypointArmadaController(
+		GenericWaypointArmadaController spawner = new GenericWaypointArmadaController(
+			"nomads",
+			"colonyFleet",
 			sector, 
 			system, 
 		  6, /* escort_fleet_count */
