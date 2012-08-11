@@ -26,24 +26,12 @@ public class SectorGenWithNomads implements SectorGeneratorPlugin
 			7 /* out_of_sector_time_days */ );
 		system.addSpawnPoint( spawner ); // automatic from here on out
 
-//		SectorEntityToken star = system.createToken( 0, 0 );
-//		SectorEntityToken planet = system.addPlanet( star, "Adum'Tulek", "desert", 90, 175, 3750, 150);
-//
-//		NomadSpawnPoint spawner = new NomadSpawnPoint( sector, system, 1, 6, planet );
-//		system.addSpawnPoint( spawner );
-//		for( int i = 0; i < 6; i++ )
-//			spawner.spawnFleet();
-//		
-//		FactionAPI faction = sector.getFaction( "nomads" );
-//		
-//		faction.setRelationship( "player",                 -1 );
-//		faction.setRelationship( "hegemony",               -1 );
-//		faction.setRelationship( "tritachyon",             -1 );
-//		faction.setRelationship( "pirates",                -1 );
-//		faction.setRelationship( "independent",            -1 );
-//		faction.setRelationship( "junk_pirates",           -1 );
-//		faction.setRelationship( "interstellarFederation", -1 );
-//		faction.setRelationship( "lotus_pirates",          -1 );
+		FactionAPI faction = sector.getFaction( "nomads" );
+		faction.setRelationship( "player",                 -1 );
+		faction.setRelationship( "hegemony",               -1 );
+		faction.setRelationship( "tritachyon",             -1 );
+		faction.setRelationship( "pirates",                -1 );
+		faction.setRelationship( "independent",            -1 );
 	}
 	
 }

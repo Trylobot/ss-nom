@@ -247,6 +247,11 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 		// predict position of leader in the near future.
 		// calculate array of target positions based on formation and prediction.
 		// assign orders to escort fleets.
+		for( int i = 0; i < this.escort_fleets.length; ++i )
+			this.escort_fleets[i].addAssignment(
+				FleetAssignment.GO_TO_LOCATION,
+				this.current_route[this.current_route_waypoint_index],
+				1000 );
 	}
 	
 	private float get_distance( SectorEntityToken t1, SectorEntityToken t2 )
