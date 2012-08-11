@@ -21,8 +21,9 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 	
 	// constants and enums
 	final private static float STAR_SYSTEM_RADIUS = 15000f;
+	final private static float TWO_PI = (float)(2.0f*Math.PI);
 	
-	final private static float WAYPOINT_ACHIEVED_DISTANCE = 0.5f;
+	final private static float WAYPOINT_ACHIEVED_DISTANCE = 10.0f;
 
 	final private static int OUT_OF_SECTOR    = 10;
 	final private static int IN_TRANSIT       = 20;
@@ -113,43 +114,42 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 	@Override
 	public void advance( SectorAPI sector, LocationAPI location )
 	{
-		switch( this.state )
+		switch( state )
 		{ 
 			////////////////////////////////////////
 			case OUT_OF_SECTOR:
 				// check if enough time has passed to spawn in next armada!
-				if( this.first_run 
-				|| this.clock.getElapsedDaysSince( this.last_state_change_timestamp ) 
-				   >= this.out_of_sector_time_days )
+				if( first_run 
+				|| clock.getElapsedDaysSince( last_state_change_timestamp ) 
+				   >= out_of_sector_time_days )
 				{
 					// initialize a route
-					this.current_route = build_fresh_route();
-					this.current_route_waypoint_index = 0;
+					current_route = build_fresh_route();
+					current_route_waypoint_index = 0;
 					// create leader fleet
-					this.leader_fleet = create_leader_fleet();
-					this.star_system.spawnFleet( 
-						this.current_route[0], 
-						STAR_SYSTEM_RADIUS, STAR_SYSTEM_RADIUS, 
-						leader_fleet );
+					leader_fleet = create_leader_fleet();
+					star_system.spawnFleet( 
+						current_route[0], 0, 0, leader_fleet );
 					// create escort fleets
-					this.escort_fleets = create_escort_fleets();
-					for( int i = 0; i < this.escort_fleets.length; ++i )
+					escort_fleets = create_escort_fleets();
+					for( int i = 0; i < escort_fleets.length; ++i )
 					{
-						this.star_system.spawnFleet(
-							this.current_route[0], 
-							STAR_SYSTEM_RADIUS, STAR_SYSTEM_RADIUS,
-							this.escort_fleets[i] );
+						star_system.spawnFleet(
+							current_route[0], 0, 0, escort_fleets[i] );
 					}
 					// controller state
 					change_state( IN_TRANSIT );
 					advance_waypoint_index();
 				}
 				break;
+			
 			////////////////////////////////////////
 			case IN_TRANSIT:
+				// check if leader died; if so, scatter fleet
+				check_leader_still_alive();
 				// check distance from fleet leader to waypoint
 				SectorEntityToken destination_waypoint = 
-					this.current_route[this.current_route_waypoint_index];
+					current_route[current_route_waypoint_index];
 				float distance = get_distance( leader_fleet, destination_waypoint );
 				if( distance <= WAYPOINT_ACHIEVED_DISTANCE )
 				{
@@ -158,11 +158,14 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 				// keep escort fleets moving in formation
 				update_escort_fleets();
 				break;
+			
 			////////////////////////////////////////
 			case IDLE_AT_WAYPOINT:
+				// check if leader died; if so, scatter fleet
+				check_leader_still_alive();
 				// check if idle time has elapsed
-				if( this.clock.getElapsedDaysSince( this.last_state_change_timestamp ) 
-				    >= this.waypoint_idle_time_days )
+				if( clock.getElapsedDaysSince( last_state_change_timestamp ) 
+				    >= waypoint_idle_time_days )
 				{
 					change_state( IN_TRANSIT );
 					advance_waypoint_index();
@@ -177,19 +180,32 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 	{
 		// build a pool of potential waypoints
 		List waypoint_pool = new ArrayList();
-		waypoint_pool.addAll( this.star_system.getPlanets() );
-		waypoint_pool.addAll( this.star_system.getOrbitalStations() );
+		waypoint_pool.addAll( star_system.getPlanets() );
+		waypoint_pool.addAll( star_system.getOrbitalStations() );
 		// choose randomly
 		Collections.shuffle( waypoint_pool );
 		// choose a route size
-		float min = this.waypoints_per_trip_minimum;
-		float max = this.waypoints_per_trip_maximum;
+		float min = waypoints_per_trip_minimum;
+		float max = waypoints_per_trip_maximum;
 		float range = max - min;
 		int route_size = (int)Math.round((float)(Math.random())*range + min);
 		// create an appropriately sized slice of the shuffled pool as the route
 		List route_list = waypoint_pool.subList( 0, (route_size - 1) );
-		// create and add entry/exit waypoint
-		SectorEntityToken start = this.star_system.createToken( STAR_SYSTEM_RADIUS, STAR_SYSTEM_RADIUS );
+		// create and add entry/exit waypoint.
+		// choose a point at random that lies on the perimeter of the square 
+		//  depicting the 'border' of the sector.
+		Vector2f spawn_loc = new Vector2f( 
+			(float)(Math.random()*(2.0f*STAR_SYSTEM_RADIUS) - STAR_SYSTEM_RADIUS), 
+			STAR_SYSTEM_RADIUS );
+		if( Math.random() > 0.5 ) // 50% chance to flip from top to bottom
+			spawn_loc.y *= -1;
+		if( Math.random() > 0.5 ) // 50% chance to flip from left to right
+		{
+			float swap = spawn_loc.x;
+			spawn_loc.x = spawn_loc.y;
+			spawn_loc.y = swap;
+		}
+		SectorEntityToken start = star_system.createToken( spawn_loc.x, spawn_loc.y );
 		SectorEntityToken end = start;
 		route_list.add( 0, start );
 		route_list.add( end );
@@ -204,18 +220,18 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 	
 	private CampaignFleetAPI create_leader_fleet()
 	{
-		return this.sector.createFleet( this.faction_id, this.leader_fleet_id );
+		return sector.createFleet( faction_id, leader_fleet_id );
 	}
 	
 	private CampaignFleetAPI[] create_escort_fleets()
 	{
-		CampaignFleetAPI[] escort_fleets = new CampaignFleetAPI[this.escort_fleet_count];
+		CampaignFleetAPI[] escort_fleets = new CampaignFleetAPI[escort_fleet_count];
 		for( int i = 0; i < escort_fleets.length; ++i )
 		{
 			String fleet_id = weighted_string_pick( 
-				this.escort_fleet_composition_pool,
-				this.escort_fleet_composition_weights );
-			escort_fleets[i] = this.sector.createFleet( this.faction_id, fleet_id );
+				escort_fleet_composition_pool,
+				escort_fleet_composition_weights );
+			escort_fleets[i] = sector.createFleet( faction_id, fleet_id );
 		}
 		return escort_fleets;
 	}
@@ -240,59 +256,133 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 		}
 		return null;
 	}
-
-	private void update_escort_fleets()
-	{
-		// get position, speed, and direction of leader fleet.
-		// predict position of leader in the near future.
-		// calculate array of target positions based on formation and prediction.
-		// assign orders to escort fleets.
-		for( int i = 0; i < this.escort_fleets.length; ++i )
-			this.escort_fleets[i].addAssignment(
-				FleetAssignment.GO_TO_LOCATION,
-				this.current_route[this.current_route_waypoint_index],
-				1000 );
-	}
 	
+	
+	// persistent allocations for frequently-called function
+	private Vector2f _t1L;
+	private Vector2f _t2L;
+	private float _dx;
+	private float _dy;
+	////
 	private float get_distance( SectorEntityToken t1, SectorEntityToken t2 )
 	{
-		Vector2f v1 = t1.getLocation();
-		Vector2f v2 = t2.getLocation();
-		float dx = v2.x - v1.x;
-		float dy = v2.y - v1.y;
-		return (float)Math.sqrt( dx*dx + dy*dy );
+		_t1L = t1.getLocation();
+		_t2L = t2.getLocation();
+		_dx = _t1L.x - _t2L.x;
+		_dy = _t1L.y - _t2L.y;
+		return (float)Math.sqrt( _dx*_dx + _dy*_dy );
 	}
 
 	private void change_state( int new_state )
 	{
-		this.state = new_state;
-		this.last_state_change_timestamp = this.clock.getTimestamp();
+		state = new_state;
+		last_state_change_timestamp = clock.getTimestamp();
 	}
 	
 	private void advance_waypoint_index()
 	{
-		++this.current_route_waypoint_index;
+		++current_route_waypoint_index;
 		// check if last waypoint reached
-		if( this.current_route_waypoint_index >= this.current_route.length )
+		if( current_route_waypoint_index >= current_route.length )
 		{
 			change_state( OUT_OF_SECTOR );
 			remove_all_fleets();
 		}
 		else // not last waypoint, yet
 		{
-			this.leader_fleet.addAssignment(
+			leader_fleet.clearAssignments();
+			
+			leader_fleet.addAssignment(
 				FleetAssignment.GO_TO_LOCATION, 
-				this.current_route[this.current_route_waypoint_index], 
-				1000 );
+				current_route[current_route_waypoint_index], 
+				10000 );
+		}
+	}
+	
+	// persistent allocations for frequently-called function
+	private CampaignFleetAPI _escF;
+	private float _r; // radius
+	private Vector2f _LP; // leader position
+	private Vector2f _LV; // leader velocity
+	private float _phA; // phase angle constant
+	private float _eA; // escort fleet angle
+	private Vector2f _eP = new Vector2f(); // escort fleet position
+	private static final float _TS_FACTOR = 100000000.0f; // arbitrary (do not modify)
+	private float _o_sK; // orbit speed factor (could be parameterized)
+	private float _o_s; // orbit speed
+	////
+	private void update_escort_fleets()
+	{
+		// get position, speed, and direction of leader fleet.
+		_LP = leader_fleet.getLocation();
+		//_LV = leader_fleet.getVelocity();
+		// predict position of leader in the near future.
+		//   ... to do
+		// calculate array of target positions based on formation and prediction.
+		// assign orders to escort fleets.
+		switch( escort_formation )
+		{
+			case( ESCORT_ORBIT ):
+				// separation distance is the radius of the orbit.
+				// escort fleets are evenly-spaced around the circumference of the orbit.
+				// the orbit phase is locked to allow for slow fleets
+				_o_sK = 6.00f;
+				_o_s = _TS_FACTOR / _o_sK;
+				_phA = (float)((clock.getTimestamp()%((long)(TWO_PI*_o_s)))/_o_s);
+				
+				_r = escort_formation_separation_distance;
+
+				for( int i = 0; i < escort_fleets.length; ++i )
+				{
+					_escF = escort_fleets[i];
+					if( _escF.isAlive() )
+					{
+						_escF.clearAssignments();
+
+						_eA = i*(TWO_PI/(float)escort_fleets.length) + _phA;
+						_eP.x = (float)(_LP.x + _r*Math.cos( _eA ));
+						_eP.y = (float)(_LP.y + _r*Math.sin( _eA ));
+
+						_escF.setLocation(_eP.x, _eP.y); // looks cooler.
+						/*escort_fleets[i].addAssignment(
+							FleetAssignment.DEFEND_LOCATION,
+							star_system.createToken(_eP.x, _eP.y),
+							10000 );*/
+					}
+				}
+				break;
+		}
+	}
+	
+	private void check_leader_still_alive()
+	{
+		if( ! leader_fleet.isAlive() )
+		{
+			scatter_remaining_escort_fleets();
+			change_state( OUT_OF_SECTOR );
+		}
+	}
+	
+	private void scatter_remaining_escort_fleets()
+	{
+		for( int i = 0; i < escort_fleets.length; ++i )
+		{
+			_escF = escort_fleets[i];
+			if( _escF.isAlive() )
+			{
+				_escF.clearAssignments();
+				_escF.addAssignment(
+					FleetAssignment.RAID_SYSTEM, star_system.getStar(), 1000 );
+			}
 		}
 	}
 	
 	private void remove_all_fleets()
 	{
 		// despawn fleets
-		this.leader_fleet.addAssignment(
+		leader_fleet.addAssignment(
 			FleetAssignment.GO_TO_LOCATION_AND_DESPAWN, 
-			this.current_route[this.current_route.length - 1], 
+			current_route[current_route.length - 1], 
 			1000 );
 	}
 	
