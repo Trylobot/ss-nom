@@ -1,21 +1,8 @@
 {
-  "nom_doom_cannon_chargeup":[{
-    "file":"sounds/fx/beams/fire_beam_heavy_intro01a.ogg",
-    "pitch":2, "volume":1.25
-  }],
-  "nom_doom_cannon_fire":[{
-    "file":"sounds/nom/fx/34205__themfish__zoup.wav",
-    "pitch":1, "volume":1.00
-  }],
-
-  "nom_ultralight_electron_maser_fire":[{
-  	"file":"sounds/fx/beams/fire_beam_burst01.ogg",
-		"pitch":4,"volume":0.275
-	}],
-
-  "nom_maser_pulse_beam_fire":[{
-    "file":"sounds/nom/fx/42108__marcuslee__laser-wrath-6.wav",
-    "pitch":1, "volume":0.8
-  }],
+  "nom_doom_cannon_chargeup":           [{ "file":"sounds/nom/fx/Starfarer_0.54a/fire_beam_heavy_intro01a.ogg", "pitch":2.000, "volume":1.250 }],
+  "nom_doom_cannon_fire":               [{ "file":"sounds/nom/fx/34205__themfish__zoup.wav",                    "pitch":1.000, "volume":1.000 }],
+  "nom_ultralight_electron_maser_fire": [{ "file":"sounds/nom/fx/Starfarer_0.54a/fire_beam_burst01.ogg",        "pitch":4.000, "volume":0.275 }],
+  "energy_pulse":                       [{ "file":"sounds/nom/fx/Starfarer_0.54a/fire_beam_burst01.ogg",        "pitch":1.000, "volume":0.500 }],
+  "nom_maser_pulse_beam_fire":          [{ "file":"sounds/nom/fx/42108__marcuslee__laser-wrath-6.wav",          "pitch":1.000, "volume":0.800 }],
 }
 
