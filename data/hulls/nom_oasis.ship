@@ -348,7 +348,20 @@
   "spriteName": "graphics/nom/ships/nom_oasis.png",
   "style": "LOW_TECH",
   "viewOffset": 0,
-  "weaponSlots": [],
+  "weaponSlots": [
+    {
+      "angle": 0,
+      "arc": 0,
+      "id": "WS0001",
+      "locations": [
+        126.5,
+        2.5
+      ],
+      "mount": "TURRET",
+      "size": "LARGE",
+      "type": "DECORATIVE"
+    }
+  ],
   "width": 288,
   "builtInMods":["repair_gantry"]
 }
