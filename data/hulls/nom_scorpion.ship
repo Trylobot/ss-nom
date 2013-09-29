@@ -364,5 +364,16 @@
       "size": "SMALL",
       "type": "ENERGY"
     }
-  ]
+  ],
+  "builtInWeapons":{
+        "WS 4": "pilum",
+        "WS 5": "pilum",
+        "WS 6": "hurricane",
+        "WS 1": "harpoonpod",
+        "WS 7": "salamanderpod",
+        "WS 2": "swarmer",
+        "WS 3": "swarmer",
+        "WS 8": "nom_ultralight_electron_maser",
+        "WS 9": "nom_ultralight_electron_maser",
+  }
 }

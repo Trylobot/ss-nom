@@ -197,5 +197,9 @@
       "size": "SMALL",
       "type": "ENERGY"
     }
-  ]
+  ],
+  "builtInWeapons":{
+        "WS 1": "nom_maser_pulse_beam",
+        "WS 2": "nom_ultralight_electron_maser",
+  }
 }
