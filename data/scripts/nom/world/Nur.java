@@ -1,26 +1,14 @@
 package data.scripts.nom.world.systems;
-
 import java.awt.Color;
 import java.util.List;
-
-import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.campaign.CargoAPI;
-import com.fs.starfarer.api.campaign.JumpPointAPI;
-import com.fs.starfarer.api.campaign.LocationAPI;
-import com.fs.starfarer.api.campaign.OrbitAPI;
-import com.fs.starfarer.api.campaign.PlanetAPI;
-import com.fs.starfarer.api.campaign.SectorAPI;
-import com.fs.starfarer.api.campaign.SectorEntityToken;
-import com.fs.starfarer.api.campaign.StarSystemAPI;
-import com.fs.starfarer.api.campaign.CargoAPI.CrewXPLevel;
-import com.fs.starfarer.api.fleet.FleetMemberType;
-
-import com.fs.starfarer.api.campaign.*;
+import com.fs.starfarer.api.*;
 import data.scripts.world.*;
 
-public class Nur {
-
-	public void generate(SectorAPI sector) {
+@SuppressWarnings( "unchecked" )
+public class Nur
+{
+	public void generate(SectorAPI sector)
+	{
 		StarSystemAPI system = sector.createStarSystem("Nur");
 		LocationAPI hyper = Global.getSector().getHyperspace();
 		
@@ -127,7 +115,47 @@ public class Nur {
 		// generates hyperspace destinations for in-system jump points
 		system.autogenerateHyperspaceJumpPoints(true, true);
 		
+		///////////////////////////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////////////////////////
 		
+		StarSystemAPI system = sector.getStarSystem( "Corvus" );
+		
+		GenericWaypointArmadaController spawner = new GenericWaypointArmadaController(
+			"nomads",
+			"colonyFleet",
+			sector, 
+			system, 
+		  8, /* escort_fleet_count */
+			new String[]{ "scout", "longRangeScout", "battleGroup", "royalGuard", "jihadFleet" }, /* escort_fleet_composition_pool */
+			new float[] {  0.250f,  0.250f,           0.200f,        0.175f,       0.125f      }, /* escort_fleet_composition_weights */
+			GenericWaypointArmadaController.ESCORT_ORBIT, /* escort_formation */
+			300.0f, /* escort_formation_separation_distance */
+			2, /* waypoint_per_trip_minimum */
+			4, /* waypoint_per_trip_maximum */
+			2, /* waypoint_idle_time_days */
+			12 /* out_of_sector_time_days */ );
+		system.addSpawnPoint( spawner ); // automatic from here on out
+
+		// relationships
+		FactionAPI faction = sector.getFaction( "nomads" );
+		faction.setRelationship( "player", -1 );
+		faction.setRelationship( "hegemony", -1 );
+		faction.setRelationship( "tritachyon", -1 );
+		faction.setRelationship( "pirates",  -1 );
+		faction.setRelationship( "independent", -1 );
+			
+		
+		/// DEBUGGING ONLY
+		faction.setRelationship( "player", 1 );
+//		sector.getPlayerFleet().setLocation( 15000f, 15000f );
+		///
+
+		///////////////////////////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 		DiktatPatrolSpawnPoint patrolSpawn = new DiktatPatrolSpawnPoint(sector, system, 5, 3, a1);
 		system.addScript(patrolSpawn);
 		for (int i = 0; i < 5; i++)
@@ -142,7 +170,8 @@ public class Nur {
 	}
 	
 	
-	private void initStationCargo(SectorEntityToken station) {
+	private void initStationCargo(SectorEntityToken station)
+	{
 		CargoAPI cargo = station.getCargo();
 		addRandomWeapons(cargo, 5);
 		
@@ -165,9 +194,11 @@ public class Nur {
 		cargo.getMothballedShips().addFleetMember(Global.getFactory().createFleetMember(FleetMemberType.FIGHTER_WING, "gladius_wing"));
 	}
 	
-	private void addRandomWeapons(CargoAPI cargo, int count) {
+	private void addRandomWeapons(CargoAPI cargo, int count)
+	{
 		List weaponIds = Global.getSector().getAllWeaponIds();
-		for (int i = 0; i < count; i++) {
+		for (int i = 0; i < count; i++)
+		{
 			String weaponId = (String) weaponIds.get((int) (weaponIds.size() * Math.random()));
 			int quantity = (int)(Math.random() * 4f + 2f);
 			cargo.addWeapons(weaponId, quantity);

@@ -294,7 +294,7 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 			
 			leader_fleet.addAssignment(
 				FleetAssignment.GO_TO_LOCATION, 
-				current_route[current_route_waypoint_index], 
+				current_route[current_route_waypoint_index],
 				10000 );
 		}
 	}
