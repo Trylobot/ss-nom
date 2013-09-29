@@ -1,0 +1,44 @@
+{
+	"desert_large":{
+		"name":"Desert",
+		"tilt":30, # left-right (>0 tilts to the left)
+		"pitch":0, # towards-away from the viewer (>0 pitches towards)
+		"rotation":-3, # degrees/second
+		"planetColor":[255,255,255,255],
+		"atmosphereThickness":0.1, # as fraction of radius.  Set to 0 for no atmosphere
+		"atmosphereThicknessMin":40, #  minimum thickness in pixels
+		"atmosphereColor":[150,150,145,130],
+		"texture":"graphics/planets/desert01.jpg",
+		"icon":"graphics/warroom/icon_planet.png",
+		"iconColor":[200,170,145,255],
+		"isStar":false,
+		"lightPosition":[-2,2,7], # in planet radii.  Not used for stars.  z > 0 is above the playing field.
+		"cloudTexture":"graphics/planets/clouds_banded01.png", # omit for no cloud layer
+		"cloudColor":[220,190,160,180],
+		"cloudRotation":-10, # degrees/second, optional
+		"cloudOffset":2, # optional, this is how much bigger the cloud sphere is than the planet.  Good values are 2-10		
+	},	
+	"star_blue":{
+		"name":"Blue Star",
+		"tilt":0, # left-right (>0 tilts to the left)
+		"pitch":0, # towards-away from the viewer (>0 pitches towards)
+		"rotation":-3, # degrees/second
+		"planetColor":[255,255,255,255],
+		"atmosphereThickness":0.25, # as fraction of radius.  Set to 0 for no atmosphere
+		"atmosphereThicknessMin":10, #  minimum thickness in pixels
+		"atmosphereColor":[255,255,160,255],
+		"texture":"graphics/planets/star_texture_yellow.jpg",
+		"icon":"graphics/warroom/icon_star.png",
+		"iconColor":[255,255,0,255],
+		"starCoronaSprite":"graphics/fx/star_halo.png", # optional, defaults to really bright particle
+		"starCoronaColor":[255,255,150,60], # optional, defaults to white
+		"starCoronaSizeMult":5.12, # required, multiplier for star's radius
+		"isStar":true,
+		"lightPosition":[0,0,10], # in planet radii.  Not used for stars.  z > 0 is above the playing field.
+	},
+}
+
+
+
+
+

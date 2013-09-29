@@ -1,7 +1,7 @@
-"name","id","tier","base value","range","damage/second","damage/shot","emp","impact","turn rate","OPs","ammo","type","energy/shot","energy/second","chargeup","chargedown","burst size","burst delay","min spread","max spread","spread/shot","spread decay/sec","beam speed","proj speed","launch speed","flight time","proj hitpoints","hints","number"
-"Ultralight Electron Maser","nom_ultralight_electron_maser",1,150,280,,10.75,,10,75,2,,"ENERGY",17,,,0.18,,,,,,,,1000,,,75,"PD",1337103
-"Light Electron Maser","nom_light_electron_maser",1,350,400,,30,,15,65,4,,"ENERGY",32,,,0.3,,,,,,,,820,,,100,"PD",1337100
-"Heavy Electron Maser","nom_heavy_electron_maser",1,1100,600,,55,,30,45,8,,"ENERGY",60,,,0.435,,,,,,,,675,,,200,,1337101
-"Maser Pulse Beam","nom_maser_pulse_beam",1,3000,1250,,220,,80,15,20,,"ENERGY",800,,,1.8,,,,,,,,3000,,,100,,1337105
-"Twin Electron Maser","nom_twin_electron_maser",1,4000,815,,60,,30,45,18,,"ENERGY",60,,,0.289,2,0.2,,,,,,675,,,200,,1337104
-"Doom Cannon","nom_doom_cannon",1,18000,1125,,1350,,300,10,75,,"ENERGY",2400,,0.5,0.2,,,,,,,,410,,,1000,,1337102
+name,id,tier,base value,range,damage/second,damage/shot,emp,impact,turn rate,OPs,ammo,type,energy/shot,energy/second,chargeup,chargedown,burst size,burst delay,min spread,max spread,spread/shot,spread decay/sec,beam speed,proj speed,launch speed,flight time,proj hitpoints,hints,number
+Ultralight Electron Maser,nom_ultralight_electron_maser,1,150,280,,10.75,,10,75,2,,ENERGY,17,,,0.18,,,,,,,,1000,,,75,PD,1337103
+Light Electron Maser,nom_light_electron_maser,1,350,400,,30,,15,65,4,,ENERGY,32,,,0.3,,,,,,,,820,,,100,PD,1337100
+Heavy Electron Maser,nom_heavy_electron_maser,1,1100,600,,55,,30,45,8,,ENERGY,60,,,0.435,,,,,,,,675,,,200,,1337101
+Maser Pulse Beam,nom_maser_pulse_beam,1,3000,1250,,220,,80,15,20,,ENERGY,800,,,1.8,,,,,,,,3000,,,100,,1337105
+Twin Electron Maser,nom_twin_electron_maser,1,4000,815,,60,,30,45,18,,ENERGY,60,,,0.289,2,0.2,,,,,,675,,,200,,1337104
+Doom Cannon,nom_doom_cannon,1,18000,1500,,1600,,3000,10,125,,ENERGY,2000,,0.35,0.125,,,,,,,,390,,,99999,,1337102

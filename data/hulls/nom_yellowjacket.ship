@@ -183,7 +183,7 @@
       ],
       "mount": "HARDPOINT",
       "size": "LARGE",
-      "type": "ENERGY"
+      "type": "BUILT_IN"
     },
     {
       "angle": 22.4,
@@ -195,7 +195,7 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "ENERGY"
+      "type": "BUILT_IN"
     }
   ],
   "builtInWeapons":{

@@ -1,13 +1,12 @@
 {
   "displayName": "Transport",
   "fluxCapacitors": 0,
-  "fluxVents": 0,
+  "fluxVents": 10,
   "hullId": "nom_oasis",
   "hullMods": [
     "heavyarmor",
     "blast_doors",
     "reinforcedhull",
-    "repair_gantry",
     "autorepair",
     "insulatedengine"
   ],

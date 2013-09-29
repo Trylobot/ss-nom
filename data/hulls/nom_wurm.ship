@@ -154,7 +154,7 @@
       ],
       "mount": "TURRET",
       "size": "MEDIUM",
-      "type": "ENERGY"
+      "type": "BUILT_IN"
     },
     {
       "angle": 20.6,
@@ -166,7 +166,7 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "ENERGY"
+      "type": "BUILT_IN"
     },
     {
       "angle": -53.1,
@@ -178,7 +178,7 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "ENERGY"
+      "type": "BUILT_IN"
     },
     {
       "angle": 54.5,
@@ -190,7 +190,7 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "ENERGY"
+      "type": "BUILT_IN"
     }
   ],
   "builtInWeapons":{

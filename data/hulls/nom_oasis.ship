@@ -349,5 +349,6 @@
   "style": "LOW_TECH",
   "viewOffset": 0,
   "weaponSlots": [],
-  "width": 288
+  "width": 288,
+  "builtInMods":["repair_gantry"]
 }

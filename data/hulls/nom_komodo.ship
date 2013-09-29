@@ -278,7 +278,7 @@
       ],
       "mount": "TURRET",
       "size": "MEDIUM",
-      "type": "ENERGY"
+      "type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -290,7 +290,7 @@
       ],
       "mount": "TURRET",
       "size": "LARGE",
-      "type": "ENERGY"
+      "type": "BUILT_IN"
     },
     {
       "angle": -15.9,
@@ -302,7 +302,7 @@
       ],
       "mount": "TURRET",
       "size": "MEDIUM",
-      "type": "ENERGY"
+      "type": "BUILT_IN"
     },
     {
       "angle": 90.0,
@@ -314,7 +314,7 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "ENERGY"
+      "type": "BUILT_IN"
     },
     {
       "angle": 28.299999,
@@ -326,7 +326,7 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "ENERGY"
+      "type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -338,7 +338,7 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "ENERGY"
+      "type": "BUILT_IN"
     },
     {
       "angle": -60.299999,
@@ -350,7 +350,7 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "ENERGY"
+      "type": "BUILT_IN"
     },
     {
       "angle": -90.0,
@@ -362,7 +362,7 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "ENERGY"
+      "type": "BUILT_IN"
     },
     {
       "angle": 77.0,
@@ -374,18 +374,18 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "ENERGY"
+      "type": "BUILT_IN"
     }
   ],
   "builtInWeapons":{
-        "WS 001": "nom_heavy_electron_maser",
         "WS 002": "nom_twin_electron_maser",
+        "WS 001": "nom_heavy_electron_maser",
         "WS 003": "nom_heavy_electron_maser",
         "WS 005": "nom_light_electron_maser",
         "WS 006": "nom_light_electron_maser",
-        "WS 004": "nom_ultralight_electron_maser",
         "WS 007": "nom_light_electron_maser",
-        "WS 008": "nom_ultralight_electron_maser",
         "WS 1": "nom_light_electron_maser",
+        "WS 004": "nom_ultralight_electron_maser",
+        "WS 008": "nom_ultralight_electron_maser",
   }
 }

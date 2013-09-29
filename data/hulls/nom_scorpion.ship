@@ -266,7 +266,7 @@
       ],
       "mount": "HARDPOINT",
       "size": "MEDIUM",
-      "type": "MISSILE"
+      "type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -278,7 +278,7 @@
       ],
       "mount": "HARDPOINT",
       "size": "MEDIUM",
-      "type": "MISSILE"
+      "type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -290,7 +290,7 @@
       ],
       "mount": "HARDPOINT",
       "size": "SMALL",
-      "type": "MISSILE"
+      "type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -302,7 +302,7 @@
       ],
       "mount": "HARDPOINT",
       "size": "SMALL",
-      "type": "MISSILE"
+      "type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -314,7 +314,7 @@
       ],
       "mount": "HARDPOINT",
       "size": "MEDIUM",
-      "type": "MISSILE"
+      "type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -326,7 +326,7 @@
       ],
       "mount": "HARDPOINT",
       "size": "LARGE",
-      "type": "MISSILE"
+      "type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -338,7 +338,7 @@
       ],
       "mount": "HARDPOINT",
       "size": "MEDIUM",
-      "type": "MISSILE"
+      "type": "BUILT_IN"
     },
     {
       "angle": -112.6,
@@ -350,7 +350,7 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "ENERGY"
+      "type": "BUILT_IN"
     },
     {
       "angle": 119.1,
@@ -362,7 +362,7 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "ENERGY"
+      "type": "BUILT_IN"
     }
   ],
   "builtInWeapons":{
