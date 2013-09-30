@@ -1,8 +1,9 @@
 {
-  "id":"nomads",
-	"name":"The Nomads",
-	"version":"1.0",
-	"description":"Adds content for The Nomads faction",
-  "gameVersion":"0.6a",
+	"name":"The Nomads", #displayed
   "author":"Trylobot",
+  "id":"nomads", #internal
+	"version":"0.9.5",
+	"description":"The Nomad Armada wanders about.",
+	"modPlugin":"data.scripts.TheNomadsModPlugin",
+  "gameVersion":"0.6a",
 }

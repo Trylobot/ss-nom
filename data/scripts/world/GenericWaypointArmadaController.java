@@ -13,6 +13,8 @@ import java.util.Collections;
 import java.util.List;
 import org.lwjgl.util.vector.Vector2f;
 
+// TODO: implement EveryFrameScript
+
 @SuppressWarnings("unchecked")
 public class GenericWaypointArmadaController implements SpawnPointPlugin
 {
@@ -31,7 +33,7 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 	
 	// current star system
 	private SectorAPI sector;
-	private LocationAPI location;
+	private StarSystemAPI system;
 
 	// basic behavior options
 	private String faction_id;
@@ -46,7 +48,6 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 	private int waypoint_idle_time_days;
 	private int out_of_sector_time_days;
 	
-	private StarSystemAPI star_system;
 	private CampaignClockAPI clock;
 
 	// Refers to the "Armada Leader" - this fleet is the one issued the waypoint
@@ -79,7 +80,7 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 		String faction_id,
 		String leader_fleet_id,
 		SectorAPI sector,
-		LocationAPI location,
+		StarSystemAPI system,
 		int escort_fleet_count,
 		String[] escort_fleet_composition_pool,
 		float[] escort_fleet_composition_weights,
@@ -94,7 +95,7 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 		this.faction_id = faction_id;
 		this.leader_fleet_id = leader_fleet_id;
 		this.sector = sector;
-		this.location = location;
+		this.system = system;
 		this.escort_fleet_count = escort_fleet_count;
 		// pool and weights assumed to be non-null, non-empty and of equal length
 		this.escort_fleet_composition_pool = escort_fleet_composition_pool;
@@ -106,7 +107,6 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 		this.waypoint_idle_time_days = waypoint_idle_time_days;
 		this.out_of_sector_time_days = out_of_sector_time_days;
 
-		this.star_system = sector.getStarSystem("Corvus");
 		this.clock = sector.getClock();
 	}
 	
@@ -128,13 +128,13 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 					current_route_waypoint_index = 0;
 					// create leader fleet
 					leader_fleet = create_leader_fleet();
-					star_system.spawnFleet( 
+					system.spawnFleet( 
 						current_route[0], 0, 0, leader_fleet );
 					// create escort fleets
 					escort_fleets = create_escort_fleets();
 					for( int i = 0; i < escort_fleets.length; ++i )
 					{
-						star_system.spawnFleet(
+						system.spawnFleet(
 							current_route[0], 0, 0, escort_fleets[i] );
 					}
 					// controller state
@@ -180,8 +180,8 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 	{
 		// build a pool of potential waypoints
 		List waypoint_pool = new ArrayList();
-		waypoint_pool.addAll( star_system.getPlanets() );
-		waypoint_pool.addAll( star_system.getOrbitalStations() );
+		waypoint_pool.addAll( system.getPlanets() );
+		waypoint_pool.addAll( system.getOrbitalStations() );
 		// choose randomly
 		Collections.shuffle( waypoint_pool );
 		// choose a route size
@@ -205,7 +205,7 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 			spawn_loc.x = spawn_loc.y;
 			spawn_loc.y = swap;
 		}
-		SectorEntityToken start = star_system.createToken( spawn_loc.x, spawn_loc.y );
+		SectorEntityToken start = system.createToken( spawn_loc.x, spawn_loc.y );
 		SectorEntityToken end = start;
 		route_list.add( 0, start );
 		route_list.add( end );
@@ -372,7 +372,7 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 			{
 				_escF.clearAssignments();
 				_escF.addAssignment(
-					FleetAssignment.RAID_SYSTEM, star_system.getStar(), 1000 );
+					FleetAssignment.RAID_SYSTEM, system.getStar(), 1000 );
 			}
 		}
 	}

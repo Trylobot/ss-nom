@@ -1,102 +1,86 @@
 package data.scripts.world;
+import com.fs.starfarer.api.FactoryAPI;
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.FactionAPI;
+import com.fs.starfarer.api.campaign.JumpPointAPI;
 import com.fs.starfarer.api.campaign.LocationAPI;
+import com.fs.starfarer.api.campaign.OrbitAPI;
 import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
+import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
 import java.awt.Color;
+import java.util.List;
 
 @SuppressWarnings( "unchecked" )
 public class TheNomadsNur
 {
 	public void generate(SectorAPI sector)
 	{
-		StarSystemAPI system = sector.createStarSystem("Nur");
+		FactoryAPI factory = Global.getFactory();
 		LocationAPI hyper = Global.getSector().getHyperspace();
 		
-		system.setBackgroundTextureFilename("graphics/nom/backgrounds/background_nur.jpg");
+		// system
+		StarSystemAPI system = sector.createStarSystem( "Nur" );
+//		system.getLocation().set( 18000f, -900f ); // location in hyperspace
+		system.initStar( "star_blue", 1000f, 18000f, -900f );
+		system.setBackgroundTextureFilename( "graphics/nom/backgrounds/background_nur.jpg" );
+		system.setLightColor( new Color( 180, 180, 250 )); // light color in entire system, affects all entities
 		
-		// create the star and generate the hyperspace anchor for this system
-		PlanetAPI star = system.initStar("star_blue", // id in planets.json
-										 1000f, 		// radius (in pixels at default zoom)
-										 18000, -900);   // location in hyperspace
+		// stars, planets and moons
+		SectorEntityToken system_center_of_mass = system.createToken( 0f, 0f );
+		PlanetAPI star_A = system.addPlanet( system_center_of_mass, "Nur-A", "star_blue", 0f, 1000f, 1500f, 224f );
+		PlanetAPI star_B = system.addPlanet( system_center_of_mass, "Nur-B", "star_red", 180f, 300f, 450f, 224f );
+		PlanetAPI planet_I = system.addPlanet( system_center_of_mass, "Nur I", "desert", 45f, 400f, 4500f, 772f );
+		PlanetAPI planet_I__moon_a = system.addPlanet( planet_I, "Nur I-a", "rocky_unstable", 0f, 80f, 800f, 67f );
+		PlanetAPI planet_I__moon_b = system.addPlanet( planet_I, "Nur I-b", "rocky_ice", 45f, 60f, 1000f, 120f );
+		PlanetAPI planet_I__moon_c = system.addPlanet( planet_I, "Nur I-c", "barren", 90f, 130f, 1200f, 130f );
+		PlanetAPI planet_I__moon_d = system.addPlanet( planet_I, "Nur I-d", "rocky_ice", 135f, 40f, 1500f, 132f );
+		PlanetAPI planet_I__moon_e = system.addPlanet( planet_I, "Nur I-e", "frozen", 180f, 80f, 1750f, 200f );
+		PlanetAPI planet_I__moon_f = system.addPlanet( planet_I, "Nur I-f", "frozen", 225f, 100f, 2000f, 362f );
 		
-		system.setLightColor(new Color(180, 180, 250)); // light color in entire system, affects all entities
 		
-
-		/*
-		 * addPlanet() parameters:
-		 * 1. What the planet orbits (orbit is always circular)
-		 * 2. Name
-		 * 3. Planet type id in planets.json
-		 * 4. Starting angle in orbit, i.e. 0 = to the right of the star
-		 * 5. Planet radius, pixels at default zoom
-		 * 6. Orbit radius, pixels at default zoom
-		 * 7. Days it takes to complete an orbit. 1 day = 10 seconds.
-		 */
-//		PlanetAPI a1 = system.addPlanet(star, "Sindria", "rocky_metallic", 0, 150, 2500, 100);
-//		PlanetAPI a2 = system.addPlanet(star, "Salus", "gas_giant", 230, 350, 7000, 250);
+		
+		// rings & bands
+		system.addRingBand( planet_I, "misc", "rings1", 256f, 0, Color.white, 128f, 1300f, 90f );
+		
+		// descriptions
+//		star_A.setCustomDescriptionId("nom_star_nur_alpha");
+//		star_B.setCustomDescriptionId("nom_star_nur_beta");
+//		planet_I.setCustomDescriptionId("nom_planet_I");
+//		planet_I__moon_a.setCustomDescriptionId("nom_planet_I__moon_a");
+//		planet_I__moon_b.setCustomDescriptionId("nom_planet_I__moon_b");
+//		planet_I__moon_c.setCustomDescriptionId("nom_planet_I__moon_c");
+//		planet_I__moon_d.setCustomDescriptionId("nom_planet_I__moon_d");
+//		planet_I__moon_e.setCustomDescriptionId("nom_planet_I__moon_e");
+//		planet_I__moon_f.setCustomDescriptionId("nom_planet_I__moon_f");
+		
+		// inline spec changes
+//    planet_I.getSpec().setPlanetColor( new Color( 255,215,255, 255 ));
+		planet_I.getSpec().setAtmosphereColor( new Color( 160,110,45, 140 ));
+		planet_I.getSpec().setCloudColor( new Color( 255,255,255, 23 ));
+		planet_I.getSpec().setTilt( 15 );
+		planet_I.applySpecChanges();
+		
+		// jump points
+		system.autogenerateHyperspaceJumpPoints( true, true );
+//		JumpPointAPI jump_A_from_system = factory.createJumpPoint( "Jump Point Alpha" );
+//		OrbitAPI jump_orbit = factory.createCircularOrbit( planet_I, 275f, 525f, 90f );
+//		jump_A_from_system.setOrbit( jump_orbit );
+//		jump_A_from_system.setRelatedPlanet( planet_I );
+//		jump_A_from_system.setStandardWormholeToHyperspaceVisual();
+//		system.addEntity( jump_A_from_system );
 //		
-//		PlanetAPI a21 = system.addPlanet(a2, "Cruor", "rocky_unstable", 45, 80, 800, 25);
-//		PlanetAPI a22 = system.addPlanet(a2, "Volturn", "water", 110, 120, 1400, 45);
+//		JumpPointAPI jump_A_from_hyper = factory.createJumpPoint( "Nur I" );
+//		jump_A_from_hyper.getLocation().set( 0, 0 );
+//		hyper.addEntity( jump_A_from_hyper );
 //		
-//		PlanetAPI a3 = system.addPlanet(star, "Umbra", "rocky_ice", 280, 150, 12000, 650);
-//		
-//		a1.setCustomDescriptionId("planet_sindria");
-//		a2.setCustomDescriptionId("planet_salus");
-//		a21.setCustomDescriptionId("planet_cruor");
-//		a22.setCustomDescriptionId("planet_volturn");
-//		a3.setCustomDescriptionId("planet_umbra");
-//		
-//		a2.getSpec().setPlanetColor(new Color(255,215,190,255));
-//		a2.getSpec().setAtmosphereColor(new Color(160,110,45,140));
-//		a2.getSpec().setCloudColor(new Color(255,164,96,200));
-//		a2.getSpec().setTilt(15);
-//		a2.applySpecChanges();
-//		
-//		/*
-//		 * addAsteroidBelt() parameters:
-//		 * 1. What the belt orbits
-//		 * 2. Number of asteroids
-//		 * 3. Orbit radius
-//		 * 4. Belt width
-//		 * 6/7. Range of days to complete one orbit. Value picked randomly for each asteroid. 
-//		 */
+//		system.setHyperspaceAnchor( jump_A_from_hyper );
+		
+		
+		// asteroids
 //		system.addAsteroidBelt(a2, 50, 1100, 128, 40, 80);
-//		
-//		
-//		/*
-//		 * addRingBand() parameters:
-//		 * 1. What it orbits
-//		 * 2. Category under "graphics" in settings.json
-//		 * 3. Key in category
-//		 * 4. Width of band within the texture
-//		 * 5. Index of band
-//		 * 6. Color to apply to band
-//		 * 7. Width of band (in the game)
-//		 * 8. Orbit radius (of the middle of the band)
-//		 * 9. Orbital period, in days
-//		 */
-//		system.addRingBand(a2, "misc", "rings1", 256f, 2, Color.white, 256f, 1100, 40f);
-//		system.addRingBand(a2, "misc", "rings1", 256f, 2, Color.white, 256f, 1100, 60f);
-//		system.addRingBand(a2, "misc", "rings1", 256f, 2, Color.white, 256f, 1100, 80f);
-//		
-////		system.addRingBand(a2, "misc", "rings1", 256f, 0, Color.white, 256f, 1700, 50f);
-////		system.addRingBand(a2, "misc", "rings1", 256f, 0, Color.white, 256f, 1700, 70f);
-////		system.addRingBand(a2, "misc", "rings1", 256f, 1, Color.white, 256f, 1700, 90f);
-////		system.addRingBand(a2, "misc", "rings1", 256f, 1, Color.white, 256f, 1700, 110f);
-//		
-//		system.addRingBand(a2, "misc", "rings1", 256f, 3, Color.white, 256f, 1800, 70f);
-//		system.addRingBand(a2, "misc", "rings1", 256f, 3, Color.white, 256f, 1800, 90f);
-//		system.addRingBand(a2, "misc", "rings1", 256f, 3, Color.white, 256f, 1800, 110f);
-//		
-//		system.addRingBand(a2, "misc", "rings1", 256f, 0, Color.white, 256f, 2150, 50f);
-//		system.addRingBand(a2, "misc", "rings1", 256f, 0, Color.white, 256f, 2150, 70f);
-//		system.addRingBand(a2, "misc", "rings1", 256f, 0, Color.white, 256f, 2150, 80f);
-//		system.addRingBand(a2, "misc", "rings1", 256f, 1, Color.white, 256f, 2100, 90f);
-//		
-//		
-//		
+
 //		JumpPointAPI jumpPoint = Global.getFactory().createJumpPoint("Jump Point Alpha");
 //		OrbitAPI orbit = Global.getFactory().createCircularOrbit(a1, 0, 500, 30);
 //		jumpPoint.setOrbit(orbit);
@@ -115,7 +99,7 @@ public class TheNomadsNur
 ////		station.setCustomInteractionDialogImageVisual(new InteractionDialogImageVisual("illustrations", "cargo_loading", 1200, 1200));
 //		
 //		// generates hyperspace destinations for in-system jump points
-//		system.autogenerateHyperspaceJumpPoints(true, true);
+		
 		
 		///////////////////////////////////////////////////////////////////////////////////////////////////
 		///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -123,29 +107,30 @@ public class TheNomadsNur
 		
 //		StarSystemAPI system = sector.getStarSystem( "Corvus" );
 //		
-//		GenericWaypointArmadaController spawner = new GenericWaypointArmadaController(
-//			"nomads",
-//			"colonyFleet",
-//			sector, 
-//			system, 
-//		  8, /* escort_fleet_count */
-//			new String[]{ "scout", "longRangeScout", "battleGroup", "royalGuard", "jihadFleet" }, /* escort_fleet_composition_pool */
-//			new float[] {  0.250f,  0.250f,           0.200f,        0.175f,       0.125f      }, /* escort_fleet_composition_weights */
-//			GenericWaypointArmadaController.ESCORT_ORBIT, /* escort_formation */
-//			300.0f, /* escort_formation_separation_distance */
-//			2, /* waypoint_per_trip_minimum */
-//			4, /* waypoint_per_trip_maximum */
-//			2, /* waypoint_idle_time_days */
-//			12 /* out_of_sector_time_days */ );
-//		system.addSpawnPoint( spawner ); // automatic from here on out
-//
-//		// relationships
-//		FactionAPI faction = sector.getFaction( "nomads" );
-//		faction.setRelationship( "player", -1 );
-//		faction.setRelationship( "hegemony", -1 );
-//		faction.setRelationship( "tritachyon", -1 );
-//		faction.setRelationship( "pirates",  -1 );
-//		faction.setRelationship( "independent", -1 );
+		GenericWaypointArmadaController nomad_armada_spawner = new GenericWaypointArmadaController(
+			"nomads",
+			"colonyFleet",
+			sector, 
+			system, 
+		  8, /* escort_fleet_count */
+			new String[]{ "scout", "longRangeScout", "battleGroup", "royalGuard", "jihadFleet" }, /* escort_fleet_composition_pool */
+			new float[] {  0.250f,  0.250f,           0.200f,        0.175f,       0.125f      }, /* escort_fleet_composition_weights */
+			GenericWaypointArmadaController.ESCORT_ORBIT, /* escort_formation */
+			300.0f, /* escort_formation_separation_distance */
+			2, /* waypoint_per_trip_minimum */
+			4, /* waypoint_per_trip_maximum */
+			2, /* waypoint_idle_time_days */
+			12 /* out_of_sector_time_days */ );
+		system.addSpawnPoint( nomad_armada_spawner ); // automatic from here on out
+
+		// relationships - none, hostile to all, including player
+		FactionAPI nomads_faction = sector.getFaction( "nomads" );
+		List<FactionAPI> all_factions = sector.getAllFactions();
+		for( FactionAPI cur_faction : all_factions )
+		{
+			if( cur_faction != nomads_faction )
+				nomads_faction.setRelationship( cur_faction.getId(), -1 );
+		}
 //			
 //		
 //		/// DEBUGGING ONLY
