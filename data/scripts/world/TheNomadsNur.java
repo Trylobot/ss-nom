@@ -1,5 +1,5 @@
-package data.scripts.nom.world;
-import com.fs.starfarer.api.*;
+package data.scripts.world;
+import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.LocationAPI;
 import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
@@ -7,7 +7,7 @@ import com.fs.starfarer.api.campaign.StarSystemAPI;
 import java.awt.Color;
 
 @SuppressWarnings( "unchecked" )
-public class Nur
+public class TheNomadsNur
 {
 	public void generate(SectorAPI sector)
 	{

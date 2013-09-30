@@ -336,6 +336,7 @@
       "width": 7
     }
   ],
+  "width": 288,
   "height": 880,
   "hullId": "nom_oasis",
   "hullName": "Oasis",
@@ -351,33 +352,34 @@
   "weaponSlots": [
     {
       "angle": 0,
-      "arc": 0,
-      "id": "WS0001",
+      "arc": 360,
+      "id": "WS_habitat_ring",
       "locations": [
-        62.5, #126.5,
-        1.5   #2.5
+        130.5,
+        2.5
       ],
-      "mount": "HARDPOINT", #TURRET
-      "size": "LARGE",
+      "mount": "TURRET",
+      "size": "SMALL",
       "type": "DECORATIVE"
     },
     {
       "angle": 0,
       "arc": 0,
-      "id": "WS0002",
+      "id": "WS_support_beam",
       "locations": [
-        129.5, #133.5, #81.5, #126.5,
-        48     #50     #47    #50
+        129.5,
+        48
       ],
-      "mount": "TURRET", #HARDPOINT
-      "size": "LARGE",
+      "mount": "TURRET",
+      "size": "MEDIUM",
       "type": "DECORATIVE"
     }
   ],
-  "width": 288,
   "builtInWeapons":{
-    "WS0001": "nom_decorative_oasis_habitat_ring",
-    "WS0002": "nom_decorative_oasis_habitat_ring_structural_support_beam",
+    "WS_habitat_ring": "nom_decorative_oasis_habitat_ring",
+    "WS_support_beam": "nom_decorative_oasis_habitat_ring_structural_support_beam",
   },
-  "builtInMods":["repair_gantry"]
+  "builtInMods":[
+    "repair_gantry"
+  ]
 }

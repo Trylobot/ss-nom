@@ -2,8 +2,9 @@ package data.scripts;
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.SectorAPI;
-import data.scripts.nom.world.Nur;
-// import data.scripts.nom.plugins.TheNomadsCharacterCreationPlugin;
+import data.scripts.world.TheNomadsNur;
+import data.scripts.plugins.TheNomadsHabitatRingRotationEffect;
+// import data.scripts.plugins.TheNomadsCharacterCreationPlugin;
 
 public class TheNomadsModPlugin extends BaseModPlugin
 {
@@ -16,6 +17,6 @@ public class TheNomadsModPlugin extends BaseModPlugin
 	private static void init()
 	{
 		SectorAPI sector = Global.getSector();
-		new Nur().generate( sector );
+		new TheNomadsNur().generate( sector );
 	}
 }

@@ -2,8 +2,8 @@
 	"specClass":"beam",
 	"id":"nom_decorative_oasis_habitat_ring",
 	"type":"DECORATIVE",
-	"size":"LARGE",
-	"everyFrameEffect":"data.scripts.nom.plugins.TheNomadsHabitatRingRotationEffect",
+	"size":"SMALL", # renders under any larger mounts except missiles
+	"everyFrameEffect":"data.scripts.plugins.TheNomadsHabitatRingRotationEffect",
 	"turretSprite":"graphics/nom/weapons/decorative/nom_oasis_colony_ring.png",
 	"hardpointSprite":"graphics/nom/weapons/decorative/nom_oasis_colony_ring.png",
 	"turretOffsets":[0, 0],
@@ -14,7 +14,7 @@
 	"coreColor":[255,255,255,255],
 	"glowColor":[255,255,255,255],
 	"width":1.0,
-	"textureType":SMOOTH,
+	"textureType":ROUGH,
 	"textureScrollSpeed":1.0,
 	"pixelsPerTexel":1.0,
 }

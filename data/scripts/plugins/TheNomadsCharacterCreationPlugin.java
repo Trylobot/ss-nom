@@ -1,4 +1,4 @@
-package data.scripts.nom.plugins;
+package data.scripts.plugins;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CargoAPI.CrewXPLevel;
 import com.fs.starfarer.api.characters.CharacterCreationPlugin;
@@ -10,7 +10,6 @@ import java.util.List;
 
 public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 {
-	
 	public static class ResponseImpl implements Response
 	{
 		private String text;
