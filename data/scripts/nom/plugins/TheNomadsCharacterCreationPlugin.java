@@ -1,7 +1,12 @@
 package data.scripts.nom.plugins;
+import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.CargoAPI.CrewXPLevel;
+import com.fs.starfarer.api.characters.CharacterCreationPlugin;
+import com.fs.starfarer.api.characters.CharacterCreationPlugin.Response;
+import com.fs.starfarer.api.characters.MutableCharacterStatsAPI;
+import com.fs.starfarer.api.fleet.FleetMemberType;
 import java.util.ArrayList;
 import java.util.List;
-import com.fs.starfarer.api.*
 
 public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 {

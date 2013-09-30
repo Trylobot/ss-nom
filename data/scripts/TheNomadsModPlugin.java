@@ -1,10 +1,8 @@
 package data.scripts;
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
-// mod scripts
-import data.scripts.world.GenericWaypointArmadaController;
+import com.fs.starfarer.api.campaign.SectorAPI;
 import data.scripts.nom.world.Nur;
-import data.scripts.nom.plugins.TheNomadsHabitatRingRotationEffect;
 // import data.scripts.nom.plugins.TheNomadsCharacterCreationPlugin;
 
 public class TheNomadsModPlugin extends BaseModPlugin

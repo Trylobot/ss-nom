@@ -1,5 +1,5 @@
 package data.scripts.nom.plugins;
-
+import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.EveryFrameWeaponEffectPlugin;
 import com.fs.starfarer.api.combat.WeaponAPI;
@@ -21,6 +21,7 @@ public class TheNomadsHabitatRingRotationEffect implements EveryFrameWeaponEffec
 		if( !isBetween( weapon_facing_angle - firing_arc/2, weapon_facing_angle + firing_arc/2, result_angle ))
 			direction = -direction;
 
+		Global.getSectorAPI().addMessage( "habitat ring: angle "+result_angle );
 		weapon.setCurrAngle( result_angle );
 	}
 
