@@ -354,14 +354,30 @@
       "arc": 0,
       "id": "WS0001",
       "locations": [
-        126.5,
-        2.5
+        62.5, #126.5,
+        1.5   #2.5
       ],
-      "mount": "TURRET",
+      "mount": "HARDPOINT", #TURRET
+      "size": "LARGE",
+      "type": "DECORATIVE"
+    },
+    {
+      "angle": 0,
+      "arc": 0,
+      "id": "WS0002",
+      "locations": [
+        129.5, #133.5, #81.5, #126.5,
+        48     #50     #47    #50
+      ],
+      "mount": "TURRET", #HARDPOINT
       "size": "LARGE",
       "type": "DECORATIVE"
     }
   ],
   "width": 288,
+  "builtInWeapons":{
+    "WS0001": "nom_decorative_oasis_habitat_ring",
+    "WS0002": "nom_decorative_oasis_habitat_ring_structural_support_beam",
+  },
   "builtInMods":["repair_gantry"]
 }
