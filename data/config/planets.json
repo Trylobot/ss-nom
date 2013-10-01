@@ -23,11 +23,11 @@
 		"tilt":0, # left-right (>0 tilts to the left)
 		"pitch":0, # towards-away from the viewer (>0 pitches towards)
 		"rotation":-3, # degrees/second
-		"planetColor":[255,255,255,255],
+		"planetColor":[185,185,240, 255],
 		"atmosphereThickness":0.25, # as fraction of radius.  Set to 0 for no atmosphere
 		"atmosphereThicknessMin":10, #  minimum thickness in pixels
-		"atmosphereColor":[255,255,160,255],
-		"texture":"graphics/planets/star_texture_yellow.jpg",
+		"atmosphereColor":[160,160,255,255],
+		"texture":"graphics/nom/planets/star_texture_blue.jpg",
 		"icon":"graphics/warroom/icon_star.png",
 		"iconColor":[255,255,0,255],
 		"starCoronaSprite":"graphics/fx/star_halo.png", # optional, defaults to really bright particle

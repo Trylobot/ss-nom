@@ -1,12 +1,12 @@
 package data.scripts.world;
 
+import com.fs.starfarer.api.EveryFrameScript;
 import com.fs.starfarer.api.campaign.CampaignClockAPI;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.FleetAssignment;
 import com.fs.starfarer.api.campaign.LocationAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
-import com.fs.starfarer.api.campaign.SpawnPointPlugin;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,7 +16,7 @@ import org.lwjgl.util.vector.Vector2f;
 // TODO: implement EveryFrameScript
 
 @SuppressWarnings("unchecked")
-public class GenericWaypointArmadaController implements SpawnPointPlugin
+public class GenericWaypointArmadaController implements EveryFrameScript
 {
 	// public constants for arguments
 	final public static int ESCORT_ORBIT = 100;
@@ -112,7 +112,7 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 	
 	
 	@Override
-	public void advance( SectorAPI sector, LocationAPI location )
+	public void advance( float amount )
 	{
 		switch( state )
 		{ 
@@ -174,6 +174,14 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 				update_escort_fleets();
 				break;
 		}
+	}
+	
+	public boolean isDone() {
+		return false; // never done
+	}
+
+	public boolean runWhilePaused() {
+		return false; // do not do this
 	}
 	
 	private SectorEntityToken[] build_fresh_route()
@@ -385,6 +393,6 @@ public class GenericWaypointArmadaController implements SpawnPointPlugin
 			current_route[current_route.length - 1], 
 			1000 );
 	}
-	
+
 }
 
