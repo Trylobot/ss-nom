@@ -19,9 +19,9 @@
 		"scout":{
 			"displayName":"Scout",
 			"maxFleetPoints":0,
-			"daysWorthOfSupplies":[200, 400],
-			"lyWorthOfFuel":[40, 50],
-			"extraCrewPercent":[100, 100],
+			"daysWorthOfSupplies":[40, 80],
+			"lyWorthOfFuel":[40, 80],
+			"extraCrewPercent":[80, 80],
 			"marinesPercent":[0, 0],
 			"ships":{
 				"nom_iguana_wing":[0, 1],
@@ -31,10 +31,10 @@
 		"longRangeScout":{
 			"displayName":"Long-Range Scout",
 			"maxFleetPoints":14,
-			"daysWorthOfSupplies":[200, 300],
-			"lyWorthOfFuel":[20, 40],
-			"extraCrewPercent":[100, 100],
-			"marinesPercent":[20, 30],
+			"daysWorthOfSupplies":[50, 100],
+			"lyWorthOfFuel":[60, 120],
+			"extraCrewPercent":[80, 80],
+			"marinesPercent":[0, 0],
 			"ships":{
 				"nom_yellowjacket_sniper":[0, 1],
 				"nom_wurm_assault":[0, 1],
@@ -46,10 +46,10 @@
 		"battleGroup":{
 			"displayName":"Battle Group",
 			"maxFleetPoints":30,
-			"daysWorthOfSupplies":[150, 250],
-			"lyWorthOfFuel":[20, 40],
-			"extraCrewPercent":[100, 100],
-			"marinesPercent":[20, 30],
+			"daysWorthOfSupplies":[50, 100],
+			"lyWorthOfFuel":[50, 100],
+			"extraCrewPercent":[80, 80],
+			"marinesPercent":[0, 0],
 			"ships":{
 				"nom_scorpion_assault":[0, 1],
 				"nom_komodo_assault":[0, 1],
@@ -62,10 +62,10 @@
 		"royalGuard":{
 			"displayName":"Royal Guard",
 			"maxFleetPoints":70,
-			"daysWorthOfSupplies":[125, 225],
-			"lyWorthOfFuel":[20, 40],
-			"extraCrewPercent":[100, 100],
-			"marinesPercent":[20, 30],
+			"daysWorthOfSupplies":[50, 100],
+			"lyWorthOfFuel":[50, 100],
+			"extraCrewPercent":[80, 80],
+			"marinesPercent":[0, 0],
 			"ships":{
 				"nom_sandstorm_assault":[0, 1], 
 				"nom_scorpion_assault":[1, 2],
@@ -79,10 +79,10 @@
 		"jihadFleet":{
 			"displayName":"Jihad Death Fleet",
 			"maxFleetPoints":115,
-			"daysWorthOfSupplies":[75, 150],
-			"lyWorthOfFuel":[30, 70],
-			"extraCrewPercent":[100, 100],
-			"marinesPercent":[10, 60],
+			"daysWorthOfSupplies":[50, 100],
+			"lyWorthOfFuel":[50, 100],
+			"extraCrewPercent":[80, 80],
+			"marinesPercent":[20, 20],
 			"ships":{
 				"nom_gila_monster_antibattleship":[0, 1], 
 				"nom_sandstorm_assault":[0, 2], 
@@ -97,10 +97,10 @@
 		"colonyFleet":{
 			"displayName":"Colony Transport Group",
 			"maxFleetPoints":120,
-			"daysWorthOfSupplies":[100, 300],
-			"lyWorthOfFuel":[100, 300],
-			"extraCrewPercent":[500, 500],
-			"marinesPercent":[10, 10],
+			"daysWorthOfSupplies":[50, 100],
+			"lyWorthOfFuel":[50, 100],
+			"extraCrewPercent":[100, 100],
+			"marinesPercent":[0, 0],
 			"ships":{
 				"nom_oasis_standard":[1, 1],  # 9
 				"nom_gila_monster_antibattleship":[2, 2],  # 24

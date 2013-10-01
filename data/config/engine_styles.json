@@ -1,0 +1,18 @@
+{
+	# Reserved engine style ids (can not be used):
+	# "CUSTOM"
+	# "midlineFlare", "LOW_TECH", "MIDLINE", "HIGH_TECH"
+	
+	"ANCIENT_NAERAN":{
+		"type":"SMOKE", # GLOW or SMOKE
+		"engineColor":   [195,195, 98,255],
+		"contrailColor": [ 50, 50, 50, 50],
+		"contrailParticleSizeMult":1.9,
+		"contrailParticleDuration":2.75,
+		"contrailParticleFinalSizeMult":2.45,
+		"contrailMaxSpeedMult":0.45,
+		"contrailAngularVelocityMult":0.45,
+	},
+
+}
+

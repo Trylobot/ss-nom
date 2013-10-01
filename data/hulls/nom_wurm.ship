@@ -49,7 +49,7 @@
         -23.0,
         22.0
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 5.0
     },
     {
@@ -60,7 +60,7 @@
         -25.0,
         17.0
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 10.0
     },
     {
@@ -71,7 +71,7 @@
         -27.0,
         7.0
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 7.0
     },
     {
@@ -82,7 +82,7 @@
         -28.0,
         4.0
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 10.0
     },
     {
@@ -93,7 +93,7 @@
         -30.0,
         -3.0
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 8.0
     },
     {
@@ -104,7 +104,7 @@
         -29.0,
         -8.0
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 10.0
     },
     {
@@ -115,7 +115,7 @@
         -24.0,
         -12.0
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 5.0
     },
     {
@@ -126,7 +126,7 @@
         -29.5,
         1.0
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 10.0
     }
   ],
@@ -141,7 +141,7 @@
   ],
   "shieldRadius": 55.0,
   "spriteName": "graphics/nom/ships/nom_wurm.png",
-  "style": "LOW_TECH",
+  "style": "ANCIENT_NAERAN",
   "viewOffset": 50.0,
   "weaponSlots": [
     {

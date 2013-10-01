@@ -189,7 +189,7 @@
         -451,
         -5.5
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 9
     },
     {
@@ -200,7 +200,7 @@
         -438.5,
         -12.5
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 16
     },
     {
@@ -211,7 +211,7 @@
         -440,
         2
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 9
     },
     {
@@ -222,7 +222,7 @@
         -419.5,
         9.5
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 7
     },
     {
@@ -233,7 +233,7 @@
         -418,
         -33.5
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 14
     },
     {
@@ -244,7 +244,7 @@
         -419,
         -54
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 14
     },
     {
@@ -255,7 +255,7 @@
         -397.5,
         -43
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 8
     },
     {
@@ -266,7 +266,7 @@
         -399.5,
         -64.5
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 8
     },
     {
@@ -277,7 +277,7 @@
         -390,
         -73
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 11
     },
     {
@@ -288,7 +288,7 @@
         -361.5,
         -83.5
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 9
     },
     {
@@ -299,7 +299,7 @@
         -415.5,
         28.5
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 9
     },
     {
@@ -310,7 +310,7 @@
         -399.5,
         39.5
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 9
     },
     {
@@ -321,7 +321,7 @@
         -384,
         55.5
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 16
     },
     {
@@ -332,7 +332,7 @@
         -394.5,
         21
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 7
     }
   ],
@@ -347,7 +347,7 @@
   ],
   "shieldRadius": 405.019745,
   "spriteName": "graphics/nom/ships/nom_oasis.png",
-  "style": "LOW_TECH",
+  "style": "ANCIENT_NAERAN",
   "viewOffset": 0,
   "weaponSlots": [
     {

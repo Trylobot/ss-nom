@@ -1,0 +1,20 @@
+{
+	# The following hull style ids are reserved and can not be used:
+	# "sounds", "DEFAULT", "FIGHTER", "FRIGATE", "DESTROYER", "CRUISER", "CAPITAL_SHIP"
+	# "LOW_TECH", "MIDLINE", "HIGH_TECH"
+	
+	"ANCIENT_NAERAN":{
+		"hyperspaceJitterColor":       [196,196,173,200],
+		"baseCampaignExplosionColor":  [196,196,173,255],
+		"baseCombatExplosionColor":    [196,196,173,255],
+		"fighterRepairFlickerColor":   [196,196,173,255],
+		"weaponDisabledExplosionColor":[196,196,173,255],
+		"shieldRingColor":             [255,255,255,255],
+		"shieldInnerColor":            [113,113, 88, 75],
+		"fluxVentCoreColor":           [255,255,255,255],
+		"fluxVentFringeColor":         [146,146,146,220],
+	},
+}
+
+
+

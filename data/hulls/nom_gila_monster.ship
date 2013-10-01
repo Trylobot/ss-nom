@@ -133,7 +133,7 @@
         -248,
         79
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 16
     },
     {
@@ -144,7 +144,7 @@
         -246.5,
         59
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 16
     },
     {
@@ -155,7 +155,7 @@
         -261.5,
         29
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 21
     },
     {
@@ -166,7 +166,7 @@
         -268,
         12.5
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 23
     },
     {
@@ -177,7 +177,7 @@
         -256.5,
         -14.5
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 18
     },
     {
@@ -188,7 +188,7 @@
         -237,
         -30.5
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 20
     },
     {
@@ -199,7 +199,7 @@
         -226.5,
         90
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 9
     },
     {
@@ -210,7 +210,7 @@
         -243.5,
         -52.5
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 13
     },
     {
@@ -221,7 +221,7 @@
         -224.5,
         67.5
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 9
     },
     {
@@ -232,7 +232,7 @@
         -240.5,
         20
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 5
     },
     {
@@ -243,7 +243,7 @@
         -272.5,
         -6
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 9
     },
     {
@@ -254,7 +254,7 @@
         -260.5,
         42
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 16
     },
     {
@@ -265,7 +265,7 @@
         -248.5,
         5
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 9
     },
     {
@@ -276,7 +276,7 @@
         -240.5,
         -57
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 7
     },
     {
@@ -287,7 +287,7 @@
         -219.5,
         -39
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 6
     },
     {
@@ -298,7 +298,7 @@
         -224.5,
         51.5
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 7
     }
   ],
@@ -312,7 +312,7 @@
   ],
   "shieldRadius": 285,
   "spriteName": "graphics/nom/ships/nom_gila_monster.png",
-  "style": "LOW_TECH",
+  "style": "ANCIENT_NAERAN",
   "viewOffset": 0,
   "weaponSlots": [
     {

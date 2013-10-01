@@ -23,7 +23,7 @@
         -10.5,
         -2
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 6
     }
   ],
@@ -37,7 +37,7 @@
   ],
   "shieldRadius": 14.2,
   "spriteName": "graphics/nom/ships/nom_gecko.png",
-  "style": "LOW_TECH",
+  "style": "ANCIENT_NAERAN",
   "viewOffset": 0,
   "weaponSlots": [
     {

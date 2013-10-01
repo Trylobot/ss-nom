@@ -226,6 +226,7 @@ public class TheNomadsNur
 		destination.setMaxDistFromToken( star_jump_dist_factor_max * star.getRadius() );
 		jump_point.addDestination( destination );
 		jump_point.setStandardWormholeToStarOrPlanetVisual( star );
+		//jump_point.setDestinationVisual(null, null, system_root);
 		hyper.addEntity( jump_point );
 		
 		update_hyperspace_jump_point_location( jump_point, system, system_root, star );

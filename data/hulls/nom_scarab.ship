@@ -23,7 +23,7 @@
         -10.5,
         2.0
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 7.0
     },
     {
@@ -34,7 +34,7 @@
         -10.5,
         -3.0
       ],
-      "style": "LOW_TECH",
+      "style": "ANCIENT_NAERAN",
       "width": 7.0
     }
   ],
@@ -49,7 +49,7 @@
   ],
   "shieldRadius": 14.2,
   "spriteName": "graphics/nom/ships/nom_scarab.png",
-  "style": "LOW_TECH",
+  "style": "ANCIENT_NAERAN",
   "viewOffset": 0.0,
   "weaponSlots": [
     {
