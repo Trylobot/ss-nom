@@ -5,7 +5,7 @@
 	
 	"ANCIENT_NAERAN":{
 		"type":"SMOKE", # GLOW or SMOKE
-		"engineColor":   [195,195, 98,255],
+		"engineColor":   [194,194, 54,255],
 		"contrailColor": [ 50, 50, 50, 50],
 		"contrailParticleSizeMult":1.9,
 		"contrailParticleDuration":2.75,

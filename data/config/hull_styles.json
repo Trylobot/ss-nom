@@ -10,9 +10,9 @@
 		"fighterRepairFlickerColor":   [196,196,173,255],
 		"weaponDisabledExplosionColor":[196,196,173,255],
 		"shieldRingColor":             [255,255,255,255],
-		"shieldInnerColor":            [113,113, 88, 75],
+		"shieldInnerColor":            [194,194, 54, 75],
 		"fluxVentCoreColor":           [255,255,255,255],
-		"fluxVentFringeColor":         [146,146,146,220],
+		"fluxVentFringeColor":         [194,194, 54,220],
 	},
 }
 
