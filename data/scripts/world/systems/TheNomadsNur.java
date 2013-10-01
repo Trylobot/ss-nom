@@ -18,11 +18,9 @@ import org.lwjgl.util.vector.Vector2f;
 @SuppressWarnings( "unchecked" )
 public class TheNomadsNur
 {
-	//// this is wrong, sizes didn't translate to distances
-	// corvus diameter is between [ 69, 78 ] in hyperspace
-	// corvus diameter in system is declared as 1000  (2x 500)
-	// thus hyperspace:space ratio is between  69/1000 and 78/1000
-	private static final float hyperspace_to_space_ratio = 0.078f;
+	// this ratio is an observed ratio between the distances from Corvus to its third planet
+	// in hyperspace vs. normal space
+	private static final float hyperspace_compression = 0.0612f; // (459f / 7500f) // in pixels at default zoom
 	
 	private static final float star_jump_dist_factor_min = 0.8f;
 	private static final float star_jump_dist_factor_max = 1.2f;
@@ -41,14 +39,14 @@ public class TheNomadsNur
 		
 		// stars, planets and moons
 		SectorEntityToken system_center_of_mass = system.createToken( 0f, 0f );
-		PlanetAPI star_A = system.addPlanet( system_center_of_mass, "Nur-A", "star_blue", 0f, 1000f, 1500f, 224f );
- 		PlanetAPI star_B = system.addPlanet( system_center_of_mass, "Nur-B", "star_red", 180f, 300f, 450f, 224f );
-		PlanetAPI planet_I = system.addPlanet( system_center_of_mass, "Naera", "desert", 45f, 400f, 8000f, 1077f );
-		PlanetAPI planet_I__moon_a = system.addPlanet( planet_I, "Ixaith", "rocky_unstable", 0f, 80f, 800f, 67f );
-		PlanetAPI planet_I__moon_b = system.addPlanet( planet_I, "Ushaise", "rocky_ice", 45f, 60f, 1000f, 120f );
-		PlanetAPI planet_I__moon_c = system.addPlanet( planet_I, "Riaze", "barren", 90f, 130f, 1200f, 130f );
-		PlanetAPI planet_I__moon_d = system.addPlanet( planet_I, "Riaze-Tremn", "frozen", 135f, 40f, 1500f, 132f );
-		PlanetAPI planet_I__moon_e = system.addPlanet( planet_I, "Eufariz", "frozen", 180f, 80f, 1750f, 200f );
+		PlanetAPI star_A = system.addPlanet( system_center_of_mass, "Nur-A", "star_blue", 0f, 1000f, 1500f, 30f );
+ 		PlanetAPI star_B = system.addPlanet( system_center_of_mass, "Nur-B", "star_red", 180f, 300f, 600f, 30f );
+		PlanetAPI planet_I = system.addPlanet( system_center_of_mass, "Naera", "desert", 45f, 300f, 8000f, 199f );
+		PlanetAPI planet_I__moon_a = system.addPlanet( planet_I, "Ixaith", "rocky_unstable", 0f, 60f, 800f, 67f );
+		PlanetAPI planet_I__moon_b = system.addPlanet( planet_I, "Ushaise", "rocky_ice", 45f, 45f, 1000f, 120f );
+		PlanetAPI planet_I__moon_c = system.addPlanet( planet_I, "Riaze", "barren", 90f, 100f, 1200f, 130f );
+		PlanetAPI planet_I__moon_d = system.addPlanet( planet_I, "Riaze-Tremn", "frozen", 135f, 35f, 1500f, 132f );
+		PlanetAPI planet_I__moon_e = system.addPlanet( planet_I, "Eufariz", "frozen", 180f, 65f, 1750f, 200f );
 		PlanetAPI planet_I__moon_f = system.addPlanet( planet_I, "Thumn", "rocky_ice", 225f, 100f, 2000f, 362f );
 		
 		// rings & bands
@@ -87,7 +85,7 @@ public class TheNomadsNur
 //		
 //		system.setHyperspaceAnchor( jump_A_from_hyper );
 		
-		init_jump_anchor_near_planet( system, planet_I, "Jump Point Alpha", 0f, 500f, 30f );
+		init_jump_anchor_near_planet( system, system_center_of_mass, planet_I, "Jump Point Alpha", 0f, 500f, 30f );
 		
 //		SectorEntityToken c2 = system.getEntityByName("Corvus II");
 //		JumpPointAPI local_jump_point__from_planet_I = factory.createJumpPoint( "Jump Point Alpha" );
@@ -101,8 +99,8 @@ public class TheNomadsNur
 		//// can't use auto unless there's a main star set
 		//system.autogenerateHyperspaceJumpPoints( true, true );
 		
-		init_star_jump_point( system, star_A );
-		init_star_jump_point( system, star_B );
+		init_star_gravitywell_jump_point( system, system_center_of_mass, star_A );
+		init_star_gravitywell_jump_point( system, system_center_of_mass, star_B );
 		// TODO: EveryFrameScript to update hyperspace anchors
 		
 		
@@ -184,6 +182,7 @@ public class TheNomadsNur
 		);
 		system.addScript( nomad_armada_spawner_script ); // automatic from here on out
 
+		
 		// relationships - none, hostile to all, including player
 		FactionAPI nomads_faction = sector.getFaction( "nomads" );
 		Object[] all_factions = sector.getAllFactions().toArray();
@@ -216,24 +215,23 @@ public class TheNomadsNur
 //		system.addScript(new IndependentTraderSpawnPoint(sector, hyper, 1, 10, hyper.createToken(-6000, 2000), station));
 	}
 	
-	private void init_star_jump_point( StarSystemAPI system, PlanetAPI star )
+	private void init_star_gravitywell_jump_point( StarSystemAPI system, SectorEntityToken system_root, PlanetAPI star )
 	{
 		FactoryAPI factory = Global.getFactory();
 		LocationAPI hyper = Global.getSector().getHyperspace();
 		
 		JumpPointAPI jump_point = factory.createJumpPoint( star.getFullName()+" Gravity Well" );
-//		jump_point.setFaction( "nomads" ); // important? yes/no
 		JumpDestination destination = new JumpDestination( star, star.getFullName() );
 		destination.setMinDistFromToken( star_jump_dist_factor_min * star.getRadius() );
 		destination.setMaxDistFromToken( star_jump_dist_factor_max * star.getRadius() );
 		jump_point.addDestination( destination );
-//		jump_point.setRadius( hyperspace_to_space_ratio * star.getRadius() );
 		jump_point.setStandardWormholeToStarOrPlanetVisual( star );
 		hyper.addEntity( jump_point );
-		update_hyperspace_jump_point_location( jump_point, system, star );
+		
+		update_hyperspace_jump_point_location( jump_point, system, system_root, star );
 	}
 	
-	private void init_jump_anchor_near_planet( StarSystemAPI system, PlanetAPI planet, String name, float angle, float orbitRadius, float orbitDays )
+	private void init_jump_anchor_near_planet( StarSystemAPI system, SectorEntityToken system_root, PlanetAPI planet, String name, float angle, float orbitRadius, float orbitDays )
 	{
 		FactoryAPI factory = Global.getFactory();
 		LocationAPI hyper = Global.getSector().getHyperspace();
@@ -241,26 +239,38 @@ public class TheNomadsNur
 		JumpPointAPI local_jump_point = factory.createJumpPoint( name );
 		OrbitAPI orbit = factory.createCircularOrbit( planet, angle, orbitRadius, orbitDays );
 		local_jump_point.setOrbit( orbit );
-		local_jump_point.setRelatedPlanet( planet );
 		local_jump_point.setStandardWormholeToHyperspaceVisual();
 		system.addEntity( local_jump_point );
 		
 		JumpPointAPI hyperspace_jump_point = factory.createJumpPoint( system.getName()+", "+name );
-//		jump_point.setFaction( "nomads" ); // important? yes/no
 		JumpDestination destination = new JumpDestination( local_jump_point, system.getName()+", "+name );
-		destination.setMinDistFromToken( 0f );
-		destination.setMaxDistFromToken( 0f );
 		hyperspace_jump_point.addDestination( destination );
-		hyperspace_jump_point.setStandardWormholeToStarfieldVisual();
+		hyperspace_jump_point.setStandardWormholeToStarOrPlanetVisual( planet );
 		hyper.addEntity( hyperspace_jump_point );
-		update_hyperspace_jump_point_location( hyperspace_jump_point, system, local_jump_point );
+				
+		JumpDestination hyperspace_destination = new JumpDestination( hyperspace_jump_point, "Hyperspace" );
+		local_jump_point.addDestination( hyperspace_destination );
+		
+		update_hyperspace_jump_point_location( hyperspace_jump_point, system, system_root, local_jump_point );
 	}
 	
-	private void update_hyperspace_jump_point_location( JumpPointAPI jump_point, StarSystemAPI system, SectorEntityToken system_entity )
+	private void update_hyperspace_jump_point_location( JumpPointAPI jump_point, StarSystemAPI system, SectorEntityToken system_root, SectorEntityToken system_entity )
 	{
-		jump_point.getLocation().set(
-			system.getLocation().x + hyperspace_to_space_ratio * system_entity.getLocation().x,
-			system.getLocation().y + hyperspace_to_space_ratio * system_entity.getLocation().y ); // ???
+//		jump_point.getLocation().set(
+//			system.getLocation().x + (hyperspace_to_space_ratio * system_entity.getLocation().x),
+//			system.getLocation().y + (hyperspace_to_space_ratio * system_entity.getLocation().y) ); // ???
+
+		Vector2f location = new Vector2f( system.getLocation() );
+		// loop through the orbital foci until the root is reached
+		SectorEntityToken cursor = system_entity;
+		while( cursor != system_root )
+		{
+			location.translate( 
+				(hyperspace_compression * cursor.getLocation().x),
+				(hyperspace_compression * cursor.getLocation().y) );
+			cursor = cursor.getOrbit().getFocus();
+		}
+		jump_point.getLocation().set( location );
 	}
 	
 	
