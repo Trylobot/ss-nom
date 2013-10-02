@@ -3,14 +3,18 @@ package data.scripts.world;
 import com.fs.starfarer.api.EveryFrameScript;
 import com.fs.starfarer.api.campaign.CampaignClockAPI;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
+import com.fs.starfarer.api.campaign.CargoAPI;
 import com.fs.starfarer.api.campaign.FleetAssignment;
 import com.fs.starfarer.api.campaign.LocationAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
+import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import javax.swing.text.html.HTMLDocument;
 import org.lwjgl.util.vector.Vector2f;
 
 // TODO: refactor fleet formation positioner to use an interface, and a class for each escort type, allowing external implementations to be passed
@@ -27,20 +31,13 @@ import org.lwjgl.util.vector.Vector2f;
 @SuppressWarnings("unchecked")
 public class GenericWaypointArmadaController implements EveryFrameScript
 {
-	// public constants for arguments
-	final public static int ESCORT_ORBIT = 100;
-	
-	// constants and enums (really only enum-like)
-	private final static float STAR_SYSTEM_RADIUS = 15000f;
+	// basic constants
 	private final static float TWO_PI = (float)(2.0f*Math.PI);
-	
-	private final static float WAYPOINT_ACHIEVED_DISTANCE = 10.0f;
 
-	private final static int NON_EXISTENT                = 10;
-	private final static int LOCALSPACE_IN_TRANSIT       = 20;
-	private final static int LOCALSPACE_IDLE_AT_WAYPOINT = 30;
-	private final static int HYPERSPACE_IN_TRANSIT       = 40;
-	private final static int HYPERSPACE_PERFORMING_JUMP  = 50;
+	// public constants for arguments
+	final public static int ESCORT_ORBIT = 100; // TODO: configurable
+	private final static float WAYPOINT_ACHIEVED_DISTANCE = 10.0f; // TODO: configurable
+	private final static float STAR_SYSTEM_RADIUS = 15000f; // TODO: remove, spawn explicitly near a specified entity
 	
 	// current star system
 	private SectorAPI sector;
@@ -72,11 +69,18 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 	//  the fleet leader.
 	private CampaignFleetAPI[] escort_fleets = null;
 
-	// State of the controller
+	// state machine defs
+	private final static int NON_EXISTENT                = 10;
+	private final static int LOCALSPACE_IN_TRANSIT       = 20;
+	private final static int LOCALSPACE_IDLE_AT_WAYPOINT = 30;
+	private final static int HYPERSPACE_IN_TRANSIT       = 40;
+	private final static int HYPERSPACE_PERFORMING_JUMP  = 50;	
+	// 
 	private int state = NON_EXISTENT;
 	
 	// used for measuring idle time; defaults to very low value so armada will spawn immediately
-	private long last_state_change_timestamp = -9223372036854775808L; // long minimum value
+	private long last_state_change_timestamp = Long.MIN_VALUE;
+	private long last_resource_distribution_check_timestamp = Long.MIN_VALUE;
 	
 	// hyperspace destination
 	private SectorEntityToken current_hyperspace_waypoint = null;
@@ -102,7 +106,8 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 		int waypoint_per_trip_minimum,
 		int waypoint_per_trip_maximum,
 		int waypoint_idle_time_days,
-		int dead_time_days )
+		int dead_time_days,
+		boolean enable_auto_resource_redistribution )
 	{
 		// setup behaviors; these are not modified by the controller
 		this.faction_id = faction_id;
@@ -119,7 +124,8 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 		this.waypoints_per_system_maximum = waypoint_per_trip_maximum;
 		this.waypoint_idle_time_days = waypoint_idle_time_days;
 		this.dead_time_days = dead_time_days;
-
+		
+		this.enable_auto_resource_redistribution = enable_auto_resource_redistribution;
 		this.clock = sector.getClock();
 	}
 	
@@ -171,6 +177,7 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 				}
 				// keep escort fleets moving in formation
 				update_escort_fleets();
+				redistribute_resources();
 				break;
 			
 			////////////////////////////////////////
@@ -186,17 +193,11 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 				}
 				// keep escort fleets in formation while idle
 				update_escort_fleets();
+				redistribute_resources();
 				break;
 			
 			////////////////////////////////////////
 			case HYPERSPACE_IN_TRANSIT:
-				// check if leader died; if so, scatter fleet
-				check_leader_still_alive();
-				
-				break;
-			
-			////////////////////////////////////////
-			case HYPERSPACE_PERFORMING_JUMP:
 				// check if leader died; if so, scatter fleet
 				check_leader_still_alive();
 				// check distance from fleet leader to waypoint
@@ -204,18 +205,20 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 					<= WAYPOINT_ACHIEVED_DISTANCE )
 				{
 					// jump
+					
 					// change state to jumping
+					change_state( HYPERSPACE_PERFORMING_JUMP );
 				}
+				update_escort_fleets();
+				redistribute_resources();
+				
+				break;
+			
+			////////////////////////////////////////
+			case HYPERSPACE_PERFORMING_JUMP:
+				
 				break;
 		}
-	}
-	
-	public boolean isDone() {
-		return false; // never done
-	}
-
-	public boolean runWhilePaused() {
-		return false; // do not do this
 	}
 	
 	private SectorEntityToken[] build_fresh_route()
@@ -389,11 +392,22 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 	
 	private void check_leader_still_alive()
 	{
-		if( ! leader_fleet.isAlive() )
+		if( !leader_fleet.isAlive() )
 		{
 			scatter_remaining_escort_fleets();
 			change_state( NON_EXISTENT );
 		}
+	}
+	
+	private int count_alive_fleets()
+	{
+		int count = 0;
+		for( int i = 0; i < escort_fleets.length; ++i )
+			if( escort_fleets[i].isAlive() )
+				++count;
+		if( leader_fleet.isAlive() )
+			++count;
+		return count;
 	}
 	
 	private void scatter_remaining_escort_fleets()
@@ -419,28 +433,183 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 			1000 );
 	}
 	
-	//private  _dF
+	///////////////////////////////////////////////////////////////////////////////
+	// TODO: should auto resource redistribution be moved to its own class? maybe
+
+	private boolean enable_auto_resource_redistribution;
+	
+	private float fleet_risk_threshold_days_worth_of_supplies   = 3.0f; // 3 days at fleet's current usage (whatever it happens to be) // TODO: average actual usage over past N days?
+	private float fleet_risk_threshold_extra_crew_percentage    = 0.10f; // skeleton crew requirement, plus 10%
+	private float fleet_risk_threshold_lightyears_worth_of_fuel = 5.0f; // 5 light-years worth of fuel at fleet's current fuel consumption rate
+	private float fleet_abundance_threshold_days_worth_of_supplies   = 12.0f; // 12 days at fleet's current usage (whatever it happens to be)
+	private float fleet_abundance_threshold_extra_crew_percentage    = 0.25f; // skeleton crew requirement, plus 25%
+	private float fleet_abundance_threshold_lightyears_worth_of_fuel = 15.0f; // 15 light-years worth of fuel at fleet's current fuel consumption rate
+	
+	private List get_jeopardized_fleets()
+	{
+		ArrayList list = new ArrayList( escort_fleets.length );
+		for( int i = 0; i < escort_fleets.length; ++i )
+		{
+			if( !escort_fleets[i].isAlive() )
+				continue;
+			if( calculate_needed_crew( escort_fleets[i] ) > 0
+			||  calculate_needed_supplies( escort_fleets[i] ) > 0 )
+			{
+				list.add( escort_fleets[i] );
+			}
+			// TODO: other resources
+		}
+		if( leader_fleet.isAlive() 
+		&&( calculate_needed_crew( leader_fleet ) > 0 
+		||  calculate_needed_supplies( leader_fleet ) > 0 ))
+		{
+			list.add( leader_fleet );
+		}
+		return list;
+	}
+	
+	private List get_generous_fleets()
+	{
+		ArrayList list = new ArrayList( escort_fleets.length );
+		// for each fleet, that fleet is at risk if: ...
+		for( int i = 0; i < escort_fleets.length; ++i )
+		{
+			if( !escort_fleets[i].isAlive() )
+				continue;
+			// if an escort fleet needs supplies
+			if( calculate_noncritical_crew( escort_fleets[i] ) > 0 
+			||  calculate_noncritical_supplies( escort_fleets[i] ) > 0 )
+			{
+				list.add( escort_fleets[i] );
+			}
+			// TODO: other resources
+		}
+		if( leader_fleet.isAlive()
+		&&( calculate_noncritical_crew( leader_fleet ) > 0 
+		||  calculate_noncritical_supplies( leader_fleet ) > 0 ))
+		{
+			list.add( leader_fleet );
+		}
+		return list;
+	}
+	
+	
+	private float calculate_needed_crew( CampaignFleetAPI fleet )
+	{
+		return ((fleet_risk_threshold_extra_crew_percentage * calculate_fleet_min_total_crew( fleet ))
+		  - (float)fleet.getCargo().getTotalCrew() );
+	}
+	private float calculate_fleet_min_total_crew( CampaignFleetAPI fleet )
+	{
+		float count = 0.0f;
+		List members = fleet.getFleetData().getMembersInPriorityOrder();
+		for( Iterator i = members.iterator(); i.hasNext(); )
+			count += ((FleetMemberAPI)i.next()).getMinCrew();
+		return count;
+	}
+	
+	private float calculate_needed_supplies( CampaignFleetAPI fleet )
+	{
+		return ((fleet_risk_threshold_days_worth_of_supplies * fleet.getTotalSupplyCostPerDay())
+		  - fleet.getCargo().getSupplies());
+	}
+	
+	private float calculate_needed_fuel( CampaignFleetAPI fleet )
+	{
+		return ((fleet_risk_threshold_days_worth_of_supplies * fleet.getTotalSupplyCostPerDay())
+		  - fleet.getCargo().getSupplies());
+	}
+	
+	
+	private float calculate_noncritical_crew( CampaignFleetAPI fleet )
+	{
+		return ((float)fleet.getCargo().getTotalCrew()
+		  - (fleet_risk_threshold_extra_crew_percentage * calculate_fleet_min_total_crew( fleet )));
+	}
+	
+	private float calculate_noncritical_supplies( CampaignFleetAPI fleet )
+	{
+		return (fleet.getCargo().getSupplies()
+		  - (fleet_abundance_threshold_days_worth_of_supplies * fleet.getTotalSupplyCostPerDay()));
+	}
+	
+	private float calculate_noncritical_fuel( CampaignFleetAPI fleet )
+	{
+		return (fleet.getCargo().getSupplies()
+		  - (fleet_abundance_threshold_days_worth_of_supplies * fleet.getTotalSupplyCostPerDay()));
+	}
 	
 	private void redistribute_resources()
 	{
+		// toggle behavior
+		if( !enable_auto_resource_redistribution )
+			return;
 		// do this once per day.
+		if( clock.getElapsedDaysSince( last_resource_distribution_check_timestamp )
+			<= 1.0f )
+		{
+			return;
+		}
+		last_resource_distribution_check_timestamp = clock.getTimestamp();
 		
-		// if less than two fleets remain, abort
 		// if the leader fleet is destroyed, abort
+		if( !leader_fleet.isAlive() )
+			return;
+		// if less than one fleets remain, abort
+		if( count_alive_fleets() < 1 )
+			return; // no one to share with
 		
 		// search for fleets that are:
 		// * at risk of an accident due to low supplies, or
 		// * have undeployable ships due to low ship CR
-		
+		List jeopardized_fleets = get_jeopardized_fleets();
+		if( jeopardized_fleets.size() <= 0 )
+			return; // no one needs anything
 		// then, calculate the needed resources to restore those fleets to desired levels.
+		float needed_crew =     0.0f;
+		float needed_supplies = 0.0f;
+		float needed_fuel =     0.0f;
+		for( int i = 0; i < jeopardized_fleets.size(); ++i )
+		{
+			CampaignFleetAPI fleet = (CampaignFleetAPI)jeopardized_fleets.get( i );
+			needed_crew +=     calculate_needed_crew( fleet );
+			needed_supplies += calculate_needed_supplies( fleet );
+			needed_fuel +=     calculate_needed_fuel( fleet );
+		}
 		
+		List generous_fleets = get_generous_fleets();
+		if( generous_fleets.size() <= 0 )
+			return; // no one has anything extra available
 		// then, check if the required resources exist within all of the non-at-risk fleets as a group
+		float available_crew =     0.0f;
+		float available_supplies = 0.0f;
+		float available_fuel =     0.0f;
+		for( int i = 0; i < generous_fleets.size(); ++i )
+		{
+			CampaignFleetAPI fleet = (CampaignFleetAPI)generous_fleets.get( i );
+			available_crew +=     calculate_noncritical_crew( fleet );
+			available_supplies += calculate_noncritical_supplies( fleet );
+			available_fuel +=     calculate_noncritical_fuel( fleet );
+		}
+		
 		// if they do, transfer resources.
 		//   all source fleets contribute a number of resources. the actual number will vary such that donated percentages of total fleet resources are equal
 		
-		// for now: cheat (fabricate resources out of thin air)
+		
 		
 	}
 
+	public boolean isDone()
+	{
+		return false; // never done
+	}
+
+	public boolean runWhilePaused()
+	{
+		return false; // do not do this
+	}
+	
+	
+	
 }
 
