@@ -68,8 +68,8 @@ public class TheNomadsNur
 	{
 		// stars, planets and moons
 		system_center_of_mass = system.createToken( 0f, 0f );
-		star_A = system.addPlanet( system_center_of_mass, "Nur-A", "star_blue", 0f, 1000f, 1500f, 30f );
- 		star_B = system.addPlanet( system_center_of_mass, "Nur-B", "star_red", 180f, 300f, 600f, 30f );
+		star_A = system.addPlanet( system_center_of_mass, "Nur-A", "star_blue", 90f, 1000f, 1500f, 30f );
+ 		star_B = system.addPlanet( system_center_of_mass, "Nur-B", "star_red", 270f, 300f, 600f, 30f );
 		planet_I = system.addPlanet( system_center_of_mass, "Naera", "desert", 45f, 300f, 8000f, 199f );
 		planet_I__moon_a = system.addPlanet( planet_I, "Ixaith", "rocky_unstable", 0f, 60f, 800f, 67f );
 		planet_I__moon_b = system.addPlanet( planet_I, "Ushaise", "rocky_ice", 45f, 45f, 1000f, 120f );
