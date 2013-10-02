@@ -37,7 +37,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		
 		// Set up the map.
 		float width = 10000f;
-		float height = 5000f;
+		float height = 12000f;
 		api.initMap((float)-width/2f, (float)width/2f, (float)-height/2f, (float)height/2f);
 	}
 
