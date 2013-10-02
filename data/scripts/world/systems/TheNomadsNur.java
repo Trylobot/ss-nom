@@ -131,6 +131,7 @@ public class TheNomadsNur
 				"colonyFleet", // VIP fleet
 				sector, // global sector api
 				system,  // system wherein armada should initially spawn
+				planet_I__moon_f,
 				8, // escort_fleet_count
 				escort_pool,
 				escort_weights,

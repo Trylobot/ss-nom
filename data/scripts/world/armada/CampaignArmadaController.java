@@ -4,6 +4,8 @@ import com.fs.starfarer.api.EveryFrameScript;
 import com.fs.starfarer.api.campaign.CampaignClockAPI;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.FleetAssignment;
+import com.fs.starfarer.api.campaign.LocationAPI;
+import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
@@ -23,7 +25,8 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	
 	// current star system
 	private SectorAPI sector;
-	private StarSystemAPI system;
+	private StarSystemAPI spawn_system;
+	private SectorEntityToken spawn_location;
 
 	// basic behavior options
 	private String faction_id;
@@ -63,19 +66,25 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	// used for measuring idle time; defaults to very low value so armada will spawn immediately
 	private long last_state_change_timestamp = Long.MIN_VALUE;
 	
+	private StarSystemAPI current_system = null;
 	// currently selected local-space (in-system) waypoints composing a small planned trip for the leader fleet
 	private SectorEntityToken[] current_route = null;
-	// *_IN_TRANSIT: next waypoint
-	// *_IDLE_*: current waypoint
+	// IN_TRANSIT: next waypoint
+	// IDLE_AT_WAYPOINT: current waypoint
 	private int current_route_waypoint_index = -1;
+	
+	// currently selected hyperspace bouy; used when current_route is empty
+	private SectorEntityToken current_jump_point = null;
 	
 	// Constructor also initializes the spawning system and begins spawning fleets
 	//  Spawning is immediate and automatic
+    //  escort pool and weights assumed to be non-null, non-empty and of equal length
 	public CampaignArmadaController( 
 		String faction_id,
 		String leader_fleet_id,
 		SectorAPI sector,
-		StarSystemAPI system,
+		StarSystemAPI spawn_system,
+		SectorEntityToken spawn_location,
 		int escort_fleet_count,
 		String[] escort_fleet_composition_pool,
 		float[] escort_fleet_composition_weights,
@@ -90,9 +99,9 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		this.faction_id = faction_id;
 		this.leader_fleet_id = leader_fleet_id;
 		this.sector = sector;
-		this.system = system;
+		this.spawn_system = spawn_system;
+		this.spawn_location = spawn_location;
 		this.escort_fleet_count = escort_fleet_count;
-		// pool and weights assumed to be non-null, non-empty and of equal length
 		this.escort_fleet_composition_pool = escort_fleet_composition_pool;
 		this.escort_fleet_composition_weights = escort_fleet_composition_weights;
 		this.escort_positioner = escort_positioner;
@@ -123,21 +132,19 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 				if( clock.getElapsedDaysSince( last_state_change_timestamp )
 					>= dead_time_days )
 				{
-					// initialize a route
-					current_route = build_fresh_route();
-					current_route_waypoint_index = 0;
 					// create leader fleet
 					leader_fleet = create_leader_fleet();
-					system.spawnFleet( 
-						current_route[0], 0, 0, leader_fleet );
+					spawn_system.spawnFleet( 
+						spawn_location, 0, 0, leader_fleet );
+					current_system = spawn_system;
 					// create escort fleets
 					escort_fleets = create_escort_fleets();
 					for( int i = 0; i < escort_fleets.length; ++i )
 					{
-						system.spawnFleet(
-							current_route[0], 0, 0, escort_fleets[i] );
+						spawn_system.spawnFleet(
+							spawn_location, 0, 0, escort_fleets[i] );
 					}
-					// controller state
+					// initialize controller state
 					change_state( IN_TRANSIT );
 					advance_waypoint_index();
 				}
@@ -194,18 +201,62 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 				check_leader_still_alive();
 				// check if anim still playing for any fleet
 				
+				// if anim still playing, nothing to do
+				// else we just transitioned between normal space <--> hyperspace
+					// if new location is hyperspace, choose a buoy
+					current_jump_point = choose_jump_point( leader_fleet.getContainingLocation() );
+				
+					// else build a new route
+
+					//// initialize a route
+					//current_route = choose_system_waypoint_route( system );
+					//current_route_waypoint_index = 0;
+					
+				
 				// keep escort fleets in formation
 				update_escort_fleets();
 				break;
 		}
 	}
 	
-	private SectorEntityToken[] build_fresh_route()
+	private void change_state( int new_state )
+	{
+		state = new_state;
+		last_state_change_timestamp = clock.getTimestamp();
+	}
+	
+	private void advance_waypoint_index()
+	{
+		++current_route_waypoint_index;
+		// check if last system waypoint reached
+		
+		if( current_route_waypoint_index >= current_route.length )
+		{
+			change_state( IN_TRANSIT );
+			
+		}
+		else // not last waypoint, yet
+		{
+			leader_fleet.clearAssignments();
+			
+			leader_fleet.addAssignment(
+				FleetAssignment.GO_TO_LOCATION, 
+				current_route[current_route_waypoint_index],
+				10000 );
+		}
+	}
+	
+	private SectorEntityToken choose_jump_point( LocationAPI location )
+	{
+		return null;
+	}
+	
+	private SectorEntityToken[] choose_system_waypoint_route( LocationAPI location )
 	{
 		// build a pool of potential waypoints
 		List waypoint_pool = new ArrayList();
-		waypoint_pool.addAll( system.getPlanets() );
-		waypoint_pool.addAll( system.getOrbitalStations() );
+		waypoint_pool.addAll( location.getPlanets() );
+		waypoint_pool.addAll( location.getOrbitalStations() );
 		// choose randomly
 		Collections.shuffle( waypoint_pool );
 		// choose a route size
@@ -215,29 +266,10 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		int route_size = (int)Math.round((float)(Math.random())*range + min);
 		// create an appropriately sized slice of the shuffled pool as the route
 		List route_list = waypoint_pool.subList( 0, (route_size - 1) );
-		// create and add entry/exit waypoint.
-		// choose a point at random that lies on the perimeter of the square 
-		//  depicting the 'border' of the sector.
-		Vector2f spawn_loc = new Vector2f( 
-			(float)(Math.random()*(2.0f*STAR_SYSTEM_RADIUS) - STAR_SYSTEM_RADIUS), 
-			STAR_SYSTEM_RADIUS );
-		if( Math.random() > 0.5 ) // 50% chance to flip from top to bottom
-			spawn_loc.y *= -1;
-		if( Math.random() > 0.5 ) // 50% chance to flip from left to right
-		{
-			float swap = spawn_loc.x;
-			spawn_loc.x = spawn_loc.y;
-			spawn_loc.y = swap;
-		}
-		SectorEntityToken start = system.createToken( spawn_loc.x, spawn_loc.y );
-		SectorEntityToken end = start;
-		route_list.add( 0, start );
-		route_list.add( end );
+		// convert to array
 		SectorEntityToken[] route = new SectorEntityToken[route_list.size()];
 		for( int i = 0; i < route.length; ++i )
-		{
-			route[i] = (SectorEntityToken)route_list.get( i );
-		}
+			route[i] = ((SectorEntityToken)route_list.get( i ));
 		// done
 		return route;
 	}
@@ -297,32 +329,6 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		return (float)Math.sqrt( _dx*_dx + _dy*_dy );
 	}
 
-	private void change_state( int new_state )
-	{
-		state = new_state;
-		last_state_change_timestamp = clock.getTimestamp();
-	}
-	
-	private void advance_waypoint_index()
-	{
-		++current_route_waypoint_index;
-		// check if last waypoint reached
-		if( current_route_waypoint_index >= current_route.length )
-		{
-			change_state( NON_EXISTENT );
-			remove_all_fleets();
-		}
-		else // not last waypoint, yet
-		{
-			leader_fleet.clearAssignments();
-			
-			leader_fleet.addAssignment(
-				FleetAssignment.GO_TO_LOCATION, 
-				current_route[current_route_waypoint_index],
-				10000 );
-		}
-	}
-	
 	private void update_escort_fleets()
 	{
 		escort_positioner.update_escort_fleet_positions( leader_fleet, escort_fleets );
@@ -346,7 +352,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 			{
 				_escF.clearAssignments();
 				_escF.addAssignment(
-					FleetAssignment.RAID_SYSTEM, system.getStar(), 1000 );
+					FleetAssignment.RAID_SYSTEM, spawn_system.getStar(), 1000 );
 			}
 		}
 	}
