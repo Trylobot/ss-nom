@@ -1,6 +1,7 @@
 package data.scripts.world.armada;
 
 import com.fs.starfarer.api.EveryFrameScript;
+import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignClockAPI;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.FleetAssignment;
@@ -124,6 +125,11 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	@Override
 	public void advance( float amount )
 	{
+		if( state != NON_EXISTENT )
+		{
+			// check if leader died; if so, scatter fleet
+			check_leader_still_alive();
+		}
 		switch( state )
 		{ 
 			////////////////////////////////////////
@@ -132,11 +138,11 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 				if( clock.getElapsedDaysSince( last_state_change_timestamp )
 					>= dead_time_days )
 				{
+					current_system = spawn_system;
 					// create leader fleet
 					leader_fleet = create_leader_fleet();
 					spawn_system.spawnFleet( 
 						spawn_location, 0, 0, leader_fleet );
-					current_system = spawn_system;
 					// create escort fleets
 					escort_fleets = create_escort_fleets();
 					for( int i = 0; i < escort_fleets.length; ++i )
@@ -146,22 +152,21 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 					}
 					// initialize controller state
 					change_state( IN_TRANSIT );
-					advance_waypoint_index();
 				}
 				break;
 			
 			////////////////////////////////////////
 			case IN_TRANSIT:
-				// check if leader died; if so, scatter fleet
-				check_leader_still_alive();
 				// check distance from fleet leader to waypoint
-				if( get_distance( leader_fleet, current_route[current_route_waypoint_index] )
-					<= waypoint_achieved_radius )
+				SectorEntityToken destination = current_route_waypoint_index >= 0 ? current_route[current_route_waypoint_index] : current_jump_point;
+				if( destination != null )
 				{
-					change_state( IDLE_AT_WAYPOINT );
+					if( get_distance( leader_fleet, destination )
+						<= waypoint_achieved_radius )
+					{
+						change_state( IDLE_AT_WAYPOINT );
+					}
 				}
-				// keep escort fleets in formation
-				update_escort_fleets();
 				break;
 			
 			////////////////////////////////////////
@@ -191,8 +196,6 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 					// change state to jumping
 					//change_state( HYPERSPACE_PERFORMING_JUMP );
 					
-				// keep escort fleets in formation
-				update_escort_fleets();
 				break;
 			
 			////////////////////////////////////////
@@ -213,9 +216,12 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 					//current_route_waypoint_index = 0;
 					
 				
-				// keep escort fleets in formation
-				update_escort_fleets();
 				break;
+		}
+		if( state != NON_EXISTENT )
+		{
+			// keep escort fleets in formation
+			update_escort_fleets();
 		}
 	}
 	
@@ -223,19 +229,15 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	{
 		state = new_state;
 		last_state_change_timestamp = clock.getTimestamp();
+		
+		if(Global.getSettings().isDevMode())Global.getLogger(this.getClass()).debug("state "+new_state);
 	}
 	
 	private void advance_waypoint_index()
 	{
 		++current_route_waypoint_index;
-		// check if last system waypoint reached
 		
-		if( current_route_waypoint_index >= current_route.length )
-		{
-			change_state( IN_TRANSIT );
-			
-		}
-		else // not last waypoint, yet
+		if( current_route_waypoint_index < current_route.length )
 		{
 			leader_fleet.clearAssignments();
 			
@@ -244,6 +246,14 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 				current_route[current_route_waypoint_index],
 				10000 );
 		}
+		else // current_route_waypoint_index >= current_route.length
+		{
+			change_state( IN_TRANSIT );
+			current_route_waypoint_index = -1;
+			// head to hyperspace beacon
+			
+		}
+		if(Global.getSettings().isDevMode())Global.getLogger(this.getClass()).debug("waypoint "+current_route_waypoint_index);
 	}
 	
 	private SectorEntityToken choose_jump_point( LocationAPI location )

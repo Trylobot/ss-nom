@@ -1,6 +1,7 @@
 package data.scripts.world.armada;
 
 import com.fs.starfarer.api.EveryFrameScript;
+import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignClockAPI;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.CargoAPI;
@@ -115,11 +116,20 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 		// if they do, transfer resources.
 		//   all source fleets contribute a number of resources. the actual number will vary such that donated percentages of total fleet resources are equal
 		if( available_crew > 0     && needed_crew > 0 )
+		{
+			if(Global.getSettings().isDevMode())Global.getLogger(this.getClass()).debug("redistributing "+available_crew+" crew from "+generous_fleets.size()+" fleets to "+jeopardized_fleets.size()+" fleets.");
 			redistribute_crew( available_crew, generous_fleets, needed_crew, jeopardized_fleets );
+		}
 		if( available_supplies > 0 && needed_supplies > 0 )
+		{
+			if(Global.getSettings().isDevMode())Global.getLogger(this.getClass()).debug("redistributing "+available_supplies+" supplies from "+generous_fleets.size()+" fleets to "+jeopardized_fleets.size()+" fleets.");
 			redistribute_supplies( available_supplies, generous_fleets, needed_supplies, jeopardized_fleets );
+		}
 		if( available_fuel > 0     && needed_fuel > 0 )
+		{
+			if(Global.getSettings().isDevMode())Global.getLogger(this.getClass()).debug("redistributing "+available_fuel+" fuel from "+generous_fleets.size()+" fleets to "+jeopardized_fleets.size()+" fleets.");
 			redistribute_fuel( available_fuel, generous_fleets, needed_fuel, jeopardized_fleets );
+		}
 	}
 	
 	private int count_alive_fleets()
