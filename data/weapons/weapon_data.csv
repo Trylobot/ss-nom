@@ -4,6 +4,6 @@ Light Electron Maser,nom_light_electron_maser,1,350,400,,30,,15,65,4,,ENERGY,32,
 Heavy Electron Maser,nom_heavy_electron_maser,1,1100,600,,55,,30,45,8,,ENERGY,60,,,0.435,,,,,,,,675,,,200,,1337101
 Maser Pulse Beam,nom_maser_pulse_beam,1,3000,1250,,220,,80,15,20,,ENERGY,800,,,1.8,,,,,,,,3000,,,100,,1337105
 Twin Electron Maser,nom_twin_electron_maser,1,4000,815,,60,,30,45,18,,ENERGY,60,,,0.289,2,0.2,,,,,,675,,,200,,1337104
-Doom Cannon,nom_doom_cannon,1,25000,1250,,1600,,6000,10,125,,ENERGY,2000,,0.125,0.375,,,,,,,,370,,,99999,,1337102
+Doom Cannon,nom_doom_cannon,1,12500,1100,,1750,,6000,5,75,30,ENERGY,2000,,0.12,0.35,,,,,,,,360,,,99999,,1337102
 Habitat Ring,nom_decorative_oasis_habitat_ring,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,1337099
 Structural Support,nom_decorative_oasis_habitat_ring_structural_support_beam,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,1337098
