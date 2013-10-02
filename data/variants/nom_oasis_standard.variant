@@ -4,11 +4,9 @@
   "fluxVents": 10,
   "hullId": "nom_oasis",
   "hullMods": [
-    "heavyarmor",
-    "blast_doors",
-    "reinforcedhull",
-    "autorepair",
-    "insulatedengine"
+    "blast_doors",    # 25
+    "reinforcedhull", # 30
+    "autorepair",     # 25
   ],
   "variantId": "nom_oasis_standard",
   "weaponGroups": []

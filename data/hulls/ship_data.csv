@@ -1,5 +1,5 @@
 name,id,designation,system id,fleet pts,hitpoints,armor rating,max flux,8/6/5/4%,flux dissipation,ordnance points,max speed,acceleration,deceleration,max turn rate,turn acceleration,mass,shield type,defense id,shield arc,shield upkeep,shield efficiency,phase cost,phase upkeep,min crew,max crew,cargo,fuel,fuel/ly,range,max burn,base value,supplies/day,repair %/day,repair cost,CR to deploy,peak CR sec,CR loss/sec,hints,number
-Oasis,nom_oasis,Civilian,nom_gecko_drone,5,20000,300,15000,,300,150,20,10,10,7,3,6050,FRONT,,360,0.15,0.5,,,50,8950,2200,4110,27.5,700,,175000,0.25,3,500,10,,,CIVILIAN,1337107
+Oasis,nom_oasis,Civilian,nom_gecko_drone,5,20000,300,15000,,300,90,20,10,10,7,3,6050,FRONT,,360,0.15,0.5,,,50,8950,2200,4110,27.5,700,,175000,0.25,3,500,10,,,CIVILIAN,1337107
 Sandstorm,nom_sandstorm,Battleship,highenergyfocus,20,15000,1200,24000,,925,60,50,20,15,10,6,3000,OMNI,,130,0.4,0.6,,,400,600,200,300,2,50,,100000,12,5,500,22,,,,1337106
 Gila Monster,nom_gila_monster,Battleship,highenergyfocus,24,25000,1200,35000,,1050,35,30,15,10,4.25,3.12,5100,OMNI,,165,0.4,0.4,,,550,1500,600,1200,30,40,,160000,16,5,750,30,,,CARRIER,1337104
 Scorpion,nom_scorpion,Destroyer,fastmissileracks,10,3000,225,1200,,225,30,65,50,20,30,30,200,OMNI,,220,0.15,0.5,,,10,15,100,100,2,50,,9000,7,10,75,25,,,,1337105
