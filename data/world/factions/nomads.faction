@@ -109,13 +109,13 @@
 			},
 		},
 	},
-	"traits":{
+	"traits":{ # do these do anything?
 		"admiral":{
 			
 		},
 		"captain":{
-			"cowardly":1,
-			"cautious":1,
+			"cowardly":0, 
+			"cautious":0,
 			"steady":1,
 			"aggressive":1,
 			"suicidal":1,

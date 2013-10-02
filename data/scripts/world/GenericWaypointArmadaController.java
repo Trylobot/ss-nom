@@ -13,7 +13,16 @@ import java.util.Collections;
 import java.util.List;
 import org.lwjgl.util.vector.Vector2f;
 
-// TODO: implement EveryFrameScript
+// TODO: refactor fleet formation positioner to use an interface, and a class for each escort type, allowing external implementations to be passed
+//   "ORBIT"  params: orbit radius, orbit direction [CCW/CW], orbit period (days)
+//   "COLUMN" params: separation distance, rank width number (width constant, files grow with number of escort fleets)
+//   "LINE"   params: separation distance, number of files (number of files constant, rank width grows with number of escort fleets)
+//   "SQUARE" params: separation distance
+//   "WEDGE"  params: separation distance, offset angle
+//   "ECHELON"params: separation distance, offset angle, variant [right/left]
+//   "VEE"    params: separation distance, offset angle
+
+// TODO: function for each state, or implement real state machine (seems like overkill tho)
 
 @SuppressWarnings("unchecked")
 public class GenericWaypointArmadaController implements EveryFrameScript
@@ -21,15 +30,17 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 	// public constants for arguments
 	final public static int ESCORT_ORBIT = 100;
 	
-	// constants and enums
-	final private static float STAR_SYSTEM_RADIUS = 15000f;
-	final private static float TWO_PI = (float)(2.0f*Math.PI);
+	// constants and enums (really only enum-like)
+	private final static float STAR_SYSTEM_RADIUS = 15000f;
+	private final static float TWO_PI = (float)(2.0f*Math.PI);
 	
-	final private static float WAYPOINT_ACHIEVED_DISTANCE = 10.0f;
+	private final static float WAYPOINT_ACHIEVED_DISTANCE = 10.0f;
 
-	final private static int OUT_OF_SECTOR    = 10;
-	final private static int IN_TRANSIT       = 20;
-	final private static int IDLE_AT_WAYPOINT = 30;
+	private final static int NON_EXISTENT                = 10;
+	private final static int LOCALSPACE_IN_TRANSIT       = 20;
+	private final static int LOCALSPACE_IDLE_AT_WAYPOINT = 30;
+	private final static int HYPERSPACE_IN_TRANSIT       = 40;
+	private final static int HYPERSPACE_PERFORMING_JUMP  = 50;
 	
 	// current star system
 	private SectorAPI sector;
@@ -43,10 +54,10 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 	private float[] escort_fleet_composition_weights;
 	private int escort_formation;
 	private float escort_formation_separation_distance;
-	private int waypoints_per_trip_minimum;
-	private int waypoints_per_trip_maximum;
+	private int waypoints_per_system_minimum;
+	private int waypoints_per_system_maximum;
 	private int waypoint_idle_time_days;
-	private int out_of_sector_time_days;
+	private int dead_time_days;
 	
 	private CampaignClockAPI clock;
 
@@ -62,16 +73,18 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 	private CampaignFleetAPI[] escort_fleets = null;
 
 	// State of the controller
-	private int state = OUT_OF_SECTOR;
-	private boolean first_run = true;
+	private int state = NON_EXISTENT;
 	
-	// used for measuring idle time
-	private long last_state_change_timestamp = 0;
+	// used for measuring idle time; defaults to very low value so armada will spawn immediately
+	private long last_state_change_timestamp = -9223372036854775808L; // long minimum value
 	
-	// Currently selected waypoints composing a planned trip for the leader fleet
+	// hyperspace destination
+	private SectorEntityToken current_hyperspace_waypoint = null;
+	
+	// currently selected local-space (in-system) waypoints composing a small planned trip for the leader fleet
 	private SectorEntityToken[] current_route = null;
-	// MOVING: next waypoint
-	// WAITING: current waypoint
+	// *_IN_TRANSIT: next waypoint
+	// *_IDLE_*: current waypoint
 	private int current_route_waypoint_index = -1;
 	
 	// Constructor also initializes the spawning system and begins spawning fleets
@@ -89,7 +102,7 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 		int waypoint_per_trip_minimum,
 		int waypoint_per_trip_maximum,
 		int waypoint_idle_time_days,
-		int out_of_sector_time_days )
+		int dead_time_days )
 	{
 		// setup behaviors; these are not modified by the controller
 		this.faction_id = faction_id;
@@ -102,13 +115,17 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 		this.escort_fleet_composition_weights = escort_fleet_composition_weights;
 		this.escort_formation = escort_formation;
 		this.escort_formation_separation_distance = escort_formation_separation_distance;
-		this.waypoints_per_trip_minimum = waypoint_per_trip_minimum;
-		this.waypoints_per_trip_maximum = waypoint_per_trip_maximum;
+		this.waypoints_per_system_minimum = waypoint_per_trip_minimum;
+		this.waypoints_per_system_maximum = waypoint_per_trip_maximum;
 		this.waypoint_idle_time_days = waypoint_idle_time_days;
-		this.out_of_sector_time_days = out_of_sector_time_days;
+		this.dead_time_days = dead_time_days;
 
 		this.clock = sector.getClock();
 	}
+	
+	// getters
+	public CampaignFleetAPI getLeaderFleet() { return leader_fleet; }
+	public CampaignFleetAPI[] getEscortFleets() { return escort_fleets; }
 	
 	
 	@Override
@@ -117,11 +134,10 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 		switch( state )
 		{ 
 			////////////////////////////////////////
-			case OUT_OF_SECTOR:
+			case NON_EXISTENT:
 				// check if enough time has passed to spawn in next armada!
-				if( first_run 
-				|| clock.getElapsedDaysSince( last_state_change_timestamp ) 
-				   >= out_of_sector_time_days )
+				if( clock.getElapsedDaysSince( last_state_change_timestamp )
+					>= dead_time_days )
 				{
 					// initialize a route
 					current_route = build_fresh_route();
@@ -138,40 +154,58 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 							current_route[0], 0, 0, escort_fleets[i] );
 					}
 					// controller state
-					change_state( IN_TRANSIT );
+					change_state( LOCALSPACE_IN_TRANSIT );
 					advance_waypoint_index();
 				}
 				break;
 			
 			////////////////////////////////////////
-			case IN_TRANSIT:
+			case LOCALSPACE_IN_TRANSIT:
 				// check if leader died; if so, scatter fleet
 				check_leader_still_alive();
 				// check distance from fleet leader to waypoint
-				SectorEntityToken destination_waypoint = 
-					current_route[current_route_waypoint_index];
-				float distance = get_distance( leader_fleet, destination_waypoint );
-				if( distance <= WAYPOINT_ACHIEVED_DISTANCE )
+				if( get_distance( leader_fleet, current_route[current_route_waypoint_index] )
+					<= WAYPOINT_ACHIEVED_DISTANCE )
 				{
-					change_state( IDLE_AT_WAYPOINT );
+					change_state( LOCALSPACE_IDLE_AT_WAYPOINT );
 				}
 				// keep escort fleets moving in formation
 				update_escort_fleets();
 				break;
 			
 			////////////////////////////////////////
-			case IDLE_AT_WAYPOINT:
+			case LOCALSPACE_IDLE_AT_WAYPOINT:
 				// check if leader died; if so, scatter fleet
 				check_leader_still_alive();
 				// check if idle time has elapsed
 				if( clock.getElapsedDaysSince( last_state_change_timestamp ) 
-				    >= waypoint_idle_time_days )
+					>= waypoint_idle_time_days )
 				{
-					change_state( IN_TRANSIT );
+					change_state( LOCALSPACE_IN_TRANSIT );
 					advance_waypoint_index();
 				}
 				// keep escort fleets in formation while idle
 				update_escort_fleets();
+				break;
+			
+			////////////////////////////////////////
+			case HYPERSPACE_IN_TRANSIT:
+				// check if leader died; if so, scatter fleet
+				check_leader_still_alive();
+				
+				break;
+			
+			////////////////////////////////////////
+			case HYPERSPACE_PERFORMING_JUMP:
+				// check if leader died; if so, scatter fleet
+				check_leader_still_alive();
+				// check distance from fleet leader to waypoint
+				if( get_distance( leader_fleet, current_hyperspace_waypoint )
+					<= WAYPOINT_ACHIEVED_DISTANCE )
+				{
+					// jump
+					// change state to jumping
+				}
 				break;
 		}
 	}
@@ -193,8 +227,8 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 		// choose randomly
 		Collections.shuffle( waypoint_pool );
 		// choose a route size
-		float min = waypoints_per_trip_minimum;
-		float max = waypoints_per_trip_maximum;
+		float min = waypoints_per_system_minimum;
+		float max = waypoints_per_system_maximum;
 		float range = max - min;
 		int route_size = (int)Math.round((float)(Math.random())*range + min);
 		// create an appropriately sized slice of the shuffled pool as the route
@@ -293,7 +327,7 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 		// check if last waypoint reached
 		if( current_route_waypoint_index >= current_route.length )
 		{
-			change_state( OUT_OF_SECTOR );
+			change_state( NON_EXISTENT );
 			remove_all_fleets();
 		}
 		else // not last waypoint, yet
@@ -314,7 +348,7 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 	private Vector2f _LV; // leader velocity
 	private float _phA; // phase angle constant
 	private float _eA; // escort fleet angle
-	private Vector2f _eP = new Vector2f(); // escort fleet position
+	//private Vector2f _eP = new Vector2f(); // escort fleet position
 	private static final float _TS_FACTOR = 100000000.0f; // arbitrary (do not modify)
 	private float _o_sK; // orbit speed factor (could be parameterized)
 	private float _o_s; // orbit speed
@@ -323,11 +357,8 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 	{
 		// get position, speed, and direction of leader fleet.
 		_LP = leader_fleet.getLocation();
-		//_LV = leader_fleet.getVelocity();
-		// predict position of leader in the near future.
-		//   ... to do
-		// calculate array of target positions based on formation and prediction.
-		// assign orders to escort fleets.
+		_LV = leader_fleet.getVelocity();
+
 		switch( escort_formation )
 		{
 			case( ESCORT_ORBIT ):
@@ -345,17 +376,11 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 					_escF = escort_fleets[i];
 					if( _escF.isAlive() )
 					{
-						_escF.clearAssignments();
-
 						_eA = i*(TWO_PI/(float)escort_fleets.length) + _phA;
-						_eP.x = (float)(_LP.x + _r*Math.cos( _eA ));
-						_eP.y = (float)(_LP.y + _r*Math.sin( _eA ));
-
-						_escF.setLocation(_eP.x, _eP.y); // looks cooler.
-						/*escort_fleets[i].addAssignment(
-							FleetAssignment.DEFEND_LOCATION,
-							star_system.createToken(_eP.x, _eP.y),
-							10000 );*/
+						_escF.setLocation(
+						  (float)(_LP.x + _r*Math.cos( _eA )),
+						  (float)(_LP.y + _r*Math.sin( _eA )) );
+						_escF.getVelocity().set( _LV ); // for proper hyperspace fuel burn
 					}
 				}
 				break;
@@ -367,7 +392,7 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 		if( ! leader_fleet.isAlive() )
 		{
 			scatter_remaining_escort_fleets();
-			change_state( OUT_OF_SECTOR );
+			change_state( NON_EXISTENT );
 		}
 	}
 	
@@ -392,6 +417,29 @@ public class GenericWaypointArmadaController implements EveryFrameScript
 			FleetAssignment.GO_TO_LOCATION_AND_DESPAWN, 
 			current_route[current_route.length - 1], 
 			1000 );
+	}
+	
+	//private  _dF
+	
+	private void redistribute_resources()
+	{
+		// do this once per day.
+		
+		// if less than two fleets remain, abort
+		// if the leader fleet is destroyed, abort
+		
+		// search for fleets that are:
+		// * at risk of an accident due to low supplies, or
+		// * have undeployable ships due to low ship CR
+		
+		// then, calculate the needed resources to restore those fleets to desired levels.
+		
+		// then, check if the required resources exist within all of the non-at-risk fleets as a group
+		// if they do, transfer resources.
+		//   all source fleets contribute a number of resources. the actual number will vary such that donated percentages of total fleet resources are equal
+		
+		// for now: cheat (fabricate resources out of thin air)
+		
 	}
 
 }

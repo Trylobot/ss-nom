@@ -2,7 +2,7 @@
 	"name":"The Nomads", #displayed
   "author":"Trylobot",
   "id":"nomads", #internal
-	"version":"0.9.5",
+	"version":"0.9.0",
 	"description":"The Nomad Armada wanders about.",
 	"modPlugin":"data.scripts.TheNomadsModPlugin",
   "gameVersion":"0.6a",
