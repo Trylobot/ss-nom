@@ -193,16 +193,23 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 	
 	private float calculate_needed_crew( CampaignFleetAPI fleet )
 	{
-		return ((fleet_risk_threshold_extra_crew_percentage * calculate_fleet_min_total_crew( fleet ))
+		float[] range = calculate_fleet_crew_requirement_range( fleet );
+		return ((fleet_risk_threshold_extra_crew_percentage * range[0])
 		  - (float)fleet.getCargo().getTotalCrew() );
 	}
-	private float calculate_fleet_min_total_crew( CampaignFleetAPI fleet )
+	private float[] calculate_fleet_crew_requirement_range( CampaignFleetAPI fleet )
 	{
-		float count = 0.0f;
+		float[] range = { 0.0f, 0.0f };
+		if( !fleet.isAlive() )
+			return range;
 		List members = fleet.getFleetData().getMembersInPriorityOrder();
 		for( Iterator i = members.iterator(); i.hasNext(); )
-			count += ((FleetMemberAPI)i.next()).getMinCrew();
-		return count;
+		{
+			FleetMemberAPI ship = (FleetMemberAPI)i.next();
+			range[0] += ship.getMinCrew();
+			range[1] += ship.getMaxCrew();
+		}
+		return range;
 	}
 	
 	private float calculate_needed_supplies( CampaignFleetAPI fleet )
@@ -220,8 +227,9 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 	
 	private float calculate_noncritical_crew( CampaignFleetAPI fleet )
 	{
+		float[] range = calculate_fleet_crew_requirement_range( fleet );
 		return ((float)fleet.getCargo().getTotalCrew()
-		  - (fleet_abundance_threshold_extra_crew_percentage * calculate_fleet_min_total_crew( fleet )));
+		  - (fleet_abundance_threshold_extra_crew_percentage * range[0]));
 	}
 	
 	private float calculate_noncritical_supplies( CampaignFleetAPI fleet )
