@@ -10,7 +10,10 @@ import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
-import data.scripts.world.GenericWaypointArmadaController;
+import data.scripts.world.armada.CampaignArmadaController;
+import data.scripts.world.armada.CampaignArmadaFormationOrbit;
+import data.scripts.world.armada.CampaignArmadaResourceSharingController;
+import data.scripts.world.armada.api.CampaignArmadaEscortFleetPositionerAPI;
 import java.awt.Color;
 import java.util.List;
 import org.lwjgl.util.vector.Vector2f;
@@ -47,7 +50,7 @@ public class TheNomadsNur
 		system = sector.createStarSystem( "Nur" );
         //system.setBackgroundTextureFilename( "graphics/nom/backgrounds/background_nur.jpg" ); // doesn't look good
 		system.setLightColor( new Color( 185, 185, 240 )); // light color in entire system, affects all entities
-		system.getLocation().set( 0f, 0f ); // 18000f, -900f ); // DEBUG
+		system.getLocation().set( 18000f, -900f );
 		
 		// stars, planets, moons, jump points
 		init_celestial_bodies( system );
@@ -109,24 +112,51 @@ public class TheNomadsNur
 	
 	private void init_fleet_scripts( SectorAPI sector, StarSystemAPI system )
 	{
-		// armada script
-		GenericWaypointArmadaController nomad_armada_spawner_script =
-			new GenericWaypointArmadaController(
+		// armada formation type
+		CampaignArmadaEscortFleetPositionerAPI armada_formation =
+			new CampaignArmadaFormationOrbit(
+				sector,
+				300.0f, // orbitRadius
+				1.0f, // orbitDirection
+				0.25f // orbitPeriodDays
+			);
+		
+		// armada composition data (references faction definition data)
+		String[] escort_pool = { "scout", "longRangeScout", "battleGroup", "royalGuard", "jihadFleet" };
+		float[] escort_weights={  0.250f,  0.250f,           0.200f,        0.175f,       0.125f      };
+		
+		// armada waypoint controller script
+		CampaignArmadaController nomad_armada =
+			new CampaignArmadaController(
 				"nomads", // faction
 				"colonyFleet", // VIP fleet
 				sector, // global sector api
 				system,  // system wherein armada should initially spawn
 				8, // escort_fleet_count
-				new String[]{ "scout", "longRangeScout", "battleGroup", "royalGuard", "jihadFleet" }, // escort_fleet_composition_pool
-				new float[] {  0.250f,  0.250f,           0.200f,        0.175f,       0.125f      }, // escort_fleet_composition_weights
-				GenericWaypointArmadaController.ESCORT_ORBIT, // escort formation type
-				300.0f, // escort_formation_separation_distance (applies to all formations
+				escort_pool,
+				escort_weights,
+				armada_formation,
 				2, // waypoint_per_trip_minimum
-				4, // waypoint_per_trip_maximum
+				5, // waypoint_per_trip_maximum
 				2, // waypoint_idle_time_days
+				10.0f, // distance to waypoint in order to start idling
 				12 // dead_time_days
-		);
-		system.addScript( nomad_armada_spawner_script );
+			);
+		system.addScript( nomad_armada );
+		
+		// armada resource pooling script
+		CampaignArmadaResourceSharingController armada_resource_pool = 
+			new CampaignArmadaResourceSharingController( 
+				sector, 
+				nomad_armada,
+				3.0f, // 3 days at fleet's current usage (whatever it happens to be)
+				0.10f, // skeleton crew requirement, plus 10%
+				5.0f, // 5 light-years worth of fuel at fleet's current fuel consumption rate
+				12.0f, // 12 days at fleet's current usage (whatever it happens to be)
+				0.25f, // skeleton crew requirement, plus 25%
+				15.0f // 15 light-years worth of fuel at fleet's current fuel consumption rate
+			);
+		system.addScript( armada_resource_pool );
 		
 	}
 	
