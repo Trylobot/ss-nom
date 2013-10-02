@@ -4,7 +4,6 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import data.scripts.world.systems.TheNomadsNur;
 
-
 public class TheNomadsModPlugin extends BaseModPlugin
 {
 	@Override

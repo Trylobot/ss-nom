@@ -7,12 +7,12 @@ import com.fs.starfarer.api.campaign.FleetAssignment;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
+import data.scripts.world.armada.api.CampaignArmadaAPI;
+import data.scripts.world.armada.api.CampaignArmadaEscortFleetPositionerAPI;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.lwjgl.util.vector.Vector2f;
-import data.scripts.world.armada.api.CampaignArmadaAPI;
-import data.scripts.world.armada.api.CampaignArmadaEscortFleetPositionerAPI;
 
 
 @SuppressWarnings("unchecked")

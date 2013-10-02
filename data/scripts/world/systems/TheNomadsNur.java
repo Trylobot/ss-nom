@@ -15,7 +15,6 @@ import data.scripts.world.armada.CampaignArmadaFormationOrbit;
 import data.scripts.world.armada.CampaignArmadaResourceSharingController;
 import data.scripts.world.armada.api.CampaignArmadaEscortFleetPositionerAPI;
 import java.awt.Color;
-import java.util.List;
 import org.lwjgl.util.vector.Vector2f;
 
 @SuppressWarnings( "unchecked" )
@@ -86,7 +85,7 @@ public class TheNomadsNur
 		planet_I.applySpecChanges();
 		
 		// rings & bands
-		system.addRingBand( planet_I, "misc", "rings1", 256f, 0, Color.white, 256f, 1300f, 30f );
+		system.addRingBand( planet_I, "misc", "rings1", 256f, 0, Color.white, 256f, 630f, 30f );
 		
 		// jump points
 		init_star_gravitywell_jump_point( system, system_center_of_mass, star_A, 

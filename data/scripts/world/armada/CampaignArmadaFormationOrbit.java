@@ -4,12 +4,9 @@
  */
 package data.scripts.world.armada;
 
-import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignClockAPI;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
-import com.fs.starfarer.api.campaign.OrbitAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
-import com.fs.starfarer.api.campaign.SectorEntityToken;
 import data.scripts.world.armada.api.CampaignArmadaEscortFleetPositionerAPI;
 import org.lwjgl.util.vector.Vector2f;
 

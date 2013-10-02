@@ -29,9 +29,9 @@
 		"atmosphereColor":[160,160,255,255],
 		"texture":"graphics/nom/planets/star_texture_blue.jpg",
 		"icon":"graphics/warroom/icon_star.png",
-		"iconColor":[255,255,0,255],
+		"iconColor":[160,160,255,255],
 		"starCoronaSprite":"graphics/fx/star_halo.png", # optional, defaults to really bright particle
-		"starCoronaColor":[255,255,150,60], # optional, defaults to white
+		"starCoronaColor":[160,160,255,60], # optional, defaults to white
 		"starCoronaSizeMult":5.12, # required, multiplier for star's radius
 		"isStar":true,
 		"lightPosition":[0,0,10], # in planet radii.  Not used for stars.  z > 0 is above the playing field.
