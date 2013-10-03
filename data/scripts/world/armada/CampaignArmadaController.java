@@ -5,16 +5,21 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignClockAPI;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.FleetAssignment;
+import com.fs.starfarer.api.campaign.JumpPointAPI;
+import com.fs.starfarer.api.campaign.JumpPointAPI.JumpDestination;
 import com.fs.starfarer.api.campaign.LocationAPI;
 import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
+import data.scripts._;
 import data.scripts.world.armada.api.CampaignArmadaAPI;
 import data.scripts.world.armada.api.CampaignArmadaEscortFleetPositionerAPI;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 import org.lwjgl.util.vector.Vector2f;
 
 
@@ -26,7 +31,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	
 	// current star system
 	private SectorAPI sector;
-	private StarSystemAPI spawn_system;
+	private LocationAPI spawn_system;
 	private SectorEntityToken spawn_location;
 
 	// basic behavior options
@@ -57,17 +62,20 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	
 
 	// state machine defs
-	private final static int NON_EXISTENT                = 10;
-	private final static int IN_TRANSIT                  = 20;
-	private final static int IDLE_AT_WAYPOINT            = 30;
-	private final static int PERFORMING_HYPERSPACE_JUMP  = 40;
+	private final static int NON_EXISTENT                        = 10;
+	private final static int SPACE_IN_TRANSIT_TO_WAYPOINT        = 20;
+	private final static int SPACE_IDLE_AT_WAYPOINT              = 30;
+	private final static int SPACE_IN_TRANSIT_TO_HYPERSPACE_BUOY = 40;
+	private final static int PERFORMING_HYPERSPACE_JUMP          = 50;
+	private final static int HYPERSPACE_IN_TRANSIT_TO_EXIT       = 60;
+	private final static int PERFORMING_JUMP_TO_SYSTEM           = 70;
 	// 
 	private int state = NON_EXISTENT;
 	
 	// used for measuring idle time; defaults to very low value so armada will spawn immediately
 	private long last_state_change_timestamp = Long.MIN_VALUE;
 	
-	private StarSystemAPI current_system = null;
+	private LocationAPI current_system = null;
 	// currently selected local-space (in-system) waypoints composing a small planned trip for the leader fleet
 	private SectorEntityToken[] current_route = null;
 	// IN_TRANSIT: next waypoint
@@ -75,7 +83,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	private int current_route_waypoint_index = -1;
 	
 	// currently selected hyperspace bouy; used when current_route is empty
-	private SectorEntityToken current_jump_point = null;
+	private JumpPointAPI current_jump_point = null;
 	
 	// Constructor also initializes the spawning system and begins spawning fleets
 	//  Spawning is immediate and automatic
@@ -84,7 +92,6 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		String faction_id,
 		String leader_fleet_id,
 		SectorAPI sector,
-		StarSystemAPI spawn_system,
 		SectorEntityToken spawn_location,
 		int escort_fleet_count,
 		String[] escort_fleet_composition_pool,
@@ -100,7 +107,6 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		this.faction_id = faction_id;
 		this.leader_fleet_id = leader_fleet_id;
 		this.sector = sector;
-		this.spawn_system = spawn_system;
 		this.spawn_location = spawn_location;
 		this.escort_fleet_count = escort_fleet_count;
 		this.escort_fleet_composition_pool = escort_fleet_composition_pool;
@@ -112,6 +118,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		this.waypoint_achieved_radius = waypoint_achieved_radius;
 		this.dead_time_days = dead_time_days;
 		
+		this.spawn_system = spawn_location.getContainingLocation();
 		this.clock = sector.getClock();
 	}
 	
@@ -122,102 +129,108 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	public CampaignArmadaEscortFleetPositionerAPI getEscortFleetPositioner() { return escort_positioner; }
 	
 	
+	private void change_state( int new_state )
+	{
+		state = new_state;
+		last_state_change_timestamp = clock.getTimestamp();
+		_.L("state "+new_state);
+	}
+	
 	@Override
 	public void advance( float amount )
 	{
+		// common prefix actions
 		if( state != NON_EXISTENT )
 		{
-			// check if leader died; if so, scatter fleet
+			// check if leader died; if yes, scatter fleet
 			check_leader_still_alive();
 		}
 		switch( state )
 		{ 
 			////////////////////////////////////////
 			case NON_EXISTENT:
-				// check if enough time has passed to spawn in next armada!
-				if( clock.getElapsedDaysSince( last_state_change_timestamp )
-					>= dead_time_days )
+				if( clock.getElapsedDaysSince( last_state_change_timestamp ) >= dead_time_days )
 				{
-					current_system = spawn_system;
-					// create leader fleet
-					leader_fleet = create_leader_fleet();
-					spawn_system.spawnFleet( 
-						spawn_location, 0, 0, leader_fleet );
-					// create escort fleets
-					escort_fleets = create_escort_fleets();
-					for( int i = 0; i < escort_fleets.length; ++i )
-					{
-						spawn_system.spawnFleet(
-							spawn_location, 0, 0, escort_fleets[i] );
-					}
-					// initialize controller state
-					change_state( IN_TRANSIT );
+					create_armada();
+					find_and_order_move_to_hyperspace_buoy();
+					change_state( SPACE_IN_TRANSIT_TO_HYPERSPACE_BUOY );
+					_.L("moving to hyperspace buoy");
 				}
 				break;
 			
 			////////////////////////////////////////
-			case IN_TRANSIT:
-				// check distance from fleet leader to waypoint
-				SectorEntityToken destination = current_route_waypoint_index >= 0 ? current_route[current_route_waypoint_index] : current_jump_point;
-				if( destination != null )
+			case SPACE_IN_TRANSIT_TO_HYPERSPACE_BUOY:
+				if( get_distance( current_jump_point, leader_fleet ) <= waypoint_achieved_radius )
 				{
-					if( get_distance( leader_fleet, destination )
-						<= waypoint_achieved_radius )
-					{
-						change_state( IDLE_AT_WAYPOINT );
-					}
+					order_hyperspace_jump_immediate_all();
+					change_state( PERFORMING_HYPERSPACE_JUMP );
+					_.L("jumping to hyperspace");
 				}
-				break;
-			
-			////////////////////////////////////////
-			case IDLE_AT_WAYPOINT:
-				// check if leader died; if so, scatter fleet
-				check_leader_still_alive();
-				// check what type of waypoint it is
-				
-				// IF CURRENT WAYPOINT IS REGULAR OL' WAYPOINT
-					// check if idle time has elapsed
-					if( clock.getElapsedDaysSince( last_state_change_timestamp ) 
-						>= waypoint_idle_time_days )
-					{
-						change_state( IN_TRANSIT );
-						advance_waypoint_index();
-					}
-				
-				// ELSE IF CURRENT WAYPOINT IS HYPERSPACE BUOY
-					/*
-					 * The "jumpLocation" parameter does *not* have to be a jump point, it could just be a token
-					 * at the location you'd like the jump to take place visually. The fleet will travel to that
-					 * location and then jump to the destination. It should also handle it correctly
-					 * (and actually change the current location mid-jump) if it's the player's fleet.
-					 */
-					// jump to a random destination belonging to the jump buoy
-					//sector.doHyperspaceTransition( leader_fleet, current_hyperspace_waypoint, current_hyperspace_waypoint.get );
-					// change state to jumping
-					//change_state( HYPERSPACE_PERFORMING_JUMP );
-					
 				break;
 			
 			////////////////////////////////////////
 			case PERFORMING_HYPERSPACE_JUMP:
-				// check if leader died; if so, scatter fleet
-				check_leader_still_alive();
-				// check if anim still playing for any fleet
+				current_system = leader_fleet.getContainingLocation();
+				if( current_system.isHyperspace() && !check_any_fleets_hyperspace_jumping() )
+				{
+					find_and_order_move_to_hyperspace_buoy();
+					change_state( HYPERSPACE_IN_TRANSIT_TO_EXIT );
+					_.L("traveling through hyperspace");
+				}
+				break;
 				
-				// if anim still playing, nothing to do
-				// else we just transitioned between normal space <--> hyperspace
-					// if new location is hyperspace, choose a buoy
-					current_jump_point = choose_jump_point( leader_fleet.getContainingLocation() );
+			////////////////////////////////////////
+			case HYPERSPACE_IN_TRANSIT_TO_EXIT:
+				if( get_distance( current_jump_point, leader_fleet ) <= waypoint_achieved_radius )
+				{
+					order_hyperspace_jump_immediate_all();
+					change_state( PERFORMING_JUMP_TO_SYSTEM );
+					_.L("exiting hyperspace");
+				}
+				break;
 				
-					// else build a new route
+			////////////////////////////////////////
+			case PERFORMING_JUMP_TO_SYSTEM:
+				current_system = leader_fleet.getContainingLocation();
+				if( !current_system.isHyperspace() && !check_any_fleets_hyperspace_jumping() )
+				{
+					build_space_route();
+					order_move_to_next_route_waypoint();
+					change_state( SPACE_IN_TRANSIT_TO_WAYPOINT );
+					_.L("moving to route waypoint "+current_route_waypoint_index);
+				}
+				break;
+				
+			////////////////////////////////////////
+			case SPACE_IN_TRANSIT_TO_WAYPOINT:
+				if( get_distance( leader_fleet, current_route[current_route_waypoint_index] ) <= waypoint_achieved_radius )
+				{
+					change_state( SPACE_IDLE_AT_WAYPOINT );
+					_.L("idling at waypoint");
+				}
+				break;
 
-					//// initialize a route
-					//current_route = choose_system_waypoint_route( system );
-					//current_route_waypoint_index = 0;
-					
-				
+			////////////////////////////////////////
+			case SPACE_IDLE_AT_WAYPOINT:
+				if( clock.getElapsedDaysSince( last_state_change_timestamp ) >= waypoint_idle_time_days )
+				{
+					++current_route_waypoint_index;
+					order_move_to_next_route_waypoint();
+					if( current_route_waypoint_index != -1 )
+					{
+						change_state( SPACE_IN_TRANSIT_TO_WAYPOINT );
+						_.L("moving to route waypoint "+current_route_waypoint_index);
+					}
+					else // route finished
+					{
+						find_and_order_move_to_hyperspace_buoy();
+						change_state( SPACE_IN_TRANSIT_TO_HYPERSPACE_BUOY );
+						_.L("moving to hyperspace buoy");
+					}
+				}
 				break;
 		}
+		// common postfix actions
 		if( state != NON_EXISTENT )
 		{
 			// keep escort fleets in formation
@@ -225,55 +238,111 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		}
 	}
 	
-	private void change_state( int new_state )
+	private void create_armada()
 	{
-		state = new_state;
-		last_state_change_timestamp = clock.getTimestamp();
-		
-		if(Global.getSettings().isDevMode())Global.getLogger(this.getClass()).debug("state "+new_state);
+		// create & spawn leader fleet
+		leader_fleet = create_leader_fleet();
+		spawn_system.spawnFleet( spawn_location, 0, 0, leader_fleet );
+		// create & spawn escort fleets
+		escort_fleets = create_escort_fleets();
+		for( int i = 0; i < escort_fleets.length; ++i )
+			spawn_system.spawnFleet( spawn_location, 0, 0, escort_fleets[i] );
+		current_system = spawn_system;
 	}
 	
-	private void advance_waypoint_index()
+	private void find_and_order_move_to_hyperspace_buoy()
 	{
-		++current_route_waypoint_index;
-		
+		current_jump_point = choose_jump_point( current_system );
+		// proceed to next waypoint
+		leader_fleet.clearAssignments();
+		leader_fleet.addAssignment(
+			FleetAssignment.GO_TO_LOCATION, 
+			current_jump_point,
+			Float.MAX_VALUE );
+	}
+	
+	private void order_hyperspace_jump_immediate_all()
+	{
+		// jump to a random destination belonging to the jump buoy
+		JumpDestination jump_destination = choose_jump_destination( current_jump_point );
+		leader_fleet.clearAssignments();
+		sector.doHyperspaceTransition( leader_fleet, null, jump_destination ); // immediate jump
+		for( int i = 0; i < escort_fleets.length; ++i )
+			sector.doHyperspaceTransition( escort_fleets[i], null, jump_destination);
+		// change state to in transit, until the jump buoy is reached
+	}
+	
+	private void build_space_route()
+	{
+		current_route = choose_system_waypoint_route( current_system );
+		current_route_waypoint_index = 0;		
+	}
+	
+	private void order_move_to_next_route_waypoint()
+	{
 		if( current_route_waypoint_index < current_route.length )
 		{
+			// proceed to next waypoint
 			leader_fleet.clearAssignments();
-			
 			leader_fleet.addAssignment(
 				FleetAssignment.GO_TO_LOCATION, 
 				current_route[current_route_waypoint_index],
-				10000 );
+				Float.MAX_VALUE );
 		}
-		else // current_route_waypoint_index >= current_route.length
+		else
 		{
-			change_state( IN_TRANSIT );
 			current_route_waypoint_index = -1;
-			// head to hyperspace beacon
-			
-		}
-		if(Global.getSettings().isDevMode())Global.getLogger(this.getClass()).debug("waypoint "+current_route_waypoint_index);
+		}		
 	}
 	
-	private SectorEntityToken choose_jump_point( LocationAPI location )
+	private JumpPointAPI choose_jump_point( LocationAPI location )
 	{
-		return null;
+		if( location == null )
+			return null;
+		// find jump points with at least one destination
+		List jump_point_pool = new ArrayList();
+		List all_jump_points = location.getEntities( JumpPointAPI.class );
+		for( Iterator j = all_jump_points.iterator(); j.hasNext(); )
+		{
+			JumpPointAPI jump_point = (JumpPointAPI)j.next();
+			if( !jump_point.getDestinations().isEmpty() )
+				jump_point_pool.add( jump_point );
+		}
+		if( jump_point_pool.isEmpty() )
+			return null;
+		// pick 1
+		return (JumpPointAPI)jump_point_pool.get((int)( Math.random() * jump_point_pool.size() ));
+	}
+	
+	private JumpDestination choose_jump_destination( JumpPointAPI jump_point )
+	{
+		if( jump_point == null )
+			return null;
+		List dest_pool = new ArrayList();
+		dest_pool.addAll( jump_point.getDestinations() );
+		if( dest_pool.isEmpty() )
+			return null;
+		// pick 1
+		return (JumpDestination)dest_pool.get((int)( Math.random() * dest_pool.size() ));
 	}
 	
 	private SectorEntityToken[] choose_system_waypoint_route( LocationAPI location )
 	{
+		if( location == null )
+			return null;
 		// build a pool of potential waypoints
 		List waypoint_pool = new ArrayList();
 		waypoint_pool.addAll( location.getPlanets() );
 		waypoint_pool.addAll( location.getOrbitalStations() );
-		// choose randomly
+		waypoint_pool.addAll( location.getAsteroids() );
+		if( waypoint_pool.isEmpty() )
+			return null;
+		// randomize pool order
 		Collections.shuffle( waypoint_pool );
-		// choose a route size
+		// randomly choose a route size
 		float min = waypoints_per_system_minimum;
 		float max = waypoints_per_system_maximum;
-		float range = max - min;
-		int route_size = (int)Math.round((float)(Math.random())*range + min);
+		int route_size = (int)Math.round((float)(Math.random())*(max - min) + min);
 		// create an appropriately sized slice of the shuffled pool as the route
 		List route_list = waypoint_pool.subList( 0, (route_size - 1) );
 		// convert to array
@@ -323,25 +392,19 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		return null;
 	}
 	
-	
-	// persistent allocations for frequently-called function
-	private Vector2f _t1L;
-	private Vector2f _t2L;
-	private float _dx;
-	private float _dy;
-	////
-	private float get_distance( SectorEntityToken t1, SectorEntityToken t2 )
-	{
-		_t1L = t1.getLocation();
-		_t2L = t2.getLocation();
-		_dx = _t1L.x - _t2L.x;
-		_dy = _t1L.y - _t2L.y;
-		return (float)Math.sqrt( _dx*_dx + _dy*_dy );
-	}
-
 	private void update_escort_fleets()
 	{
 		escort_positioner.update_escort_fleet_positions( leader_fleet, escort_fleets );
+	}
+	
+	private boolean check_any_fleets_hyperspace_jumping()
+	{
+		if( leader_fleet.isInHyperspaceTransition() )
+			return true;
+		for( int i = 0; i < escort_fleets.length; ++i )
+			if( escort_fleets[i].isInHyperspaceTransition() )
+				return true;
+		return false;
 	}
 	
 	private void check_leader_still_alive()
@@ -349,6 +412,8 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		if( leader_fleet == null || !leader_fleet.isAlive() )
 		{
 			scatter_remaining_escort_fleets();
+			leader_fleet = null;
+			escort_fleets = null;
 			change_state( NON_EXISTENT );
 		}
 	}
@@ -361,22 +426,41 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 			if( _escF.isAlive() )
 			{
 				_escF.clearAssignments();
-				_escF.addAssignment(
-					FleetAssignment.RAID_SYSTEM, spawn_system.getStar(), 1000 );
+				// kill everyone aaghhhh!
+				_escF.addAssignment( 
+					FleetAssignment.RAID_SYSTEM,
+					_escF.getContainingLocation().createToken( 0, 0 ), 
+					Float.MAX_VALUE );
 			}
 		}
 	}
 	
-	private void remove_all_fleets()
+	private void leader_return_home()
 	{
-		// despawn fleets
+		// could be very, very far away indeed; who knows if they'll even make it back?
 		leader_fleet.addAssignment(
 			FleetAssignment.GO_TO_LOCATION_AND_DESPAWN, 
-			current_route[current_route.length - 1], 
-			1000 );
+			spawn_location, 
+			Float.MAX_VALUE );
 	}
 	
+	private Vector2f _t1L;
+	private Vector2f _t2L;
+	private float _dx;
+	private float _dy;
+	////
+	private float get_distance( SectorEntityToken t1, SectorEntityToken t2 )
+	{
+		if( t1 == null || t2 == null )
+			return Float.MAX_VALUE;
+		_t1L = t1.getLocation();
+		_t2L = t2.getLocation();
+		_dx = _t1L.x - _t2L.x;
+		_dy = _t1L.y - _t2L.y;
+		return (float)Math.sqrt( _dx*_dx + _dy*_dy );
+	}
 
+	// API methods must be defined
 	public boolean isDone()
 	{
 		return false; // never done

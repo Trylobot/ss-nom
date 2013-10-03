@@ -8,6 +8,7 @@ import com.fs.starfarer.api.campaign.CargoAPI;
 import com.fs.starfarer.api.campaign.CargoAPI.CrewXPLevel;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
+import data.scripts._;
 import data.scripts.world.armada.api.CampaignArmadaAPI;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -117,17 +118,17 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 		//   all source fleets contribute a number of resources. the actual number will vary such that donated percentages of total fleet resources are equal
 		if( available_crew > 0     && needed_crew > 0 )
 		{
-			if(Global.getSettings().isDevMode())Global.getLogger(this.getClass()).debug("redistributing "+available_crew+" crew from "+generous_fleets.size()+" fleets to "+jeopardized_fleets.size()+" fleets.");
+			_.L("redistributing "+available_crew+" crew from "+generous_fleets.size()+" fleets to "+jeopardized_fleets.size()+" fleets.");
 			redistribute_crew( available_crew, generous_fleets, needed_crew, jeopardized_fleets );
 		}
 		if( available_supplies > 0 && needed_supplies > 0 )
 		{
-			if(Global.getSettings().isDevMode())Global.getLogger(this.getClass()).debug("redistributing "+available_supplies+" supplies from "+generous_fleets.size()+" fleets to "+jeopardized_fleets.size()+" fleets.");
+			_.L("redistributing "+available_supplies+" supplies from "+generous_fleets.size()+" fleets to "+jeopardized_fleets.size()+" fleets.");
 			redistribute_supplies( available_supplies, generous_fleets, needed_supplies, jeopardized_fleets );
 		}
 		if( available_fuel > 0     && needed_fuel > 0 )
 		{
-			if(Global.getSettings().isDevMode())Global.getLogger(this.getClass()).debug("redistributing "+available_fuel+" fuel from "+generous_fleets.size()+" fleets to "+jeopardized_fleets.size()+" fleets.");
+			_.L("redistributing "+available_fuel+" fuel from "+generous_fleets.size()+" fleets to "+jeopardized_fleets.size()+" fleets.");
 			redistribute_fuel( available_fuel, generous_fleets, needed_fuel, jeopardized_fleets );
 		}
 	}
@@ -199,14 +200,7 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 		}
 		return list;
 	}
-	
-	
-	private float calculate_needed_crew( CampaignFleetAPI fleet )
-	{
-		float[] range = calculate_fleet_crew_requirement_range( fleet );
-		return ((fleet_risk_threshold_extra_crew_percentage * range[0])
-		  - (float)fleet.getCargo().getTotalCrew() );
-	}
+
 	private float[] calculate_fleet_crew_requirement_range( CampaignFleetAPI fleet )
 	{
 		float[] range = { 0.0f, 0.0f };
@@ -222,6 +216,13 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 		return range;
 	}
 	
+	private float calculate_needed_crew( CampaignFleetAPI fleet )
+	{
+		float[] range = calculate_fleet_crew_requirement_range( fleet );
+		return ((range[0] + fleet_risk_threshold_extra_crew_percentage * range[0])
+		  - (float)fleet.getCargo().getTotalCrew() );
+	}
+	
 	private float calculate_needed_supplies( CampaignFleetAPI fleet )
 	{
 		return ((fleet_risk_threshold_days_worth_of_supplies * fleet.getTotalSupplyCostPerDay())
@@ -230,8 +231,8 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 	
 	private float calculate_needed_fuel( CampaignFleetAPI fleet )
 	{
-		return ((fleet_risk_threshold_lightyears_worth_of_fuel * fleet.getTotalSupplyCostPerDay())
-		  - fleet.getCargo().getSupplies());
+		return ((fleet_risk_threshold_lightyears_worth_of_fuel * fleet.getLogistics().getFuelCostPerLightYear() )
+		  - fleet.getCargo().getFuel());
 	}
 	
 	
@@ -239,7 +240,7 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 	{
 		float[] range = calculate_fleet_crew_requirement_range( fleet );
 		return ((float)fleet.getCargo().getTotalCrew()
-		  - (fleet_abundance_threshold_extra_crew_percentage * range[0]));
+		  - (range[0] + fleet_abundance_threshold_extra_crew_percentage * range[0]));
 	}
 	
 	private float calculate_noncritical_supplies( CampaignFleetAPI fleet )
@@ -250,8 +251,8 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 	
 	private float calculate_noncritical_fuel( CampaignFleetAPI fleet )
 	{
-		return (fleet.getCargo().getSupplies()
-		  - (fleet_abundance_threshold_lightyears_worth_of_fuel * fleet.getTotalSupplyCostPerDay()));
+		return (fleet.getCargo().getFuel()
+		  - (fleet_abundance_threshold_lightyears_worth_of_fuel * fleet.getLogistics().getFuelCostPerLightYear() ));
 	}
 	
 	private void redistribute_crew( float available_crew, List donor_fleets, float needed_crew, List benefactor_fleets )

@@ -11,8 +11,8 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 	public void defineMission(MissionDefinitionAPI api) {
 
 		// Set up the fleets
-		api.initFleet(FleetSide.PLAYER, "HSS", FleetGoal.DEFEND, false);
-		api.initFleet(FleetSide.ENEMY, "TTS", FleetGoal.DEFEND, true);
+		api.initFleet(FleetSide.PLAYER, "HSS", FleetGoal.ATTACK, false);
+		api.initFleet(FleetSide.ENEMY, "TTS", FleetGoal.ATTACK, true);
 
 		// Set up the player's fleet
 		api.addToFleet(FleetSide.PLAYER, "nom_oasis_standard", FleetMemberType.SHIP, true);
