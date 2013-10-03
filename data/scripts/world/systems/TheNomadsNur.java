@@ -150,10 +150,10 @@ public class TheNomadsNur
 				nomad_armada,
 				3.0f, // 3 days at fleet's current usage (whatever it happens to be)
 				0.10f, // skeleton crew requirement, plus 10%
-				5.0f, // 5 light-years worth of fuel at fleet's current fuel consumption rate
+				3.0f, // 5 light-years worth of fuel at fleet's current fuel consumption rate
 				12.0f, // 12 days at fleet's current usage (whatever it happens to be)
-				0.25f, // skeleton crew requirement, plus 25%
-				15.0f // 15 light-years worth of fuel at fleet's current fuel consumption rate
+				0.50f, // skeleton crew requirement, plus 25%
+				20.0f // 15 light-years worth of fuel at fleet's current fuel consumption rate
 			);
 		system.addScript( armada_resource_pool );
 		

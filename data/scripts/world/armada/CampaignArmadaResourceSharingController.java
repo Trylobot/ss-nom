@@ -19,17 +19,20 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 	private SectorAPI sector;
 	private CampaignArmadaAPI armada;
 	
-	private float fleet_risk_threshold_days_worth_of_supplies   = 3.0f; // 3 days at fleet's current usage (whatever it happens to be) // TODO: average actual usage over past N days?
-	private float fleet_risk_threshold_extra_crew_percentage    = 0.10f; // skeleton crew requirement, plus 10%
-	private float fleet_risk_threshold_lightyears_worth_of_fuel = 5.0f; // 5 light-years worth of fuel at fleet's current fuel consumption rate
-	private float fleet_abundance_threshold_days_worth_of_supplies   = 12.0f; // 12 days at fleet's current usage (whatever it happens to be)
-	private float fleet_abundance_threshold_extra_crew_percentage    = 0.25f; // skeleton crew requirement, plus 25%
-	private float fleet_abundance_threshold_lightyears_worth_of_fuel = 15.0f; // 15 light-years worth of fuel at fleet's current fuel consumption rate
+	private float fleet_risk_threshold_days_worth_of_supplies;
+	private float fleet_risk_threshold_extra_crew_percentage;
+	private float fleet_risk_threshold_lightyears_worth_of_fuel;
+	private float fleet_abundance_threshold_days_worth_of_supplies;
+	private float fleet_abundance_threshold_extra_crew_percentage;
+	private float fleet_abundance_threshold_lightyears_worth_of_fuel;
 
 	private CampaignClockAPI clock;
 	
 	private long last_resource_distribution_check_timestamp = Long.MIN_VALUE;
 	
+	
+	private final boolean EXTREMELY_VERBOSE_LOGGING = true;
+	private final boolean EASY_CHEAT_MODE = true;
 	
 	public CampaignArmadaResourceSharingController( 
 		SectorAPI sector, 
@@ -66,8 +69,13 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 		}
 		last_resource_distribution_check_timestamp = clock.getTimestamp();
 
-		// do this once per day.
-		auto_redistribute_resources();
+		if( EASY_CHEAT_MODE ) // create resources out of thin air as needed
+			cheat_resources();
+		else // no cheating! move resources around between fleets
+			auto_redistribute_resources();
+		
+		if( EXTREMELY_VERBOSE_LOGGING )
+			log_stats_verbose();
 	}
 
 	private void auto_redistribute_resources()
@@ -80,7 +88,7 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 		// if less than one fleets remain, abort
 		if( count_alive_fleets() < 1 )
 			return; // no one to share with
-		
+	
 		// search for fleets that are:
 		// * at risk of an accident due to low supplies, or
 		// * have undeployable ships due to low ship CR
@@ -130,7 +138,7 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 		{
 			_.L("redistributing "+available_fuel+" fuel from "+generous_fleets.size()+" fleets to "+jeopardized_fleets.size()+" fleets.");
 			redistribute_fuel( available_fuel, generous_fleets, needed_fuel, jeopardized_fleets );
-		}
+		}		
 	}
 	
 	private int count_alive_fleets()
@@ -442,6 +450,63 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 			cargo.addFuel( give_amount );
 		}
 	}
+	
+	// not used unless cheater flag is set
+	private void cheat_resources()
+	{
+		CampaignFleetAPI[] escort_fleets = armada.getEscortFleets();
+		int cheated_fleets = 0;
+		float cheated_crew = 0;
+		float cheated_supplies = 0.0f;
+		float cheated_fuel = 0.0f;
+		float cheat_factor = 2.0f; // how much to actually give a fleet that needs more
+		for( int i = 0; i < escort_fleets.length; ++i )
+		{
+			CampaignFleetAPI fleet = escort_fleets[i];
+			float needed_crew = calculate_needed_crew( fleet ) * cheat_factor;
+			if( needed_crew > 0 )
+			{
+				fleet.getCargo().addCrew( CrewXPLevel.GREEN, (int)Math.ceil( needed_crew ));
+				cheated_crew += (int)Math.ceil( needed_crew );
+			}
+			float needed_supplies = calculate_needed_supplies( fleet ) * cheat_factor;
+			if( needed_supplies > 0 )
+			{
+				fleet.getCargo().addSupplies( needed_supplies );
+				cheated_supplies += needed_supplies;
+			}
+			float needed_fuel = calculate_needed_fuel( fleet ) * cheat_factor;
+			if( needed_fuel > 0 )
+			{
+				fleet.getCargo().addFuel( needed_fuel );
+				cheated_fuel += needed_fuel;
+			}
+			if( needed_crew > 0 || needed_supplies > 0 || needed_fuel > 0 )
+			{
+				++cheated_fleets;
+			}
+		}
+		if( cheated_fleets > 0 )
+			_.L("CONJURED resources for "+cheated_fleets+" fleets; "+cheated_crew+" crew, "+cheated_supplies+" supplies, and "+cheated_fuel+" fuel");
+	}
+	
+	private void log_stats_verbose()
+	{
+		CampaignFleetAPI[] escort_fleets = armada.getEscortFleets();
+		StringBuffer sb = new StringBuffer("--- daily at-a-glance resource-sharing-controller stats ---");
+		for( int i = 0; i < escort_fleets.length; ++i )
+		{
+			CampaignFleetAPI ef = escort_fleets[i];
+			sb.append("\n")
+			  .append(String.format("%1$30s", new Object[]{ ef.getName() }))
+			  .append(" has ")
+			  .append(String.format("%1$50s", new Object[]{ (ef.getCargo().getTotalCrew()+ef.getCargo().getMarines())+"/"+ef.getCargo().getMaxPersonnel()+" personnel" }))
+			  .append(String.format("%1$50s", new Object[]{ ef.getCargo().getSupplies()+"/"+ef.getCargo().getMaxCapacity()+" supplies" }))
+			  .append(String.format("%1$50s", new Object[]{ ef.getCargo().getFuel()+"/"+ef.getCargo().getMaxFuel()+" fuel" }));
+		}
+		_.L(sb.toString());
+	}
+	
 
 	public boolean isDone()
 	{

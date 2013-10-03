@@ -367,6 +367,8 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 				escort_fleet_composition_pool,
 				escort_fleet_composition_weights );
 			escort_fleets[i] = sector.createFleet( faction_id, fleet_id );
+			if( leader_fleet != null )
+				escort_fleets[i].setPreferredResupplyLocation( leader_fleet ); // I wonder if this will even work
 		}
 		return escort_fleets;
 	}
