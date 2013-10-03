@@ -13,7 +13,7 @@ public class TheNomadsAutomatedNanobotFabricators extends BaseFleetEffectHullMod
 	private float accumulator = 0.0f;
 	
 	private final float EXECUTION_PERIOD_DAYS = 1.0f; // how often in days to generate supplies
-	private final float SUPPLIES_ADD = 30.0f; // number of supplies to add each generation step
+	private final float SUPPLIES_ADD = 50.0f; // number of supplies to add each generation step
 	private final float CARGO_CAPACITY_MAX = 0.5f; // if cargo is more than 50% full, do not generate new supplies
 	
 	public void applyEffectsBeforeShipCreation( HullSize hullSize, MutableShipStatsAPI stats, String id )

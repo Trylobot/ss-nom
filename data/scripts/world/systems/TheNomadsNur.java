@@ -172,8 +172,8 @@ public class TheNomadsNur
 		}
 		
 		/////////////////////////////////////////////////////////////
-		nomads_faction.setRelationship( "player", 1 ); // DEBUG
-		//		sector.getPlayerFleet().setLocation( 15000f, 15000f ); // DEBUG		
+		if( Global.getSettings().isDevMode() )
+			nomads_faction.setRelationship( "player", 1 ); // DEBUG: FRIENDLY
 	}
 	
 	

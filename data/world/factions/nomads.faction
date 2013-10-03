@@ -19,7 +19,7 @@
 		"scout":{
 			"displayName":"Scout",
 			"maxFleetPoints":0,
-			"daysWorthOfSupplies":[40, 80],
+			"daysWorthOfSupplies":[80, 120],
 			"lyWorthOfFuel":[40, 80],
 			"extraCrewPercent":[80, 80],
 			"marinesPercent":[0, 0],
@@ -31,7 +31,7 @@
 		"longRangeScout":{
 			"displayName":"Long-Range Scout",
 			"maxFleetPoints":14,
-			"daysWorthOfSupplies":[50, 100],
+			"daysWorthOfSupplies":[80, 120],
 			"lyWorthOfFuel":[60, 120],
 			"extraCrewPercent":[80, 80],
 			"marinesPercent":[0, 0],
