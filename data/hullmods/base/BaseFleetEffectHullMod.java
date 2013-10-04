@@ -5,6 +5,7 @@ import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.characters.PersonAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import data.hullmods.BaseHullMod;
+import data.scripts._;
 import java.util.Iterator;
 
 public abstract class BaseFleetEffectHullMod extends BaseHullMod
@@ -25,6 +26,7 @@ public abstract class BaseFleetEffectHullMod extends BaseHullMod
 				if( commander == fleet.getCommander() )
 				{
 					last_fleet_found = fleet;
+					_.L("found fleet by commander");
 					return fleet;
 				}
 			}

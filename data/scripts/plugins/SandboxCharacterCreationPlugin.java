@@ -9,7 +9,7 @@ import com.fs.starfarer.api.characters.CharacterCreationPlugin;
 import com.fs.starfarer.api.characters.MutableCharacterStatsAPI;
 import com.fs.starfarer.api.fleet.FleetMemberType;
 
-public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
+public class SandboxCharacterCreationPlugin implements CharacterCreationPlugin
 {
 	
 	public static class ResponseImpl implements Response
@@ -193,7 +193,9 @@ public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 			data.addStartingShipChoice("nom_wurm_assault");
 			data.getStartingCargo().getCredits().add(500f);
 			data.setStartingLocationName("Hyperspace");
+			//data.setStartingLocationName("Nur");
 			data.getStartingCoordinates().set(18250, -800);
+			//data.getStartingCoordinates().set(4000, 4000);
 		}
 		else if (response == SOMETHING_ELSE_2)
 		{

@@ -14,7 +14,7 @@ import data.scripts.world.armada.CampaignArmadaController;
 import data.scripts.world.armada.CampaignArmadaFormationOrbit;
 import data.scripts.world.armada.CampaignArmadaResourceSharingController;
 import data.scripts.world.armada.api.CampaignArmadaEscortFleetPositionerAPI;
-import data.scripts.plugins.TheNomadsCharacterCreationPlugin;
+import data.scripts.plugins.SandboxCharacterCreationPlugin;
 import java.awt.Color;
 import org.lwjgl.util.vector.Vector2f;
 
@@ -89,11 +89,12 @@ public class TheNomadsNur
 		system.addRingBand( planet_I, "misc", "rings1", 256f, 0, Color.white, 256f, 630f, 30f );
 		
 		// jump points
-		init_star_gravitywell_jump_point( system, system_center_of_mass, star_A, 
+		JumpPointAPI star_A_jump_point = init_star_gravitywell_jump_point( system, system_center_of_mass, star_A, 
 		  star_jump_dist_factor_min, star_jump_dist_factor_max );
+		system.setHyperspaceAnchor( star_A_jump_point );
 		
 		init_star_gravitywell_jump_point( system, system_center_of_mass, star_B,
-		  star_jump_dist_factor_min, star_jump_dist_factor_max);
+		  star_jump_dist_factor_min, star_jump_dist_factor_max );
 		
 		init_jump_anchor_near_planet( system, system_center_of_mass, planet_I, "Jump Point Alpha", 0f, 500f, 30f );
 		// TODO: EveryFrameScript to update hyperspace anchors (not sure if base game is doing this yet)
@@ -178,7 +179,7 @@ public class TheNomadsNur
 	}
 	
 	
-	private void init_star_gravitywell_jump_point( StarSystemAPI system, SectorEntityToken system_root, PlanetAPI star, float dist_ratio_min, float dist_ratio_max )
+	private JumpPointAPI init_star_gravitywell_jump_point( StarSystemAPI system, SectorEntityToken system_root, PlanetAPI star, float dist_ratio_min, float dist_ratio_max )
 	{
 		FactoryAPI factory = Global.getFactory();
 		LocationAPI hyper = Global.getSector().getHyperspace();
@@ -193,9 +194,10 @@ public class TheNomadsNur
 		hyper.addEntity( jump_point );
 		
 		update_hyperspace_jump_point_location( jump_point, system, system_root, star );
+		return jump_point;
 	}
 	
-	private void init_jump_anchor_near_planet( StarSystemAPI system, SectorEntityToken system_root, PlanetAPI planet, String name, float angle, float orbitRadius, float orbitDays )
+	private JumpPointAPI init_jump_anchor_near_planet( StarSystemAPI system, SectorEntityToken system_root, PlanetAPI planet, String name, float angle, float orbitRadius, float orbitDays )
 	{
 		FactoryAPI factory = Global.getFactory();
 		LocationAPI hyper = Global.getSector().getHyperspace();
@@ -216,6 +218,7 @@ public class TheNomadsNur
 		local_jump_point.addDestination( hyperspace_destination );
 		
 		update_hyperspace_jump_point_location( hyperspace_jump_point, system, system_root, local_jump_point );
+		return hyperspace_jump_point;
 	}
 	
 	
