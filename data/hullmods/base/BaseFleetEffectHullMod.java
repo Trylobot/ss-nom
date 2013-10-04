@@ -6,15 +6,19 @@ import com.fs.starfarer.api.characters.PersonAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import data.hullmods.BaseHullMod;
 import data.scripts._;
+import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.Map;
 
 public abstract class BaseFleetEffectHullMod extends BaseHullMod
 {
-	private CampaignFleetAPI last_fleet_found = null;
+	Hashtable memo = new Hashtable();
 	
 	public CampaignFleetAPI findFleet( FleetMemberAPI member )
 	{
+		// ships change fleets infrequently; it's probably going to be in the same fleet
 		PersonAPI commander = member.getFleetCommander();
+		CampaignFleetAPI last_fleet_found = (CampaignFleetAPI)memo.get( member );
 		if( last_fleet_found != null && last_fleet_found.getCommander() == commander )
 			return last_fleet_found;
 		// search all fleets for the commander
@@ -25,8 +29,8 @@ public abstract class BaseFleetEffectHullMod extends BaseHullMod
 				CampaignFleetAPI fleet = (CampaignFleetAPI)fleet_i.next();
 				if( commander == fleet.getCommander() )
 				{
-					last_fleet_found = fleet;
-					_.L("found fleet by commander");
+					memo.put( member, fleet );
+					//_.L("found fleet by commander");
 					return fleet;
 				}
 			}

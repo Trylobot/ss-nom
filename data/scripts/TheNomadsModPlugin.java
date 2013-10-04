@@ -11,7 +11,7 @@ public class TheNomadsModPlugin extends BaseModPlugin
 	{
 		init();
 	}
-
+	
 	private void init()
 	{
 		SectorAPI sector = Global.getSector();

@@ -260,6 +260,20 @@ public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 			data.getStartingCargo().addSupplies(50);
 			data.getStartingCargo().addCrew(CrewXPLevel.ELITE, 24);
 			data.getStartingCargo().addMarines(0);
+			if( Global.getSettings().isDevMode() )
+			{
+				data.addStartingFleetMember("nom_oasis_standard", FleetMemberType.SHIP);
+				data.addStartingFleetMember("nom_sandstorm_assault", FleetMemberType.SHIP);
+				data.addStartingFleetMember("nom_komodo_assault", FleetMemberType.SHIP);
+				data.addStartingFleetMember("nom_komodo_assault", FleetMemberType.SHIP);
+				data.getStartingCargo().getCredits().add(50000f);
+				data.getStartingCargo().addFuel(1000);
+				data.getStartingCargo().addSupplies(1500);
+				data.getStartingCargo().addMarines(100);
+				data.getStartingCargo().addCrew(CrewXPLevel.REGULAR, 2500);
+				stats.setAptitudeLevel( "leadership", 10.0f );
+				stats.setSkillLevel( "fleet_logistics", 10.0f );
+			}
 		}
 		else
 		{

@@ -14,7 +14,6 @@ import data.scripts.world.armada.CampaignArmadaController;
 import data.scripts.world.armada.CampaignArmadaFormationOrbit;
 import data.scripts.world.armada.CampaignArmadaResourceSharingController;
 import data.scripts.world.armada.api.CampaignArmadaEscortFleetPositionerAPI;
-import data.scripts.plugins.TheNomadsCharacterCreationPlugin;
 import java.awt.Color;
 import org.lwjgl.util.vector.Vector2f;
 
@@ -124,13 +123,13 @@ public class TheNomadsNur
 		
 		// armada composition data (references faction definition data)
 		String[] escort_pool = { "scout", "longRangeScout", "battleGroup", "royalGuard", "jihadFleet" };
-		float[] escort_weights={  0.250f,  0.250f,           0.200f,        0.175f,       0.125f      };
+		int[] escort_weights = {    250,              250,           200,          175,          125  };
 		
 		// armada waypoint controller script
 		CampaignArmadaController nomad_armada =
 			new CampaignArmadaController(
 				"nomads", // faction
-				"colonyFleet", // VIP fleet
+				"jihadFleet", // "colonyFleet", // VIP fleet
 				sector, // global sector api
 				planet_I__moon_f,
 				8, // escort_fleet_count
@@ -139,9 +138,7 @@ public class TheNomadsNur
 				armada_formation,
 				2, // waypoint_per_trip_minimum
 				5, // waypoint_per_trip_maximum
-				2, // waypoint_idle_time_days
-				10.0f, // distance to waypoint in order to start idling
-				12 // dead_time_days
+				30 // dead_time_days
 			);
 		system.addScript( nomad_armada );
 		

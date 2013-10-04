@@ -6,6 +6,7 @@ import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import data.hullmods.base.BaseFleetEffectHullMod;
+import data.scripts._;
 import java.util.Iterator;
 import java.util.List;
 
@@ -29,6 +30,9 @@ public class TheNomadsCloningVats extends BaseFleetEffectHullMod
 	
 	public void advanceInCampaign( FleetMemberAPI member, float amount )
 	{
+		if( !enabled )
+			return;
+		
 		accumulator += amount;
 		if( accumulator >= EXECUTION_PERIOD_DAYS )
 			accumulator -= EXECUTION_PERIOD_DAYS;
@@ -45,7 +49,10 @@ public class TheNomadsCloningVats extends BaseFleetEffectHullMod
 		float max_crew = (crew_range[0] + CREW_RANGE_CAPACITY_MAX * (crew_range[1] - crew_range[0]) );
 		
 		if( crew <= max_crew )
+		{
 			fleet.getCargo().addCrew( CrewXPLevel.GREEN, CREW_ADD );
+			//_.L("Cloning Vats created "+CREW_ADD+" crew");
+		}
 	}
 	
 	private float[] calculate_fleet_crew_requirement_range( CampaignFleetAPI fleet )

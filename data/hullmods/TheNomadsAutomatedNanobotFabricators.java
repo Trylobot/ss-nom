@@ -5,6 +5,7 @@ import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import data.hullmods.base.BaseFleetEffectHullMod;
+import data.scripts._;
 
 
 public class TheNomadsAutomatedNanobotFabricators extends BaseFleetEffectHullMod
@@ -26,6 +27,9 @@ public class TheNomadsAutomatedNanobotFabricators extends BaseFleetEffectHullMod
 	
 	public void advanceInCampaign( FleetMemberAPI member, float amount )
 	{
+		if( !enabled )
+			return;
+		
 		accumulator += amount;
 		if( accumulator >= EXECUTION_PERIOD_DAYS )
 			accumulator -= EXECUTION_PERIOD_DAYS;
@@ -40,6 +44,9 @@ public class TheNomadsAutomatedNanobotFabricators extends BaseFleetEffectHullMod
 		float max_cargo = CARGO_CAPACITY_MAX * cargo.getMaxCapacity();
 		
 		if( cargo.getSpaceUsed() <= max_cargo )
+		{
 			fleet.getCargo().addSupplies( SUPPLIES_ADD );
+			//_.L("Nanobot Factories created "+SUPPLIES_ADD+" supplies");
+		}
 	}
 }
