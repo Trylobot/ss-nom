@@ -129,15 +129,15 @@ public class TheNomadsNur
 		CampaignArmadaController nomad_armada =
 			new CampaignArmadaController(
 				"nomads", // faction
-				"jihadFleet", // "colonyFleet", // VIP fleet
+				"colonyFleet", // leader/VIP fleet
 				sector, // global sector api
 				planet_I__moon_f,
 				8, // escort_fleet_count
 				escort_pool,
 				escort_weights,
 				armada_formation,
-				2, // waypoint_per_trip_minimum
-				5, // waypoint_per_trip_maximum
+				1, // waypoint_per_trip_minimum
+				6, // waypoint_per_trip_maximum
 				30 // dead_time_days
 			);
 		system.addScript( nomad_armada );

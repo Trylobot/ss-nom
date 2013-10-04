@@ -3,6 +3,8 @@ package data.scripts.world.armada;
 import com.fs.starfarer.api.Script;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.FleetAssignment;
+import com.fs.starfarer.api.campaign.JumpPointAPI;
+import com.fs.starfarer.api.campaign.LocationAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
@@ -17,15 +19,16 @@ import java.util.Queue;
 
 public class CampaignArmadaWaypointController implements Script
 {
+	public CampaignArmadaWaypoint current_waypoint = null;
+	
 	private SectorAPI sector;
 	
 	private CampaignArmadaAPI armada;
 	private Queue waypoints = new LinkedList();
-	private boolean enabled = true;
 	private int min_trip_length;
 	private int max_trip_length;
 	
-	private boolean stalled = false; // set when no waypoints could be found anywhere (un-bloody-likely)
+	public boolean stalled = false; // set when no waypoints could be found anywhere (un-bloody-likely)
 	
 	public CampaignArmadaWaypointController(
 		SectorAPI sector,
@@ -41,6 +44,7 @@ public class CampaignArmadaWaypointController implements Script
 	
 	public void run() // used for fleet assignment oncomplete
 	{
+		current_waypoint = null;
 		CampaignFleetAPI fleet = armada.getLeaderFleet();
 		if( fleet == null )
 		{
@@ -50,7 +54,9 @@ public class CampaignArmadaWaypointController implements Script
 			return;
 		}
 		if( waypoints.isEmpty() )
-			generate_waypoints();
+		{
+			generate_waypoints( fleet );
+		}
 		CampaignArmadaWaypoint waypoint = (CampaignArmadaWaypoint) waypoints.poll();
 		if( waypoint == null )
 		{
@@ -62,25 +68,34 @@ public class CampaignArmadaWaypointController implements Script
 			waypoint.target,
 			waypoint.duration_in_days,
 			this );
+		current_waypoint = waypoint;
 	}
 	
-	private void generate_waypoints()
+	private void generate_waypoints( CampaignFleetAPI fleet )
 	{
 		// decide on maximum trip length (number of waypoints in a system)
-		int trip_length = (int)(min_trip_length + Math.random() * (max_trip_length - min_trip_length + 1));
+		int trip_length = 0;
 		// pick a system other than the current
-		List systems = sector.getStarSystems();
-		Collections.shuffle( systems );
-		StarSystemAPI system = (StarSystemAPI)systems.get( 0 );
+		List locations = sector.getStarSystems();
+		locations.add( sector.getHyperspace() );
+		Collections.shuffle( locations );
+		locations.remove( fleet.getContainingLocation() );
+		LocationAPI location = (LocationAPI)locations.get( 0 );
+		if( location == sector.getHyperspace() )
+			trip_length = 1;
+		else // StarSystem
+			trip_length = (int)(min_trip_length + Math.random() * (max_trip_length - min_trip_length + 1));
 		// build a pool of potential waypoints from the entities in the chosen system
 		List waypoint_pool = new ArrayList();
-		waypoint_pool.add( system.getStar() );
-		waypoint_pool.addAll( system.getPlanets() );
-		waypoint_pool.addAll( system.getOrbitalStations() );
-		waypoint_pool.addAll( system.getAsteroids() );
+		if( location instanceof StarSystemAPI )
+			waypoint_pool.add( ((StarSystemAPI)location).getStar() );
+		waypoint_pool.addAll( location.getPlanets() );
+		waypoint_pool.addAll( location.getOrbitalStations() );
+		waypoint_pool.addAll( location.getEntities( JumpPointAPI.class ));
+//		waypoint_pool.addAll( system.getAsteroids() ); // need to reduce the weight of these, somehow
 		if( waypoint_pool.isEmpty() )
 		{
-			_.L("could not find any stars, planets, stations or asteroids in StarSystemAPI "+system.getName());
+			_.L("could not find any stars, planets, stations, asteroids or jump-buoys in LocationAPI "+(location instanceof StarSystemAPI ? ((StarSystemAPI)location).getName() : "Hyperspace"));
 			return;
 		}
 		// randomize pool order

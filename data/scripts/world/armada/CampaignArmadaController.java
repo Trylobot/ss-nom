@@ -10,6 +10,7 @@ import com.fs.starfarer.api.campaign.LocationAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import data.scripts._;
+import data.scripts.world.armada.CampaignArmadaWaypointController.CampaignArmadaWaypoint;
 import data.scripts.world.armada.api.CampaignArmadaAPI;
 import data.scripts.world.armada.api.CampaignArmadaEscortFleetPositionerAPI;
 import java.util.ArrayList;
@@ -120,7 +121,8 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		{ 
 			////////////////////////////////////////
 			case NON_EXISTENT:
-				if( clock.getElapsedDaysSince( last_state_change_timestamp ) >= dead_time_days )
+				float days_dead = clock.getElapsedDaysSince( last_state_change_timestamp );
+				if( days_dead >= dead_time_days )
 				{
 					create_armada();
 					_.L("armada created");
@@ -131,27 +133,13 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 			
 			////////////////////////////////////////
 			case JOURNEYING_LIKE_A_BOSS:
-				if( leader_fleet == null || !leader_fleet.isAlive() )
+				boolean OK = check_leader();
+				if( !OK )
 				{
-					_.L("leader fleet destroyed; escort fleets scatter");
-					for( int i = 0; i < escort_fleets.length; ++i )
-					{
-						CampaignFleetAPI escort_fleet = escort_fleets[i];
-						if( escort_fleet.isAlive() )
-						{
-							// kill everyone aaghhhh!
-							escort_fleet.addAssignment( 
-								FleetAssignment.RAID_SYSTEM,
-								escort_fleet.getContainingLocation().createToken( 0, 0 ), 
-								Float.MAX_VALUE );
-						}
-					}					
-					leader_fleet = null;
-					escort_fleets = null;
-					change_state( NON_EXISTENT );
+					scatter_fleets();
 					break;
-				}				
-				escort_positioner.update_escort_fleet_positions( leader_fleet, escort_fleets );
+				}
+				update_fleets();
 				break;
 		}
 	}
@@ -193,6 +181,52 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		return escort_fleets;
 	}
 	
+	private boolean check_leader()
+	{
+		return (leader_fleet != null && leader_fleet.isAlive());
+	}
+	
+	private void update_fleets()
+	{
+		CampaignArmadaWaypoint waypoint = waypoint_controller.current_waypoint;
+		boolean leader_in_hyperspace_transition = leader_fleet.isInHyperspaceTransition();
+		for( int i = 0; i < escort_fleets.length; ++i )
+		{
+			CampaignFleetAPI escort_fleet = escort_fleets[i];
+			// hyperspace status
+			if( leader_in_hyperspace_transition && waypoint != null
+			&&  !escort_fleet.isInHyperspaceTransition() )
+			{
+				escort_fleet.clearAssignments();
+				sector.doHyperspaceTransition( escort_fleet, escort_fleet, 
+					new JumpDestination( waypoint.target, "Jump" ));
+			}
+		}
+		// local position update (every frame)
+		escort_positioner.update_escort_fleet_positions(
+			leader_fleet, escort_fleets );
+	}
+	
+	private void scatter_fleets()
+	{
+		_.L("leader fleet lost; escort fleets scatter");
+		leader_fleet = null;
+		for( int i = 0; i < escort_fleets.length; ++i )
+		{
+			CampaignFleetAPI escort_fleet = escort_fleets[i];
+			if( escort_fleet.isAlive() )
+			{
+				// kill everyone aaghhhh!
+				escort_fleet.addAssignment( 
+					FleetAssignment.RAID_SYSTEM,
+					escort_fleet.getContainingLocation().createToken( 0, 0 ), 
+					Float.MAX_VALUE );
+			}
+		}					
+		escort_fleets = null;
+		change_state( NON_EXISTENT );		
+	}
+	
 	private String weighted_string_pick( String[] pool, int[] weights )
 	{
 		int len = Math.min( pool.length, weights.length );
@@ -201,7 +235,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		{
 			sum += weights[i];
 		}
-		float marker = (int)(Math.random())*sum; // pick
+		int marker = (int)(Math.random() * (sum + 1)); // pick
 		sum = 0;
 		for( int i = 0; i < len; ++i )
 		{
