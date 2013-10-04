@@ -22,6 +22,7 @@ public class CampaignArmadaFormationOrbit implements CampaignArmadaEscortFleetPo
 	private float orbitRadius;
 	private float orbitDirection;
 	private float orbitPeriodDays;
+	private float seconds_per_day;
 	
 	private CampaignClockAPI clock;
 	
@@ -38,6 +39,7 @@ public class CampaignArmadaFormationOrbit implements CampaignArmadaEscortFleetPo
 		this.orbitPeriodDays = orbitPeriodDays;
 		
 		this.clock = sector.getClock();
+		this.seconds_per_day = this.clock.getSecondsPerDay();
 	}
 	
 	// persistent allocations
@@ -53,7 +55,7 @@ public class CampaignArmadaFormationOrbit implements CampaignArmadaEscortFleetPo
 	private float _o_s = _TS_FACTOR / _o_sK; // orbit speed
 	////
 
-	public void update_escort_fleet_positions( CampaignFleetAPI leader_fleet, CampaignFleetAPI[] escort_fleets )
+	public void update_escort_fleet_positions( float amount, CampaignFleetAPI leader_fleet, CampaignFleetAPI[] escort_fleets )
 	{
 		// get position, speed, and direction of leader fleet.
 		// leader fleet assumed to 

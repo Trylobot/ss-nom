@@ -40,6 +40,9 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	private int dead_time_days;
 	
 	private CampaignClockAPI clock;
+	
+	private float fleet_ticks;
+	private final float OFFSCREEN_ESCORT_FLEET_UPDATE_MIN_SEC = 2.0f;
 
 	// Refers to the "Armada Leader" - this fleet is the one issued the waypoint
 	//  movement orders, and the armada will do its best to protect this fleet.
@@ -115,8 +118,6 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	@Override
 	public void advance( float amount )
 	{
-//		log_message_timer += amount;
-		
 		switch( state )
 		{ 
 			////////////////////////////////////////
@@ -139,7 +140,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 					scatter_fleets();
 					break;
 				}
-				update_fleets();
+				update_fleets( amount );
 				break;
 		}
 	}
@@ -186,14 +187,16 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		return (leader_fleet != null && leader_fleet.isAlive());
 	}
 	
-	private void update_fleets()
+	private void update_fleets( float amount )
 	{
+		fleet_ticks += amount;
+		
 		CampaignArmadaWaypoint waypoint = waypoint_controller.current_waypoint;
 		boolean leader_in_hyperspace_transition = leader_fleet.isInHyperspaceTransition();
 		for( int i = 0; i < escort_fleets.length; ++i )
 		{
 			CampaignFleetAPI escort_fleet = escort_fleets[i];
-			// hyperspace status
+			// in a hyperspace transition, allow to happen naturally if possible (sometimes it works, sometimes it doesn't)
 			if( leader_in_hyperspace_transition && waypoint != null
 			&&  !escort_fleet.isInHyperspaceTransition() )
 			{
@@ -201,10 +204,24 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 				sector.doHyperspaceTransition( escort_fleet, escort_fleet, 
 					new JumpDestination( waypoint.target, "Jump" ));
 			}
+			// non-hyperspace transition: force follow (immediate)
+			if( !leader_in_hyperspace_transition 
+			&&  escort_fleet.getContainingLocation() != leader_fleet.getContainingLocation() )
+			{
+				escort_fleet.getContainingLocation().removeEntity( escort_fleet );
+				leader_fleet.getContainingLocation().spawnFleet( leader_fleet, 0, 0, escort_fleet );
+			}
 		}
-		// local position update (every frame)
-		escort_positioner.update_escort_fleet_positions(
-			leader_fleet, escort_fleets );
+		// local position update (every frame, unless player is offscreen)
+		if( leader_fleet.isInCurrentLocation()
+		||  fleet_ticks >= OFFSCREEN_ESCORT_FLEET_UPDATE_MIN_SEC )
+		{
+			escort_positioner.update_escort_fleet_positions(
+				amount, leader_fleet, escort_fleets );
+		}
+		// timer
+		if( fleet_ticks >= OFFSCREEN_ESCORT_FLEET_UPDATE_MIN_SEC )
+			fleet_ticks -= OFFSCREEN_ESCORT_FLEET_UPDATE_MIN_SEC;
 	}
 	
 	private void scatter_fleets()

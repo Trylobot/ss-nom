@@ -115,8 +115,8 @@
 			
 		},
 		"captain":{
-			"cowardly":0, 
-			"cautious":0,
+			"cowardly":1,
+			"cautious":1,
 			"steady":1,
 			"aggressive":1,
 			"suicidal":1,

@@ -37,6 +37,8 @@ public class TheNomadsNur
 	private PlanetAPI planet_I__moon_e;
 	private PlanetAPI planet_I__moon_f;
 	
+	private SectorEntityToken station;
+	
 
 	public void generate( SectorAPI sector )
 	{
@@ -84,6 +86,9 @@ public class TheNomadsNur
 		planet_I.getSpec().setTilt( 15 );
 		planet_I.applySpecChanges();
 		
+		// stations
+		station = system.addOrbitalStation( planet_I__moon_e, 180f, 300f, 50, "Naeran Orbital Storage & Resupply", "nomads" );
+		
 		// rings & bands
 		system.addRingBand( planet_I, "misc", "rings1", 256f, 0, Color.white, 256f, 630f, 30f );
 		
@@ -97,7 +102,8 @@ public class TheNomadsNur
 		
 		init_jump_anchor_near_planet( system, system_center_of_mass, planet_I, "Jump Point Alpha", 0f, 500f, 30f );
 		// TODO: EveryFrameScript to update hyperspace anchors (not sure if base game is doing this yet)
-
+		
+		init_station_cargo( station );
 		// descriptions
 //		star_A.setCustomDescriptionId("nom_star_nur_alpha");
 //		star_B.setCustomDescriptionId("nom_star_nur_beta");
@@ -140,7 +146,7 @@ public class TheNomadsNur
 				6, // waypoint_per_trip_maximum
 				30 // dead_time_days
 			);
-		system.addScript( nomad_armada );
+		sector.addScript( nomad_armada );
 		
 		// armada resource pooling script
 		CampaignArmadaResourceSharingController armada_resource_pool = 
@@ -154,7 +160,7 @@ public class TheNomadsNur
 				0.50f, // skeleton crew requirement, plus 25%
 				20.0f // 15 light-years worth of fuel at fleet's current fuel consumption rate
 			);
-		system.addScript( armada_resource_pool );
+		sector.addScript( armada_resource_pool );
 		
 	}
 	
@@ -166,13 +172,19 @@ public class TheNomadsNur
 		for( int i = 0; i < all_factions.length; ++i )
 		{
 			FactionAPI cur_faction = (FactionAPI) all_factions[i];
-			if( cur_faction != nomads_faction )
+			if( cur_faction != nomads_faction 
+			&&  cur_faction.getId() != "neutral"
+			&&  cur_faction.getId() != "independent" )
+			{
 				nomads_faction.setRelationship( cur_faction.getId(), -1 );
+			}
 		}
 		
 		/////////////////////////////////////////////////////////////
 		if( Global.getSettings().isDevMode() )
+		{
 			nomads_faction.setRelationship( "player", 1 ); // DEBUG: FRIENDLY
+		}
 	}
 	
 	
@@ -216,6 +228,11 @@ public class TheNomadsNur
 		
 		update_hyperspace_jump_point_location( hyperspace_jump_point, system, system_root, local_jump_point );
 		return hyperspace_jump_point;
+	}
+	
+	private void init_station_cargo( SectorEntityToken station )
+	{
+		
 	}
 	
 	

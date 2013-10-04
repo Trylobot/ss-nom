@@ -38,7 +38,7 @@ public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 	private ResponseImpl QUARTERMASTER = new ResponseImpl("Performed the duties of a quartermaster on an independent warship");
 	private ResponseImpl HELM = new ResponseImpl("Helmed a patrol ship operating in a backwater system");
 	private ResponseImpl COMBAT_ENGINEER = new ResponseImpl("Took over the duties of chief combat engineer during a lengthy campaign");
-	private ResponseImpl NOMADS2 = new ResponseImpl("Jury-rigged an ancient hulk and set off into the unkown");
+	private ResponseImpl NOMADS2 = new ResponseImpl("Jury-rigged a rusty hulk and set out at random");
 	private ResponseImpl SOMETHING_ELSE_2 = new ResponseImpl("Did something else");
 	
 	private int stage = 0;
@@ -143,7 +143,6 @@ public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 			stats.increaseSkill("construction");
 			stats.increaseSkill("field_repairs");
 			data.getStartingCargo().getCredits().add(500f);
-			data.getPerson().setPortraitSprite("graphics/nom/portraits/portrait_nomad_female_01.png");
 		}
 		else if (response == SOMETHING_ELSE_1)
 		{
@@ -196,6 +195,7 @@ public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 			//data.setStartingLocationName("Nur");
 			data.getStartingCoordinates().set(18250, -800);
 			//data.getStartingCoordinates().set(4000, 4000);
+			Global.getSector().getFaction( "player" ).setRelationship( "nomads", 1 ); // friendly
 		}
 		else if (response == SOMETHING_ELSE_2)
 		{
