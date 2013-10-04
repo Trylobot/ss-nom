@@ -48,6 +48,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	private int dead_time_days;
 	
 	private CampaignClockAPI clock;
+	private float log_message_timer = 0.0f;
 
 	// Refers to the "Armada Leader" - this fleet is the one issued the waypoint
 	//  movement orders, and the armada will do its best to protect this fleet.
@@ -84,6 +85,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	
 	// currently selected hyperspace bouy; used when current_route is empty
 	private JumpPointAPI current_jump_point = null;
+	private JumpDestination current_jump_destination = null;
 	
 	// Constructor also initializes the spawning system and begins spawning fleets
 	//  Spawning is immediate and automatic
@@ -139,6 +141,8 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	@Override
 	public void advance( float amount )
 	{
+		log_message_timer += amount;
+		
 		// common prefix actions
 		if( state != NON_EXISTENT )
 		{
@@ -152,6 +156,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 				if( clock.getElapsedDaysSince( last_state_change_timestamp ) >= dead_time_days )
 				{
 					create_armada();
+					_.L("armada created");
 					find_and_order_move_to_hyperspace_buoy();
 					change_state( SPACE_IN_TRANSIT_TO_HYPERSPACE_BUOY );
 					_.L("moving to hyperspace buoy");
@@ -235,6 +240,23 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		{
 			// keep escort fleets in formation
 			update_escort_fleets();
+			
+			// log message about dist to waypoint
+			if( log_message_timer >= clock.getSecondsPerDay() 
+			&&  leader_fleet != null && leader_fleet.isAlive() )
+			{
+				log_message_timer = 0.0f;
+				switch( state )
+				{
+					case( SPACE_IN_TRANSIT_TO_HYPERSPACE_BUOY ):
+						//_.L("current leader orders "+???)
+						_.L("distance to jump buoy "+get_distance( current_jump_point, leader_fleet ));
+						break;
+					case( SPACE_IN_TRANSIT_TO_WAYPOINT ):
+						_.L("distance to waypoint entity "+get_distance( current_route[current_route_waypoint_index], leader_fleet ));
+						break;
+				}
+			}
 		}
 	}
 	
@@ -253,23 +275,24 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	private void find_and_order_move_to_hyperspace_buoy()
 	{
 		current_jump_point = choose_jump_point( current_system );
+		current_jump_destination = choose_jump_destination( current_jump_point );
 		// proceed to next waypoint
-		leader_fleet.clearAssignments();
-		leader_fleet.addAssignment(
+		//leader_fleet.clearAssignments();
+		sector.doHyperspaceTransition( leader_fleet, current_jump_point, current_jump_destination ); // immediate jump
+		/*leader_fleet.addAssignment(
 			FleetAssignment.GO_TO_LOCATION, 
 			current_jump_point,
-			Float.MAX_VALUE );
+			Float.MAX_VALUE );*/
 	}
 	
 	private void order_hyperspace_jump_immediate_all()
 	{
-		// jump to a random destination belonging to the jump buoy
-		JumpDestination jump_destination = choose_jump_destination( current_jump_point );
-		leader_fleet.clearAssignments();
-		sector.doHyperspaceTransition( leader_fleet, null, jump_destination ); // immediate jump
+		/*// jump to a random destination belonging to the jump buoy
+		//leader_fleet.clearAssignments();
+		sector.doHyperspaceTransition( leader_fleet, null, current_jump_destination ); // immediate jump
 		for( int i = 0; i < escort_fleets.length; ++i )
-			sector.doHyperspaceTransition( escort_fleets[i], null, jump_destination);
-		// change state to in transit, until the jump buoy is reached
+			sector.doHyperspaceTransition( escort_fleets[i], null, current_jump_destination );
+		// change state to in transit, until the jump buoy is reached*/
 	}
 	
 	private void build_space_route()
@@ -283,7 +306,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		if( current_route_waypoint_index < current_route.length )
 		{
 			// proceed to next waypoint
-			leader_fleet.clearAssignments();
+			//leader_fleet.clearAssignments();
 			leader_fleet.addAssignment(
 				FleetAssignment.GO_TO_LOCATION, 
 				current_route[current_route_waypoint_index],
@@ -427,7 +450,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 			CampaignFleetAPI _escF = escort_fleets[i];
 			if( _escF.isAlive() )
 			{
-				_escF.clearAssignments();
+				//_escF.clearAssignments();
 				// kill everyone aaghhhh!
 				_escF.addAssignment( 
 					FleetAssignment.RAID_SYSTEM,

@@ -100,7 +100,7 @@
 			"maxFleetPoints":120,
 			"daysWorthOfSupplies":[50, 100],
 			"lyWorthOfFuel":[50, 100],
-			"extraCrewPercent":[40, 60],
+			"extraCrewPercent":[90, 100],
 			"marinesPercent":[0, 0],
 			"ships":{
 				"nom_oasis_standard":[1, 1],               # 9

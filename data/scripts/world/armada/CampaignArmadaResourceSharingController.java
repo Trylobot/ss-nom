@@ -31,7 +31,7 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 	private long last_resource_distribution_check_timestamp = Long.MIN_VALUE;
 	
 	
-	private final boolean EXTREMELY_VERBOSE_LOGGING = true;
+	private final boolean VERBOSE_LOGGING = false;
 	private final boolean EASY_CHEAT_MODE = true;
 	
 	public CampaignArmadaResourceSharingController( 
@@ -74,7 +74,7 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 		else // no cheating! move resources around between fleets
 			auto_redistribute_resources();
 		
-		if( EXTREMELY_VERBOSE_LOGGING )
+		if( VERBOSE_LOGGING )
 			log_stats_verbose();
 	}
 
@@ -486,7 +486,7 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 				++cheated_fleets;
 			}
 		}
-		if( cheated_fleets > 0 )
+		if( VERBOSE_LOGGING && cheated_fleets > 0 )
 			_.L("CONJURED resources for "+cheated_fleets+" fleets; "+cheated_crew+" crew, "+cheated_supplies+" supplies, and "+cheated_fuel+" fuel");
 	}
 	
