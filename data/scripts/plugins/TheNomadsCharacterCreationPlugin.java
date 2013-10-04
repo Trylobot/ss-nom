@@ -9,7 +9,7 @@ import com.fs.starfarer.api.characters.CharacterCreationPlugin;
 import com.fs.starfarer.api.characters.MutableCharacterStatsAPI;
 import com.fs.starfarer.api.fleet.FleetMemberType;
 
-public class SandboxCharacterCreationPlugin implements CharacterCreationPlugin
+public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 {
 	
 	public static class ResponseImpl implements Response

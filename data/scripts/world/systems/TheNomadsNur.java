@@ -14,7 +14,7 @@ import data.scripts.world.armada.CampaignArmadaController;
 import data.scripts.world.armada.CampaignArmadaFormationOrbit;
 import data.scripts.world.armada.CampaignArmadaResourceSharingController;
 import data.scripts.world.armada.api.CampaignArmadaEscortFleetPositionerAPI;
-import data.scripts.plugins.SandboxCharacterCreationPlugin;
+import data.scripts.plugins.TheNomadsCharacterCreationPlugin;
 import java.awt.Color;
 import org.lwjgl.util.vector.Vector2f;
 
