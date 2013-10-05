@@ -114,16 +114,9 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 		// TODO: EveryFrameScript to update hyperspace anchors (not sure if base game is doing this yet)
 		
 		init_station_cargo( station );
+		
 		// descriptions
-//		star_A.setCustomDescriptionId("nom_star_nur_alpha");
-//		star_B.setCustomDescriptionId("nom_star_nur_beta");
-//		planet_I.setCustomDescriptionId("nom_planet_I");
-//		planet_I__moon_a.setCustomDescriptionId("nom_planet_I__moon_a");
-//		planet_I__moon_b.setCustomDescriptionId("nom_planet_I__moon_b");
-//		planet_I__moon_c.setCustomDescriptionId("nom_planet_I__moon_c");
-//		planet_I__moon_d.setCustomDescriptionId("nom_planet_I__moon_d");
-//		planet_I__moon_e.setCustomDescriptionId("nom_planet_I__moon_e");
-//		planet_I__moon_f.setCustomDescriptionId("nom_planet_I__moon_f");
+		planet_I.setCustomDescriptionId("nom_planet_naera");
 	}
 	
 	private void init_scripts( SectorAPI sector, StarSystemAPI system )
