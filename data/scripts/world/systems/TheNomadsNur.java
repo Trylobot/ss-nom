@@ -280,7 +280,6 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 		// Oasis is not in play; put it for sale at the station (yay!)
 		if( "NON_EXISTENT".equals( event.controller_state ))
 		{
-			_.L("Oasis NON_EXISTENT");
 			// add no more than one Oasis
 			int count = 0; // first count oasis ships (player could have bought one previously and sold it back)
 			FleetDataAPI station_ships = station.getCargo().getMothballedShips();
@@ -299,7 +298,6 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 		// Oasis is in play; be patient! T_T
 		else if( "JOURNEYING_LIKE_A_BOSS".equals( event.controller_state ))
 		{
-			_.L("Oasis JOURNEYING_LIKE_A_BOSS");
 			// remove all Oasis hulls, there's only supposed to be one, and it's cruising around.
 			FleetDataAPI station_ships = station.getCargo().getMothballedShips();
 			for( Iterator i = station_ships.getMembersInPriorityOrder().iterator(); i.hasNext(); )
