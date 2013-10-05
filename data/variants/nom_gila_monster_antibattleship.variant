@@ -1,10 +1,12 @@
 {
   "displayName": "Anti-Battleship",
   "fluxCapacitors": 0,
-  "fluxVents": 20,
+  "fluxVents": 15,
   "hullId": "nom_gila_monster",
   "hullMods": [
-    "fluxbreakers"
+    "naeran_flux_shunts",
+    "fluxbreakers",
+    "magazines"
   ],
   "variantId": "nom_gila_monster_antibattleship",
   "weaponGroups": [

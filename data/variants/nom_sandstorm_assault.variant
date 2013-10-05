@@ -2,11 +2,12 @@
   "displayName": "Assault",
   "hullId": "nom_sandstorm",
   "variantId": "nom_sandstorm_assault",
-  "fluxVents": 6,
+  "fluxVents": 15,
   "fluxCapacitors": 0,
   "hullMods": [
-    "hardenedshieldemitter",
-    "armoredweapons"
+    "naeran_flux_shunts",
+    "fluxbreakers",
+    "targetingunit"
   ],
   "weaponGroups": [
     {

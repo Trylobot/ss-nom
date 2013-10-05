@@ -2,12 +2,13 @@
 	"displayName":"Assault",
 	"hullId":"nom_wurm",
 	"variantId":"nom_wurm_assault",
-	"fluxVents":2,
+	"fluxVents":7,
 	"fluxCapacitors":0,
-	"hullMods":["targetingunit"], # array of strings
-	
-	# mode is either LINKED or ALTERNATING
-	# slot ids (WS ***) must match what's in the .ship file
+	"hullMods": [
+		"naeran_flux_shunts",
+		"fluxbreakers",
+		"targetingunit"
+	],
 	"weaponGroups":[
 		{
       "autofire": false,

@@ -2,10 +2,11 @@
   "displayName": "Assault",
   "hullId": "nom_komodo",
   "variantId": "nom_komodo_assault",
-  "fluxVents": 6,
+  "fluxVents": 19,
   "fluxCapacitors": 0,
   "hullMods": [
-    "augmentedengines",
+    "naeran_flux_shunts",
+    "fluxbreakers",
     "targetingunit"
   ],
   "weaponGroups": [

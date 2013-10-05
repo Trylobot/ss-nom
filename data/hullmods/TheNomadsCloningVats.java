@@ -3,6 +3,7 @@ import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.CargoAPI;
 import com.fs.starfarer.api.campaign.CargoAPI.CrewXPLevel;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
+import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import data.hullmods.base.BaseFleetEffectHullMod;
@@ -13,26 +14,15 @@ import java.util.List;
 
 public class TheNomadsCloningVats extends BaseFleetEffectHullMod
 {
-	private boolean enabled = false;
 	private float accumulator = 0.0f;
 	
 	private final float EXECUTION_PERIOD_DAYS = 1.0f; // how often in days to generate crew
 	private final int CREW_ADD = 5; // number of crew to add each generation
 	private final float CREW_RANGE_CAPACITY_MAX = 0.5f; // if crew is more than halfway from "skeleton" level to "maximum", do not generate crew
 	
-	public void applyEffectsBeforeShipCreation( HullSize hullSize, MutableShipStatsAPI stats, String id )
-	{
-		if( hullSize != HullSize.CAPITAL_SHIP )
-			return;
-
-		enabled = true;
-	}
-	
+	@Override
 	public void advanceInCampaign( FleetMemberAPI member, float amount )
 	{
-		if( !enabled )
-			return;
-		
 		accumulator += amount;
 		if( accumulator >= EXECUTION_PERIOD_DAYS )
 			accumulator -= EXECUTION_PERIOD_DAYS;
@@ -55,6 +45,13 @@ public class TheNomadsCloningVats extends BaseFleetEffectHullMod
 		}
 	}
 	
+	@Override
+	public boolean isApplicableToShip( ShipAPI ship )
+	{
+		// Oasis only in reality
+		return ship.getHullSpec().getHullId().equals( "nom_oasis" );
+	}
+
 	private float[] calculate_fleet_crew_requirement_range( CampaignFleetAPI fleet )
 	{
 		float[] range = { 0.0f, 0.0f };

@@ -11,3 +11,4 @@ Can only be installed on capital ships.",graphics/nom/hullmods/automated_nanobot
 Logistical Drone Control,logistical_distribution_drones,,0,0,0,60,data.hullmods.TheNomadsLogisticalDistributionDrones,"Provides mechanical assistance with near-range interfleet supply transfers, and eases the storage and organization requirements associated with large fleet logistics operations.
 
 Can only be installed on capital ships.",graphics/nom/hullmods/logistical_distribution_drones.png
+Naeran Flux Shunts,naeran_flux_shunts,TRUE,20,75,135,215,data.hullmods.TheNomadsNaeranFluxShunts,"Ancient Naeran technology that provides all Nomad ships with a way to dissipate flux internally by converting it into multi-spectrum EM radiation. Required for basic functioning of Nomad weapon systems, and not compatible with modern ships or technology due to its outdated design.",graphics/nom/hullmods/naeran_flux_shunts.png
