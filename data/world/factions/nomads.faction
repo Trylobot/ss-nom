@@ -110,9 +110,8 @@
 			},
 		},
 	},
-	"traits":{ # do these do anything?
+	"traits":{ 
 		"admiral":{
-			
 		},
 		"captain":{
 			"cowardly":1,

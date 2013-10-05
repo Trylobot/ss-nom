@@ -13,7 +13,7 @@ import java.util.Iterator;
 public class TheNomadsNurStationRestocker implements EveryFrameScript
 {
 	private float tick = 0f;
-	private final float SCRIPT_UPDATE_WAIT_MIN_SEC = 10.0f;
+	private final float SCRIPT_UPDATE_WAIT_MIN_SEC = 1.0f;
 	
 	private CampaignClockAPI clock;
 	//private float seconds_per_day;
@@ -35,8 +35,8 @@ public class TheNomadsNurStationRestocker implements EveryFrameScript
 		float[]           restock_ship_wait_days,
 		SectorEntityToken orbital_station )
 	{
-		this.restock_ship_types = restock_ship_types;
 		this.restock_ship_variant_or_wing_ids = restock_ship_variant_or_wing_ids;
+		this.restock_ship_types = restock_ship_types;
 		this.restock_ship_count_cap = restock_ship_count_cap;
 		this.restock_ship_wait_days = restock_ship_wait_days;
 		this.orbital_station = orbital_station;

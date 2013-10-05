@@ -155,6 +155,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 				30 // dead_time_days
 			);
 		sector.addScript( nomad_armada );
+		nomad_armada.addListener( this );
 		
 		// armada resource pooling script
 		CampaignArmadaResourceSharingController armada_resource_pool = 

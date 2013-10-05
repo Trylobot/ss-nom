@@ -113,7 +113,6 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	{
 		state = new_state;
 		last_state_change_timestamp = clock.getTimestamp();
-		_.L("state "+new_state);
 	}
 	
 	@Override
