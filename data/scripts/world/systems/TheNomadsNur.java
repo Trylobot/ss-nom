@@ -2,6 +2,7 @@ package data.scripts.world.systems;
 import com.fs.starfarer.api.FactoryAPI;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.FactionAPI;
+import com.fs.starfarer.api.campaign.FleetDataAPI;
 import com.fs.starfarer.api.campaign.JumpPointAPI;
 import com.fs.starfarer.api.campaign.JumpPointAPI.JumpDestination;
 import com.fs.starfarer.api.campaign.LocationAPI;
@@ -9,16 +10,22 @@ import com.fs.starfarer.api.campaign.OrbitAPI;
 import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
+import com.fs.starfarer.api.campaign.SectorGeneratorPlugin;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
+import com.fs.starfarer.api.fleet.FleetMemberAPI;
+import com.fs.starfarer.api.fleet.FleetMemberType;
 import data.scripts.world.armada.CampaignArmadaController;
+import data.scripts.world.armada.CampaignArmadaController.CampaignArmadaControllerEvent;
+import data.scripts.world.armada.CampaignArmadaController.CampaignArmadaControllerEventListener;
 import data.scripts.world.armada.CampaignArmadaFormationOrbit;
 import data.scripts.world.armada.CampaignArmadaResourceSharingController;
 import data.scripts.world.armada.api.CampaignArmadaEscortFleetPositionerAPI;
 import java.awt.Color;
+import java.util.Iterator;
 import org.lwjgl.util.vector.Vector2f;
 
 @SuppressWarnings( "unchecked" )
-public class TheNomadsNur
+public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaControllerEventListener
 {
 	private FactoryAPI factory;
 	
@@ -232,7 +239,62 @@ public class TheNomadsNur
 	
 	private void init_station_cargo( SectorEntityToken station )
 	{
+		FleetDataAPI station_ships = station.getCargo().getMothballedShips();
+		//station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.SHIP, "nom_oasis_standard" ));
+		station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.SHIP, "nom_komodo_assault" ));
+		station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.SHIP, "nom_wurm_assault" ));
+		station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.SHIP, "nom_wurm_assault" ));
+		station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.FIGHTER_WING, "nom_iguana_wing" ));
+		station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.FIGHTER_WING, "nom_scarab_wing" ));
 		
+		// restocker script
+		String[] restock_ship_variant_or_wing_ids = {
+			"nom_gila_monster_antibattleship", "nom_sandstorm_assault", "nom_scorpion_assault", "nom_komodo_assault", "nom_yellowjacket_sniper", "nom_wurm_assault",   "nom_iguana_wing",           "nom_scarab_wing" };
+		FleetMemberType[] restock_ship_types = {
+			FleetMemberType.SHIP,              FleetMemberType.SHIP,    FleetMemberType.SHIP,   FleetMemberType.SHIP, FleetMemberType.SHIP,      FleetMemberType.SHIP,FleetMemberType.FIGHTER_WING,FleetMemberType.FIGHTER_WING };
+		int[] restock_ship_count_cap = {
+			1,                                 2,                       3,                      4,                    2,                         5,                    6,                           8  };
+		float[] restock_ship_wait_days = {
+			92.0f,                             59.0f,                   29.0f,                  21.0f,                13.0f,                     9.0f,                 5.0f,                        4.0f  };
+		
+		TheNomadsNurStationRestocker station_cargo_restocker = new TheNomadsNurStationRestocker(
+			restock_ship_variant_or_wing_ids,
+			restock_ship_types,
+			restock_ship_count_cap,
+			restock_ship_wait_days,
+		    station );
+		system.addScript( station_cargo_restocker );
+	}
+	
+	public void handle_event( CampaignArmadaControllerEvent event )
+	{
+		// Oasis is not in play; put it for sale at the station (yay!)
+		if( event.controller_state == "NON_EXISTENT" )
+		{
+			// add no more than one Oasis
+			int count = 0; // first count oasis ships (player could have bought one previously and sold it back)
+			FleetDataAPI station_ships = station.getCargo().getMothballedShips();
+			for( Iterator i = station_ships.getMembersInPriorityOrder().iterator(); i.hasNext(); )
+			{
+				FleetMemberAPI ship = (FleetMemberAPI)i.next();
+				if( ship.getVariant().getHullVariantId() == "nom_oasis_standard" )
+					++count;
+			}
+			if( count == 0 )
+				station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.SHIP, "nom_oasis_standard" ));
+		}
+		// Oasis is in play; be patient! T_T
+		else if( event.controller_state == "JOURNEYING_LIKE_A_BOSS" )
+		{
+			// remove all Oasis hulls, there's only supposed to be one, and it's cruising around.
+			FleetDataAPI station_ships = station.getCargo().getMothballedShips();
+			for( Iterator i = station_ships.getMembersInPriorityOrder().iterator(); i.hasNext(); )
+			{
+				FleetMemberAPI ship = (FleetMemberAPI)i.next();
+				if( ship.getVariant().getHullVariantId() == "nom_oasis_standard" )
+					station_ships.removeFleetMember( ship );
+			}
+		}
 	}
 	
 	
@@ -275,5 +337,5 @@ public class TheNomadsNur
 		}
 		return location;
 	}
-	
+
 }

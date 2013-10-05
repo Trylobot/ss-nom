@@ -16,6 +16,7 @@ import data.scripts.world.armada.api.CampaignArmadaEscortFleetPositionerAPI;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import org.lwjgl.util.vector.Vector2f;
 
@@ -77,8 +78,8 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		String[] escort_fleet_composition_pool,
 		int[] escort_fleet_composition_weights, // must total 1000
 		CampaignArmadaEscortFleetPositionerAPI escort_positioner,
-		int waypoint_per_trip_minimum,
-		int waypoint_per_trip_maximum,
+		int waypoints_per_system_minimum,
+		int waypoints_per_system_maximum,
 		int dead_time_days )
 	{
 		// setup behaviors; these are not modified by the controller
@@ -90,8 +91,8 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		this.escort_fleet_composition_pool = escort_fleet_composition_pool;
 		this.escort_fleet_composition_weights = escort_fleet_composition_weights;
 		this.escort_positioner = escort_positioner;
-		this.waypoints_per_system_minimum = waypoint_per_trip_minimum;
-		this.waypoints_per_system_maximum = waypoint_per_trip_maximum;
+		this.waypoints_per_system_minimum = waypoints_per_system_minimum;
+		this.waypoints_per_system_maximum = waypoints_per_system_maximum;
 		this.dead_time_days = dead_time_days;
 		
 		this.waypoint_controller = new CampaignArmadaWaypointController(
@@ -125,10 +126,17 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 				float days_dead = clock.getElapsedDaysSince( last_state_change_timestamp );
 				if( days_dead >= dead_time_days )
 				{
-					create_armada();
-					_.L("armada created");
+					// create & spawn leader fleet
+					leader_fleet = create_leader_fleet();
+					spawn_system.spawnFleet( spawn_location, 0, 0, leader_fleet );
+					// create & spawn escort fleets
+					escort_fleets = create_escort_fleets();
+					for( int i = 0; i < escort_fleets.length; ++i )
+						spawn_system.spawnFleet( spawn_location, 0, 0, escort_fleets[i] );
 					waypoint_controller.run();
 					change_state( JOURNEYING_LIKE_A_BOSS );
+					notifyListeners( "JOURNEYING_LIKE_A_BOSS" );
+					_.L("armada created");
 				}
 				break;
 			
@@ -138,22 +146,16 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 				if( !OK )
 				{
 					scatter_fleets();
+					leader_fleet = null;
+					escort_fleets = null;
+					change_state( NON_EXISTENT );
+					notifyListeners( "NON_EXISTENT" );
+					_.L("armada leader destroyed; escorts scatter");
 					break;
 				}
 				update_fleets( amount );
 				break;
 		}
-	}
-	
-	private void create_armada()
-	{
-		// create & spawn leader fleet
-		leader_fleet = create_leader_fleet();
-		spawn_system.spawnFleet( spawn_location, 0, 0, leader_fleet );
-		// create & spawn escort fleets
-		escort_fleets = create_escort_fleets();
-		for( int i = 0; i < escort_fleets.length; ++i )
-			spawn_system.spawnFleet( spawn_location, 0, 0, escort_fleets[i] );
 	}
 	
 	private CampaignFleetAPI create_leader_fleet()
@@ -226,8 +228,6 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	
 	private void scatter_fleets()
 	{
-		_.L("leader fleet lost; escort fleets scatter");
-		leader_fleet = null;
 		for( int i = 0; i < escort_fleets.length; ++i )
 		{
 			CampaignFleetAPI escort_fleet = escort_fleets[i];
@@ -240,8 +240,6 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 					Float.MAX_VALUE );
 			}
 		}					
-		escort_fleets = null;
-		change_state( NON_EXISTENT );		
 	}
 	
 	private String weighted_string_pick( String[] pool, int[] weights )
@@ -282,6 +280,38 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	{
 		return false; // do not do this
 	}
-
+	
+	///// events
+	
+	public class CampaignArmadaControllerEvent
+	{
+		public String controller_state;
+	}
+	
+	public interface CampaignArmadaControllerEventListener
+	{
+		public void handle_event( CampaignArmadaControllerEvent event );
+	}
+	
+	private List _listeners = new LinkedList();
+	
+	public void addListener( CampaignArmadaControllerEventListener listener )
+	{
+		_listeners.add( listener );
+	}
+	
+	public void removeListener( CampaignArmadaControllerEventListener listener )
+	{
+		_listeners.remove( listener );
+	}
+	
+	public void notifyListeners( String controller_state )
+	{
+		CampaignArmadaControllerEvent event = new CampaignArmadaControllerEvent();
+		event.controller_state = controller_state;
+		for( Iterator i = _listeners.iterator(); i.hasNext(); )
+			((CampaignArmadaControllerEventListener)i.next()).handle_event( event );
+	}
+	
 }
 
