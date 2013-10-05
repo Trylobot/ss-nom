@@ -183,8 +183,7 @@
       ],
       "mount": "HARDPOINT",
       "size": "LARGE",
-      "type": "ENERGY"
-      #"type": "BUILT_IN"
+      "type": "BUILT_IN"
     },
     {
       "angle": 22.4,
@@ -196,12 +195,11 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "ENERGY"
-      #"type": "BUILT_IN"
+      "type": "BUILT_IN"
     }
   ],
-  #"builtInWeapons":{
-  #      "WS 1": "nom_maser_pulse_beam",
-  #      "WS 2": "nom_ultralight_electron_maser",
-  #}
+  "builtInWeapons":{
+        "WS 1": "nom_maser_pulse_beam",
+        "WS 2": "nom_ultralight_electron_maser",
+  }
 }
