@@ -78,7 +78,7 @@ public class TheNomadsNurStationRestocker implements EveryFrameScript
 		for( Iterator i = station_ships.getMembersInPriorityOrder().iterator(); i.hasNext(); )
 		{
 			FleetMemberAPI ship = (FleetMemberAPI)i.next();
-			if( ship.getVariant().getHullVariantId() == variant_or_wing_id )
+			if( variant_or_wing_id.equals(ship.getVariant().getHullVariantId()) )
 				++stock;
 		}
 		return stock;

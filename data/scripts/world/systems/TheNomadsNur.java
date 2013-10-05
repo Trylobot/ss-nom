@@ -269,7 +269,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 	public void handle_event( CampaignArmadaControllerEvent event )
 	{
 		// Oasis is not in play; put it for sale at the station (yay!)
-		if( event.controller_state == "NON_EXISTENT" )
+		if( "NON_EXISTENT".equals( event.controller_state ))
 		{
 			// add no more than one Oasis
 			int count = 0; // first count oasis ships (player could have bought one previously and sold it back)
@@ -277,21 +277,21 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 			for( Iterator i = station_ships.getMembersInPriorityOrder().iterator(); i.hasNext(); )
 			{
 				FleetMemberAPI ship = (FleetMemberAPI)i.next();
-				if( ship.getVariant().getHullVariantId() == "nom_oasis_standard" )
+				if( "nom_oasis_standard".equals( ship.getVariant().getHullVariantId() ))
 					++count;
 			}
 			if( count == 0 )
 				station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.SHIP, "nom_oasis_standard" ));
 		}
 		// Oasis is in play; be patient! T_T
-		else if( event.controller_state == "JOURNEYING_LIKE_A_BOSS" )
+		else if( "JOURNEYING_LIKE_A_BOSS".equals( event.controller_state ))
 		{
 			// remove all Oasis hulls, there's only supposed to be one, and it's cruising around.
 			FleetDataAPI station_ships = station.getCargo().getMothballedShips();
 			for( Iterator i = station_ships.getMembersInPriorityOrder().iterator(); i.hasNext(); )
 			{
 				FleetMemberAPI ship = (FleetMemberAPI)i.next();
-				if( ship.getVariant().getHullVariantId() == "nom_oasis_standard" )
+				if( "nom_oasis_standard".equals( ship.getVariant().getHullVariantId() ))
 					station_ships.removeFleetMember( ship );
 			}
 		}
