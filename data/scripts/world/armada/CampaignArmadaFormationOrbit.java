@@ -1,19 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package data.scripts.world.armada;
-
 import com.fs.starfarer.api.campaign.CampaignClockAPI;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import data.scripts.world.armada.api.CampaignArmadaEscortFleetPositionerAPI;
 import org.lwjgl.util.vector.Vector2f;
 
-/**
- *
- * @author tbot
- */
 public class CampaignArmadaFormationOrbit implements CampaignArmadaEscortFleetPositionerAPI
 {
 	private final static float TWO_PI = (float)(2.0f*Math.PI);

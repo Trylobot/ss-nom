@@ -1,20 +1,18 @@
 package data.scripts.world.armada;
 import com.fs.starfarer.api.EveryFrameScript;
-import com.fs.starfarer.api.Script;
+import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignClockAPI;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.FleetAssignment;
-import com.fs.starfarer.api.campaign.JumpPointAPI;
 import com.fs.starfarer.api.campaign.JumpPointAPI.JumpDestination;
 import com.fs.starfarer.api.campaign.LocationAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
+import com.fs.starfarer.api.mission.FleetSide;
 import data.scripts._;
 import data.scripts.world.armada.CampaignArmadaWaypointController.CampaignArmadaWaypoint;
 import data.scripts.world.armada.api.CampaignArmadaAPI;
 import data.scripts.world.armada.api.CampaignArmadaEscortFleetPositionerAPI;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -36,8 +34,6 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	private String[] escort_fleet_composition_pool;
 	private int[] escort_fleet_composition_weights;
 	private CampaignArmadaEscortFleetPositionerAPI escort_positioner;
-	private int waypoints_per_system_minimum;
-	private int waypoints_per_system_maximum;
 	private int dead_time_days;
 	
 	private CampaignClockAPI clock;
@@ -91,8 +87,6 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		this.escort_fleet_composition_pool = escort_fleet_composition_pool;
 		this.escort_fleet_composition_weights = escort_fleet_composition_weights;
 		this.escort_positioner = escort_positioner;
-		this.waypoints_per_system_minimum = waypoints_per_system_minimum;
-		this.waypoints_per_system_maximum = waypoints_per_system_maximum;
 		this.dead_time_days = dead_time_days;
 		
 		this.waypoint_controller = new CampaignArmadaWaypointController(
@@ -163,6 +157,8 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		fleet.getCommanderStats().setAptitudeLevel( "leadership", 10.0f );
 		fleet.getCommanderStats().setSkillLevel( "fleet_logistics", 10.0f );
 		fleet.setPreferredResupplyLocation( leader_fleet ); // LAWL
+		//fleet.getAI();
+		
 		return fleet;
 	}
 	
