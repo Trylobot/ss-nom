@@ -258,7 +258,8 @@
       ],
       "mount": "TURRET",
       "size": "LARGE",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -270,7 +271,8 @@
       ],
       "mount": "TURRET",
       "size": "LARGE",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -282,7 +284,8 @@
       ],
       "mount": "TURRET",
       "size": "MEDIUM",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": -0.0,
@@ -294,7 +297,8 @@
       ],
       "mount": "TURRET",
       "size": "MEDIUM",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -306,7 +310,8 @@
       ],
       "mount": "TURRET",
       "size": "LARGE",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": -0.0,
@@ -318,7 +323,8 @@
       ],
       "mount": "TURRET",
       "size": "LARGE",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -330,7 +336,8 @@
       ],
       "mount": "TURRET",
       "size": "LARGE",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": -0.0,
@@ -342,7 +349,8 @@
       ],
       "mount": "TURRET",
       "size": "LARGE",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -354,7 +362,8 @@
       ],
       "mount": "TURRET",
       "size": "LARGE",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": -0.0,
@@ -366,7 +375,8 @@
       ],
       "mount": "TURRET",
       "size": "LARGE",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -378,7 +388,8 @@
       ],
       "mount": "TURRET",
       "size": "MEDIUM",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": -0.0,
@@ -390,7 +401,8 @@
       ],
       "mount": "TURRET",
       "size": "MEDIUM",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": -36.0,
@@ -402,7 +414,8 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 36.0,
@@ -414,7 +427,8 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": -36.2,
@@ -426,7 +440,8 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 36.2,
@@ -438,7 +453,8 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": -69.9,
@@ -450,7 +466,8 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 69.9,
@@ -462,7 +479,8 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": -25.6,
@@ -474,7 +492,8 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 51.3,
@@ -486,7 +505,8 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": -121.0,
@@ -498,7 +518,8 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 107.2,
@@ -510,7 +531,8 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 180.0,
@@ -522,7 +544,8 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 180.0,
@@ -534,7 +557,8 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": -141.3,
@@ -546,7 +570,8 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 141.3,
@@ -558,35 +583,36 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     }
   ],
-  "builtInWeapons":{
-        "WS 10": "nom_twin_electron_maser",
-        "WS 11": "nom_twin_electron_maser",
-        "WS 2": "nom_twin_electron_maser",
-        "WS 3": "nom_twin_electron_maser",
-        "WS 6": "nom_twin_electron_maser",
-        "WS 7": "nom_twin_electron_maser",
-        "WS 8": "nom_twin_electron_maser",
-        "WS 9": "nom_twin_electron_maser",
-        "WS 12": "nom_heavy_electron_maser",
-        "WS 13": "nom_heavy_electron_maser",
-        "WS 4": "nom_heavy_electron_maser",
-        "WS 5": "nom_heavy_electron_maser",
-        "WS 14": "nom_light_electron_maser",
-        "WS 15": "nom_light_electron_maser",
-        "WS 16": "nom_light_electron_maser",
-        "WS 17": "nom_light_electron_maser",
-        "WS 18": "nom_light_electron_maser",
-        "WS 19": "nom_light_electron_maser",
-        "WS 20": "nom_light_electron_maser",
-        "WS 21": "nom_light_electron_maser",
-        "WS 22": "nom_light_electron_maser",
-        "WS 23": "nom_light_electron_maser",
-        "WS 24": "nom_ultralight_electron_maser",
-        "WS 25": "nom_ultralight_electron_maser",
-        "WS 26": "nom_ultralight_electron_maser",
-        "WS 27": "nom_ultralight_electron_maser",
-  }
+  #"builtInWeapons":{
+  #      "WS 10": "nom_twin_electron_maser",
+  #      "WS 11": "nom_twin_electron_maser",
+  #      "WS 2": "nom_twin_electron_maser",
+  #      "WS 3": "nom_twin_electron_maser",
+  #      "WS 6": "nom_twin_electron_maser",
+  #      "WS 7": "nom_twin_electron_maser",
+  #      "WS 8": "nom_twin_electron_maser",
+  #      "WS 9": "nom_twin_electron_maser",
+  #      "WS 12": "nom_heavy_electron_maser",
+  #      "WS 13": "nom_heavy_electron_maser",
+  #      "WS 4": "nom_heavy_electron_maser",
+  #      "WS 5": "nom_heavy_electron_maser",
+  #      "WS 14": "nom_light_electron_maser",
+  #      "WS 15": "nom_light_electron_maser",
+  #      "WS 16": "nom_light_electron_maser",
+  #      "WS 17": "nom_light_electron_maser",
+  #      "WS 18": "nom_light_electron_maser",
+  #      "WS 19": "nom_light_electron_maser",
+  #      "WS 20": "nom_light_electron_maser",
+  #      "WS 21": "nom_light_electron_maser",
+  #      "WS 22": "nom_light_electron_maser",
+  #      "WS 23": "nom_light_electron_maser",
+  #      "WS 24": "nom_ultralight_electron_maser",
+  #      "WS 25": "nom_ultralight_electron_maser",
+  #      "WS 26": "nom_ultralight_electron_maser",
+  #      "WS 27": "nom_ultralight_electron_maser",
+  #}
 }

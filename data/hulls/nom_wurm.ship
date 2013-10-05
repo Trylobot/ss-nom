@@ -154,7 +154,8 @@
       ],
       "mount": "TURRET",
       "size": "MEDIUM",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 20.6,
@@ -166,7 +167,8 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": -53.1,
@@ -178,7 +180,8 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 54.5,
@@ -190,13 +193,14 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     }
   ],
-  "builtInWeapons":{
-        "WS 001":"nom_heavy_electron_maser",
-        "WS 002":"nom_light_electron_maser",
-        "WS 003":"nom_light_electron_maser",
-        "WS 004":"nom_light_electron_maser",
-  }
+  #"builtInWeapons":{
+  #      "WS 001":"nom_heavy_electron_maser",
+  #      "WS 002":"nom_light_electron_maser",
+  #      "WS 003":"nom_light_electron_maser",
+  #      "WS 004":"nom_light_electron_maser",
+  #}
 }

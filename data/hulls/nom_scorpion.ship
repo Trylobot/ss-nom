@@ -266,7 +266,8 @@
       ],
       "mount": "HARDPOINT",
       "size": "MEDIUM",
-      "type": "BUILT_IN"
+      "type": "MISSILE"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -278,7 +279,8 @@
       ],
       "mount": "HARDPOINT",
       "size": "MEDIUM",
-      "type": "BUILT_IN"
+      "type": "MISSILE"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -290,7 +292,8 @@
       ],
       "mount": "HARDPOINT",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "MISSILE"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -302,7 +305,8 @@
       ],
       "mount": "HARDPOINT",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "MISSILE"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -314,7 +318,8 @@
       ],
       "mount": "HARDPOINT",
       "size": "MEDIUM",
-      "type": "BUILT_IN"
+      "type": "MISSILE"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -326,7 +331,8 @@
       ],
       "mount": "HARDPOINT",
       "size": "LARGE",
-      "type": "BUILT_IN"
+      "type": "MISSILE"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 0.0,
@@ -338,7 +344,8 @@
       ],
       "mount": "HARDPOINT",
       "size": "MEDIUM",
-      "type": "BUILT_IN"
+      "type": "MISSILE"
+      #"type": "BUILT_IN"
     },
     {
       "angle": -112.6,
@@ -350,7 +357,8 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     },
     {
       "angle": 119.1,
@@ -362,18 +370,19 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "ENERGY"
+      #"type": "BUILT_IN"
     }
   ],
-  "builtInWeapons":{
-        "WS 4": "pilum",
-        "WS 5": "pilum",
-        "WS 6": "hurricane",
-        "WS 1": "harpoonpod",
-        "WS 7": "salamanderpod",
-        "WS 2": "swarmer",
-        "WS 3": "swarmer",
-        "WS 8": "nom_ultralight_electron_maser",
-        "WS 9": "nom_ultralight_electron_maser",
-  }
+  #"builtInWeapons":{
+  #    "WS 4": "pilum",
+  #    "WS 5": "pilum",
+  #    "WS 6": "hurricane",
+  #    "WS 1": "harpoonpod",
+  #    "WS 7": "salamanderpod",
+  #    "WS 2": "swarmer",
+  #    "WS 3": "swarmer",
+  #    "WS 8": "nom_ultralight_electron_maser",
+  #    "WS 9": "nom_ultralight_electron_maser",
+  #}
 }
