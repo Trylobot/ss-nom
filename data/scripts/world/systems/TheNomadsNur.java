@@ -1,6 +1,8 @@
 package data.scripts.world.systems;
 import com.fs.starfarer.api.FactoryAPI;
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.CargoAPI;
+import com.fs.starfarer.api.campaign.CargoAPI.CrewXPLevel;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.FleetDataAPI;
 import com.fs.starfarer.api.campaign.JumpPointAPI;
@@ -65,7 +67,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 		init_celestial_bodies( system );
 		
 		// spawners and other fleet related scripts
-		init_fleet_scripts( sector, system );
+		init_scripts( sector, system );
 		
 		// faction relationships
 		init_faction_relationships( sector );
@@ -124,7 +126,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 //		planet_I__moon_f.setCustomDescriptionId("nom_planet_I__moon_f");
 	}
 	
-	private void init_fleet_scripts( SectorAPI sector, StarSystemAPI system )
+	private void init_scripts( SectorAPI sector, StarSystemAPI system )
 	{
 		// armada formation type
 		CampaignArmadaEscortFleetPositionerAPI armada_formation =
@@ -170,7 +172,6 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 				20.0f // 15 light-years worth of fuel at fleet's current fuel consumption rate
 			);
 		sector.addScript( armada_resource_pool );
-		
 	}
 	
 	private void init_faction_relationships( SectorAPI sector )
@@ -241,13 +242,19 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 	
 	private void init_station_cargo( SectorEntityToken station )
 	{
-		FleetDataAPI station_ships = station.getCargo().getMothballedShips();
+		CargoAPI cargo = station.getCargo();
+		FleetDataAPI station_ships = cargo.getMothballedShips();
 		//station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.SHIP, "nom_oasis_standard" ));
 		station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.SHIP, "nom_komodo_assault" ));
 		station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.SHIP, "nom_wurm_assault" ));
 		station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.SHIP, "nom_wurm_assault" ));
 		station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.FIGHTER_WING, "nom_iguana_wing" ));
 		station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.FIGHTER_WING, "nom_scarab_wing" ));
+		cargo.addCrew( CrewXPLevel.ELITE, 20 );
+		cargo.addCrew( CrewXPLevel.VETERAN, 100 );
+		cargo.addCrew( CrewXPLevel.REGULAR, 1000 );
+		cargo.addSupplies( 3000.0f );
+		cargo.addFuel( 3000.0f );
 		
 		// restocker script
 		String[] restock_ship_variant_or_wing_ids = {

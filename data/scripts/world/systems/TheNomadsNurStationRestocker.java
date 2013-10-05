@@ -41,11 +41,12 @@ public class TheNomadsNurStationRestocker implements EveryFrameScript
 		this.restock_ship_wait_days = restock_ship_wait_days;
 		this.orbital_station = orbital_station;
 		
-		this.count = restock_ship_variant_or_wing_ids.length;
-		this.restock_timestamps = new long[count];
+		count = restock_ship_variant_or_wing_ids.length;
+		restock_timestamps = new long[count];
 		
 		clock = Global.getSector().getClock();
-		//seconds_per_day = clock.getSecondsPerDay();
+		for( int i = 0; i < count; ++i )
+			restock_timestamps[i] = clock.getTimestamp();
 	}
 	
 	public void advance( float amount )
@@ -67,7 +68,7 @@ public class TheNomadsNurStationRestocker implements EveryFrameScript
 					orbital_station.getCargo().getMothballedShips().addFleetMember(
 					  Global.getFactory().createFleetMember(
 						restock_ship_types[i], restock_ship_variant_or_wing_ids[i] ));
-					_.L("added mothballed ship "+restock_ship_variant_or_wing_ids[i]+" to station cargo");
+					_.L("  ADDED mothballed ship "+restock_ship_variant_or_wing_ids[i]+" to station cargo");
 				}
 			}
 		}
