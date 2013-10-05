@@ -119,7 +119,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 				float days_dead = clock.getElapsedDaysSince( last_state_change_timestamp );
 				if( days_dead >= dead_time_days )
 				{
-					// create & spawn leader fleet
+					/*// create & spawn leader fleet
 					leader_fleet = create_leader_fleet();
 					spawn_system.spawnFleet( spawn_location, 0, 0, leader_fleet );
 					// create & spawn escort fleets
@@ -129,7 +129,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 					waypoint_controller.run();
 					change_state( JOURNEYING_LIKE_A_BOSS );
 					notifyListeners( "JOURNEYING_LIKE_A_BOSS" );
-					_.L("armada created");
+					_.L("armada created");*/
 				}
 				break;
 			
@@ -293,6 +293,16 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	public void addListener( CampaignArmadaControllerEventListener listener )
 	{
 		_listeners.add( listener );
+		// send current state immediately
+		switch( state )
+		{ 
+			case NON_EXISTENT:
+				notifyListeners( "JOURNEYING_LIKE_A_BOSS" );
+				break;
+			case JOURNEYING_LIKE_A_BOSS:
+				notifyListeners( "NON_EXISTENT" );
+				break;
+		}
 	}
 	
 	public void removeListener( CampaignArmadaControllerEventListener listener )
