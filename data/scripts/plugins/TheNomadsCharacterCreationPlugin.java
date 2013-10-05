@@ -260,7 +260,6 @@ public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 			data.getStartingCargo().addCrew(CrewXPLevel.ELITE, 1);
 			data.getStartingCargo().addCrew(CrewXPLevel.VETERAN, 20);
 			data.getStartingCargo().addMarines(0);
-			Global.getSector().getFaction( "player" ).setRelationship( "nomads", 1 ); // friendly
 			/*if( Global.getSettings().isDevMode() && false )
 			{
 				data.addStartingFleetMember("nom_oasis_standard", FleetMemberType.SHIP);

@@ -175,19 +175,19 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 		for( int i = 0; i < all_factions.length; ++i )
 		{
 			FactionAPI cur_faction = (FactionAPI) all_factions[i];
-			if( cur_faction != nomads_faction 
-			&&  cur_faction.getId() != "neutral"
-			&&  cur_faction.getId() != "independent" )
+			if( cur_faction == nomads_faction )
+				continue;
+			if( cur_faction.getId() == "neutral"
+			||  cur_faction.getId() == "independent" )
+			{
+				nomads_faction.setRelationship( cur_faction.getId(), 1 );
+			}
+			else
 			{
 				nomads_faction.setRelationship( cur_faction.getId(), -1 );
 			}
 		}
-		
-		/////////////////////////////////////////////////////////////
-		if( Global.getSettings().isDevMode() )
-		{
-			nomads_faction.setRelationship( "player", 1 ); // DEBUG: FRIENDLY
-		}
+		nomads_faction.setRelationship( "player", 0 );
 	}
 	
 	
