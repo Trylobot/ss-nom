@@ -15,7 +15,24 @@ public class TheNomadsModPlugin extends BaseModPlugin
 	
 	private void init()
 	{
+		if( can_be_loaded( "data.scripts.world.ExerelinGen" ))
+			return;
+		
+		// normal stand-alone mode
 		SectorAPI sector = Global.getSector();
 		new TheNomadsNur().generate( sector );
+	}
+	
+	private boolean can_be_loaded( String fullyQualifiedClassName )
+	{
+		try
+		{
+			 Global.getSettings().getScriptClassLoader().loadClass( fullyQualifiedClassName );
+			 return true;
+		}
+		catch (ClassNotFoundException ex)
+		{
+			return false;
+		}		
 	}
 }
