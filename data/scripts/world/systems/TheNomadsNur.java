@@ -139,6 +139,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 			new CampaignArmadaController(
 				"nomads", // faction
 				"colonyFleet", // leader/VIP fleet
+				"nom_oasis",
 				sector, // global sector api
 				planet_I__moon_f,
 				8, // escort_fleet_count

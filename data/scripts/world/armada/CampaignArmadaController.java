@@ -8,6 +8,7 @@ import com.fs.starfarer.api.campaign.JumpPointAPI.JumpDestination;
 import com.fs.starfarer.api.campaign.LocationAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
+import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.mission.FleetSide;
 import data.scripts._;
 import data.scripts.world.armada.CampaignArmadaWaypointController.CampaignArmadaWaypoint;
@@ -30,6 +31,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	// basic behavior options
 	private String faction_id;
 	private String leader_fleet_id;
+	private String vip_ship_id;
 	private int escort_fleet_count;
 	private String[] escort_fleet_composition_pool;
 	private int[] escort_fleet_composition_weights;
@@ -68,6 +70,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	public CampaignArmadaController( 
 		String faction_id,
 		String leader_fleet_id,
+		String vip_ship_id,
 		SectorAPI sector,
 		SectorEntityToken spawn_location,
 		int escort_fleet_count,
@@ -81,6 +84,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		// setup behaviors; these are not modified by the controller
 		this.faction_id = faction_id;
 		this.leader_fleet_id = leader_fleet_id;
+		this.vip_ship_id = vip_ship_id;
 		this.sector = sector;
 		this.spawn_location = spawn_location;
 		this.escort_fleet_count = escort_fleet_count;
@@ -181,7 +185,21 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	
 	private boolean check_leader()
 	{
-		return (leader_fleet != null && leader_fleet.isAlive());
+		return (leader_fleet != null && leader_fleet.isAlive()
+		  && (vip_ship_id == null || find_vip_ship( leader_fleet )));
+	}
+	
+	private boolean find_vip_ship( CampaignFleetAPI fleet )
+	{
+		if( vip_ship_id == null )
+			return false;
+		for( Iterator i = fleet.getFleetData().getMembersInPriorityOrder().iterator(); i.hasNext(); )
+		{
+			FleetMemberAPI ship = (FleetMemberAPI)i.next();
+			if( vip_ship_id.equals( ship.getHullId() ))
+				return true;
+		}
+		return false;
 	}
 	
 	private void update_fleets( float amount )
