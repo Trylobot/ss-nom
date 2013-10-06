@@ -8,7 +8,7 @@ public class TheNomadsNaeranFluxShunts extends BaseHullMod
 	@Override
 	public void applyEffectsBeforeShipCreation( ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id )
 	{
-		stats.getFluxCapacity().modifyMult( id, 250.0f );
+		stats.getFluxCapacity().modifyFlat( id, 250.0f * stats.getFluxCapacity().getBaseValue() );
 	}
 
 	@Override
