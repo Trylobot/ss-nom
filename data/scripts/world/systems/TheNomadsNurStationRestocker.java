@@ -9,6 +9,8 @@ import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.fleet.FleetMemberType;
 import data.scripts._;
 import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TheNomadsNurStationRestocker implements EveryFrameScript
 {
@@ -70,6 +72,19 @@ public class TheNomadsNurStationRestocker implements EveryFrameScript
 						restock_ship_types[i], restock_ship_variant_or_wing_ids[i] ));
 					_.L("  ADDED mothballed ship "+restock_ship_variant_or_wing_ids[i]+" to station cargo");
 				}
+				else if( stock > restock_ship_count_cap[i] )
+				{
+					// remove (N - cap) ships
+					FleetDataAPI station_moth_fleet = orbital_station.getCargo().getMothballedShips();
+					List station_ships = station_moth_fleet.getMembersListCopy();
+					for( Iterator t = station_ships.iterator(); t.hasNext(); )
+					{
+						FleetMemberAPI ship = (FleetMemberAPI)t.next();
+						if( restock_ship_variant_or_wing_ids[i].equals( ship.getSpecId() )) {
+							station_moth_fleet.removeFleetMember( ship );
+						}
+					}
+				}
 			}
 		}
 	}
@@ -77,11 +92,11 @@ public class TheNomadsNurStationRestocker implements EveryFrameScript
 	private int count_ship_stock( SectorEntityToken station, String variant_or_wing_id )
 	{
 		int stock = 0;
-		FleetDataAPI station_ships = station.getCargo().getMothballedShips();
-		for( Iterator i = station_ships.getMembersInPriorityOrder().iterator(); i.hasNext(); )
+		List station_ships = station.getCargo().getMothballedShips().getMembersInPriorityOrder();
+		for( Iterator i = station_ships.iterator(); i.hasNext(); )
 		{
 			FleetMemberAPI ship = (FleetMemberAPI)i.next();
-			if( variant_or_wing_id.equals(ship.getVariant().getHullVariantId()) )
+			if( variant_or_wing_id.equals( ship.getSpecId() ))
 				++stock;
 		}
 		return stock;

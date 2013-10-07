@@ -57,6 +57,11 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 		factory = Global.getFactory();
 		hyper = sector.getHyperspace();
 		
+		//// check to prevent multiple runs, yet allow retroactive continuity
+		//// does not work
+		//if( sector.getStarSystem( "Nur" ) != null )
+		//	return; // already created Nur
+		
 		// system
 		system = sector.createStarSystem( "Nur" );
         //system.setBackgroundTextureFilename( "graphics/nom/backgrounds/background_nur.jpg" ); // doesn't look good

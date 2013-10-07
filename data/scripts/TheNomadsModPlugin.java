@@ -13,6 +13,13 @@ public class TheNomadsModPlugin extends BaseModPlugin
 		init();
 	}
 	
+	//@Override
+	//public void onGameLoad()
+	//{
+	//  // does not work
+	//	init();
+	//}
+	
 	private void init()
 	{
 		if( can_be_loaded( "data.scripts.world.ExerelinGen" ))
