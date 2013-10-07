@@ -260,7 +260,8 @@ public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 			data.getStartingCargo().addCrew(CrewXPLevel.ELITE, 1);
 			data.getStartingCargo().addCrew(CrewXPLevel.VETERAN, 20);
 			data.getStartingCargo().addMarines(0);
-			/*if( Global.getSettings().isDevMode() && false )
+			/////////////////////////////////////////////////////////////
+			if( Global.getSettings().isDevMode() && false )
 			{
 				data.addStartingFleetMember("nom_oasis_standard", FleetMemberType.SHIP);
 				data.addStartingFleetMember("nom_sandstorm_assault", FleetMemberType.SHIP);
@@ -273,7 +274,7 @@ public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 				data.getStartingCargo().addCrew(CrewXPLevel.REGULAR, 2500);
 				stats.setAptitudeLevel( "leadership", 10.0f );
 				stats.setSkillLevel( "fleet_logistics", 10.0f );
-			}*/
+			}
 		}
 		else
 		{

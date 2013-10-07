@@ -7,36 +7,41 @@ import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import data.hullmods.base.BaseFleetEffectHullMod;
 import data.scripts._;
+import java.util.Hashtable;
 
 
 public class TheNomadsAutomatedNanobotFabricators extends BaseFleetEffectHullMod
 {
-	private float accumulator = 0.0f;
-	
-	private final float EXECUTION_PERIOD_DAYS = 1.0f; // how often in days to generate supplies
-	private final float SUPPLIES_ADD = 50.0f; // number of supplies to add each generation step
-	private final float CARGO_CAPACITY_MAX = 0.5f; // if cargo is more than 50% full, do not generate new supplies
+	private Hashtable memo = new Hashtable();
+	private final int CREDITS_idx = 0;
+	private final int SUPPLIES_idx = 1;
 	
 	public void advanceInCampaign( FleetMemberAPI member, float amount )
 	{
-		accumulator += amount;
-		if( accumulator >= EXECUTION_PERIOD_DAYS )
-			accumulator -= EXECUTION_PERIOD_DAYS;
-		else
-			return;
-		
 		CampaignFleetAPI fleet = findFleet( member );
 		if( fleet == null )
-			return; // this will only happen if there are fleets that I've not searched
-		
+			return; // if the fleet member exists in the campaign and this method is being called, this should never occur
 		CargoAPI cargo = fleet.getCargo();
-		float max_cargo = CARGO_CAPACITY_MAX * cargo.getMaxCapacity();
-		
-		if( cargo.getSpaceUsed() <= max_cargo )
+		float credits = cargo.getCredits().get();
+		float supplies = cargo.getSupplies();
+		float[] prev = (float[])memo.get( member );
+		if( prev == null )
 		{
-			fleet.getCargo().addSupplies( SUPPLIES_ADD );
-			//_.L("Nanobot Factories created "+SUPPLIES_ADD+" supplies");
+			prev = new float[]{ credits, supplies };
+			memo.put( member, prev );
+			return; // can't do anything with this until next frame
 		}
+		if( credits == prev[CREDITS_idx] )
+		{
+			// only replace supplies if supplies were lost but credits remain unchanged
+			if( supplies < prev[SUPPLIES_idx] )
+			{
+				cargo.addSupplies( prev[SUPPLIES_idx] - supplies );
+				supplies = cargo.getSupplies();
+			}
+		}
+		prev[CREDITS_idx] = credits;
+		prev[SUPPLIES_idx] = supplies;
 	}
 
 	@Override

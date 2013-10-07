@@ -16,9 +16,9 @@ public class TheNomadsCloningVats extends BaseFleetEffectHullMod
 {
 	private float accumulator = 0.0f;
 	
-	private final float EXECUTION_PERIOD_DAYS = 1.0f; // how often in days to generate crew
-	private final int CREW_ADD = 5; // number of crew to add each generation
-	private final float CREW_RANGE_CAPACITY_MAX = 0.5f; // if crew is more than halfway from "skeleton" level to "maximum", do not generate crew
+	private final float EXECUTION_PERIOD_DAYS = 1.5f; // how often in days to generate crew
+	private final int CREW_ADD = 1; // number of crew to add each generation
+	private final float CREW_RANGE_CAPACITY_MAX = 0.25f; // if crew is more than a quarter from "skeleton" level to "maximum", do not generate crew
 	
 	@Override
 	public void advanceInCampaign( FleetMemberAPI member, float amount )

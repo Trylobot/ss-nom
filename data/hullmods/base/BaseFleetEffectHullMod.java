@@ -12,7 +12,8 @@ import java.util.Map;
 
 public abstract class BaseFleetEffectHullMod extends BaseHullMod
 {
-	Hashtable memo = new Hashtable();
+	// possible long-term memory leak
+	private Hashtable memo = new Hashtable();
 	
 	public CampaignFleetAPI findFleet( FleetMemberAPI member )
 	{
