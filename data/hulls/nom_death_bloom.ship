@@ -132,7 +132,7 @@
     {
       "angle": 0,
       "arc": 0,
-      "id": "WS0001",
+      "id": "main_gun",
       "locations": [
         11.5,
         -0
@@ -142,12 +142,12 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": 164.623749,
-      "arc": 336.018341,
-      "id": "WS0002",
+      "angle": 0,
+      "arc": 300,
+      "id": "PD1",
       "locations": [
-        -39,
-        9
+        -11.5,
+        21
       ],
       "mount": "TURRET",
       "size": "SMALL",

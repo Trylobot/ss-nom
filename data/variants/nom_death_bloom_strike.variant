@@ -14,14 +14,14 @@
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "nom_doom_cannon"
+        "main_gun": "nom_solar_crucible"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0002": "nom_twin_ultralight_electron_maser"
+        "PD1": "nom_twin_ultralight_electron_maser"
       }
     }
   ]
