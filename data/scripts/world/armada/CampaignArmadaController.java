@@ -231,8 +231,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		if( leader_fleet.isInCurrentLocation()
 		||  fleet_ticks >= OFFSCREEN_ESCORT_FLEET_UPDATE_MIN_SEC )
 		{
-			escort_positioner.update_escort_fleet_positions(
-				amount, leader_fleet, escort_fleets );
+			escort_positioner.update_escort_fleet_positions( amount, this );
 		}
 		// timer
 		if( fleet_ticks >= OFFSCREEN_ESCORT_FLEET_UPDATE_MIN_SEC )
