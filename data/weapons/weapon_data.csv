@@ -5,7 +5,7 @@ Light Electron Maser,nom_light_electron_maser,1,350,400,,33,,15,65,4,,ENERGY,32,
 Heavy Electron Maser,nom_heavy_electron_maser,1,1100,600,,60,,30,45,8,,ENERGY,60,,,0.435,,,,,,,,675,,,200,,1337101
 Twin Electron Maser,nom_twin_electron_maser,1,4000,815,,68,,30,45,18,,ENERGY,60,,,0.289,2,0.2,,,,,,675,,,200,,1337104
 Maser Pulse Beam,nom_maser_pulse_beam,1,3000,1250,,240,,80,15,20,,ENERGY,800,,,1.8,,,,,,,,3000,,,100,,1337105
-Solar Crucible,nom_solar_crucible,1,5500,725,1100,,20,0,5,30,,ENERGY,,1500,0.05,2,1,3,,,,,10000,,,,,,1337999
+Solar Crucible,nom_solar_crucible,1,5500,800,1100,,20,0,5,30,,ENERGY,,2500,0.05,2,1,3,,,,,10000,,,,,,1337999
 Doom Cannon,nom_doom_cannon,1,12500,1100,,1750,,6000,5,75,30,ENERGY,2000,,0.12,0.35,,,,,,,,360,,,99999,,1337102
 Habitat Ring,nom_decorative_oasis_habitat_ring,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,1337099
 Structural Support,nom_decorative_oasis_habitat_ring_structural_support_beam,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,1337098

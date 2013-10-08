@@ -1,12 +1,13 @@
 {
-	"id":"nom_solar_crucible",  # this id must match what's in the spreadsheet
+	"id":"nom_solar_crucible",
+	"everyFrameEffect":"data.scripts.weapons.TheNomadsSolarCrucibleChargeupEffect",
 	"specClass":"beam",
 	"type":"ENERGY",
 	"size":"LARGE",
-	"displayArcRadius":  725,
-	"turretSprite":      "graphics/nom/weapons/nom_solar_crucible_hardpoint_all.png",
-	"hardpointSprite":   "graphics/nom/weapons/nom_solar_crucible_hardpoint_all.png",
-	"visualRecoil": 0,  # the gun sprites are only used if this is non-0
+	"displayArcRadius": 800,
+	"turretSprite":    "graphics/nom/weapons/nom_solar_crucible_hardpoint_all.png",
+	"hardpointSprite": "graphics/nom/weapons/nom_solar_crucible_hardpoint_all.png",
+	"visualRecoil": 0,
 	"turretOffsets":[72, 0],
 	"turretAngleOffsets":[0],
 	"hardpointOffsets":[72, 0],
@@ -15,13 +16,12 @@
 	"fringeColor":[240,98,98,120],
 	"coreColor":[255,255,255,230],
 	"glowColor":[255,255,255,50],
-	"darkCore":true,
-  "textureType":"SMOOTH",
-	"textureScrollSpeed":128.0,
+	"darkCore":false,
+  "textureType":"ROUGH",
+	"textureScrollSpeed":292.0,
 	"pixelsPerTexel":5.0,
-	#"renderHints":[],
-	"barrelMode":"LINKED", # or LINKED.  whether barrels fire at the same time or alternate.
-	#"projectileSpecId":"nom_doom_cannon_shot",  # projectile that will be fired
+	"barrelMode":"LINKED",
+	"projectileSpecId":"nom_solar_crucible_shot",
 	"pierceSet":[PROJECTILE_FF,PROJECTILE_NO_FF,PROJECTILE_FIGHTER,MISSILE_FF,MISSILE_NO_FF],
 	"fireSoundOne":"nom_solar_crucible_intro",
 	"fireSoundTwo":"nom_solar_crucible_loop",
