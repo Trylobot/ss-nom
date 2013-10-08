@@ -1,9 +1,9 @@
 {
-	"name":"The Nomads", #displayed
+	"name":"The Nomads",
   "author":"Trylobot",
-  "id":"nomads", #internal
+  "id":"nomads",
 	"version":"0.9.1",
-	"description":"The Nomad Armada wanders about.",
+	"description":"The Nomad Armada wanders about",
 	"modPlugin":"data.scripts.TheNomadsModPlugin",
   "gameVersion":"0.6.1a",
 }
