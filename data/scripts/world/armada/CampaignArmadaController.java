@@ -130,6 +130,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 					escort_fleets = create_escort_fleets();
 					for( int i = 0; i < escort_fleets.length; ++i )
 						spawn_system.spawnFleet( spawn_location, 0, 0, escort_fleets[i] );
+					escort_positioner.set_armada( this );
 					waypoint_controller.run();
 					change_state( JOURNEYING_LIKE_A_BOSS );
 					notifyListeners( "JOURNEYING_LIKE_A_BOSS" );
@@ -231,7 +232,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		if( leader_fleet.isInCurrentLocation()
 		||  fleet_ticks >= OFFSCREEN_ESCORT_FLEET_UPDATE_MIN_SEC )
 		{
-			escort_positioner.update_escort_fleet_positions( amount, this );
+			escort_positioner.update_escort_fleet_positions( amount );
 		}
 		// timer
 		if( fleet_ticks >= OFFSCREEN_ESCORT_FLEET_UPDATE_MIN_SEC )

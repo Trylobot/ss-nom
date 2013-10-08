@@ -132,7 +132,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 				sector,
 				300.0f, // orbitRadius
 				1.0f, // orbitDirection
-				0.25f // orbitPeriodDays
+				1.0f // orbitPeriodDays
 			);
 		
 		// armada composition data (references faction definition data)

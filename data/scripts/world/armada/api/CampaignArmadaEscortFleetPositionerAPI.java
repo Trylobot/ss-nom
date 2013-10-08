@@ -12,5 +12,6 @@ import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 
 public interface CampaignArmadaEscortFleetPositionerAPI
 {
-	void update_escort_fleet_positions( float amount, CampaignArmadaAPI armada );
+	void set_armada( CampaignArmadaAPI armada );
+	void update_escort_fleet_positions( float amount );
 }
