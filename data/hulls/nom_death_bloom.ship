@@ -30,7 +30,7 @@
     0.5
   ],
   "builtInWeapons": {
-    "WS0001": "nom_solar_crucible"
+    "main_gun": "nom_solar_crucible"
   },
   "center": [
     38,

@@ -1,4 +1,5 @@
 {
+  "variantId": "nom_death_bloom_strike",
   "displayName": "Strike",
   "fluxCapacitors": 10,
   "fluxVents": 6,
@@ -8,7 +9,6 @@
     "fluxbreakers",
     "unstable_injector"
   ],
-  "variantId": "nom_death_bloom_strike",
   "weaponGroups": [
     {
       "autofire": false,
