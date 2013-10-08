@@ -33,10 +33,10 @@
     "main_gun": "nom_solar_crucible"
   },
   "center": [
-    38,
-    68.5
+    37,
+    61.5
   ],
-  "collisionRadius": 71.543694,
+  "collisionRadius": 72.515518,
   "engineSlots": [
     {
       "angle": 180,
@@ -116,7 +116,7 @@
       "width": 4
     }
   ],
-  "height": 159,
+  "height": 131,
   "hullId": "nom_death_bloom",
   "hullName": "Death Bloom",
   "hullSize": "FRIGATE",
@@ -154,5 +154,5 @@
       "type": "ENERGY"
     }
   ],
-  "width": 76
+  "width": 70
 }

@@ -19,6 +19,9 @@
 		],
 	},
 	"fleetCompositions":{
+		###############################
+		##  VANILLA FLEETS           ##
+		###############################
 		"scout":{
 			"displayName":"Scout",
 			"maxFleetPoints":10,
@@ -64,15 +67,14 @@
 		},
 		"assassin":{
 			"displayName":"Death Commandos",
-			"maxFleetPoints":50,
+			"maxFleetPoints":38,
 			"daysWorthOfSupplies":[50, 70],
 			"lyWorthOfFuel":[30, 60],
 			"extraCrewPercent":[35, 50],
 			"marinesPercent":[0, 0],
 			"ships":{
 				"nom_death_bloom_strike":[2, 2],            # 13
-				"nom_wurm_assault":[1, 1],                  # 4
-				"nom_iguana_wing":[4, 4],                   # 5
+				"nom_scarab_wing":[4, 4],                   # 3
 			},
 		},
 		"royalGuard":{
@@ -112,6 +114,19 @@
 				"nom_scarab_wing":[1, 6],                   # 3
 			},
 		},
+		"carrierGroup":{
+			"displayName":"Carrier Group",
+			"maxFleetPoints":115,
+			"daysWorthOfSupplies":[50, 100],
+			"lyWorthOfFuel":[50, 100],
+			"extraCrewPercent":[40, 60],
+			"marinesPercent":[20, 20],
+			"ships":{
+				"nom_gila_monster_antibattleship":[1, 2],   # 24
+				"nom_iguana_wing":[1, 20],                  # 5
+				"nom_scarab_wing":[1, 30],                  # 3
+			},
+		},
 		"colonyFleet":{
 			"displayName":"Colony Transport Group",
 			"maxFleetPoints":120,
@@ -126,9 +141,9 @@
 				"nom_iguana_wing":[6, 6],                  # 5
 			},
 		},
-		###############################
-		##  EXERELIN COMPATIBILITY   ##
-		###############################
+		#####################################
+		##  EXERELIN COMPATIBILITY FLEETS  ##
+		#####################################
 		"exerelinGenericFleet":{
 			"displayName":"Generic Fleet",
 			"maxFleetPoints":180,
@@ -141,6 +156,7 @@
 				"nom_sandstorm_assault":[0, 2],
 				"nom_scorpion_assault":[0, 2],
 				"nom_komodo_assault":[0, 3],
+				"nom_death_bloom_strike":[0, 1],
 				"nom_yellowjacket_sniper":[0, 4],
 				"nom_wurm_assault":[0, 6],
 				"nom_iguana_wing":[0, 7],
@@ -160,6 +176,7 @@
 				"nom_sandstorm_assault":[0, 3],
 				"nom_scorpion_assault":[0, 4],
 				"nom_komodo_assault":[0, 4],
+				"nom_death_bloom_strike":[0, 2],
 				"nom_yellowjacket_sniper":[0, 5],
 				"nom_wurm_assault":[0, 6],
 				"nom_iguana_wing":[0, 7],

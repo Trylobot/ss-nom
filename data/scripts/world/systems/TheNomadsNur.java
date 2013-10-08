@@ -135,8 +135,8 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 			);
 		
 		// armada composition data (references faction definition data)
-		String[] escort_pool = { "scout", "longRangeScout", "battleGroup", "assassin", "royalGuard", "jihadFleet" };
-		int[] escort_weights = {    250,              250,           200,        175,          175,          125  };
+		String[] escort_pool = { "scout", "longRangeScout", "battleGroup", "assassin", "royalGuard", "jihadFleet", "carrierGroup" };
+		int[] escort_weights = {    220,              200,           230,        185,          175,          125,            100  };
 		
 		// armada waypoint controller script
 		CampaignArmadaController nomad_armada =
