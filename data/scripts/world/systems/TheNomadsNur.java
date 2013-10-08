@@ -49,7 +49,6 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 	
 	private SectorEntityToken station;
 	
-
 	public void generate( SectorAPI sector )
 	{
 		// globals
@@ -132,7 +131,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 				sector,
 				300.0f, // orbitRadius
 				1.0f, // orbitDirection
-				1.0f // orbitPeriodDays
+				0.8f // orbitPeriodDays
 			);
 		
 		// armada composition data (references faction definition data)

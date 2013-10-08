@@ -57,7 +57,7 @@ public class CampaignArmadaFormationOrbit implements CampaignArmadaEscortFleetPo
 			if( escort_fleet == null || !escort_fleet.isAlive() || escort_fleet.isInHyperspaceTransition() )
 				continue;
 			float formation_angle_offset = i * (TWO_PI / escort_fleets.length);
-			float orbit_angle = (accumulator / seconds_per_day) * (orbit_period_days * TWO_PI) + formation_angle_offset;
+			float orbit_angle = orbit_direction * (accumulator / seconds_per_day) * (orbit_period_days * TWO_PI) + formation_angle_offset;
 			escort_fleet.setLocation(
 			    (float)(leader_fleet_location.x + orbit_radius * FastTrig.cos( orbit_angle )),
 			    (float)(leader_fleet_location.y + orbit_radius * FastTrig.sin( orbit_angle )) );
