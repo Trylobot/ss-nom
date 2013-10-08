@@ -1,0 +1,38 @@
+{
+	"id":"nom_solar_crucible",  # this id must match what's in the spreadsheet
+	"specClass":"beam",
+	"type":"ENERGY",
+	"size":"LARGE",
+	"displayArcRadius":  725,
+	"turretSprite":      "graphics/nom/weapons/nom_solar_crucible_hardpoint_all.png",
+	"hardpointSprite":   "graphics/nom/weapons/nom_solar_crucible_hardpoint_all.png",
+	"visualRecoil": 0,  # the gun sprites are only used if this is non-0
+	"turretOffsets":[72, 0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[72, 0],
+	"hardpointAngleOffsets":[0],
+	"width": 50.0,
+	"fringeColor":[240,98,98,120],
+	"coreColor":[255,255,255,230],
+	"glowColor":[255,255,255,50],
+	"darkCore":true,
+  "textureType":"SMOOTH",
+	"textureScrollSpeed":128.0,
+	"pixelsPerTexel":5.0,
+	#"renderHints":[],
+	"barrelMode":"LINKED", # or LINKED.  whether barrels fire at the same time or alternate.
+	"animationType":"MUZZLE_FLASH",
+	"muzzleFlashSpec":{
+    "length":80.0,   # only used if animationType = MUZZLE_FLASH
+    "spread":20.0,
+    "particleSizeMin":20.0,
+    "particleSizeRange":55.0,
+    "particleDuration":0.50,
+    "particleCount":35,
+    "particleColor":[240,98,98,120]
+  },
+	#"projectileSpecId":"nom_doom_cannon_shot",  # projectile that will be fired
+	"pierceSet":[PROJECTILE_FF,PROJECTILE_NO_FF,PROJECTILE_FIGHTER,MISSILE_FF,MISSILE_NO_FF],
+	#"fireSoundOne":"",
+	"fireSoundTwo":"nom_solar_crucible_loop",
+}

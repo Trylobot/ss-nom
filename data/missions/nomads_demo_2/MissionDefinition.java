@@ -11,7 +11,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 	public void defineMission(MissionDefinitionAPI api) {
 
 		// Set up the fleets
-		api.initFleet(FleetSide.PLAYER, "HSS", FleetGoal.ATTACK, false);
+		api.initFleet(FleetSide.PLAYER, "ND", FleetGoal.ATTACK, false);
 		api.initFleet(FleetSide.ENEMY, "TTS", FleetGoal.ATTACK, true);
 
 		// Set up the player's fleet
@@ -92,8 +92,8 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.addToFleet(FleetSide.ENEMY, "talon_wing", FleetMemberType.FIGHTER_WING, false);
 		
 		// Set up the map.
-		float width = 18000f;
-		float height = 20000f;
+		float width = 20000f;
+		float height = 26000f;
 		api.initMap((float)-width/2f, (float)width/2f, (float)-height/2f, (float)height/2f);
 		
 		float minX = -width/2;
