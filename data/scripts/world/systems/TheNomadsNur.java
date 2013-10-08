@@ -136,8 +136,8 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 			);
 		
 		// armada composition data (references faction definition data)
-		String[] escort_pool = { "scout", "longRangeScout", "battleGroup", "royalGuard", "jihadFleet" };
-		int[] escort_weights = {    250,              250,           200,          175,          125  };
+		String[] escort_pool = { "scout", "longRangeScout", "battleGroup", "assassin", "royalGuard", "jihadFleet" };
+		int[] escort_weights = {    250,              250,           200,        175,          175,          125  };
 		
 		// armada waypoint controller script
 		CampaignArmadaController nomad_armada =
@@ -256,14 +256,10 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 		cargo.addFuel( 3000.0f );
 		
 		// restocker script
-		String[] restock_ship_variant_or_wing_ids = {
-			"nom_gila_monster_antibattleship", "nom_sandstorm_assault", "nom_scorpion_assault", "nom_komodo_assault", "nom_yellowjacket_sniper", "nom_wurm_assault",   "nom_iguana_wing",           "nom_scarab_wing" };
-		FleetMemberType[] restock_ship_types = {
-			FleetMemberType.SHIP,              FleetMemberType.SHIP,    FleetMemberType.SHIP,   FleetMemberType.SHIP, FleetMemberType.SHIP,      FleetMemberType.SHIP,FleetMemberType.FIGHTER_WING,FleetMemberType.FIGHTER_WING };
-		int[] restock_ship_count_cap = {
-			1,                                 2,                       3,                      4,                    2,                         5,                    6,                           8  };
-		float[] restock_ship_wait_days = {
-			92.0f,                             59.0f,                   29.0f,                  21.0f,                13.0f,                     9.0f,                 5.0f,                        4.0f  };
+		String[] restock_ship_variant_or_wing_ids = { "nom_gila_monster_antibattleship", "nom_sandstorm_assault", "nom_scorpion_assault","nom_komodo_assault", "nom_yellowjacket_sniper", "nom_death_bloom_strike", "nom_wurm_assault",   "nom_iguana_wing",            "nom_scarab_wing" };
+		FleetMemberType[] restock_ship_types = {       FleetMemberType.SHIP,              FleetMemberType.SHIP,    FleetMemberType.SHIP,  FleetMemberType.SHIP, FleetMemberType.SHIP,      FleetMemberType.SHIP,     FleetMemberType.SHIP, FleetMemberType.FIGHTER_WING, FleetMemberType.FIGHTER_WING };
+		int[] restock_ship_count_cap = {               1,                                 2,                       3,                     4,                    2,                         1,                        5,                    6,                            8  };
+		float[] restock_ship_wait_days = {             92.0f,                             59.0f,                   29.0f,                 21.0f,                13.0f,                     29.0f,                    9.0f,                 5.0f,                         4.0f  };
 		
 		TheNomadsNurStationRestocker station_cargo_restocker = new TheNomadsNurStationRestocker(
 			restock_ship_variant_or_wing_ids,
