@@ -8,6 +8,7 @@ import com.fs.starfarer.api.campaign.CargoAPI.CrewXPLevel;
 import com.fs.starfarer.api.characters.CharacterCreationPlugin;
 import com.fs.starfarer.api.characters.MutableCharacterStatsAPI;
 import com.fs.starfarer.api.fleet.FleetMemberType;
+import data.scripts.misc.Utils;
 
 public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 {
@@ -18,15 +19,19 @@ public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 		// automatic yield of control pass-through in case of conflict: 
 		//   Exerelin
 		//   Uomoz's Sector: Journey
-		try
+		if( Utils.can_be_loaded( "data.scripts.world.ExerelinGen" )
+		||  Utils.can_be_loaded( "data.scripts.UsSModPlugin" ))
 		{
-			handoff_plugin = (CharacterCreationPlugin) Global.getSettings().getScriptClassLoader()
-			  .loadClass( "data.scripts.plugins.CharacterCreationPluginImpl" )
-			  .newInstance();
+			try
+			{
+				handoff_plugin = (CharacterCreationPlugin) Global.getSettings().getScriptClassLoader()
+				  .loadClass( "data.scripts.plugins.CharacterCreationPluginImpl" )
+				  .newInstance();
+			}
+			catch( ClassNotFoundException e ) {}
+			catch( InstantiationException e ) {}
+			catch( IllegalAccessException e ) {}
 		}
-		catch( ClassNotFoundException e ) {}
-		catch( InstantiationException e ) {}
-		catch( IllegalAccessException e ) {}
 	}
 	
 	public static class ResponseImpl implements Response

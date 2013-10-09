@@ -1,4 +1,6 @@
-package data.scripts.math;
+package data.scripts.misc;
+import com.fs.starfarer.api.Global;
+import data.scripts.math.FastTrig;
 import java.util.Random;
 import org.lwjgl.util.vector.Vector2f;
 // original author: LazyWizard
@@ -33,6 +35,16 @@ public class Utils
 		return rand.nextFloat() * (high - low) + low;
 	}
 	
-	
-
+	public static boolean can_be_loaded( String fullyQualifiedClassName )
+	{
+		try
+		{
+			 Global.getSettings().getScriptClassLoader().loadClass( fullyQualifiedClassName );
+			 return true;
+		}
+		catch (ClassNotFoundException ex)
+		{
+			return false;
+		}		
+	}
 }

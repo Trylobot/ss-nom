@@ -51,13 +51,14 @@
 		},
 		"battleGroup":{
 			"displayName":"Battle Group",
-			"maxFleetPoints":30,
+			"maxFleetPoints":33,
 			"daysWorthOfSupplies":[50, 100],
 			"lyWorthOfFuel":[50, 100],
 			"extraCrewPercent":[40, 60],
 			"marinesPercent":[0, 0],
 			"ships":{
 				"nom_scorpion_assault":[0, 2],              # 10
+				"nom_komodo_mk2_assault":[0, 1],            # 12
 				"nom_komodo_assault":[0, 2],                # 9
 				"nom_yellowjacket_sniper":[0, 4],           # 6
 				"nom_wurm_assault":[1, 5],                  # 4
@@ -87,6 +88,7 @@
 			"ships":{
 				"nom_sandstorm_assault":[0, 1],             # 20
 				"nom_scorpion_assault":[1, 2],              # 10
+				"nom_komodo_mk2_assault":[0, 1],            # 12
 				"nom_komodo_assault":[1, 3],                # 9
 				"nom_death_bloom_strike":[0, 1],            # 13
 				"nom_yellowjacket_sniper":[1, 4],           # 6
@@ -106,6 +108,7 @@
 				"nom_gila_monster_antibattleship":[0, 1],   # 24
 				"nom_sandstorm_assault":[0, 2],             # 20
 				"nom_scorpion_assault":[1, 2],              # 10
+				"nom_komodo_mk2_assault":[0, 2],            # 12
 				"nom_komodo_assault":[1, 3],                # 9
 				"nom_death_bloom_strike":[0, 2],            # 13
 				"nom_yellowjacket_sniper":[1, 4],           # 6
@@ -155,6 +158,7 @@
 				"nom_gila_monster_antibattleship":[0, 1],
 				"nom_sandstorm_assault":[0, 2],
 				"nom_scorpion_assault":[0, 2],
+				"nom_komodo_mk2_assault":[0, 1],
 				"nom_komodo_assault":[0, 3],
 				"nom_death_bloom_strike":[0, 1],
 				"nom_yellowjacket_sniper":[0, 4],
@@ -175,6 +179,7 @@
 				"nom_gila_monster_antibattleship":[0, 2],
 				"nom_sandstorm_assault":[0, 3],
 				"nom_scorpion_assault":[0, 4],
+				"nom_komodo_mk2_assault":[0, 2],
 				"nom_komodo_assault":[0, 4],
 				"nom_death_bloom_strike":[0, 2],
 				"nom_yellowjacket_sniper":[0, 5],

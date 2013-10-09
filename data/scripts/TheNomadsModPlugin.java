@@ -2,6 +2,7 @@ package data.scripts;
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.SectorAPI;
+import data.scripts.misc.Utils;
 import data.scripts.world.systems.TheNomadsNur;
 import data.scripts.plugins.TheNomadsCombatEnginePlugin;
 
@@ -22,7 +23,7 @@ public class TheNomadsModPlugin extends BaseModPlugin
 	
 	private void init()
 	{
-		if( can_be_loaded( "data.scripts.world.ExerelinGen" ))
+		if( Utils.can_be_loaded( "data.scripts.world.ExerelinGen" ))
 			return;
 		
 		// normal stand-alone mode
@@ -30,16 +31,4 @@ public class TheNomadsModPlugin extends BaseModPlugin
 		new TheNomadsNur().generate( sector );
 	}
 	
-	private boolean can_be_loaded( String fullyQualifiedClassName )
-	{
-		try
-		{
-			 Global.getSettings().getScriptClassLoader().loadClass( fullyQualifiedClassName );
-			 return true;
-		}
-		catch (ClassNotFoundException ex)
-		{
-			return false;
-		}		
-	}
 }

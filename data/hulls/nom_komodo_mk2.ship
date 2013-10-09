@@ -1,0 +1,304 @@
+{
+  "bounds": [
+    108,
+    -1,
+    111,
+    -11,
+    101.5,
+    -20,
+    57.5,
+    -23,
+    52.5,
+    -32.5,
+    37,
+    -42,
+    31,
+    -38.5,
+    29.5,
+    -46.5,
+    20.5,
+    -48.5,
+    -6,
+    -42.5,
+    -8.5,
+    -36.5,
+    -48,
+    -36,
+    -51,
+    -42,
+    -66,
+    -39,
+    -71.5,
+    -30.5,
+    -74.5,
+    -24,
+    -71.5,
+    -7,
+    -79.5,
+    -5,
+    -81.5,
+    5.5,
+    -73,
+    13,
+    -81,
+    14.5,
+    -78,
+    20,
+    -70,
+    20,
+    -66.5,
+    30,
+    -3.5,
+    41.5,
+    45,
+    33,
+    57.5,
+    18.5,
+    70.5,
+    20.5,
+    84,
+    15,
+    89,
+    7
+  ],
+  "center": [
+    48,
+    85
+  ],
+  "collisionRadius": 120.026039,
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 7,
+      "length": 13.5,
+      "location": [
+        -69,
+        28.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 7
+    },
+    {
+      "angle": 180,
+      "contrailSize": 10,
+      "length": 26,
+      "location": [
+        -70.5,
+        22
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 10
+    },
+    {
+      "angle": 180,
+      "contrailSize": 6,
+      "length": 13.5,
+      "location": [
+        -82,
+        16
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 6
+    },
+    {
+      "angle": 180,
+      "contrailSize": 8,
+      "length": 17.5,
+      "location": [
+        -75.5,
+        9
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 8
+    },
+    {
+      "angle": 180,
+      "contrailSize": 9,
+      "length": 23.5,
+      "location": [
+        -82.5,
+        3
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 9
+    },
+    {
+      "angle": 180,
+      "contrailSize": 6,
+      "length": 10,
+      "location": [
+        -81,
+        -2
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 6
+    },
+    {
+      "angle": 180,
+      "contrailSize": 13,
+      "length": 24.5,
+      "location": [
+        -75.5,
+        -17.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 13
+    },
+    {
+      "angle": 180,
+      "contrailSize": 6,
+      "length": 11.5,
+      "location": [
+        -76,
+        -24
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 6
+    },
+    {
+      "angle": 180,
+      "contrailSize": 5,
+      "length": 8,
+      "location": [
+        -71,
+        -10
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 5
+    }
+  ],
+  "height": 200,
+  "hullId": "nom_komodo_mk2",
+  "hullName": "Komodo Mk.II",
+  "hullSize": "DESTROYER",
+  "shieldCenter": [
+    14.5,
+    -0
+  ],
+  "shieldRadius": 103.010925,
+  "spriteName": "graphics/nom/ships/nom_komodo_mk2.png",
+  "style": "ANCIENT_NAERAN",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 30,
+      "arc": 273.398499,
+      "id": "WS 001",
+      "locations": [
+        28.5,
+        34.5
+      ],
+      "mount": "TURRET",
+      "size": "MEDIUM",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 8.130102,
+      "arc": 300.510223,
+      "id": "WS 002",
+      "locations": [
+        43,
+        6.5
+      ],
+      "mount": "TURRET",
+      "size": "LARGE",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": -15.9,
+      "arc": 276.742371,
+      "id": "WS 003",
+      "locations": [
+        45.5,
+        -31
+      ],
+      "mount": "TURRET",
+      "size": "MEDIUM",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 90,
+      "arc": 344,
+      "id": "PD1",
+      "locations": [
+        -52,
+        29
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 28.299999,
+      "arc": 310,
+      "id": "WS 005",
+      "locations": [
+        76.5,
+        11
+      ],
+      "mount": "TURRET",
+      "size": "MEDIUM",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 0,
+      "arc": 323.130096,
+      "id": "WS 006",
+      "locations": [
+        95,
+        -16.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": -60.299999,
+      "arc": 310,
+      "id": "WS 007",
+      "locations": [
+        7.5,
+        -39
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": -90,
+      "arc": 347.299988,
+      "id": "PD2",
+      "locations": [
+        -60.5,
+        -34.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 77,
+      "arc": 310,
+      "id": "WS 1",
+      "locations": [
+        4.5,
+        38
+      ],
+      "mount": "TURRET",
+      "size": "MEDIUM",
+      "type": "BUILT_IN"
+    }
+  ],
+  "width": 105,
+  "builtInWeapons": {
+    "PD1": "nom_twin_ultralight_electron_maser",
+    "PD2": "nom_twin_ultralight_electron_maser",
+    "WS 001": "nom_heavy_electron_maser",
+    "WS 002": "nom_twin_electron_maser",
+    "WS 003": "nom_heavy_electron_maser",
+    "WS 005": "nom_heavy_electron_maser",
+    "WS 006": "nom_light_electron_maser",
+    "WS 007": "nom_light_electron_maser",
+    "WS 1": "nom_heavy_electron_maser"
+  },
+}
