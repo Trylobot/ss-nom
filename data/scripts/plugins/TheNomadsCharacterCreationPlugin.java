@@ -11,6 +11,23 @@ import com.fs.starfarer.api.fleet.FleetMemberType;
 
 public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 {
+	CharacterCreationPlugin handoff_plugin = null;
+	
+	public TheNomadsCharacterCreationPlugin()
+	{
+		// automatic yield of control pass-through in case of conflict: 
+		//   Exerelin
+		//   Uomoz's Sector: Journey
+		try
+		{
+			handoff_plugin = (CharacterCreationPlugin) Global.getSettings().getScriptClassLoader()
+			  .loadClass( "data.scripts.plugins.CharacterCreationPluginImpl" )
+			  .newInstance();
+		}
+		catch( ClassNotFoundException e ) {}
+		catch( InstantiationException e ) {}
+		catch( IllegalAccessException e ) {}
+	}
 	
 	public static class ResponseImpl implements Response
 	{
@@ -49,6 +66,11 @@ public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 	
 	public String getPrompt()
 	{
+		if( handoff_plugin != null )
+		{
+			return handoff_plugin.getPrompt();
+		}
+		/////////////
 		if (stage < prompts.length)
 			return prompts[stage];
 		return null;
@@ -57,6 +79,11 @@ public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 	@SuppressWarnings("unchecked")
 	public List getResponses()
 	{
+		if( handoff_plugin != null )
+		{
+			return handoff_plugin.getResponses();
+		}
+		/////////////
 		List result = new ArrayList();
 		if (stage == 0) {
 			result.add(SUPPLY_OFFICER);
@@ -80,6 +107,12 @@ public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 	
 	public void submit(Response response, CharacterCreationData data)
 	{
+		if( handoff_plugin != null )
+		{
+			handoff_plugin.submit( response, data );
+			return;
+		}
+		/////////////
 		if (stage == 0)
 		{ // just in case
 			data.addStartingShipChoice("shuttle_Attack");
@@ -207,6 +240,12 @@ public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 
 	public void startingShipPicked(String variantId, CharacterCreationData data)
 	{
+		if( handoff_plugin != null )
+		{
+			handoff_plugin.startingShipPicked( variantId, data );
+			return;
+		}
+		/////////////
 		MutableCharacterStatsAPI stats = data.getPerson().getStats();
 		stats.addAptitudePoints(1);
 		stats.addSkillPoints(2);
