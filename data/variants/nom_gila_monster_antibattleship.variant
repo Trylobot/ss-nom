@@ -14,7 +14,15 @@
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "nom_doom_cannon",
+        "WS0001": "nom_doom_cannon"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0025": "nom_twin_electron_maser",
+        "WS0026": "nom_twin_electron_maser"
       }
     },
     {
@@ -29,7 +37,7 @@
         "WS0007": "nom_light_electron_maser",
         "WS0008": "nom_light_electron_maser",
         "WS0009": "nom_light_electron_maser",
-        "WS0010": "nom_light_electron_maser",
+        "WS0010": "nom_light_electron_maser"
       }
     },
     {
@@ -49,8 +57,8 @@
         "WS0021": "nom_ultralight_electron_maser",
         "WS0022": "nom_ultralight_electron_maser",
         "WS0023": "nom_ultralight_electron_maser",
-        "WS0024": "nom_ultralight_electron_maser",
-      },
-    },
+        "WS0024": "nom_ultralight_electron_maser"
+      }
+    }
   ]
 }
