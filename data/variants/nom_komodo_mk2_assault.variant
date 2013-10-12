@@ -7,8 +7,9 @@
   "hullMods": [
     "naeran_flux_shunts",
     "fluxbreakers",
-    "targetingunit",
-    "heavyarmor"
+    "heavyarmor",
+    "armoredweapons",
+    "turretgyros"
   ],
   "weaponGroups": [
     {

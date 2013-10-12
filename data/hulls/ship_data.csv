@@ -1,9 +1,9 @@
 name,id,designation,system id,fleet pts,hitpoints,armor rating,max flux,8/6/5/4%,flux dissipation,ordnance points,max speed,acceleration,deceleration,max turn rate,turn acceleration,mass,shield type,defense id,shield arc,shield upkeep,shield efficiency,phase cost,phase upkeep,min crew,max crew,cargo,fuel,fuel/ly,range,max burn,base value,supplies/day,repair %/day,repair cost,CR to deploy,peak CR sec,CR loss/sec,hints,number
 Oasis,nom_oasis,Civilian,nom_gecko_drone,5,20000,300,15000,,300,90,20,10,10,7,3,6050,FRONT,,360,0.15,0.5,,,50,8950,2200,4110,27.5,700,2,175000,0.25,3,500,10,,,CIVILIAN,1337107
-Sandstorm,nom_sandstorm,Battleship,highenergyfocus,20,15000,1200,96,,925,275,50,20,15,10,6,3000,OMNI,,130,0.4,0.6,,,400,600,200,300,2,50,4,100000,12,5,500,22,,,,1337106
+Sandstorm,nom_sandstorm,Battlecruiser,highenergyfocus,20,15000,1200,96,,925,275,50,20,15,10,6,3000,OMNI,,130,0.4,0.6,,,400,600,200,300,2,50,4,100000,12,5,500,22,,,,1337106
 Gila Monster,nom_gila_monster,Battleship,highenergyfocus,24,25000,1200,140,,1050,255,30,15,10,4.25,3.12,5100,OMNI,,165,0.4,0.4,,,550,1500,600,1200,30,40,3,160000,16,5,750,30,,,CARRIER,1337104
 Scorpion,nom_scorpion,Destroyer,fastmissileracks,10,3000,225,4.8,,225,105,65,50,20,30,30,200,OMNI,,220,0.15,0.5,,,10,15,100,100,2,50,4,9000,7,10,75,25,,,,1337105
-Komodo Mk.II,nom_komodo_mk2,Destroyer,highenergyfocus,12,6200,850,21,,400,125,60,48,39,26,55,600,OMNI,,220,0.225,0.735,,,20,50,100,100,2.5,50,4,25000,7,10,110,20,,,,1337110
+Komodo Mk.II,nom_komodo_mk2,Destroyer,highenergyfocus,11,5300,625,19.5,,450,125,55,40,35,25,50,600,OMNI,,170,0.225,1,,,20,50,100,100,2.5,50,4,22500,7,10,110,20,,,,1337110
 Komodo,nom_komodo,Destroyer,highenergyfocus,9,4500,450,15,,365,110,80,50,40,28,60,400,OMNI,,160,0.25,0.8,,,30,60,150,150,1,50,5,12000,6,10,100,20,,,,1337103
 Death Bloom,nom_death_bloom,Frigate,highenergyfocus,13,1000,100,12,,270,50,160,200,220,120,400,165,OMNI,,200,0.5,0.8,,,6,20,10,25,0.5,50,8,19000,2.75,15,80,65,160,0.33,,1337109
 Yellowjacket,nom_yellowjacket,Frigate,highenergyfocus,6,750,120,5.2,,240,45,150,155,120,70,85,100,OMNI,,220,0.3,1,,,10,15,50,50,0.45,25,7,7000,2,10,45,40,180,0.25,,1337108

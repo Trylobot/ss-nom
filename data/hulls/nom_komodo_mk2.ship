@@ -61,11 +61,22 @@
     89,
     7
   ],
+  "builtInWeapons": {
+    "PD1": "nom_twin_ultralight_electron_maser",
+    "PD2": "nom_twin_ultralight_electron_maser",
+    "WS 001": "nom_heavy_electron_maser",
+    "WS 002": "nom_twin_electron_maser",
+    "WS 003": "nom_heavy_electron_maser",
+    "WS 005": "nom_heavy_electron_maser",
+    "WS 006": "nom_light_electron_maser",
+    "WS 007": "nom_light_electron_maser",
+    "WS 1": "nom_heavy_electron_maser"
+  },
   "center": [
-    48,
+    67,
     85
   ],
-  "collisionRadius": 120.026039,
+  "collisionRadius": 122.188377,
   "engineSlots": [
     {
       "angle": 180,
@@ -181,8 +192,8 @@
   "viewOffset": 0,
   "weaponSlots": [
     {
-      "angle": 30,
-      "arc": 273.398499,
+      "angle": 19.983107,
+      "arc": 305.470459,
       "id": "WS 001",
       "locations": [
         28.5,
@@ -193,8 +204,8 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": 8.130102,
-      "arc": 300.510223,
+      "angle": 0,
+      "arc": 319.039276,
       "id": "WS 002",
       "locations": [
         43,
@@ -205,8 +216,8 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": -15.9,
-      "arc": 276.742371,
+      "angle": -25.346176,
+      "arc": 335.828156,
       "id": "WS 003",
       "locations": [
         45.5,
@@ -217,8 +228,8 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": 90,
-      "arc": 344,
+      "angle": 128.659805,
+      "arc": 279.270935,
       "id": "PD1",
       "locations": [
         -52,
@@ -229,8 +240,8 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": 28.299999,
-      "arc": 310,
+      "angle": 19.440035,
+      "arc": 336.127289,
       "id": "WS 005",
       "locations": [
         76.5,
@@ -241,8 +252,8 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": 0,
-      "arc": 323.130096,
+      "angle": -11.309933,
+      "arc": 337.380127,
       "id": "WS 006",
       "locations": [
         95,
@@ -253,8 +264,8 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": -60.299999,
-      "arc": 310,
+      "angle": -40.364536,
+      "arc": 329.399994,
       "id": "WS 007",
       "locations": [
         7.5,
@@ -265,8 +276,8 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": -90,
-      "arc": 347.299988,
+      "angle": -138.366455,
+      "arc": 279.170654,
       "id": "PD2",
       "locations": [
         -60.5,
@@ -277,8 +288,8 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": 77,
-      "arc": 310,
+      "angle": 45,
+      "arc": 327.26709,
       "id": "WS 1",
       "locations": [
         4.5,
@@ -289,16 +300,5 @@
       "type": "BUILT_IN"
     }
   ],
-  "width": 105,
-  "builtInWeapons": {
-    "PD1": "nom_twin_ultralight_electron_maser",
-    "PD2": "nom_twin_ultralight_electron_maser",
-    "WS 001": "nom_heavy_electron_maser",
-    "WS 002": "nom_twin_electron_maser",
-    "WS 003": "nom_heavy_electron_maser",
-    "WS 005": "nom_heavy_electron_maser",
-    "WS 006": "nom_light_electron_maser",
-    "WS 007": "nom_light_electron_maser",
-    "WS 1": "nom_heavy_electron_maser"
-  },
+  "width": 139
 }
