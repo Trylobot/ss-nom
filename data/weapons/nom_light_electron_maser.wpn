@@ -27,5 +27,5 @@
   },
 	"projectileSpecId":"nom_light_electron_maser_shot",  # projectile that will be fired
 	"pierceSet":[PROJECTILE_FF,PROJECTILE_NO_FF,PROJECTILE_FIGHTER,MISSILE_FF,MISSILE_NO_FF,FIGHTER],
-	"fireSoundTwo":"energy_pulse",
+	"fireSoundTwo":"nom_light_electron_maser_fire",
 }
