@@ -95,5 +95,9 @@
       "size": "SMALL",
       "type": "ENERGY"
     }
-  ]
+  ],
+  "builtInWeapons": {
+    "WS 001": "nom_ultralight_electron_maser",
+    "WS 002": "nom_light_electron_maser"
+  },
 }
