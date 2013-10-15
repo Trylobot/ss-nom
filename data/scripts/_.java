@@ -12,4 +12,10 @@ public class _
 			Global.getLogger( caller_class ).debug( message );
 		}
 	}
+	
+	public static void W( String message )
+	{
+		Class caller_class = sun.reflect.Reflection.getCallerClass( 2 );
+		Global.getLogger( caller_class ).debug( message );
+	}
 }

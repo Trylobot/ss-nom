@@ -55,5 +55,12 @@
 		{"file":"sounds/nom/fx/maserpls2.ogg","pitch":2.27,"volume":0.32},
 		{"file":"sounds/nom/fx/maserpls3.ogg","pitch":2.30,"volume":0.32},		
 	],		
+
+	##  Sounds not by Cycerin
+
+	"nom_self_sustained_fusion_torpedo_fire":
+	[
+		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":1.0,"volume":0.9},
+	],
 }
 

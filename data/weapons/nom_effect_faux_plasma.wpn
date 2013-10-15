@@ -1,0 +1,17 @@
+{
+	"id":"nom_effect_faux_plasma",
+	"specClass":"projectile",
+	"type":"ENERGY",
+	"size":"LARGE",
+	"turretSprite":"graphics/nom/weapons/nom_self_sustained_fusion_torpedo_pod_base.png",
+	"hardpointSprite":"graphics/nom/weapons/nom_self_sustained_fusion_torpedo_pod_base.png",
+	"turretOffsets":[0, 0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[0, 0],
+	"hardpointAngleOffsets":[0],
+	"barrelMode":"ALTERNATING",
+	"animationType":"NONE",
+	"interruptibleBurst":false,
+	"projectileSpecId":"nom_effect_faux_plasma_shot",
+	#"fireSoundTwo":"plasma_cannon_fire",
+}
