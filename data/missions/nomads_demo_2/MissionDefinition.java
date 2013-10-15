@@ -6,13 +6,16 @@ import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.mission.MissionDefinitionAPI;
 import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
 
-public class MissionDefinition implements MissionDefinitionPlugin {
-
-	public void defineMission(MissionDefinitionAPI api) {
-
+public class MissionDefinition implements MissionDefinitionPlugin
+{
+	public void defineMission(MissionDefinitionAPI api)
+	{
 		// Set up the fleets
 		api.initFleet(FleetSide.PLAYER, "NA", FleetGoal.ATTACK, false);
+		api.setFleetTagline(FleetSide.PLAYER, "The Nomad Armada");
+		
 		api.initFleet(FleetSide.ENEMY, "TTS", FleetGoal.ATTACK, true);
+		api.setFleetTagline(FleetSide.ENEMY, "Hegemony Forces");
 
 		// Set up the player's fleet
 		api.addToFleet(FleetSide.PLAYER, "nom_oasis_standard", FleetMemberType.SHIP, true);
