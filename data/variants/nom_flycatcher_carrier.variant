@@ -22,7 +22,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "nom_light_electron_maser",
+        "WS0001": "nom_firecracker",
         "WS0002": "nom_twin_ultralight_electron_maser",
         "WS0003": "nom_twin_ultralight_electron_maser"
       }

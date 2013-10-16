@@ -40,7 +40,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "Small 8": "nom_twin_ultralight_electron_maser",
+        "Small 8": "nom_firecracker",
         "Small 9": "nom_ultralight_electron_maser",
       }
     }
