@@ -14,8 +14,8 @@
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0004": "swarmer",
-        "WS0005": "swarmer"
+        "WS0004": "nom_self_sustained_fusion_torpedo_mini",
+        "WS0005": "nom_self_sustained_fusion_torpedo_mini"
       }
     },
     {
