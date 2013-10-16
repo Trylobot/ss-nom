@@ -16,7 +16,6 @@
       "weapons": {
         "WS 10": "nom_twin_electron_maser",
         "WS 11": "nom_twin_electron_maser",
-        "WS 19": "nom_light_electron_maser",
         "WS 2": "nom_twin_electron_maser",
         "WS 3": "nom_twin_electron_maser",
         "WS 6": "nom_twin_electron_maser",
@@ -44,6 +43,7 @@
         "WS 16": "nom_light_electron_maser",
         "WS 17": "nom_light_electron_maser",
         "WS 18": "nom_light_electron_maser",
+        "WS 19": "nom_light_electron_maser",
         "WS 20": "nom_light_electron_maser",
         "WS 21": "nom_light_electron_maser",
         "WS 22": "nom_light_electron_maser",
@@ -53,6 +53,6 @@
         "WS 26": "nom_firecracker",
         "WS 27": "nom_firecracker"
       }
-    },
+    }
   ]
 }
