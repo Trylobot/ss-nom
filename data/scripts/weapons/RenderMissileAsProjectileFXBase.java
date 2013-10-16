@@ -11,15 +11,17 @@ import java.util.Iterator;
 
 public abstract class RenderMissileAsProjectileFXBase implements EveryFrameWeaponEffectPlugin
 {
-	protected static String FX_WEAPON_ID = null;
-	//private float accumulator = 0.0f;
 	protected Hashtable fx_table = new Hashtable();
+	
+	public String FX_WEAPON_ID()
+	{
+		return null;
+	}
 	
 	public void advance( float amount, CombatEngineAPI engine, WeaponAPI weapon )
 	{
-		if( engine.isPaused() || FX_WEAPON_ID == null )
+		if( engine.isPaused() || FX_WEAPON_ID() == null )
 			return;
-		//accumulator += amount;
 		
 		// for every missile launched from this weapon
 		// spawn a special visual-only projectile which follows the missile around
@@ -34,7 +36,7 @@ public abstract class RenderMissileAsProjectileFXBase implements EveryFrameWeapo
 			if( fx == null )
 			{
 				fx = engine.spawnProjectile( 
-				  weapon.getShip(), weapon, FX_WEAPON_ID, 
+				  weapon.getShip(), weapon, FX_WEAPON_ID(), 
 				  missile.getLocation(), 0, weapon.getShip().getVelocity() );
 				fx.setAngularVelocity( -25.0f + (float)Math.random() * 50.0f );
 				fx_table.put( missile, fx );

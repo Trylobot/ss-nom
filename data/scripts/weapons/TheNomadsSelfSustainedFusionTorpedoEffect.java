@@ -2,8 +2,9 @@ package data.scripts.weapons;
 
 public class TheNomadsSelfSustainedFusionTorpedoEffect extends RenderMissileAsProjectileFXBase
 {
-	static
+	@Override
+	public String FX_WEAPON_ID()
 	{
-		FX_WEAPON_ID = "nom_effect_faux_plasma";
+		return "nom_effect_faux_plasma";
 	}
 }
