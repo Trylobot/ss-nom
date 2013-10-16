@@ -70,5 +70,15 @@
 		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":1.96,"volume":0.725},
 		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":2.04,"volume":0.72},
 	],
+
+	"nom_firecracker_fire":
+	[
+		{"file":"sounds/nom/fx/freesound.org/62547__sparrer__fireworks4__edited.wav","pitch":1.00,"volume":1.20},
+		{"file":"sounds/nom/fx/freesound.org/62547__sparrer__fireworks4__edited.wav","pitch":1.01,"volume":1.16},
+		{"file":"sounds/nom/fx/freesound.org/62547__sparrer__fireworks4__edited.wav","pitch":1.02,"volume":1.12},
+		{"file":"sounds/nom/fx/freesound.org/62547__sparrer__fireworks4__edited.wav","pitch":1.04,"volume":1.08},
+		{"file":"sounds/nom/fx/freesound.org/62547__sparrer__fireworks4__edited.wav","pitch":1.08,"volume":1.02},
+		{"file":"sounds/nom/fx/freesound.org/62547__sparrer__fireworks4__edited.wav","pitch":1.15,"volume":1.00},
+	],
 }
 
