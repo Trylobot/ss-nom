@@ -1,32 +1,26 @@
 package data.scripts.weapons;
 
-import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.CombatEntityAPI;
 import com.fs.starfarer.api.combat.DamageType;
-import com.fs.starfarer.api.combat.DamagingProjectileAPI;
 import com.fs.starfarer.api.combat.EveryFrameWeaponEffectPlugin;
 import com.fs.starfarer.api.combat.MissileAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
-import com.fs.starfarer.api.graphics.SpriteAPI;
-import data.scripts._;
-import java.awt.Color;
 import java.util.Hashtable;
 import java.util.Iterator;
-import java.util.List;
-import org.lwjgl.util.vector.Vector2f;
 
-public class RenderMissileAsProjectileFXBase implements EveryFrameWeaponEffectPlugin
+public abstract class RenderMissileAsProjectileFXBase implements EveryFrameWeaponEffectPlugin
 {
-	private static final String FX_WEAPON_ID = "nom_effect_faux_plasma";
-	private float accumulator = 0.0f;
-	private Hashtable fx_table = new Hashtable();
+	protected static String FX_WEAPON_ID = null;
+	//private float accumulator = 0.0f;
+	protected Hashtable fx_table = new Hashtable();
 	
 	public void advance( float amount, CombatEngineAPI engine, WeaponAPI weapon )
 	{
-		if( engine.isPaused() )
+		if( engine.isPaused() || FX_WEAPON_ID == null )
 			return;
-		accumulator += amount;
+		//accumulator += amount;
+		
 		// for every missile launched from this weapon
 		// spawn a special visual-only projectile which follows the missile around
 		// and lets me create, essentially, a different-looking missile rendering effect

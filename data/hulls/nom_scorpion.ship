@@ -366,16 +366,14 @@
     }
   ],
   "builtInWeapons": {
-    #"nom_self_sustained_fusion_torpedo_launcher",
-    "Large 1": "pilum", 
-    "Med 2": "nom_self_sustained_fusion_torpedo_pod",
-    "Med 3": "nom_self_sustained_fusion_torpedo_pod",
-    "Med 4": "nom_self_sustained_fusion_torpedo_pod",
-    "Med 5": "nom_self_sustained_fusion_torpedo_pod",
-    #"nom_mini_self_sustained_fusion_torpedo"
-    "Small 6": "swarmer",
-    "Small 7": "swarmer",
-    "Small 8": "nom_twin_ultralight_electron_maser",
-    "Small 9": "nom_ultralight_electron_maser",
+        "Large 1": "nom_self_sustained_fusion_torpedo_bank", 
+        "Med 2": "nom_self_sustained_fusion_torpedo_pod",
+        "Med 3": "nom_self_sustained_fusion_torpedo_pod",
+        "Med 4": "nom_self_sustained_fusion_torpedo_pod",
+        "Med 5": "nom_self_sustained_fusion_torpedo_pod",
+        "Small 6": "nom_self_sustained_fusion_torpedo_mini",
+        "Small 7": "nom_self_sustained_fusion_torpedo_mini",
+        "Small 8": "nom_twin_ultralight_electron_maser",
+        "Small 9": "nom_ultralight_electron_maser",
   }
 }

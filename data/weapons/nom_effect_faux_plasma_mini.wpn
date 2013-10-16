@@ -1,8 +1,8 @@
 {
-	"id":"nom_effect_faux_plasma",
+	"id":"nom_effect_faux_plasma_mini",
 	"specClass":"projectile",
 	"type":"ENERGY",
-	"size":"MEDIUM",
+	"size":"SMALL",
 	"turretSprite":"graphics/nom/weapons/missiles/trans_1x1.png",
 	"hardpointSprite":"graphics/nom/weapons/missiles/trans_1x1.png",
 	"turretOffsets":[0, 0],
@@ -12,5 +12,5 @@
 	"barrelMode":"ALTERNATING",
 	"animationType":"NONE",
 	"interruptibleBurst":false,
-	"projectileSpecId":"nom_effect_faux_plasma_shot",
+	"projectileSpecId":"nom_effect_faux_plasma_shot_mini",
 }

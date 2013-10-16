@@ -15,7 +15,7 @@
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-       "Large 1": "pilum", 
+        "Large 1": "nom_self_sustained_fusion_torpedo_bank", 
       }
     },
     {
@@ -32,8 +32,8 @@
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "Small 6": "swarmer",
-        "Small 7": "swarmer",
+        "Small 6": "nom_self_sustained_fusion_torpedo_mini",
+        "Small 7": "nom_self_sustained_fusion_torpedo_mini",
       }
     },
     {
