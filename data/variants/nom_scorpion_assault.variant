@@ -19,7 +19,7 @@
       }
     },
     {
-      "autofire": false,
+      "autofire": true,
       "mode": "ALTERNATING",
       "weapons": {
         "Med 2": "nom_self_sustained_fusion_torpedo_pod",
@@ -29,7 +29,7 @@
       }
     },
     {
-      "autofire": false,
+      "autofire": true,
       "mode": "ALTERNATING",
       "weapons": {
         "Small 6": "nom_self_sustained_fusion_torpedo_mini",
