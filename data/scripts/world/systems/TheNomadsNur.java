@@ -257,7 +257,8 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 		// restocker script
 		String[] restock_ship_variant_or_wing_ids = { 
 			"nom_gila_monster_antibattleship", 
-			"nom_sandstorm_assault", 
+			"nom_sandstorm_assault",
+			"nom_rattlesnake_assault",
 			"nom_scorpion_assault",
 			"nom_komodo_mk2_assault", 
 			"nom_komodo_assault", 
@@ -271,7 +272,8 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 		};
 		FleetMemberType[] restock_ship_types = {       
 			FleetMemberType.SHIP,              
-			FleetMemberType.SHIP,    
+			FleetMemberType.SHIP, 
+			FleetMemberType.SHIP,
 			FleetMemberType.SHIP,  
 			FleetMemberType.SHIP,    
 			FleetMemberType.SHIP, 
@@ -285,7 +287,8 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 		};
 		int[] restock_ship_count_cap = {               
 			1,                                 
-			2,                       
+			2,
+			2,
 			3,                     
 			2,                       
 			4,                    
@@ -299,7 +302,8 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 		};
 		float[] restock_ship_wait_days = {             
 			92.0f,                             
-			59.0f,                   
+			59.0f, 
+			39.0f,
 			29.0f,                 
 			25.0f,                   
 			21.0f,                
