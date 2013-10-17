@@ -29,9 +29,6 @@
     29,
     0.5
   ],
-  "builtInWeapons": {
-    "main_gun": "nom_solar_crucible"
-  },
   "center": [
     37,
     61.5
@@ -154,5 +151,9 @@
       "type": "ENERGY"
     }
   ],
-  "width": 70
+  "width": 70,
+  "builtInWeapons": {
+        "main_gun": "nom_solar_crucible",
+        "PD1": "nom_twin_ultralight_electron_maser",
+  },
 }
