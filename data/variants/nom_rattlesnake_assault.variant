@@ -1,13 +1,13 @@
 {
-  "displayName": "Heavy Cruiser",
+  "displayName": "Assault",
   "fluxCapacitors": 0,
-  "fluxVents": 1,
+  "fluxVents": 7,
   "hullId": "nom_rattlesnake",
   "hullMods": [
     "naeran_flux_shunts",
     "heavyarmor",
-    "reinforcedhull",
-    "armoredweapons"
+    "armoredweapons",
+    "fluxbreakers"
   ],
   "variantId": "nom_rattlesnake_assault",
   "weaponGroups": [
@@ -18,7 +18,13 @@
         "WS_L1": "nom_triple_electron_maser",
         "WS_L2": "nom_triple_electron_maser",
         "WS_L3": "nom_triple_electron_maser",
-        "WS_L4": "nom_triple_electron_maser"
+        "WS_L4": "nom_triple_electron_maser",
+        "WS_M1": "nom_heavy_electron_maser",
+        "WS_M2": "nom_heavy_electron_maser",
+        "WS_M3": "nom_heavy_electron_maser",
+        "WS_M4": "nom_heavy_electron_maser",
+        "WS_M5": "nom_heavy_electron_maser",
+        "WS_M6": "nom_heavy_electron_maser",
       }
     },
     {
@@ -33,23 +39,8 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS_S1": "nom_light_electron_maser",
+        "WS_S1": "nom_twin_ultralight_electron_maser",
         "WS_S2": "nom_twin_ultralight_electron_maser",
-        "WS_S3": "nom_twin_ultralight_electron_maser",
-        "WS_S4": "nom_light_electron_maser"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
-        "WS0001": "nom_heavy_electron_maser",
-        "WS0002": "nom_heavy_electron_maser",
-        "WS_M1": "nom_heavy_electron_maser",
-        "WS_M2": "nom_heavy_electron_maser",
-        "WS_M3": "nom_heavy_electron_maser",
-        "WS_M4": "nom_heavy_electron_maser",
-        "WS_M5": "nom_heavy_electron_maser"
       }
     },
     {
@@ -60,8 +51,7 @@
         "WS_PD2": "nom_firecracker",
         "WS_PD3": "nom_firecracker",
         "WS_PD4": "nom_firecracker",
-        "WS_PD5": "nom_firecracker"
       }
-    }
+    },
   ]
 }

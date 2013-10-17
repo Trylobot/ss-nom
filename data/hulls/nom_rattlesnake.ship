@@ -89,30 +89,6 @@
     144,
     26
   ],
-  "builtInWeapons": {
-    "WS0001": "nom_heavy_electron_maser",
-    "WS0002": "nom_heavy_electron_maser",
-    "WS_L1": "nom_triple_electron_maser",
-    "WS_L2": "nom_triple_electron_maser",
-    "WS_L3": "nom_triple_electron_maser",
-    "WS_L4": "nom_triple_electron_maser",
-    "WS_M1": "nom_heavy_electron_maser",
-    "WS_M2": "nom_heavy_electron_maser",
-    "WS_M3": "nom_heavy_electron_maser",
-    "WS_M4": "nom_heavy_electron_maser",
-    "WS_M5": "nom_heavy_electron_maser",
-    "WS_PD1": "nom_firecracker",
-    "WS_PD2": "nom_firecracker",
-    "WS_PD3": "nom_firecracker",
-    "WS_PD4": "nom_firecracker",
-    "WS_PD5": "nom_firecracker",
-    "WS_S1": "nom_light_electron_maser",
-    "WS_S2": "nom_twin_ultralight_electron_maser",
-    "WS_S3": "nom_twin_ultralight_electron_maser",
-    "WS_S4": "nom_light_electron_maser",
-    "WS_T1": "nom_self_sustained_fusion_torpedo_bank",
-    "WS_T2": "nom_self_sustained_fusion_torpedo_bank"
-  },
   "center": [
     100.5,
     163
@@ -270,8 +246,8 @@
       "arc": 230.402252,
       "id": "WS_M1",
       "locations": [
-        22,
-        -8
+        57,
+        -20
       ],
       "mount": "TURRET",
       "size": "MEDIUM",
@@ -282,8 +258,8 @@
       "arc": 125,
       "id": "WS_L2",
       "locations": [
-        94,
-        34.5
+        95.5,
+        31
       ],
       "mount": "TURRET",
       "size": "LARGE",
@@ -306,8 +282,8 @@
       "arc": 125,
       "id": "WS_L4",
       "locations": [
-        85,
-        -60
+        81,
+        -59.5
       ],
       "mount": "TURRET",
       "size": "LARGE",
@@ -318,8 +294,8 @@
       "arc": 125,
       "id": "WS_L1",
       "locations": [
-        73,
-        63
+        68,
+        62
       ],
       "mount": "TURRET",
       "size": "LARGE",
@@ -374,7 +350,7 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": -120.379128,
+      "angle": -130.601288,
       "arc": 325.676147,
       "id": "WS_PD1",
       "locations": [
@@ -386,33 +362,21 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": 27.552799,
+      "angle": -25.016893,
       "arc": 0,
       "id": "WS_T1",
       "locations": [
-        -19.5,
-        29
+        -4.5,
+        -9.5
       ],
       "mount": "TURRET",
       "size": "LARGE",
       "type": "BUILT_IN"
     },
     {
-      "angle": 2.726311,
-      "arc": 211.417282,
+      "angle": -14.036243,
+      "arc": 275.220917,
       "id": "WS_S1",
-      "locations": [
-        127,
-        20.5
-      ],
-      "mount": "TURRET",
-      "size": "SMALL",
-      "type": "BUILT_IN"
-    },
-    {
-      "angle": -30.256437,
-      "arc": 211.417282,
-      "id": "WS_S2",
       "locations": [
         128.5,
         -24.5
@@ -422,9 +386,9 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": 35.095818,
-      "arc": 211.417282,
-      "id": "WS_S3",
+      "angle": 17.744671,
+      "arc": 260.729065,
+      "id": "WS_S2",
       "locations": [
         113.5,
         50.5
@@ -458,7 +422,7 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": 101.633636,
+      "angle": 123.690071,
       "arc": 325.676147,
       "id": "WS_PD4",
       "locations": [
@@ -470,65 +434,49 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": -169.69516,
-      "arc": 325.676147,
-      "id": "WS_PD5",
-      "locations": [
-        -83,
-        31
-      ],
-      "mount": "TURRET",
-      "size": "SMALL",
-      "type": "BUILT_IN"
-    },
-    {
-      "angle": 2.726311,
-      "arc": 211.417282,
-      "id": "WS_S4",
-      "locations": [
-        115,
-        12
-      ],
-      "mount": "TURRET",
-      "size": "SMALL",
-      "type": "BUILT_IN"
-    },
-    {
       "angle": -3.366461,
       "arc": 230.402252,
-      "id": "WS0001",
+      "id": "WS_M6",
       "locations": [
-        6.5,
-        20.5
+        54,
+        20
       ],
       "mount": "TURRET",
       "size": "MEDIUM",
       "type": "BUILT_IN"
     },
     {
-      "angle": 4.332314,
-      "arc": 230.402252,
-      "id": "WS0002",
-      "locations": [
-        -24.5,
-        -17
-      ],
-      "mount": "TURRET",
-      "size": "MEDIUM",
-      "type": "BUILT_IN"
-    },
-    {
-      "angle": 27.552799,
+      "angle": 25.016893,
       "arc": 0,
       "id": "WS_T2",
       "locations": [
-        -40.5,
-        36.5
+        -5,
+        19.5
       ],
       "mount": "TURRET",
       "size": "LARGE",
       "type": "BUILT_IN"
     }
   ],
-  "width": 201
+  "width": 201,
+  "builtInWeapons": {
+        "WS_L1": "nom_triple_electron_maser",
+        "WS_L2": "nom_triple_electron_maser",
+        "WS_L3": "nom_triple_electron_maser",
+        "WS_L4": "nom_triple_electron_maser",
+        "WS_M1": "nom_heavy_electron_maser",
+        "WS_M2": "nom_heavy_electron_maser",
+        "WS_M3": "nom_heavy_electron_maser",
+        "WS_M4": "nom_heavy_electron_maser",
+        "WS_M5": "nom_heavy_electron_maser",
+        "WS_M6": "nom_heavy_electron_maser",
+        "WS_PD1": "nom_firecracker",
+        "WS_PD2": "nom_firecracker",
+        "WS_PD3": "nom_firecracker",
+        "WS_PD4": "nom_firecracker",
+        "WS_S1": "nom_twin_ultralight_electron_maser",
+        "WS_S2": "nom_twin_ultralight_electron_maser",
+        "WS_T1": "nom_self_sustained_fusion_torpedo_bank",
+        "WS_T2": "nom_self_sustained_fusion_torpedo_bank"
+  },
 }
