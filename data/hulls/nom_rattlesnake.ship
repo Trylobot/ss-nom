@@ -89,6 +89,22 @@
     144,
     26
   ],
+  "builtInWeapons": {
+    "WS_L1": "nom_twin_electron_maser",
+    "WS_L2": "nom_triple_electron_maser",
+    "WS_L3": "nom_triple_electron_maser",
+    "WS_L4": "nom_twin_electron_maser",
+    "WS_M2": "nom_heavy_electron_maser",
+    "WS_M3": "nom_heavy_electron_maser",
+    "WS_M4": "nom_heavy_electron_maser",
+    "WS_M5": "nom_heavy_electron_maser",
+    "WS_PD1": "nom_firecracker",
+    "WS_PD2": "nom_firecracker",
+    "WS_PD3": "nom_firecracker",
+    "WS_PD4": "nom_firecracker",
+    "WS_T1": "nom_self_sustained_fusion_torpedo_bank",
+    "WS_T2": "nom_self_sustained_fusion_torpedo_bank"
+  },
   "center": [
     100.5,
     163
@@ -244,14 +260,14 @@
     {
       "angle": 5.194429,
       "arc": 230.402252,
-      "id": "WS_M1",
+      "id": "WS_M1_U",
       "locations": [
         57,
         -20
       ],
       "mount": "TURRET",
       "size": "MEDIUM",
-      "type": "BUILT_IN"
+      "type": "UNIVERSAL"
     },
     {
       "angle": -4.398705,
@@ -376,26 +392,26 @@
     {
       "angle": -14.036243,
       "arc": 275.220917,
-      "id": "WS_S1",
+      "id": "WS_S1_U",
       "locations": [
         128.5,
         -24.5
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "UNIVERSAL"
     },
     {
       "angle": 17.744671,
       "arc": 260.729065,
-      "id": "WS_S2",
+      "id": "WS_S2_U",
       "locations": [
         113.5,
         50.5
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "BUILT_IN"
+      "type": "UNIVERSAL"
     },
     {
       "angle": -32.195732,
@@ -436,14 +452,14 @@
     {
       "angle": -3.366461,
       "arc": 230.402252,
-      "id": "WS_M6",
+      "id": "WS_M6_U",
       "locations": [
         54,
         20
       ],
       "mount": "TURRET",
       "size": "MEDIUM",
-      "type": "BUILT_IN"
+      "type": "UNIVERSAL"
     },
     {
       "angle": 25.016893,
@@ -458,25 +474,5 @@
       "type": "BUILT_IN"
     }
   ],
-  "width": 201,
-  "builtInWeapons": {
-        "WS_L1": "nom_triple_electron_maser",
-        "WS_L2": "nom_triple_electron_maser",
-        "WS_L3": "nom_triple_electron_maser",
-        "WS_L4": "nom_triple_electron_maser",
-        "WS_M1": "nom_heavy_electron_maser",
-        "WS_M2": "nom_heavy_electron_maser",
-        "WS_M3": "nom_heavy_electron_maser",
-        "WS_M4": "nom_heavy_electron_maser",
-        "WS_M5": "nom_heavy_electron_maser",
-        "WS_M6": "nom_heavy_electron_maser",
-        "WS_PD1": "nom_firecracker",
-        "WS_PD2": "nom_firecracker",
-        "WS_PD3": "nom_firecracker",
-        "WS_PD4": "nom_firecracker",
-        "WS_S1": "nom_twin_ultralight_electron_maser",
-        "WS_S2": "nom_twin_ultralight_electron_maser",
-        "WS_T1": "nom_self_sustained_fusion_torpedo_bank",
-        "WS_T2": "nom_self_sustained_fusion_torpedo_bank"
-  },
+  "width": 201
 }
