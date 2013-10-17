@@ -1,15 +1,13 @@
 {
   "displayName": "Heavy Cruiser",
-  "fluxCapacitors": 1,
-  "fluxVents": 10,
+  "fluxCapacitors": 0,
+  "fluxVents": 1,
   "hullId": "nom_rattlesnake",
   "hullMods": [
     "naeran_flux_shunts",
     "heavyarmor",
     "reinforcedhull",
-    "blast_doors",
-    "armoredweapons",
-    "autorepair"
+    "armoredweapons"
   ],
   "variantId": "nom_rattlesnake_assault",
   "weaponGroups": [
