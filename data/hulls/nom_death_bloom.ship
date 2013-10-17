@@ -154,6 +154,6 @@
   "width": 70,
   "builtInWeapons": {
         "main_gun": "nom_solar_crucible",
-        "PD1": "nom_twin_ultralight_electron_maser",
+        "PD1": "nom_firecracker",
   },
 }
