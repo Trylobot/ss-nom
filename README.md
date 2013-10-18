@@ -24,7 +24,7 @@ Thorn (new ship)
     * will not activate if ship explodes due to friendly fire, asteroid impact, or if there no suitable targets within pre-set range
 
 FX
-  * particle effect for the Fusion Torpedo; soft particle stream that points at its target for increased menace
+  * particle effect for the Fusion Torpedo; "orbiter" particles
 
 Music
   * either combat, campaign or elsewhere: Sheherazade by wnm (edited for looping)
