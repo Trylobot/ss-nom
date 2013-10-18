@@ -305,17 +305,26 @@ public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 			data.getStartingCargo().addCrew(CrewXPLevel.VETERAN, 20);
 			data.getStartingCargo().addMarines(0);
 			/////////////////////////////////////////////////////////////
-			if( Global.getSettings().isDevMode() && false )
+			if( Global.getSettings().isDevMode() )//&& false )
 			{
 				data.addStartingFleetMember("nom_oasis_standard", FleetMemberType.SHIP);
+				data.addStartingFleetMember("nom_gila_monster_antibattleship", FleetMemberType.SHIP);
 				data.addStartingFleetMember("nom_sandstorm_assault", FleetMemberType.SHIP);
+				data.addStartingFleetMember("nom_rattlesnake_assault", FleetMemberType.SHIP);
+				data.addStartingFleetMember("nom_komodo_mk2_assault", FleetMemberType.SHIP);
 				data.addStartingFleetMember("nom_komodo_assault", FleetMemberType.SHIP);
-				data.addStartingFleetMember("nom_komodo_assault", FleetMemberType.SHIP);
+				data.addStartingFleetMember("nom_flycatcher_carrier", FleetMemberType.SHIP);
+				data.addStartingFleetMember("nom_death_bloom_strike", FleetMemberType.SHIP);
+				data.addStartingFleetMember("nom_yellowjacket_sniper", FleetMemberType.SHIP);
+				data.addStartingFleetMember("nom_wurm_assault", FleetMemberType.SHIP);
+				data.addStartingFleetMember("nom_toad_wing", FleetMemberType.FIGHTER_WING);
+				data.addStartingFleetMember("nom_iguana_wing", FleetMemberType.FIGHTER_WING);
+				data.addStartingFleetMember("nom_scarab_wing", FleetMemberType.FIGHTER_WING);
 				data.getStartingCargo().getCredits().add(50000f);
 				data.getStartingCargo().addFuel(1000);
-				data.getStartingCargo().addSupplies(1500);
+				data.getStartingCargo().addSupplies(2000);
 				data.getStartingCargo().addMarines(100);
-				data.getStartingCargo().addCrew(CrewXPLevel.REGULAR, 2500);
+				data.getStartingCargo().addCrew(CrewXPLevel.REGULAR, 3500);
 				stats.setAptitudeLevel( "leadership", 10.0f );
 				stats.setSkillLevel( "fleet_logistics", 10.0f );
 			}
