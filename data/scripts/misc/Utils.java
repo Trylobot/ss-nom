@@ -37,6 +37,12 @@ public class Utils
 		return result.length();
 	}
 	
+	public static float get_distance_squared( Vector2f A, Vector2f B )
+	{
+		Vector2f result = new Vector2f( B.x - A.x, B.y - A.y );
+		return result.lengthSquared();
+	}
+	
 	public static float get_random( float low, float high )
 	{
 		return rand.nextFloat() * (high - low) + low;

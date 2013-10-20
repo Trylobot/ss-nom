@@ -29,6 +29,9 @@
     29,
     0.5
   ],
+  "builtInWeapons": {
+    "main_gun": "nom_solar_crucible"
+  },
   "center": [
     37,
     61.5
@@ -139,21 +142,17 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": 0,
-      "arc": 300,
+      "angle": 125,
+      "arc": 335,
       "id": "PD1",
       "locations": [
-        -11.5,
-        21
+        -27.5,
+        5
       ],
       "mount": "TURRET",
       "size": "SMALL",
       "type": "ENERGY"
     }
   ],
-  "width": 70,
-  "builtInWeapons": {
-        "main_gun": "nom_solar_crucible",
-        "PD1": "nom_firecracker",
-  },
+  "width": 70
 }

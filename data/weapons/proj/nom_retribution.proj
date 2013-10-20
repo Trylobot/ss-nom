@@ -22,10 +22,10 @@
 		"particleColor":[230,230,55,255]
 	},
 	"engineSpec":{
-		"turnAcc":100,
-		"turnRate":20,
+		"turnAcc":150,
+		"turnRate":80,
 		"acc":250,
-		"dec":10
+		"dec":1
 	},
 	"engineSlots":[{
 		"id":"e_main",

@@ -11,13 +11,14 @@ import data.scripts.misc.Utils;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map.Entry;
 import org.lwjgl.util.vector.Vector2f;
 
 public class TheNomadsRetributionWeaponPlugin implements CombatEnginePlugin, EveryFrameCombatPlugin
 {
 	// "fang" refers to the Nomad Bomber ship, the "Fang", which launches Retribution missiles after dying.	
 	private static final float RETRIBUTION_LAUNCH_TIMER = 3.0f;
-	private static final float RETRIBUTION_ARM_DISTANCE = 25.0f;
+	private static final float RETRIBUTION_ARM_DISTANCE_SQUARED = 35.0f * 35.0f;
 	
 	private CombatEngineAPI engine = null;
 	private HashMap fang_hulks = new HashMap();
@@ -47,16 +48,17 @@ public class TheNomadsRetributionWeaponPlugin implements CombatEnginePlugin, Eve
 				fang_hulks.put( ship, new Float( clock )); // mark time 
 		}
 		// check timers on known hulks
-		for( Iterator i = fang_hulks.keySet().iterator(); i.hasNext(); )
+		for( Iterator i = fang_hulks.entrySet().iterator(); i.hasNext(); )
 		{
-			ShipAPI fang_hulk = (ShipAPI) i.next();
+			Entry entry = (Entry) i.next();
+			ShipAPI fang_hulk = (ShipAPI) entry.getKey();
 			// check for hulk complete destruction during timer duration
 			if( !engine.isEntityInPlay( fang_hulk ))
 			{
-				fang_hulks.remove( fang_hulk );
+				i.remove();
 				continue; // skip rest
 			}
-			float found_clock_time = ((Float) fang_hulks.get( fang_hulk )).floatValue();
+			Float found_clock_time = (Float) entry.getValue();
 			// if timer is elapsed, perform the launch actions.
 			if( clock >= found_clock_time + RETRIBUTION_LAUNCH_TIMER )
 			{
@@ -70,17 +72,17 @@ public class TheNomadsRetributionWeaponPlugin implements CombatEnginePlugin, Eve
 				missile.setCollisionClass( CollisionClass.NONE );
 				// update entity trackers
 				unarmed_retribution_missiles.put( missile, fang_hulk );
-				fang_hulks.put( fang_hulk, Float.MAX_VALUE ); // poison entry to prevent future launches
+				entry.setValue( Float.MAX_VALUE ); // poison entry to prevent future launches
 			}
 		}
 		// check timers on unarmed retribution missiles
-		for( Iterator i = unarmed_retribution_missiles.keySet().iterator(); i.hasNext(); )
+		for( Iterator i = unarmed_retribution_missiles.entrySet().iterator(); i.hasNext(); )
 		{
-			MissileAPI missile = (MissileAPI) i.next();
+			Entry entry = (Entry) i.next();
+			MissileAPI missile = (MissileAPI) entry.getKey();
+			ShipAPI launching_hulk = (ShipAPI) entry.getValue();
 			{
-				Vector2f missile_location = missile.getLocation();
-				Vector2f launch_location = ((ShipAPI) unarmed_retribution_missiles.get( missile )).getLocation();
-				if( RETRIBUTION_ARM_DISTANCE >= Utils.get_distance( missile_location, launch_location ))
+				if( Utils.get_distance_squared( missile.getLocation(), launching_hulk.getLocation() ) >= RETRIBUTION_ARM_DISTANCE_SQUARED )
 				{
 					// set the collision class of the missile so that it can collide with things again
 					missile.setCollisionClass( CollisionClass.MISSILE_NO_FF );
