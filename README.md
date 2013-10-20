@@ -2,18 +2,12 @@
 
 (unnamed) (new ship)
   * bomber wing, 3x
-  * name ideas:
-    * Claw
+  * potential name ideas:
     * Fang
     * Thorn
     * Nettle
     * Barb
     * Spur
-    * Spearhead
-    * Revenant
-    * Revenge
-    * Reprisal
-    * Retribution
   * basic fighter armaments; mini fusion torps, basic PD
   * new hullmod: Dead Man's Switch Auto-Scuttle Device
     * internal graviton generator
