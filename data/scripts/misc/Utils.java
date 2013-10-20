@@ -30,6 +30,13 @@ public class Utils
 		  to.y - from.y ));
     }
 	
+	public static float get_distance( Vector2f A, Vector2f B )
+	{
+		Vector2f result = new Vector2f();
+		Vector2f.sub( B, A, result );
+		return result.length();
+	}
+	
 	public static float get_random( float low, float high )
 	{
 		return rand.nextFloat() * (high - low) + low;

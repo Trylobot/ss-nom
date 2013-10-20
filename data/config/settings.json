@@ -1,8 +1,7 @@
 {
 	"graphics":{
 		"nomads":{
-			"nom_fang_empty":"graphics/nom/ships/nom_fang_empty.png",
-			"nom_retribution_armed":"graphics/nom/missiles/nom_retribution_missile.png",
+			"nom_fang_empty":"graphics/nom/ships/nom_fang_empty.png"
 		}
 	}
 }

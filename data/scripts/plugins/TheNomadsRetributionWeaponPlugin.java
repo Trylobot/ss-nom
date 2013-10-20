@@ -7,15 +7,17 @@ import com.fs.starfarer.api.combat.MissileAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
+import data.scripts.misc.Utils;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import org.lwjgl.util.vector.Vector2f;
 
 public class TheNomadsRetributionWeaponPlugin implements CombatEnginePlugin, EveryFrameCombatPlugin
 {
 	// "fang" refers to the Nomad Bomber ship, the "Fang", which launches Retribution missiles after dying.	
 	private static final float RETRIBUTION_LAUNCH_TIMER = 3.0f;
-	private static final float RETRIBUTION_ARM_TIMER = 1.5f;
+	private static final float RETRIBUTION_ARM_DISTANCE = 25.0f;
 	
 	private CombatEngineAPI engine = null;
 	private HashMap fang_hulks = new HashMap();
@@ -61,39 +63,30 @@ public class TheNomadsRetributionWeaponPlugin implements CombatEnginePlugin, Eve
 				// swap ship sprite for the version without the missile
 				fang_hulk.setSprite( "nomads", "nom_fang_empty" );
 				// create the missile as if it had been launched from the ship
-				//WeaponAPI launch_system = get_retribution_weapon( fang_hulk );
 				MissileAPI missile = (MissileAPI) engine.spawnProjectile( 
 				  fang_hulk, null, "nom_retribution_postmortem_launcher", 
 				  fang_hulk.getLocation(), fang_hulk.getFacing(), fang_hulk.getVelocity() );
 				missile.setAngularVelocity( fang_hulk.getAngularVelocity() );
 				missile.setCollisionClass( CollisionClass.NONE );
-				//// update entity trackers
-				//unarmed_retribution_missiles.put( missile, new Float( clock ));
-				i.remove();
+				// update entity trackers
+				unarmed_retribution_missiles.put( missile, fang_hulk );
+				fang_hulks.put( fang_hulk, Float.MAX_VALUE ); // poison entry to prevent future launches
 			}
 		}
 		// check timers on unarmed retribution missiles
 		for( Iterator i = unarmed_retribution_missiles.keySet().iterator(); i.hasNext(); )
 		{
 			MissileAPI missile = (MissileAPI) i.next();
-			float launch_clock_time = ((Float) unarmed_retribution_missiles.get( missile )).floatValue();
-			if( clock >= launch_clock_time + RETRIBUTION_ARM_TIMER )
 			{
-				// set the collision class of the missile so that it can collide with things again
-				missile.setCollisionClass( CollisionClass.MISSILE_NO_FF );
-				i.remove();
+				Vector2f missile_location = missile.getLocation();
+				Vector2f launch_location = ((ShipAPI) unarmed_retribution_missiles.get( missile )).getLocation();
+				if( RETRIBUTION_ARM_DISTANCE >= Utils.get_distance( missile_location, launch_location ))
+				{
+					// set the collision class of the missile so that it can collide with things again
+					missile.setCollisionClass( CollisionClass.MISSILE_NO_FF );
+					i.remove();
+				}
 			}
 		}
 	}
-
-//	private WeaponAPI get_retribution_weapon( ShipAPI fang )
-//	{
-//		for( Iterator i = fang.getAllWeapons().iterator(); i.hasNext(); )
-//		{
-//			WeaponAPI weapon = (WeaponAPI) i.next();
-//			if( "nom_retribution_postmortem_launcher".equals( weapon.getId() ))
-//				return weapon;
-//		}
-//		return null;
-//	}
 }
