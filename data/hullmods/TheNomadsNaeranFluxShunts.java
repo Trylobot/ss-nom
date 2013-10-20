@@ -14,14 +14,9 @@ public class TheNomadsNaeranFluxShunts extends BaseHullMod
 		// fix complete auto-aiming uselessness problem of all maser weapons
 		stats.getAutofireAimAccuracy().modifyFlat( id, 0.5f );
 		// Ordnance Expert 10 (Optimized Assembly Perk) - hack
+		
 	}
 	
-	/*@Override
-	public void applyEffectsAfterShipCreation( ShipAPI ship, String id )
-	{
-		
-	}*/
-
 	@Override
 	public boolean isApplicableToShip( ShipAPI ship )
 	{
