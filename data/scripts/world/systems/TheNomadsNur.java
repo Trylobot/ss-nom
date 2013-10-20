@@ -135,9 +135,24 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 			);
 		
 		// armada composition data (references faction definition data)
-		String[] escort_pool = { "scout", "longRangeScout", "battleGroup", "assassin", "royalGuard", "jihadFleet", "carrierGroup" };
-		int[] escort_weights = {    220,              200,           230,        185,          175,          125,            100  };
-		
+		String[] escort_pool = { 
+			"scout", 
+			"longRangeScout", 
+			"battleGroup", 
+			"assassin", 
+			"royalGuard", 
+			"jihadFleet", 
+			"carrierGroup"
+		};
+		int[] escort_weights = {    
+			220,
+			200,
+			230,
+			185,
+			175,
+			125,
+			100
+		};
 		// armada waypoint controller script
 		CampaignArmadaController nomad_armada =
 			new CampaignArmadaController(
@@ -256,66 +271,69 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 		
 		// restocker script
 		String[] restock_ship_variant_or_wing_ids = { 
-			"nom_gila_monster_antibattleship", 
+			"nom_gila_monster_antibattleship",
 			"nom_sandstorm_assault",
 			"nom_rattlesnake_assault",
 			"nom_scorpion_assault",
-			"nom_komodo_mk2_assault", 
-			"nom_komodo_assault", 
-			"nom_flycatcher_carrier", 
-			"nom_yellowjacket_sniper", 
-			"nom_death_bloom_strike", 
-			"nom_wurm_assault",   
-			"nom_toad_wing",               
-			"nom_iguana_wing",            
+			"nom_komodo_mk2_assault",
+			"nom_komodo_assault",
+			"nom_flycatcher_carrier",
+			"nom_yellowjacket_sniper",
+			"nom_death_bloom_strike",
+			"nom_wurm_assault",
+			"nom_fang_wing",
+			"nom_toad_wing",
+			"nom_iguana_wing",
 			"nom_scarab_wing"
 		};
 		FleetMemberType[] restock_ship_types = {       
-			FleetMemberType.SHIP,              
-			FleetMemberType.SHIP, 
 			FleetMemberType.SHIP,
-			FleetMemberType.SHIP,  
-			FleetMemberType.SHIP,    
-			FleetMemberType.SHIP, 
-			FleetMemberType.SHIP,      
-			FleetMemberType.SHIP,      
-			FleetMemberType.SHIP,     
-			FleetMemberType.SHIP, 
-			FleetMemberType.FIGHTER_WING, 
-			FleetMemberType.FIGHTER_WING, 
+			FleetMemberType.SHIP,
+			FleetMemberType.SHIP,
+			FleetMemberType.SHIP,
+			FleetMemberType.SHIP,
+			FleetMemberType.SHIP,
+			FleetMemberType.SHIP,
+			FleetMemberType.SHIP,
+			FleetMemberType.SHIP,
+			FleetMemberType.SHIP,
+			FleetMemberType.FIGHTER_WING,
+			FleetMemberType.FIGHTER_WING,
+			FleetMemberType.FIGHTER_WING,
 			FleetMemberType.FIGHTER_WING
 		};
 		int[] restock_ship_count_cap = {               
-			1,                                 
+			1,
 			2,
 			2,
-			3,                     
-			2,                       
-			4,                    
-			4,                         
-			2,                         
-			1,                        
-			5,                    
-			6,                             
-			6,                            
+			3,
+			2,
+			4,
+			4,
+			2,
+			1,
+			5,
+			3,
+			6,
+			6,
 			8
 		};
 		float[] restock_ship_wait_days = {             
-			92.0f,                             
-			59.0f, 
+			92.0f,
+			59.0f,
 			39.0f,
-			29.0f,                 
-			25.0f,                   
-			21.0f,                
-			15.0f,                     
-			13.0f,                     
-			29.0f,                    
-			9.0f,                 
-			5.2f,                          
-			5.0f,                         
+			29.0f,
+			25.0f,
+			21.0f,
+			15.0f,
+			13.0f,
+			29.0f,
+			9.0f,
+			8.0f,
+			5.2f,
+			5.0f,
 			4.0f
 		};
-		
 		TheNomadsNurStationRestocker station_cargo_restocker = new TheNomadsNurStationRestocker(
 			restock_ship_variant_or_wing_ids,
 			restock_ship_types,
