@@ -15,6 +15,6 @@ Doom Cannon,nom_doom_cannon,1,12500,1100,,1750,,300,5,75,30,,ENERGY,2000,,0.12,0
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Faux Plasma Mini,nom_effect_faux_plasma_mini,0,0,2500,,0,,0,0,0,0,0,ENERGY,0,,0,0,,,,,,,,1,0,99999,1,SYSTEM,1337111
 Faux Plasma,nom_effect_faux_plasma,0,0,2500,,0,,0,0,0,0,0,ENERGY,0,,0,0,,,,,,,,1,0,99999,1,SYSTEM,1337110
-Retribution Launch System,nom_retribution_postmortem_launcher,0,0,999999,,4000,,300,5,0,0,0,ENERGY,0,,0,0,,,,,,,,2000,25,50,650,SYSTEM,1337114
+Retribution Launch System,nom_retribution_postmortem_launcher,0,0,999999,,3250,,300,5,0,0,0,ENERGY,0,,0,0,,,,,,,,2000,25,50,650,SYSTEM,1337114
 Habitat Ring,nom_decorative_oasis_habitat_ring,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,1337099
 Structural Support,nom_decorative_oasis_habitat_ring_structural_support_beam,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,1337098
