@@ -317,6 +317,7 @@ public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 				data.addStartingFleetMember("nom_death_bloom_strike", FleetMemberType.SHIP);
 				data.addStartingFleetMember("nom_yellowjacket_sniper", FleetMemberType.SHIP);
 				data.addStartingFleetMember("nom_wurm_assault", FleetMemberType.SHIP);
+				data.addStartingFleetMember("nom_fang_wing", FleetMemberType.FIGHTER_WING);
 				data.addStartingFleetMember("nom_toad_wing", FleetMemberType.FIGHTER_WING);
 				data.addStartingFleetMember("nom_iguana_wing", FleetMemberType.FIGHTER_WING);
 				data.addStartingFleetMember("nom_scarab_wing", FleetMemberType.FIGHTER_WING);

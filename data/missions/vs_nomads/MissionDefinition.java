@@ -1,12 +1,10 @@
 package data.missions.vs_nomads;
 
-import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.fleet.FleetGoal;
 import com.fs.starfarer.api.fleet.FleetMemberType;
 import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.mission.MissionDefinitionAPI;
 import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
-import data.scripts.plugins.TheNomadsCombatEnginePlugin;
 
 public class MissionDefinition implements MissionDefinitionPlugin
 {

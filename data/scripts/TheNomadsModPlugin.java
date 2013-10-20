@@ -5,6 +5,7 @@ import com.fs.starfarer.api.campaign.SectorAPI;
 import data.scripts.misc.Utils;
 import data.scripts.world.systems.TheNomadsNur;
 import data.scripts.plugins.TheNomadsCombatEnginePlugin;
+import data.scripts.plugins.TheNomadsRetributionWeaponPlugin;
 
 public class TheNomadsModPlugin extends BaseModPlugin
 {

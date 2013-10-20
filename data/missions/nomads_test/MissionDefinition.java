@@ -19,9 +19,10 @@ public class MissionDefinition implements MissionDefinitionPlugin
 		api.setFleetTagline(FleetSide.ENEMY, "Hegemony Forces");
 		
 		// Nomad fighters
-		api.addToFleet(FleetSide.PLAYER, "nom_toad_wing", FleetMemberType.FIGHTER_WING, false).setCrewXPLevel( CargoAPI.CrewXPLevel.VETERAN );
-		api.addToFleet(FleetSide.PLAYER, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, false).setCrewXPLevel( CargoAPI.CrewXPLevel.VETERAN );
-		api.addToFleet(FleetSide.PLAYER, "nom_scarab_wing", FleetMemberType.FIGHTER_WING, false).setCrewXPLevel( CargoAPI.CrewXPLevel.VETERAN );
+		api.addToFleet(FleetSide.PLAYER, "nom_fang_wing", FleetMemberType.FIGHTER_WING, false);
+		api.addToFleet(FleetSide.PLAYER, "nom_toad_wing", FleetMemberType.FIGHTER_WING, false);
+		api.addToFleet(FleetSide.PLAYER, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, false);
+		api.addToFleet(FleetSide.PLAYER, "nom_scarab_wing", FleetMemberType.FIGHTER_WING, false);
 
 		// Vanilla fighters (pick 1)
 		String[] variantIds = {
@@ -39,7 +40,7 @@ public class MissionDefinition implements MissionDefinitionPlugin
 			"mining_drone_wing"
 		};
 		int idx = (int)(Math.random() * variantIds.length);
-		api.addToFleet(FleetSide.ENEMY, variantIds[idx], FleetMemberType.FIGHTER_WING, false).setCrewXPLevel( CargoAPI.CrewXPLevel.VETERAN );
+		api.addToFleet(FleetSide.ENEMY, variantIds[idx], FleetMemberType.FIGHTER_WING, false);
 		
 		// Set up the map.
 		float width = 8000f;
