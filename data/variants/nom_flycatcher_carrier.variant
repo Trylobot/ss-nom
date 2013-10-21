@@ -11,7 +11,7 @@
   "variantId": "nom_flycatcher_carrier",
   "weaponGroups": [
     {
-      "autofire": false,
+      "autofire": true,
       "mode": "ALTERNATING",
       "weapons": {
         "WS0004": "nom_self_sustained_fusion_torpedo_mini",

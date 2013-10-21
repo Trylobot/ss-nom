@@ -12,7 +12,7 @@
   ],
   "weaponGroups": [
     {
-      "autofire": false,
+      "autofire": true,
       "mode": "ALTERNATING",
       "weapons": {
         "Large 1": "nom_self_sustained_fusion_torpedo_bank", 
