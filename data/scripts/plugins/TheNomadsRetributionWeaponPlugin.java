@@ -74,6 +74,11 @@ public class TheNomadsRetributionWeaponPlugin implements CombatEnginePlugin, Eve
 				  fang_hulk.getLocation(), fang_hulk.getFacing(), fang_hulk.getVelocity() );
 				missile.setAngularVelocity( fang_hulk.getAngularVelocity() );
 				missile.setCollisionClass( CollisionClass.NONE );
+				// play the launch sound
+				Global.getSoundPlayer().playSound( "nom_retribution_launch",
+				  (1.0f + (0.2f * (float)Math.random() - 0.1f)),
+				  (1.0f + (0.2f * (float)Math.random() - 0.1f)),
+				  fang_hulk.getLocation(), fang_hulk.getVelocity() );
 				// update entity trackers
 				unarmed_retribution_missiles.put( missile, fang_hulk );
 				entry.setValue( Float.MAX_VALUE ); // poison entry to prevent future launches

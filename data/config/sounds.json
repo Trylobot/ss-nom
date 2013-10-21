@@ -56,7 +56,7 @@
 		{"file":"sounds/nom/fx/maserpls3.ogg","pitch":2.30,"volume":0.32},		
 	],		
 
-	##  Sounds not by Cycerin
+	##  Sounds by Trylobot
 
 	"nom_self_sustained_fusion_torpedo_fire":
 	[
@@ -83,6 +83,13 @@
 		{"file":"sounds/nom/fx/freesound.org/62547__sparrer__fireworks4__edited.wav","pitch":1.04,"volume":1.08},
 		{"file":"sounds/nom/fx/freesound.org/62547__sparrer__fireworks4__edited.wav","pitch":1.08,"volume":1.02},
 		{"file":"sounds/nom/fx/freesound.org/62547__sparrer__fireworks4__edited.wav","pitch":1.15,"volume":1.00},
+	],
+
+	"nom_retribution_launch":
+	[
+		{"file":"sounds/nom/fx/freesound.org/67544__qubodup__mim-23-hawk-missile-launch-1.ogg","pitch":1.0,"volume":0.9},
+		{"file":"sounds/nom/fx/freesound.org/67544__qubodup__mim-23-hawk-missile-launch-1.ogg","pitch":0.9,"volume":0.9},
+		{"file":"sounds/nom/fx/freesound.org/67544__qubodup__mim-23-hawk-missile-launch-1.ogg","pitch":1.1,"volume":0.9},
 	],
 }
 
