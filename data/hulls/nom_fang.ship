@@ -17,7 +17,8 @@
   ],
   "builtInWeapons": {
     "gun": "nom_ultralight_electron_maser",
-    "missile": "nom_self_sustained_fusion_torpedo_mini"
+    "missile": "nom_self_sustained_fusion_torpedo_mini",
+    "system": "nom_retribution_postmortem_launcher"
   },
   "center": [
     28,
@@ -116,7 +117,7 @@
         -2.5
       ],
       "mount": "HIDDEN",
-      "size": "LARGE",
+      "size": "MEDIUM",
       "type": "SYSTEM"
     }
   ],

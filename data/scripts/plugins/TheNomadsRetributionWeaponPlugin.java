@@ -1,4 +1,6 @@
 package data.scripts.plugins;
+import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.combat.ArmorGridAPI;
 import com.fs.starfarer.api.combat.CollisionClass;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.CombatEnginePlugin;
@@ -7,7 +9,9 @@ import com.fs.starfarer.api.combat.MissileAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
+import data.scripts._;
 import data.scripts.misc.Utils;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -45,7 +49,7 @@ public class TheNomadsRetributionWeaponPlugin implements CombatEnginePlugin, Eve
 			if( fang_hulks.containsKey( ship ))
 				continue; // already know about this one
 			if( ship.isHulk() && "nom_fang".equals( ship.getHullSpec().getHullId() ))
-				fang_hulks.put( ship, new Float( clock )); // mark time 
+				fang_hulks.put( ship, new Float( clock )); // mark time
 		}
 		// check timers on known hulks
 		for( Iterator i = fang_hulks.entrySet().iterator(); i.hasNext(); )
@@ -90,5 +94,17 @@ public class TheNomadsRetributionWeaponPlugin implements CombatEnginePlugin, Eve
 				}
 			}
 		}
+	}
+	
+	private WeaponAPI get_retribution_weapon( ShipAPI fang )
+	{
+		for( Iterator i = fang.getAllWeapons().iterator(); i.hasNext(); )
+		{
+			WeaponAPI weapon = (WeaponAPI) i.next();
+			//_.L( weapon.getId() );
+			if( "nom_retribution_postmortem_launcher".equals( weapon.getId() ))
+				return weapon;
+		}
+		return null;
 	}
 }

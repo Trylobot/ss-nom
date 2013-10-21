@@ -29,24 +29,24 @@
 	},
 	"engineSlots":[{
 		"id":"e_main",
-		"loc":[-20, 0],
+		"loc":[-21, 0],
 		"style":"ANCIENT_NAERAN",
-		"width":12.0,
-		"length":60.0,
+		"width":10.0,
+		"length":50.0,
 		"angle":180.0
 	},{
 		"id":"e_aux_thruster_R",
 		"loc":[-15, 5],
 		"style":"ANCIENT_NAERAN",
-		"width":3.0,
-		"length":10.0,
-		"angle":-156.89
+		"width":4.0,
+		"length":15.0,
+		"angle":156.89
 	},{
 		"id":"e_aux_thruster_L",
 		"loc":[-15, -5],
 		"style":"ANCIENT_NAERAN",
-		"width":3.0,
-		"length":10.0,
-		"angle":156.89
+		"width":5.0,
+		"length":15.0,
+		"angle":-156.89
 	}],
 }
