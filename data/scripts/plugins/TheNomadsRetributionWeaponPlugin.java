@@ -37,6 +37,9 @@ public class TheNomadsRetributionWeaponPlugin implements CombatEnginePlugin, Eve
 
 	public void advance( float amount, List events )
 	{
+		if( engine.isPaused() )
+			return;
+		
 		clock += amount; // for fang launch timings
 		interval.advance( amount );
 		if( !interval.intervalElapsed() )
@@ -49,7 +52,16 @@ public class TheNomadsRetributionWeaponPlugin implements CombatEnginePlugin, Eve
 			if( fang_hulks.containsKey( ship ))
 				continue; // already know about this one
 			if( ship.isHulk() && "nom_fang".equals( ship.getHullSpec().getHullId() ))
+			{
 				fang_hulks.put( ship, new Float( clock )); // mark time
+				// swap the ship sprite to the version without the missile
+				// swap ship sprite for the version without the missile
+				ship.setSprite( "nomads", "nom_fang_empty" );
+				// advance the weapon frame to the last frame, which is empty (weapon becomes hidden)
+				WeaponAPI launcher = get_retribution_weapon( ship );
+				launcher.getAnimation().setFrame( 2 ); // arm the missile visually
+				launcher.getAnimation().pause();
+			}
 		}
 		// check timers on known hulks
 		for( Iterator i = fang_hulks.entrySet().iterator(); i.hasNext(); )
@@ -66,8 +78,10 @@ public class TheNomadsRetributionWeaponPlugin implements CombatEnginePlugin, Eve
 			// if timer is elapsed, perform the launch actions.
 			if( clock >= found_clock_time + RETRIBUTION_LAUNCH_TIMER )
 			{
-				// swap ship sprite for the version without the missile
-				fang_hulk.setSprite( "nomads", "nom_fang_empty" );
+				// advance the weapon frame to the last frame, which is empty (weapon becomes hidden)
+				WeaponAPI launcher = get_retribution_weapon( fang_hulk );
+				launcher.getAnimation().setFrame( 0 );
+				launcher.getAnimation().pause();
 				// create the missile as if it had been launched from the ship
 				MissileAPI missile = (MissileAPI) engine.spawnProjectile( 
 				  fang_hulk, null, "nom_retribution_postmortem_launcher", 

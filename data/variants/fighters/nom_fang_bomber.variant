@@ -16,7 +16,7 @@
       }
     },
     {
-      "autofire": false,
+      "autofire": true,
       "mode": "LINKED",
       "weapons": {
         "missile": "nom_self_sustained_fusion_torpedo_mini"

@@ -142,12 +142,12 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": 125,
-      "arc": 335,
+      "angle": 180,
+      "arc": 345.331238,
       "id": "PD1",
       "locations": [
-        -27.5,
-        5
+        -37.5,
+        -8
       ],
       "mount": "TURRET",
       "size": "SMALL",

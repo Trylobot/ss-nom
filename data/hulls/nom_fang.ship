@@ -81,6 +81,7 @@
   ],
   "shieldRadius": 23.547823,
   "spriteName": "graphics/nom/ships/nom_fang.png",
+  #"spriteName": "graphics/nom/ships/nom_fang_empty.png", # switched programmatically
   "style": "ANCIENT_NAERAN",
   "viewOffset": 0,
   "weaponSlots": [
@@ -113,10 +114,10 @@
       "arc": 0,
       "id": "system",
       "locations": [
-        -1.5,
+        4,
         -2.5
       ],
-      "mount": "HIDDEN",
+      "mount": "TURRET",
       "size": "MEDIUM",
       "type": "SYSTEM"
     }

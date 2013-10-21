@@ -8,12 +8,14 @@
 		"naeran_flux_shunts",
 	],
 	"weaponGroups": [{
+    "autofire": false,
 		"mode": "ALTERNATING",
 		"weapons": {
 			"left_gun": "nom_light_electron_maser",
 			"right_gun": "nom_light_electron_maser",
 		}
 	},{
+    "autofire": true,
 		"mode": "LINKED",
 		"weapons": {
 			"missile_1": "nom_self_sustained_fusion_torpedo_mini",
