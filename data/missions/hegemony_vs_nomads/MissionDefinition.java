@@ -1,4 +1,4 @@
-package data.missions.vs_nomads;
+package data.missions.hegemony_vs_nomads;
 
 import com.fs.starfarer.api.fleet.FleetGoal;
 import com.fs.starfarer.api.fleet.FleetMemberType;

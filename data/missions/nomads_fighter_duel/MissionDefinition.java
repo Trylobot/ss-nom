@@ -1,4 +1,4 @@
-package data.missions.nomads_test;
+package data.missions.nomads_fighter_duel;
 
 import com.fs.starfarer.api.campaign.CargoAPI;
 import com.fs.starfarer.api.fleet.FleetGoal;
