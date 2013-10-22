@@ -18,9 +18,20 @@ public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 	{
 		// automatic yield of control pass-through in case of conflict: 
 		//   Exerelin
+		if( _.can_be_loaded( "data.scripts.world.ExerelinGen" ))
+		{
+			try
+			{
+				handoff_plugin = (CharacterCreationPlugin) Global.getSettings().getScriptClassLoader()
+				  .loadClass( "data.scripts.plugins.ExerelinCharacterCreationPluginImpl" )
+				  .newInstance();
+			}
+			catch( ClassNotFoundException e ) {}
+			catch( InstantiationException e ) {}
+			catch( IllegalAccessException e ) {}
+		}
 		//   Uomoz's Sector: Journey
-		if( _.can_be_loaded( "data.scripts.world.ExerelinGen" )
-		||  _.can_be_loaded( "data.scripts.UsSModPlugin" ))
+		if( _.can_be_loaded( "data.scripts.UsSModPlugin" ))
 		{
 			try
 			{
