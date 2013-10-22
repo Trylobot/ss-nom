@@ -1,6 +1,5 @@
 package data.scripts.world.armada;
 import com.fs.starfarer.api.EveryFrameScript;
-import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignClockAPI;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.FleetAssignment;
@@ -9,8 +8,7 @@ import com.fs.starfarer.api.campaign.LocationAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
-import com.fs.starfarer.api.mission.FleetSide;
-import data.scripts._;
+import data.scripts.trylobot._;
 import data.scripts.world.armada.CampaignArmadaWaypointController.CampaignArmadaWaypoint;
 import data.scripts.world.armada.api.CampaignArmadaAPI;
 import data.scripts.world.armada.api.CampaignArmadaEscortFleetPositionerAPI;
@@ -134,7 +132,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 					waypoint_controller.run();
 					change_state( JOURNEYING_LIKE_A_BOSS );
 					notifyListeners( "JOURNEYING_LIKE_A_BOSS" );
-					_.L("armada created");
+					_.debug("armada created");
 				}
 				break;
 			
@@ -148,7 +146,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 					escort_fleets = null;
 					change_state( NON_EXISTENT );
 					notifyListeners( "NON_EXISTENT" );
-					_.L("armada leader destroyed; escorts scatter");
+					_.debug("armada leader destroyed; escorts scatter");
 					break;
 				}
 				update_fleets( amount );

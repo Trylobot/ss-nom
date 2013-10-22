@@ -1,6 +1,5 @@
 package data.scripts.plugins;
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.combat.ArmorGridAPI;
 import com.fs.starfarer.api.combat.CollisionClass;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.CombatEnginePlugin;
@@ -9,14 +8,11 @@ import com.fs.starfarer.api.combat.MissileAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
-import data.scripts._;
-import data.scripts.misc.Utils;
-import java.util.Arrays;
+import data.scripts.trylobot._;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
-import org.lwjgl.util.vector.Vector2f;
 
 public class TheNomadsRetributionWeaponPlugin implements CombatEnginePlugin, EveryFrameCombatPlugin
 {
@@ -105,7 +101,7 @@ public class TheNomadsRetributionWeaponPlugin implements CombatEnginePlugin, Eve
 			MissileAPI missile = (MissileAPI) entry.getKey();
 			ShipAPI launching_hulk = (ShipAPI) entry.getValue();
 			{
-				if( Utils.get_distance_squared( missile.getLocation(), launching_hulk.getLocation() ) >= RETRIBUTION_ARM_DISTANCE_SQUARED )
+				if( _.get_distance_squared( missile.getLocation(), launching_hulk.getLocation() ) >= RETRIBUTION_ARM_DISTANCE_SQUARED )
 				{
 					// set the collision class of the missile so that it can collide with things again
 					missile.setCollisionClass( CollisionClass.MISSILE_NO_FF );

@@ -16,7 +16,7 @@ import com.fs.starfarer.api.campaign.SectorGeneratorPlugin;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.fleet.FleetMemberType;
-import data.scripts._;
+import data.scripts.trylobot._;
 import data.scripts.world.armada.CampaignArmadaController;
 import data.scripts.world.armada.CampaignArmadaController.CampaignArmadaControllerEvent;
 import data.scripts.world.armada.CampaignArmadaController.CampaignArmadaControllerEventListener;
@@ -360,7 +360,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 			if( count == 0 )
 			{
 				station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.SHIP, "nom_oasis_standard" ));
-				_.L("added OASIS to station cargo");
+				_.debug("added OASIS to station cargo");
 			}
 		}
 		// Oasis is in play; be patient! T_T
@@ -374,7 +374,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 				if( "nom_oasis".equals( ship.getHullId() ))
 				{
 					station_ships.removeFleetMember( ship );
-					_.L("removed OASIS from station cargo");
+					_.debug("removed OASIS from station cargo");
 				}
 			}
 		}

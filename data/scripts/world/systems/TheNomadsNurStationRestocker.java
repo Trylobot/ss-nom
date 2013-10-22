@@ -7,9 +7,8 @@ import com.fs.starfarer.api.campaign.FleetDataAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.fleet.FleetMemberType;
-import data.scripts._;
+import data.scripts.trylobot._;
 import java.util.Iterator;
-import java.util.ArrayList;
 import java.util.List;
 
 public class TheNomadsNurStationRestocker implements EveryFrameScript
@@ -70,7 +69,7 @@ public class TheNomadsNurStationRestocker implements EveryFrameScript
 					orbital_station.getCargo().getMothballedShips().addFleetMember(
 					  Global.getFactory().createFleetMember(
 						restock_ship_types[i], restock_ship_variant_or_wing_ids[i] ));
-					_.L("  ADDED mothballed ship "+restock_ship_variant_or_wing_ids[i]+" to station cargo");
+					_.debug("  ADDED mothballed ship "+restock_ship_variant_or_wing_ids[i]+" to station cargo");
 				}
 				else if( stock > restock_ship_count_cap[i] )
 				{

@@ -1,12 +1,9 @@
 package data.hullmods;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.CargoAPI;
-import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
-import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import data.hullmods.base.BaseFleetEffectHullMod;
-import data.scripts._;
 import java.util.Hashtable;
 
 

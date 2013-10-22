@@ -5,10 +5,8 @@ import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.characters.PersonAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import data.hullmods.BaseHullMod;
-import data.scripts._;
 import java.util.Hashtable;
 import java.util.Iterator;
-import java.util.Map;
 
 public abstract class BaseFleetEffectHullMod extends BaseHullMod
 {

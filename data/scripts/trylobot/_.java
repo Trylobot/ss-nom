@@ -1,11 +1,15 @@
-package data.scripts.misc;
+package data.scripts.trylobot;
 import com.fs.starfarer.api.Global;
 import data.scripts.math.FastTrig;
 import java.util.Random;
 import org.lwjgl.util.vector.Vector2f;
-// original author: LazyWizard
+// original authors:
+//   JeffK
+//   LazyWizard
+// additional contributions/modifications by:
+//   Trylobot
 
-public class Utils
+public class _
 {
 	private static final Random rand = new Random();
 	
@@ -59,5 +63,20 @@ public class Utils
 		{
 			return false;
 		}		
+	}
+	
+	public static void debug( String message )
+	{
+		if( Global.getSettings().isDevMode() )
+		{
+			Class caller_class = sun.reflect.Reflection.getCallerClass( 2 );
+			Global.getLogger( caller_class ).debug( message );
+		}
+	}
+	
+	public static void print( String message )
+	{
+		Class caller_class = sun.reflect.Reflection.getCallerClass( 2 );
+		Global.getLogger( caller_class ).debug( message );
 	}
 }

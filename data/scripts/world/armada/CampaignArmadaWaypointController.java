@@ -7,7 +7,7 @@ import com.fs.starfarer.api.campaign.LocationAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
-import data.scripts._;
+import data.scripts.trylobot._;
 import data.scripts.world.armada.api.CampaignArmadaAPI;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -94,7 +94,7 @@ public class CampaignArmadaWaypointController implements Script
 //		waypoint_pool.addAll( system.getAsteroids() ); // need to reduce the weight of these, somehow
 		if( waypoint_pool.isEmpty() )
 		{
-			_.L("could not find any stars, planets, stations, asteroids or jump-buoys in LocationAPI "+(location instanceof StarSystemAPI ? ((StarSystemAPI)location).getName() : "Hyperspace"));
+			_.debug("could not find any stars, planets, stations, asteroids or jump-buoys in LocationAPI "+(location instanceof StarSystemAPI ? ((StarSystemAPI)location).getName() : "Hyperspace"));
 			return;
 		}
 		// randomize pool order

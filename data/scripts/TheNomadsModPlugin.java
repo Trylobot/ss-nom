@@ -2,10 +2,8 @@ package data.scripts;
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.SectorAPI;
-import data.scripts.misc.Utils;
+import data.scripts.trylobot._;
 import data.scripts.world.systems.TheNomadsNur;
-import data.scripts.plugins.TheNomadsCombatEnginePlugin;
-import data.scripts.plugins.TheNomadsRetributionWeaponPlugin;
 
 public class TheNomadsModPlugin extends BaseModPlugin
 {
@@ -24,7 +22,7 @@ public class TheNomadsModPlugin extends BaseModPlugin
 	
 	private void init()
 	{
-		if( Utils.can_be_loaded( "data.scripts.world.ExerelinGen" ))
+		if( _.can_be_loaded( "data.scripts.world.ExerelinGen" ))
 			return;
 		
 		// normal stand-alone mode

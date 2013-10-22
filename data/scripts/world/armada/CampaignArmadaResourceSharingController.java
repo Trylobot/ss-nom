@@ -6,7 +6,7 @@ import com.fs.starfarer.api.campaign.CargoAPI;
 import com.fs.starfarer.api.campaign.CargoAPI.CrewXPLevel;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
-import data.scripts._;
+import data.scripts.trylobot._;
 import data.scripts.world.armada.api.CampaignArmadaAPI;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -124,17 +124,17 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 		//   all source fleets contribute a number of resources. the actual number will vary such that donated percentages of total fleet resources are equal
 		if( available_crew > 0     && needed_crew > 0 )
 		{
-			_.L("redistributing "+available_crew+" crew from "+generous_fleets.size()+" fleets to "+jeopardized_fleets.size()+" fleets.");
+			_.debug("redistributing "+available_crew+" crew from "+generous_fleets.size()+" fleets to "+jeopardized_fleets.size()+" fleets.");
 			redistribute_crew( available_crew, generous_fleets, needed_crew, jeopardized_fleets );
 		}
 		if( available_supplies > 0 && needed_supplies > 0 )
 		{
-			_.L("redistributing "+available_supplies+" supplies from "+generous_fleets.size()+" fleets to "+jeopardized_fleets.size()+" fleets.");
+			_.debug("redistributing "+available_supplies+" supplies from "+generous_fleets.size()+" fleets to "+jeopardized_fleets.size()+" fleets.");
 			redistribute_supplies( available_supplies, generous_fleets, needed_supplies, jeopardized_fleets );
 		}
 		if( available_fuel > 0     && needed_fuel > 0 )
 		{
-			_.L("redistributing "+available_fuel+" fuel from "+generous_fleets.size()+" fleets to "+jeopardized_fleets.size()+" fleets.");
+			_.debug("redistributing "+available_fuel+" fuel from "+generous_fleets.size()+" fleets to "+jeopardized_fleets.size()+" fleets.");
 			redistribute_fuel( available_fuel, generous_fleets, needed_fuel, jeopardized_fleets );
 		}		
 	}
@@ -485,7 +485,7 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 			}
 		}
 		if( VERBOSE_LOGGING && cheated_fleets > 0 )
-			_.L("CONJURED resources for "+cheated_fleets+" fleets; "+cheated_crew+" crew, "+cheated_supplies+" supplies, and "+cheated_fuel+" fuel");
+			_.debug("CONJURED resources for "+cheated_fleets+" fleets; "+cheated_crew+" crew, "+cheated_supplies+" supplies, and "+cheated_fuel+" fuel");
 	}
 	
 	private void log_stats_verbose()
@@ -502,7 +502,7 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 			  .append(String.format("%1$50s", new Object[]{ ef.getCargo().getSupplies()+"/"+ef.getCargo().getMaxCapacity()+" supplies" }))
 			  .append(String.format("%1$50s", new Object[]{ ef.getCargo().getFuel()+"/"+ef.getCargo().getMaxFuel()+" fuel" }));
 		}
-		_.L(sb.toString());
+		_.debug(sb.toString());
 	}
 	
 

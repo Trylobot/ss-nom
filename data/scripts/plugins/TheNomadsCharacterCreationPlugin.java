@@ -8,7 +8,7 @@ import com.fs.starfarer.api.campaign.CargoAPI.CrewXPLevel;
 import com.fs.starfarer.api.characters.CharacterCreationPlugin;
 import com.fs.starfarer.api.characters.MutableCharacterStatsAPI;
 import com.fs.starfarer.api.fleet.FleetMemberType;
-import data.scripts.misc.Utils;
+import data.scripts.trylobot._;
 
 public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 {
@@ -19,8 +19,8 @@ public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 		// automatic yield of control pass-through in case of conflict: 
 		//   Exerelin
 		//   Uomoz's Sector: Journey
-		if( Utils.can_be_loaded( "data.scripts.world.ExerelinGen" )
-		||  Utils.can_be_loaded( "data.scripts.UsSModPlugin" ))
+		if( _.can_be_loaded( "data.scripts.world.ExerelinGen" )
+		||  _.can_be_loaded( "data.scripts.UsSModPlugin" ))
 		{
 			try
 			{

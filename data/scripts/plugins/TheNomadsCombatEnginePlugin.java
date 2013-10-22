@@ -5,9 +5,8 @@ import com.fs.starfarer.api.combat.CombatFleetManagerAPI;
 import com.fs.starfarer.api.combat.EveryFrameCombatPlugin;
 import com.fs.starfarer.api.fleet.FleetGoal;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
-import com.fs.starfarer.api.input.InputEventAPI;
 import com.fs.starfarer.api.mission.FleetSide;
-import data.scripts._;
+import data.scripts.trylobot._;
 import java.util.Iterator;
 import java.util.List;
 import org.lwjgl.util.vector.Vector2f;
@@ -58,7 +57,7 @@ public class TheNomadsCombatEnginePlugin implements CombatEnginePlugin, EveryFra
 				}
 				catch( NullPointerException e )
 				{
-					_.L("NullPointerException in CombatFleetManagerAPI.spawnShipOrWing for "+ship.getSpecId());
+					_.debug("NullPointerException in CombatFleetManagerAPI.spawnShipOrWing for "+ship.getSpecId());
 				}
 			}
 		}		

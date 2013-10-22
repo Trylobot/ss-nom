@@ -3,7 +3,7 @@ import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.EveryFrameWeaponEffectPlugin;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
-import data.scripts.misc.Utils;
+import data.scripts.trylobot._;
 import java.awt.Color;
 import org.lwjgl.util.vector.Vector2f;
 
@@ -30,21 +30,21 @@ public class TheNomadsSolarCrucibleChargeupEffect implements EveryFrameWeaponEff
 			// explosion (frame 0 only)
 			if( progress == 0.0f )
 			{
-				Vector2f explosion_offset = Utils.translate_polar( weapon_location, OFFSET + ((0.25f * 150f) - 2f), ship.getFacing() );
+				Vector2f explosion_offset = _.translate_polar( weapon_location, OFFSET + ((0.25f * 150f) - 2f), ship.getFacing() );
 				engine.spawnExplosion( explosion_offset, ship.getVelocity(), MUZZLE_FLASH_COLOR, 150f, 0.3f );
 			}
             // particles
-            Vector2f particle_offset = Utils.translate_polar( weapon_location, OFFSET, ship.getFacing() );
+            Vector2f particle_offset = _.translate_polar( weapon_location, OFFSET, ship.getFacing() );
             float size, speed, angle;
             Vector2f velocity;
 			// more particles to start with, fewer later on
 			int particle_count_this_frame = (int)(2f * (FIRING_DURATION - progress));
             for (int x = 0; x < particle_count_this_frame; x++)
             {
-				size = Utils.get_random( 1f, 10f );
-                speed = Utils.get_random( 200f, 800f );
-                angle = ship.getFacing() + Utils.get_random( -20f, 20f );
-                velocity = Utils.translate_polar( ship.getVelocity(), speed, angle );
+				size = _.get_random( 1f, 10f );
+                speed = _.get_random( 200f, 800f );
+                angle = ship.getFacing() + _.get_random( -20f, 20f );
+                velocity = _.translate_polar( ship.getVelocity(), speed, angle );
                 engine.addHitParticle( particle_offset, velocity, size, 1.0f, 0.25f, PARTICLE_COLOR );
             }
 			progress += amount;
