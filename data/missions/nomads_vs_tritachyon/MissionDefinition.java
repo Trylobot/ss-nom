@@ -18,11 +18,10 @@ public class MissionDefinition implements MissionDefinitionPlugin
 		api.initFleet(FleetSide.ENEMY, "TTS", FleetGoal.ATTACK, true);
 		api.setFleetTagline(FleetSide.ENEMY, "Tri-Tachyon Security Outpost Ambush Fleet");
 		
-		// 540 point fleet
+		// 518 point fleet
 		api.addToFleet(FleetSide.PLAYER, "nom_oasis_standard", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_gila_monster_antibattleship", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_gila_monster_antibattleship", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.PLAYER, "nom_sandstorm_assault", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_sandstorm_assault", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_sandstorm_assault", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_sandstorm_assault", FleetMemberType.SHIP, true);

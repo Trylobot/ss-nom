@@ -18,11 +18,10 @@ public class MissionDefinition implements MissionDefinitionPlugin
 		api.initFleet(FleetSide.PLAYER, "HSS", FleetGoal.ATTACK, false);
 		api.setFleetTagline(FleetSide.PLAYER, "Hegemony Corporate Shipyard Defense Fleet");
 		
-		// 540 point fleet
+		// 518 point fleet
 		api.addToFleet(FleetSide.ENEMY, "nom_oasis_standard", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.ENEMY, "nom_gila_monster_antibattleship", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.ENEMY, "nom_gila_monster_antibattleship", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.ENEMY, "nom_sandstorm_assault", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.ENEMY, "nom_sandstorm_assault", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.ENEMY, "nom_sandstorm_assault", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.ENEMY, "nom_sandstorm_assault", FleetMemberType.SHIP, true);
