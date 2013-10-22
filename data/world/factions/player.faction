@@ -2,10 +2,14 @@
 	"id":"player",
 	"portraits":{
 		"standard_male":[
-			"graphics/nom/portraits/portrait_nomad_female_01.png",
+			"graphics/nom/portraits/gorrem_chani_child.png",
+			"graphics/nom/portraits/gorrem_chani_young_adult.png",
+			"graphics/nom/portraits/gorrem_chani_priestess.png",
 		],
 		"standard_female":[
-			"graphics/nom/portraits/portrait_nomad_female_01.png",
+			"graphics/nom/portraits/gorrem_chani_child.png",
+			"graphics/nom/portraits/gorrem_chani_young_adult.png",
+			"graphics/nom/portraits/gorrem_chani_priestess.png",
 		],
 	},
 }

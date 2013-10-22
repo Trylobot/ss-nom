@@ -12,10 +12,10 @@ public class MissionDefinition implements MissionDefinitionPlugin
 	{
 		// Set up the fleets
 		api.initFleet(FleetSide.PLAYER, "NA", FleetGoal.ATTACK, false);
-		api.setFleetTagline(FleetSide.PLAYER, "The Nomad Armada");
+		api.setFleetTagline(FleetSide.PLAYER, "The Nomads (Demo Fleet)");
 		
-		api.initFleet(FleetSide.ENEMY, "TTS", FleetGoal.ATTACK, true);
-		api.setFleetTagline(FleetSide.ENEMY, "Hegemony Forces");
+		api.initFleet(FleetSide.ENEMY, "ISS", FleetGoal.ATTACK, true);
+		api.setFleetTagline(FleetSide.ENEMY, "Demo Forces");
 
 		// Set up the player's fleet
 		api.addToFleet(FleetSide.PLAYER, "nom_oasis_standard", FleetMemberType.SHIP, true);

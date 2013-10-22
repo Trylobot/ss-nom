@@ -24,7 +24,8 @@
       "weapons": {
         "WS0001": "nom_firecracker",
         "WS0002": "nom_twin_ultralight_electron_maser",
-        "WS0003": "nom_twin_ultralight_electron_maser"
+        "WS0003": "nom_twin_ultralight_electron_maser",
+        "WS0006": "nom_firecracker"
       }
     }
   ]

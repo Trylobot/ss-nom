@@ -14,8 +14,8 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.initFleet(FleetSide.PLAYER, "NA", FleetGoal.ATTACK, false);
 		api.setFleetTagline(FleetSide.PLAYER, "The Nomad Armada (Death Commandos)");
 		
-		api.initFleet(FleetSide.ENEMY, "TTS", FleetGoal.ATTACK, true);
-		api.setFleetTagline(FleetSide.ENEMY, "Hegemony Forces");
+		api.initFleet(FleetSide.ENEMY, "HSS", FleetGoal.ATTACK, true);
+		api.setFleetTagline(FleetSide.ENEMY, "Hegemony Battleship");
 
 
 		// Set up the player's fleet
