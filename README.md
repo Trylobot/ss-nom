@@ -16,5 +16,10 @@ Roadrunner (new ship)
       * need a fallback animation when distance is less than long dimension of sprite animation
       * should look like an invisible line between drone and ship
 
+Nomad Mining Rig
+  * has standard mining blasters/lasers
+  * has a push beam and a pull beam
+  * has the ability to call an asteroid apocalypse on the battlefield, probably destroying everything. (Yes.)
+
 Music
   * either combat, campaign or elsewhere: Sheherazade by wnm (edited for looping)
