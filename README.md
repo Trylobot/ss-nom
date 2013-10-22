@@ -2,7 +2,9 @@
 
 Roadrunner (new ship)
   * destroyer, light
-  * "sprinter" used for pursuit/harassment
+  * "sprinter" used for pursuit/harassment; performance should feel like a muscle car
+  * high forward acceleration, high top speed
+  * poor deceleration, poor turn acceleration, high mass
   * new long range + EMP weapon used similarly to the Tachyon Lance for disabling target engines
   * engine animation
     * create a multi-frame animation for the engine, which varies animation speed according to whether the ship is accelerating forward
