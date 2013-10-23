@@ -5,14 +5,14 @@
   "hullId": "nom_roadrunner",
   "hullMods": [
     "naeran_flux_shunts",
+    "fluxbreakers",
     "unstable_injector",
     "insulatedengine",
-    "fluxbreakers"
   ],
   "variantId": "nom_roadrunner_pursuit",
   "weaponGroups": [
     {
-      "autofire": false,
+      "autofire": true,
       "mode": "LINKED",
       "weapons": {
         "WS0003": "nom_twin_electron_maser",
@@ -21,7 +21,7 @@
       }
     },
     {
-      "autofire": false,
+      "autofire": true,
       "mode": "ALTERNATING",
       "weapons": {
         "WS0001": "nom_gamma_pulse_emp",

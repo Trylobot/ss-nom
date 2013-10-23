@@ -14,8 +14,8 @@
     -35.5,
     -78,
     -21,
-    -77.5,
-    19.5,
+    -78.5,
+    18,
     -49,
     38.5,
     -29.5,
@@ -71,10 +71,10 @@
     "WS0007": "nom_light_electron_maser"
   },
   "center": [
-    64,
+    69,
     82.5
   ],
-  "collisionRadius": 106.504692,
+  "collisionRadius": 106.542244,
   "engineSlots": [
     {
       "angle": 180,
@@ -135,36 +135,36 @@
   "viewOffset": 0,
   "weaponSlots": [
     {
-      "angle": 0,
+      "angle": -5.194429,
       "arc": 125,
       "id": "WS0001",
       "locations": [
-        55.5,
-        7.5
+        41,
+        -1.5
       ],
       "mount": "TURRET",
       "size": "MEDIUM",
       "type": "BUILT_IN"
     },
     {
-      "angle": 0,
+      "angle": 6.340192,
       "arc": 125,
       "id": "WS0002",
       "locations": [
-        45.5,
-        -19.5
+        12,
+        -40
       ],
       "mount": "TURRET",
       "size": "MEDIUM",
       "type": "BUILT_IN"
     },
     {
-      "angle": 0,
-      "arc": 75,
+      "angle": -6.709837,
+      "arc": 95.425468,
       "id": "WS0003",
       "locations": [
-        35,
-        -1.5
+        -2,
+        44
       ],
       "mount": "TURRET",
       "size": "LARGE",
@@ -175,8 +175,8 @@
       "arc": 267.562225,
       "id": "WS0004",
       "locations": [
-        -29,
-        28.5
+        -22,
+        31
       ],
       "mount": "TURRET",
       "size": "SMALL",
@@ -187,7 +187,7 @@
       "arc": 267.562225,
       "id": "WS0005",
       "locations": [
-        -55,
+        -47.5,
         -33
       ],
       "mount": "TURRET",
@@ -195,12 +195,24 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": 0,
-      "arc": 180,
+      "angle": -2.489553,
+      "arc": 227.924973,
       "id": "WS0006",
       "locations": [
-        12,
-        37.5
+        67.5,
+        2.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 4.763642,
+      "arc": 234.767014,
+      "id": "WS0007",
+      "locations": [
+        57,
+        -22
       ],
       "mount": "TURRET",
       "size": "SMALL",
@@ -208,28 +220,16 @@
     },
     {
       "angle": 0,
-      "arc": 180,
-      "id": "WS0007",
+      "arc": 41.112091,
+      "id": "DRONE_LAUNCHER",
       "locations": [
-        7.5,
-        -39.5
+        26,
+        0.5
       ],
-      "mount": "TURRET",
+      "mount": "HIDDEN",
       "size": "SMALL",
-      "type": "BUILT_IN"
-    },
-    {
-        "angle": 0,
-        "arc": 90,
-        "id": "DRONE_LAUNCHER",
-        "locations": [
-            15,
-            0
-        ],
-        "mount": "HIDDEN",
-        "size": "SMALL",
-        "type": "SYSTEM"
+      "type": "SYSTEM"
     }
   ],
-  "width": 128
+  "width": 138
 }
