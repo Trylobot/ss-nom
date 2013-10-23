@@ -217,6 +217,18 @@
       "mount": "TURRET",
       "size": "SMALL",
       "type": "BUILT_IN"
+    },
+    {
+        "angle": 0,
+        "arc": 90,
+        "id": "DRONE_LAUNCHER",
+        "locations": [
+            15,
+            0
+        ],
+        "mount": "HIDDEN",
+        "size": "SMALL",
+        "type": "SYSTEM"
     }
   ],
   "width": 128

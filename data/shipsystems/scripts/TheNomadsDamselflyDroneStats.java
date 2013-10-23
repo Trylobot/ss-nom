@@ -5,7 +5,7 @@ import com.fs.starfarer.api.plugins.ShipSystemStatsScript;
 
 public class TheNomadsDamselflyDroneStats implements ShipSystemStatsScript
 {
-	public static final float ENGINE_TOPSPEED_PERCENT = 15f;
+	public static final float ENGINE_TOPSPEED_PERCENT = 10f;
 	
 	public void apply(MutableShipStatsAPI stats, String id, ShipSystemStatsScript.State state, float effectLevel)
 	{

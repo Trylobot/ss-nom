@@ -17,7 +17,8 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.initFleet(FleetSide.ENEMY, "ISS", FleetGoal.ESCAPE, true);
 		api.setFleetTagline(FleetSide.ENEMY, "Independent Trader Convoy");
 
-
+		api.setHyperspaceMode( true );
+		
 		// Set up the player's fleet
 		api.addToFleet(FleetSide.PLAYER, "nom_roadrunner_pursuit", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_roadrunner_pursuit", FleetMemberType.SHIP, true);
