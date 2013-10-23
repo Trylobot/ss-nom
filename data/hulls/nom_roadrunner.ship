@@ -1,0 +1,223 @@
+{
+  "bounds": [
+    5,
+    -39,
+    -3,
+    -45.5,
+    -27,
+    -34.5,
+    -25,
+    -49.5,
+    -49.5,
+    -45,
+    -43,
+    -35.5,
+    -78,
+    -21,
+    -77.5,
+    19.5,
+    -49,
+    38.5,
+    -29.5,
+    43.5,
+    -26.5,
+    26,
+    -13.5,
+    48.5,
+    -2.5,
+    50.5,
+    4.5,
+    62.5,
+    23,
+    59,
+    33.5,
+    43,
+    57,
+    30,
+    42,
+    28,
+    78,
+    20.5,
+    82.5,
+    16,
+    70,
+    7.5,
+    70,
+    -4,
+    99.5,
+    -5.5,
+    92.5,
+    -12.5,
+    66,
+    -17.5,
+    65.5,
+    -26.5,
+    62,
+    -32,
+    41,
+    -37,
+    18.5,
+    -51.5,
+    2.5,
+    -51.5
+  ],
+  "builtInWeapons": {
+    "WS0001": "nom_gamma_pulse_emp",
+    "WS0002": "nom_gamma_pulse_emp",
+    "WS0003": "nom_twin_electron_maser",
+    "WS0004": "nom_firecracker",
+    "WS0005": "nom_firecracker",
+    "WS0006": "nom_light_electron_maser",
+    "WS0007": "nom_light_electron_maser"
+  },
+  "center": [
+    64,
+    82.5
+  ],
+  "collisionRadius": 106.504692,
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 34,
+      "length": 72,
+      "location": [
+        -82.5,
+        12.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 34
+    },
+    {
+      "angle": 180,
+      "contrailSize": 34,
+      "length": 72,
+      "location": [
+        -82.5,
+        -12.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 34
+    },
+    {
+      "angle": 180,
+      "contrailSize": 9,
+      "length": 16,
+      "location": [
+        -67,
+        28.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 9
+    },
+    {
+      "angle": 180,
+      "contrailSize": 9,
+      "length": 16,
+      "location": [
+        -68,
+        -29.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 9
+    }
+  ],
+  "height": 184,
+  "hullId": "nom_roadrunner",
+  "hullName": "Roadrunner",
+  "hullSize": "DESTROYER",
+  "shieldCenter": [
+    9,
+    -0
+  ],
+  "shieldRadius": 95.532715,
+  "spriteName": "graphics/nom/ships/nom_roadrunner.png",
+  "style": "ANCIENT_NAERAN",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 0,
+      "arc": 125,
+      "id": "WS0001",
+      "locations": [
+        55.5,
+        7.5
+      ],
+      "mount": "TURRET",
+      "size": "MEDIUM",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 0,
+      "arc": 125,
+      "id": "WS0002",
+      "locations": [
+        45.5,
+        -19.5
+      ],
+      "mount": "TURRET",
+      "size": "MEDIUM",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 0,
+      "arc": 75,
+      "id": "WS0003",
+      "locations": [
+        35,
+        -1.5
+      ],
+      "mount": "TURRET",
+      "size": "LARGE",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 116.565048,
+      "arc": 267.562225,
+      "id": "WS0004",
+      "locations": [
+        -29,
+        28.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": -120.465546,
+      "arc": 267.562225,
+      "id": "WS0005",
+      "locations": [
+        -55,
+        -33
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 0,
+      "arc": 180,
+      "id": "WS0006",
+      "locations": [
+        12,
+        37.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 0,
+      "arc": 180,
+      "id": "WS0007",
+      "locations": [
+        7.5,
+        -39.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    }
+  ],
+  "width": 128
+}
