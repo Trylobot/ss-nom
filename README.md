@@ -2,8 +2,15 @@
 
 Roadrunner (new ship)
   * destroyer, light
-  * "sprinter" used for pursuit/harassment
+  * "sprinter" used for pursuit/harassment; performance should feel like a muscle car
+  * no shields, average armor
+  * high forward acceleration, high top speed
+  * poor deceleration, poor turn acceleration, high mass
   * new long range + EMP weapon used similarly to the Tachyon Lance for disabling target engines
+  * engine animation
+    * create a multi-frame animation for the engine, which varies animation speed according to whether the ship is accelerating forward
+    * forward thrust = fast anim speed, otherwise still animating but much slower
+    * 24 frames of animation, 2 per valve, valves overlap
   * streamlined/sleek shape while still asymmetric
     * look at "engines" on google images for inspiration; looking for aircraft-like twin engine design, should take up 50% of the ship
   * Tug Drones (ship system)
