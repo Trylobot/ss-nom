@@ -232,8 +232,8 @@
         -30,
         0
       ],
-      "mount": "HIDDEN",
-      "size": "SMALL",
+      "mount": "TURRET",
+      "size": "LARGE",
       "type": "SYSTEM"
     },
     ### there must be a separate anchor defined for each active damselfly drone

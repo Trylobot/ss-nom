@@ -5,6 +5,7 @@ import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.CombatEnginePlugin;
 import com.fs.starfarer.api.combat.EveryFrameCombatPlugin;
 import com.fs.starfarer.api.combat.ShipAPI;
+import com.fs.starfarer.api.combat.ShipEngineControllerAPI;
 import com.fs.starfarer.api.combat.ShipSystemAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
 import data.scripts.trylobot._;
@@ -18,30 +19,30 @@ import org.lwjgl.util.vector.Vector2f;
 public class TheNomadsRoadrunnerEngineFXPlugin implements CombatEnginePlugin, EveryFrameCombatPlugin
 {
 	private CombatEngineAPI engine;
-	private LinkedList tracker = new LinkedList();
+	private HashMap tracker = new HashMap();
 	private float accumulator = 0.0f;
 	private static final float MIN_EXPENSIVE_UPDATE_DELAY_SEC = 1.0f;
-	private static final float ENGINE_IDLE_FRAME_DELAY = 0.32f;
-	private static final float ENGINE_ACTIVE_FRAME_DELAY = 0.08f;
+	private static final float ENGINE_IDLE_FRAME_DELAY = 0.16f;
+	private static final float ENGINE_ACTIVE_FRAME_DELAY = 0.02f;
 	
 	////
 	
 	public class EngineFX
 	{
-		ShipAPI ship;
+		ShipEngineControllerAPI engine;
 		AnimationAPI engine_anim;
 		float accumulator = 0.0f;
 		
-		public EngineFX( ShipAPI ship, AnimationAPI engine_anim )
+		public EngineFX( ShipEngineControllerAPI engine, AnimationAPI engine_anim )
 		{
-			this.ship = ship;
+			this.engine = engine;
 			this.engine_anim = engine_anim;
 		}
 
 		public void advance( float amount )
 		{
 			accumulator += amount;
-			float frame_delay = ship.getEngineController().isAccelerating() ? ENGINE_ACTIVE_FRAME_DELAY : ENGINE_IDLE_FRAME_DELAY;
+			float frame_delay = engine.isAccelerating() ? ENGINE_ACTIVE_FRAME_DELAY : ENGINE_IDLE_FRAME_DELAY;
 			if( accumulator >= frame_delay )
 			{
 				accumulator -= frame_delay;
@@ -84,26 +85,36 @@ public class TheNomadsRoadrunnerEngineFXPlugin implements CombatEnginePlugin, Ev
 	
 	public void do_expensive_update()
 	{
-		tracker.clear();
 		for( Iterator s = engine.getShips().iterator(); s.hasNext(); )
 		{
 			ShipAPI ship = (ShipAPI) s.next();
-			if( ship == null || ship.isHulk() )
-				continue;
-			if( !"nom_roadrunner".equals( ship.getHullSpec().getHullId() ))
+			if( tracker.containsKey( ship ))
+				continue; // no need to re-add
+			if( ship == null || ship.isHulk() || !"nom_roadrunner".equals( ship.getHullSpec().getHullId() ))
 				continue;
 			WeaponAPI engine_fx = get_weapon_by_slot_name( ship, "engine_fx" );
-			if( engine_fx != null )
-				tracker.add( new EngineFX( ship, engine_fx.getAnimation() ));
+			if( engine_fx == null )
+				continue;
+			AnimationAPI anim = engine_fx.getAnimation();
+			if( anim == null )
+				continue;
+			tracker.put( ship, new EngineFX( ship.getEngineController(), anim ));
 		}
 	}
 	
 	public void do_cheap_update( float amount )
 	{
-		for( Iterator e = tracker.iterator(); e.hasNext(); )
+		for( Iterator e = tracker.entrySet().iterator(); e.hasNext(); )
 		{
-			EngineFX engine_fx = (EngineFX) e.next();
-			engine_fx.advance( amount );
+			Entry entry = (Entry) e.next();
+			ShipAPI ship = (ShipAPI) entry.getKey();
+			if( ship.isHulk() )
+			{
+				e.remove();
+				continue;
+			}
+			EngineFX fx = (EngineFX) entry.getValue();
+			fx.advance( amount );
 		}
 	}
 	

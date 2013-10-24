@@ -11,7 +11,7 @@
 	"hardpointAngleOffsets":[   0],
 	### the rest of these fields are obligatory but not really used
 	"specClass":"beam",
-	"size":"SMALL",
+	"size":"LARGE",
 	"fringeColor":[255,255,255,255],
 	"coreColor":[255,255,255,255],
 	"glowColor":[255,255,255,255],
