@@ -23,6 +23,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.addToFleet(FleetSide.PLAYER, "nom_roadrunner_pursuit", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_roadrunner_pursuit", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_roadrunner_pursuit", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.PLAYER, "nom_roadrunner_pursuit", FleetMemberType.SHIP, true);
 
 		// Set up the enemy fleet
 		api.addToFleet(FleetSide.ENEMY, "atlas_Standard", FleetMemberType.SHIP, true);
@@ -33,7 +34,6 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		api.addToFleet(FleetSide.ENEMY, "buffalo_Standard", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.ENEMY, "buffalo_Standard", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.ENEMY, "buffalo_Standard", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.ENEMY, "mule_Standard", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.ENEMY, "valkyrie_Elite", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.ENEMY, "valkyrie_Elite", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.ENEMY, "valkyrie_Elite", FleetMemberType.SHIP, true);
@@ -47,7 +47,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
 		
 		// Set up the map.
 		float width = 16000f;
-		float height = 20000f;
+		float height = 30000f;
 		api.initMap((float)-width/2f, (float)width/2f, (float)-height/2f, (float)height/2f);
 		
 		float minX = -width/2;

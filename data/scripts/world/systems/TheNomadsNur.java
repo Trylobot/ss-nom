@@ -142,7 +142,8 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 			"assassin", 
 			"royalGuard", 
 			"jihadFleet", 
-			"carrierGroup"
+			"carrierGroup",
+			"royalCommandFleet"
 		};
 		int[] escort_weights = {    
 			220,
@@ -151,7 +152,8 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 			185,
 			175,
 			125,
-			100
+			100,
+			75
 		};
 		// armada waypoint controller script
 		CampaignArmadaController nomad_armada =
@@ -277,6 +279,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 			"nom_scorpion_assault",
 			"nom_komodo_mk2_assault",
 			"nom_komodo_assault",
+			"nom_roadrunner_pursuit",
 			"nom_flycatcher_carrier",
 			"nom_yellowjacket_sniper",
 			"nom_death_bloom_strike",
@@ -287,6 +290,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 			"nom_scarab_wing"
 		};
 		FleetMemberType[] restock_ship_types = {       
+			FleetMemberType.SHIP,
 			FleetMemberType.SHIP,
 			FleetMemberType.SHIP,
 			FleetMemberType.SHIP,
@@ -310,6 +314,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 			2,
 			4,
 			4,
+			4,
 			2,
 			1,
 			5,
@@ -325,6 +330,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 			29.0f,
 			25.0f,
 			21.0f,
+			13.0f,
 			15.0f,
 			13.0f,
 			29.0f,
