@@ -1,25 +1,23 @@
 {
   "bounds": [
-    5,
-    -39,
-    -3,
-    -45.5,
-    -27,
-    -34.5,
-    -25,
-    -49.5,
-    -49.5,
+    -3.5,
     -45,
-    -43,
-    -35.5,
-    -78,
-    -21,
-    -78.5,
-    18,
+    -28.5,
+    -34.5,
+    -24.5,
     -49,
-    38.5,
-    -29.5,
-    43.5,
+    -49.5,
+    -46,
+    -43.5,
+    -35.5,
+    -100.5,
+    -22.5,
+    -100.5,
+    22.5,
+    -49,
+    36,
+    -31.5,
+    44,
     -26.5,
     26,
     -13.5,
@@ -59,11 +57,13 @@
     18.5,
     -51.5,
     2.5,
-    -51.5
+    -51.5,
+    5.5,
+    -39
   ],
   "center": [
     69,
-    82.5
+    102.5
   ],
   "collisionRadius": 106.542244,
   "engineSlots": [
@@ -72,8 +72,8 @@
       "contrailSize": 34,
       "length": 80,
       "location": [
-        -82.5,
-        12.5
+        -103.5,
+        14.5
       ],
       "style": "ANCIENT_NAERAN",
       "width": 34
@@ -83,18 +83,18 @@
       "contrailSize": 34,
       "length": 80,
       "location": [
-        -82.5,
-        -12.5
+        -103.5,
+        -14.5
       ],
       "style": "ANCIENT_NAERAN",
       "width": 34
     },
     {
       "angle": 165,
-      "contrailSize": 9,
-      "length": 18,
+      "contrailSize": 5,
+      "length": 14,
       "location": [
-        -68,
+        -76,
         29.5
       ],
       "style": "ANCIENT_NAERAN",
@@ -102,18 +102,17 @@
     },
     {
       "angle": 195,
-      "contrailSize": 9,
-      "length": 18,
+      "contrailSize": 5,
+      "length": 14,
       "location": [
-        -68,
+        -76,
         -29.5
       ],
       "style": "ANCIENT_NAERAN",
       "width": 9
     }
   ],
-  "height": 184,
-  "width": 138,
+  "height": 204,
   "hullId": "nom_roadrunner",
   "hullName": "Roadrunner",
   "hullSize": "DESTROYER",
@@ -275,4 +274,5 @@
     "tow_anchor_0": "nom_tow_cable_anchor",
     "tow_anchor_1": "nom_tow_cable_anchor",
   },
+  "width": 138
 }

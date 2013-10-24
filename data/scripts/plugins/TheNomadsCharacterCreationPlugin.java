@@ -324,6 +324,7 @@ public class TheNomadsCharacterCreationPlugin implements CharacterCreationPlugin
 				data.addStartingFleetMember("nom_rattlesnake_assault", FleetMemberType.SHIP);
 				data.addStartingFleetMember("nom_komodo_mk2_assault", FleetMemberType.SHIP);
 				data.addStartingFleetMember("nom_komodo_assault", FleetMemberType.SHIP);
+				data.addStartingFleetMember("nom_roadrunner_pursuit", FleetMemberType.SHIP);
 				data.addStartingFleetMember("nom_flycatcher_carrier", FleetMemberType.SHIP);
 				data.addStartingFleetMember("nom_death_bloom_strike", FleetMemberType.SHIP);
 				data.addStartingFleetMember("nom_yellowjacket_sniper", FleetMemberType.SHIP);
