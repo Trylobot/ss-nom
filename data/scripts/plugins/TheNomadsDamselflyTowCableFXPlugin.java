@@ -13,7 +13,10 @@ import org.lwjgl.util.vector.Vector2f;
 public class TheNomadsDamselflyTowCableFXPlugin implements CombatEnginePlugin, EveryFrameCombatPlugin
 {
 	private CombatEngineAPI engine;
-	
+	// TODO: optimize
+	//   interval, 1s: search for damselfly drones, search for tow anchors for each one, store them
+	//     TODO: make tow anchor initially invisible so that there won't be a one second glitch when they launch
+	//   every frame: update angle for tow cable
 	
 	public void init( CombatEngineAPI engine )
 	{
