@@ -18,13 +18,13 @@
     {
       "angle": 180,
       "contrailSize": 5,
-      "length": 16.5,
+      "length": 18,
       "location": [
         -11,
         -0
       ],
       "style": "ANCIENT_NAERAN",
-      "width": 5
+      "width": 7
     },
     {
       "angle": 180,
@@ -61,6 +61,17 @@
   "spriteName": "graphics/nom/ships/nom_damselfly.png",
   "style": "ANCIENT_NAERAN",
   "viewOffset": 0,
-  "weaponSlots": [],
-  "width": 19
+  "weaponSlots": [{
+    "angle":0,
+    "arc":360,
+    "id":"TOW_CABLE",
+    "locations":[0,0],
+    "mount":"TURRET",
+    "size":"SMALL",
+    "type":"SYSTEM"
+  }],
+  "width": 19,
+  "builtInWeapons":{
+    "TOW_CABLE":"nom_damselfly_tow_cable"
+  }
 }

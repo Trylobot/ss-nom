@@ -229,7 +229,31 @@
       "mount": "HIDDEN",
       "size": "SMALL",
       "type": "SYSTEM"
-    }
+    },
+    {
+      "angle": 0,
+      "arc": 0,
+      "id": "TOW_CABLE_ANCHOR_RIGHT",
+      "locations": [
+        38,
+        47.5
+      ],
+      "mount": "HIDDEN",
+      "size": "SMALL",
+      "type": "SYSTEM"
+    },
+    {
+      "angle": 0,
+      "arc": 0,
+      "id": "TOW_CABLE_ANCHOR_LEFT",
+      "locations": [
+        38,
+        -47.5
+      ],
+      "mount": "HIDDEN",
+      "size": "SMALL",
+      "type": "SYSTEM"
+    },
   ],
   "width": 138
 }
