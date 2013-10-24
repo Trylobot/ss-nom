@@ -36,7 +36,7 @@ public class TheNomadsDamselflyTowCableFXPlugin implements CombatEnginePlugin, E
 		{
 			do_cheap_update();
 		}
-		else
+		else // accumulator >= MIN_SEARCH_DELAY_SEC
 		{
 			accumulator -= MIN_SEARCH_DELAY_SEC;
 			do_expensive_update();
@@ -53,7 +53,7 @@ public class TheNomadsDamselflyTowCableFXPlugin implements CombatEnginePlugin, E
 			if( ship == null || ship.isHulk() )
 				continue;
 			ShipSystemAPI system = ship.getSystem();
-			if( !"nom_damselfly_drone".equals( system.getId() ))
+			if( system == null || !"nom_damselfly_drone".equals( system.getId() ))
 				continue;
 			// ship is alive and capable of launching damselflies
 			for( Iterator d = ship.getDeployedDrones().iterator(); d.hasNext(); )
@@ -79,9 +79,18 @@ public class TheNomadsDamselflyTowCableFXPlugin implements CombatEnginePlugin, E
 			Entry entry = (Entry) t.next();
 			WeaponAPI tow_cable = (WeaponAPI) entry.getKey();
 			WeaponAPI tow_anchor = (WeaponAPI) entry.getValue();
+			AnimationAPI anim = tow_cable.getAnimation();
+			if( tow_cable.getShip().isHulk() )
+			{
+				// drone death
+				t.remove();
+				anim.setFrame( 0 );
+				anim.pause();
+				continue;
+			}
+			// drone alive
 			float angle = _.get_angle( tow_cable.getLocation(), tow_anchor.getLocation() );
 			tow_cable.setCurrAngle( angle );
-			AnimationAPI anim = tow_cable.getAnimation();
 			anim.setFrame( 1 );
 			anim.pause();
 		}
@@ -109,7 +118,7 @@ public class TheNomadsDamselflyTowCableFXPlugin implements CombatEnginePlugin, E
 			if( "nom_tow_cable_anchor".equals( weapon.getId() ))
 			{
 				float distance_squared = _.get_distance_squared( tow_cable_source, weapon.getLocation() );
-				if( distance_squared < closest_anchor_distance_squared )
+				if( distance_squared <= closest_anchor_distance_squared )
 				{
 					closest_anchor = weapon;
 					closest_anchor_distance_squared = distance_squared;
