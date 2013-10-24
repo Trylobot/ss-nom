@@ -10,10 +10,8 @@ import com.fs.starfarer.api.combat.WeaponAPI;
 import data.scripts.trylobot._;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map.Entry;
-import org.lwjgl.util.vector.Vector2f;
 
 public class TheNomadsDamselflyTowCableFXPlugin implements CombatEnginePlugin, EveryFrameCombatPlugin
 {

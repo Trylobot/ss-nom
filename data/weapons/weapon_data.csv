@@ -19,5 +19,6 @@ Faux Plasma,nom_effect_faux_plasma,0,0,2500,,0,,0,0,0,0,0,ENERGY,0,,0,0,,,,,,,,1
 Retribution Launch System,nom_retribution_postmortem_launcher,0,0,999999,,3250,,300,5,0,0,0,ENERGY,0,,0,0,,,,,,,,2000,25,50,650,SYSTEM,1337114
 Habitat Ring,nom_decorative_oasis_habitat_ring,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,1337099
 Structural Support,nom_decorative_oasis_habitat_ring_structural_support_beam,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,1337098
+V24 Thunderdome Engine,nom_roadrunner_engine_fx,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,1337118
 Tow Cable,nom_damselfly_tow_cable,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,1337116
 Tow Cable Anchor,nom_tow_cable_anchor,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,1337117

@@ -210,20 +210,34 @@
       "size": "SMALL",
       "type": "BUILT_IN"
     },
+    ### drones pop out here
     {
       "angle": 0,
-      "arc": 41.112091,
+      "arc": 45,
       "id": "DRONE_LAUNCHER",
       "locations": [
         26,
-        0.5
+        0
+      ],
+      "mount": "HIDDEN",
+      "size": "SMALL",
+      "type": "SYSTEM"
+    },
+    ### this is for the engine fx
+    {
+      "angle": 0,
+      "arc": 0,
+      "id": "engine_fx",
+      "locations": [
+        -30,
+        0
       ],
       "mount": "HIDDEN",
       "size": "SMALL",
       "type": "SYSTEM"
     },
     ### there must be a separate anchor defined for each active damselfly drone
-    ### and they must be named according to the convention "tow_anchor_N"
+    ### and the slots must be named according to the convention "tow_anchor_N"
     {
       "angle": 0,
       "arc": 0,
@@ -257,6 +271,7 @@
     "WS0005": "nom_firecracker",
     "WS0006": "nom_light_electron_maser",
     "WS0007": "nom_light_electron_maser",
+    "engine_fx": "nom_roadrunner_engine_fx",
     "tow_anchor_0": "nom_tow_cable_anchor",
     "tow_anchor_1": "nom_tow_cable_anchor",
   },

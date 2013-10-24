@@ -12,7 +12,7 @@
   "variantId": "nom_roadrunner_pursuit",
   "weaponGroups": [
     {
-      "autofire": true,
+      "autofire": false,
       "mode": "LINKED",
       "weapons": {
         "WS0003": "nom_twin_electron_maser",
@@ -21,7 +21,7 @@
       }
     },
     {
-      "autofire": true,
+      "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
         "WS0001": "nom_gamma_pulse_emp",
