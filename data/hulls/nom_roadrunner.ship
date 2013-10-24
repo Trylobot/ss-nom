@@ -61,17 +61,6 @@
     2.5,
     -51.5
   ],
-  "builtInWeapons": {
-    "WS0001": "nom_gamma_pulse_emp",
-    "WS0002": "nom_gamma_pulse_emp",
-    "WS0003": "nom_twin_electron_maser",
-    "WS0004": "nom_firecracker",
-    "WS0005": "nom_firecracker",
-    "WS0006": "nom_light_electron_maser",
-    "WS0007": "nom_light_electron_maser",
-    "TOW_CABLE_ANCHOR_RIGHT": "nom_tow_cable_anchor",
-    "TOW_CABLE_ANCHOR_LEFT": "nom_tow_cable_anchor",
-  },
   "center": [
     69,
     82.5
@@ -81,7 +70,7 @@
     {
       "angle": 180,
       "contrailSize": 34,
-      "length": 72,
+      "length": 80,
       "location": [
         -82.5,
         12.5
@@ -92,7 +81,7 @@
     {
       "angle": 180,
       "contrailSize": 34,
-      "length": 72,
+      "length": 80,
       "location": [
         -82.5,
         -12.5
@@ -124,6 +113,7 @@
     }
   ],
   "height": 184,
+  "width": 138,
   "hullId": "nom_roadrunner",
   "hullName": "Roadrunner",
   "hullSize": "DESTROYER",
@@ -232,10 +222,12 @@
       "size": "SMALL",
       "type": "SYSTEM"
     },
+    ### there must be a separate anchor defined for each active damselfly drone
+    ### and they must be named according to the convention "tow_anchor_N"
     {
       "angle": 0,
       "arc": 0,
-      "id": "TOW_CABLE_ANCHOR_RIGHT",
+      "id": "tow_anchor_0", # LEFT
       "locations": [
         38,
         47.5
@@ -247,7 +239,7 @@
     {
       "angle": 0,
       "arc": 0,
-      "id": "TOW_CABLE_ANCHOR_LEFT",
+      "id": "tow_anchor_1", # RIGHT
       "locations": [
         38,
         -47.5
@@ -257,5 +249,15 @@
       "type": "SYSTEM"
     },
   ],
-  "width": 138
+  "builtInWeapons": {
+    "WS0001": "nom_gamma_pulse_emp",
+    "WS0002": "nom_gamma_pulse_emp",
+    "WS0003": "nom_twin_electron_maser",
+    "WS0004": "nom_firecracker",
+    "WS0005": "nom_firecracker",
+    "WS0006": "nom_light_electron_maser",
+    "WS0007": "nom_light_electron_maser",
+    "tow_anchor_0": "nom_tow_cable_anchor",
+    "tow_anchor_1": "nom_tow_cable_anchor",
+  },
 }

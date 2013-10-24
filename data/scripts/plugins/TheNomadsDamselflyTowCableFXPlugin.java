@@ -21,6 +21,7 @@ public class TheNomadsDamselflyTowCableFXPlugin implements CombatEnginePlugin, E
 	private HashMap tow_cable_to_anchor_map = new HashMap();
 	private float accumulator = 0.0f;
 	private static final float MIN_SEARCH_DELAY_SEC = 1.0f;
+	private static final float MIN_SQUARED_DISTANCE_TO_SHOW_CABLE = 50.0f * 50.0f;
 	
 	public void init( CombatEngineAPI engine )
 	{
@@ -56,6 +57,7 @@ public class TheNomadsDamselflyTowCableFXPlugin implements CombatEnginePlugin, E
 			if( system == null || !"nom_damselfly_drone".equals( system.getId() ))
 				continue;
 			// ship is alive and capable of launching damselflies
+			int N = 0;
 			for( Iterator d = ship.getDeployedDrones().iterator(); d.hasNext(); )
 			{
 				ShipAPI drone = (ShipAPI) d.next();
@@ -64,9 +66,11 @@ public class TheNomadsDamselflyTowCableFXPlugin implements CombatEnginePlugin, E
 				WeaponAPI tow_cable = get_tow_cable( drone );
 				if( tow_cable == null )
 					continue;
-				WeaponAPI tow_anchor = get_nearest_tow_anchor( drone.getLocation(), ship );
+				//WeaponAPI tow_anchor = get_nearest_tow_anchor( drone.getLocation(), ship );
+				WeaponAPI tow_anchor = get_weapon_by_slot_name( ship, "tow_anchor_"+N );
 				if( tow_anchor == null )
 					continue;
+				++N;
 				tow_cable_to_anchor_map.put( tow_cable, tow_anchor );
 			}
 		}
@@ -84,15 +88,24 @@ public class TheNomadsDamselflyTowCableFXPlugin implements CombatEnginePlugin, E
 			{
 				// drone death
 				t.remove();
-				anim.setFrame( 0 );
+				anim.setFrame( 0 ); // hide cable
 				anim.pause();
 				continue;
 			}
 			// drone alive
-			float angle = _.get_angle( tow_cable.getLocation(), tow_anchor.getLocation() );
-			tow_cable.setCurrAngle( angle );
-			anim.setFrame( 1 );
-			anim.pause();
+			float distance_squared = _.get_distance_squared( tow_cable.getLocation(), tow_anchor.getLocation() );
+			if( distance_squared >= MIN_SQUARED_DISTANCE_TO_SHOW_CABLE )
+			{
+				float angle = _.get_angle( tow_cable.getLocation(), tow_anchor.getLocation() );
+				tow_cable.setCurrAngle( angle );
+				anim.setFrame( 1 ); // show cable
+				anim.pause();
+			}
+			else
+			{
+				anim.setFrame( 0 ); // hide cable
+				anim.pause();
+			}
 		}
 	}
 	
@@ -108,7 +121,20 @@ public class TheNomadsDamselflyTowCableFXPlugin implements CombatEnginePlugin, E
 		return null;
 	}
 	
-	public WeaponAPI get_nearest_tow_anchor( Vector2f tow_cable_source, ShipAPI ship_attached_to )
+	public WeaponAPI get_weapon_by_slot_name( ShipAPI ship, String slot_name )
+	{
+		for( Iterator w = ship.getAllWeapons().iterator(); w.hasNext(); )
+		{
+			WeaponAPI weapon = (WeaponAPI) w.next();
+			if( slot_name.equals( weapon.getSlot().getId() ))
+			{
+				return weapon;
+			}
+		}
+		return null;
+	}
+	
+	/*public WeaponAPI get_nearest_tow_anchor( Vector2f tow_cable_source, ShipAPI ship_attached_to )
 	{
 		WeaponAPI closest_anchor = null;
 		float closest_anchor_distance_squared = Float.MAX_VALUE;
@@ -126,5 +152,5 @@ public class TheNomadsDamselflyTowCableFXPlugin implements CombatEnginePlugin, E
 			}
 		}
 		return closest_anchor;
-	}
+	}*/
 }
