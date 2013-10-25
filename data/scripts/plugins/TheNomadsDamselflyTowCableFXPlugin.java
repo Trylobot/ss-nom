@@ -96,7 +96,7 @@ public class TheNomadsDamselflyTowCableFXPlugin implements CombatEnginePlugin, E
 			{
 				float angle = _.get_angle( tow_cable.getLocation(), tow_anchor.getLocation() );
 				tow_cable.setCurrAngle( angle );
-				anim.setFrame( 1 ); // show cable
+				anim.setFrame( 1 + (((int)(Math.abs(angle))) % 4) ); // show cable using frame that changes as it rotates
 				anim.pause();
 			}
 			else

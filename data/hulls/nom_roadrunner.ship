@@ -67,27 +67,29 @@
   ],
   "collisionRadius": 106.542244,
   "engineSlots": [
+    ### BIGGIE
     {
       "angle": 180,
-      "contrailSize": 34,
-      "length": 80,
+      "contrailSize": 40,
+      "length": 110,
       "location": [
         -103.5,
         14.5
       ],
       "style": "ANCIENT_NAERAN",
-      "width": 34
+      "width": 50
     },
+    ### BIGGIE
     {
       "angle": 180,
-      "contrailSize": 34,
-      "length": 80,
+      "contrailSize": 40,
+      "length": 110,
       "location": [
         -103.5,
         -14.5
       ],
       "style": "ANCIENT_NAERAN",
-      "width": 34
+      "width": 50
     },
     {
       "angle": 165,
@@ -228,7 +230,7 @@
       "arc": 0,
       "id": "engine_fx",
       "locations": [
-        -30,
+        -50.5,
         0
       ],
       "mount": "TURRET",
