@@ -1,32 +1,12 @@
 **TO DO:**
 
-Roadrunner (new ship)
-  * destroyer, light
-  * "sprinter" used for pursuit/harassment; performance should feel like a muscle car
-  * no shields, average armor
-  * high forward acceleration, high top speed
-  * poor deceleration, poor turn acceleration, high mass
-  * new long range + EMP weapon used similarly to the Tachyon Lance for disabling target engines
-  * engine animation
-    * create a multi-frame animation for the engine, which varies animation speed according to whether the ship is accelerating forward
-    * forward thrust = fast anim speed, otherwise still animating but much slower
-    * 24 frames of animation, 2 per valve, valves overlap
-  * streamlined/sleek shape while still asymmetric
-    * look at "engines" on google images for inspiration; looking for aircraft-like twin engine design, should take up 50% of the ship
-  * Tug Drones (ship system)
-    * grant top-speed bonus to ship for each active drone
-    * 2x drones fly in formation with ship, and a visible tow-line effect
-      * each drone has a specific attachment point on the ship
-      * drone and ship each have decorative weapon with multi-frame sprite animation
-      * look at "spiderweb lens flare" for the desired effect in the animation
-      * animation frame is determined by angle between attachment points
-      * need a fallback animation when distance is less than long dimension of sprite animation
-      * should look like an invisible line between drone and ship
+Lore
+  * text descriptions for all things that are missing one
+  * long descriptions for all ships, with a cutoff at the appropriate place to fit in the two possible display areas
 
-Nomad Mining Rig
-  * has standard mining blasters/lasers
-  * has a push beam and a pull beam
-  * has the ability to call an asteroid apocalypse on the battlefield, probably destroying everything. (Yes.)
+Balance
+  * roadrunner - enact a peak active timer like the Medusa
+  * general shield efficacy + vent time audit on all ships
 
 Music
   * either combat, campaign or elsewhere: Sheherazade by wnm (edited for looping)
