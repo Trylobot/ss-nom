@@ -22,19 +22,27 @@ public class TheNomadsRoadrunnerEngineFXPlugin implements CombatEnginePlugin, Ev
 	private HashMap tracker = new HashMap();
 	private float accumulator = 0.0f;
 	private static final float MIN_EXPENSIVE_UPDATE_DELAY_SEC = 1.0f;
-	private static final float ENGINE_IDLE_FRAME_DELAY = 0.16f;
-	private static final float ENGINE_ACTIVE_FRAME_DELAY = 0.02f;
+	
+	private static final float ENGINE_MIN_FPS__FRAME_DELAY = 1f / 10f;
+	private static final float ENGINE_MAX_FPS__FRAME_DELAY = 1f / 100f;
+	private static final float SPEED_DETECT_MIN = 10f;
+	private static final float SPEED_DETECT_MAX = 230f;
 	
 	////
 	
 	public class EngineFX
 	{
+		ShipAPI ship;
 		ShipEngineControllerAPI engine;
 		AnimationAPI engine_anim;
 		float accumulator = 0.0f;
 		
-		public EngineFX( ShipEngineControllerAPI engine, AnimationAPI engine_anim )
+		public EngineFX(
+		  ShipAPI ship,
+		  ShipEngineControllerAPI engine,
+		  AnimationAPI engine_anim )
 		{
+			this.ship = ship;
 			this.engine = engine;
 			this.engine_anim = engine_anim;
 		}
@@ -42,7 +50,19 @@ public class TheNomadsRoadrunnerEngineFXPlugin implements CombatEnginePlugin, Ev
 		public void advance( float amount )
 		{
 			accumulator += amount;
-			float frame_delay = engine.isAccelerating() ? ENGINE_ACTIVE_FRAME_DELAY : ENGINE_IDLE_FRAME_DELAY;
+			float frame_delay = ENGINE_MIN_FPS__FRAME_DELAY;
+			if( engine.isAccelerating() )
+			{
+				float speed = ship.getVelocity().length();
+				float pct = 0f;
+				if( speed >= SPEED_DETECT_MIN && speed <= SPEED_DETECT_MAX  )
+					pct = (speed - SPEED_DETECT_MIN) / SPEED_DETECT_MAX;
+				else if( speed >= SPEED_DETECT_MIN )
+					pct = 1f;
+				//else
+				//  pct = 0f;
+				frame_delay = ENGINE_MAX_FPS__FRAME_DELAY + ((1 - pct) * (ENGINE_MIN_FPS__FRAME_DELAY - ENGINE_MAX_FPS__FRAME_DELAY));
+			}
 			if( accumulator >= frame_delay )
 			{
 				accumulator -= frame_delay;
@@ -98,7 +118,7 @@ public class TheNomadsRoadrunnerEngineFXPlugin implements CombatEnginePlugin, Ev
 			AnimationAPI anim = engine_fx.getAnimation();
 			if( anim == null )
 				continue;
-			tracker.put( ship, new EngineFX( ship.getEngineController(), anim ));
+			tracker.put( ship, new EngineFX( ship, ship.getEngineController(), anim ));
 		}
 	}
 	
