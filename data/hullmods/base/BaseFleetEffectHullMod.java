@@ -7,19 +7,27 @@ import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import data.hullmods.BaseHullMod;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.Map;
 
 public abstract class BaseFleetEffectHullMod extends BaseHullMod
 {
-	// possible long-term memory leak
-	private Hashtable memo = new Hashtable();
-	
 	public CampaignFleetAPI findFleet( FleetMemberAPI member )
 	{
+		Map data = Global.getSector().getPersistentData();
+		final String memo_key = "nom.data.hullmods.base.BaseFleetEffectHullMod.memo";
+		Hashtable memo = (Hashtable) data.get( memo_key );
+		if( memo == null )
+		{
+			memo = new Hashtable();
+			data.put( memo_key, memo );
+		}
+		
 		// ships change fleets infrequently; it's probably going to be in the same fleet
 		PersonAPI commander = member.getFleetCommander();
 		CampaignFleetAPI last_fleet_found = (CampaignFleetAPI)memo.get( member );
 		if( last_fleet_found != null && last_fleet_found.getCommander() == commander )
 			return last_fleet_found;
+		
 		// search all fleets for the commander
 		for( Iterator star_system_i = Global.getSector().getStarSystems().iterator(); star_system_i.hasNext(); )
 		{
