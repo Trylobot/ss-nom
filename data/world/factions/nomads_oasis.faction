@@ -1,0 +1,20 @@
+{
+	"id":"nomads_oasis",
+	"color":[234,214,124,255],
+	"displayName":"Nomad",
+        "displayNameWithArticle":"the Nomad",
+        "displayNameLong":"Nomad",
+        "displayNameLongWithArticle":"the Nomad",
+	"shipNamePrefix":"NA",
+	"description":"No description yet.",
+	"logo":"graphics/factions/neutral_traders.png",
+	"crest":"graphics/factions/crest_neutral.png",
+	"showInIntelTab":false,
+	"names":{
+	},
+	"portraits":{
+	},
+	"music":{
+	},
+
+},

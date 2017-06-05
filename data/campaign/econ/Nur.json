@@ -2,7 +2,7 @@
 	"starSystem":"nur_a",
 	"markets":[
 	{
-		"entities":["stationNom1"],
+		"entities":["stationnom1"],
 		"faction":"nomads",
 		"size":3,
 		"startingConditions":[

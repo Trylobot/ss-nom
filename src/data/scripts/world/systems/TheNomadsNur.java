@@ -2,7 +2,6 @@ package src.data.scripts.world.systems;
 
 import com.fs.starfarer.api.FactoryAPI;
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.campaign.FleetDataAPI;
 import com.fs.starfarer.api.campaign.JumpPointAPI;
 import com.fs.starfarer.api.campaign.JumpPointAPI.JumpDestination;
 import com.fs.starfarer.api.campaign.LocationAPI;
@@ -12,20 +11,15 @@ import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.SectorGeneratorPlugin;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
-import com.fs.starfarer.api.fleet.FleetMemberAPI;
-import com.fs.starfarer.api.fleet.FleetMemberType;
 import com.fs.starfarer.api.impl.campaign.ids.StarTypes;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator.StarSystemType;
 
 import java.awt.Color;
-import java.util.Iterator;
 import org.lwjgl.util.vector.Vector2f;
-import src.data.scripts.trylobot.trylobot;
 
 
 public class TheNomadsNur implements SectorGeneratorPlugin {
 
-    private PlanetAPI planet;
     private SectorEntityToken station;
 
     private static final float star_jump_dist_factor_min = 0.8f;
@@ -49,17 +43,17 @@ public class TheNomadsNur implements SectorGeneratorPlugin {
         
        // PlanetAPI star = system.initStar("nur", StarTypes.NEUTRON_STAR, 50f, 40f);
 
-        PlanetAPI starA = system.addPlanet("nur_A", system_center_of_mass, "Nur-A", StarTypes.BLUE_GIANT, 90f, 1000f, 1500f, 30f);
+        PlanetAPI starA = system.addPlanet("nur_a", system_center_of_mass, "Nur-A", StarTypes.BLUE_GIANT, 90f, 1000f, 1500f, 30f);
         system.setStar(starA);
-        PlanetAPI starB = system.addPlanet("nur_B", system_center_of_mass, "Nur-B", StarTypes.RED_GIANT, 270f, 300f, 600f, 30f);
+        PlanetAPI starB = system.addPlanet("nur_b", system_center_of_mass, "Nur-B", StarTypes.RED_GIANT, 270f, 300f, 600f, 30f);
         system.setSecondary(starB);
-        PlanetAPI planet_I = system.addPlanet("nur_C", system_center_of_mass, "Naera", "desert", 45f, 300f, 8000f, 199f);
-        system.addPlanet("nur_D", planet_I, "Ixaith", "rocky_unstable", 0f, 60f, 800f, 67f);
-        system.addPlanet("nur_E", planet_I, "Ushaise", "rocky_ice", 45f, 45f, 1000f, 120f);
-        system.addPlanet("nur_F", planet_I, "Riaze", "barren", 90f, 100f, 1200f, 130f);
-        this.planet = system.addPlanet("nur_G", planet_I, "Riaze-Tremn", "frozen", 135f, 35f, 1500f, 132f);
-        PlanetAPI planet_I__moon_e = system.addPlanet("nur_H", planet_I, "Eufariz", "frozen", 180f, 65f, 1750f, 200f);
-        system.addPlanet("nur_L", planet_I, "Thumn", "rocky_ice", 225f, 100f, 2000f, 362f);
+        PlanetAPI planet_I = system.addPlanet("nur_c", system_center_of_mass, "Naera", "desert", 45f, 300f, 8000f, 199f);
+        system.addPlanet("nur_d", planet_I, "Ixaith", "rocky_unstable", 0f, 60f, 800f, 67f);
+        system.addPlanet("nur_e", planet_I, "Ushaise", "rocky_ice", 45f, 45f, 1000f, 120f);
+        system.addPlanet("nur_g", planet_I, "Riaze", "barren", 90f, 100f, 1200f, 130f);
+        system.addPlanet("nur_g", planet_I, "Riaze-Tremn", "frozen", 135f, 35f, 1500f, 132f);
+        PlanetAPI planet_I__moon_e = system.addPlanet("nur_h", planet_I, "Eufariz", "frozen", 180f, 65f, 1750f, 200f);
+        system.addPlanet("nur_l", planet_I, "Thumn", "rocky_ice", 225f, 100f, 2000f, 362f);
 
         // specs
         planet_I.getSpec().setAtmosphereColor(new Color(160, 110, 45, 140));
@@ -68,8 +62,8 @@ public class TheNomadsNur implements SectorGeneratorPlugin {
         planet_I.applySpecChanges();
 
         // stations
-        this.station = system.addOrbitalStation("stationNom1", planet_I__moon_e, 180f, 300f, 50, "Naeran Orbital Storage & Resupply", "nomads");
-        this.station.setCircularOrbitPointingDown(system.getEntityById("nur_H"), 45, 300, 50);
+        this.station = system.addOrbitalStation("stationnom1", planet_I__moon_e, 180f, 300f, 50, "Naeran Orbital Storage & Resupply", "nomads");
+        this.station.setCircularOrbitPointingDown(system.getEntityById("nur_h"), 45, 300, 50);
 
         // rings & bands
         system.addRingBand(planet_I, "misc", "rings_asteroids0", 256f, 0, Color.white, 256f, 630f, 30f);
@@ -83,22 +77,6 @@ public class TheNomadsNur implements SectorGeneratorPlugin {
         
         system.autogenerateHyperspaceJumpPoints(true,true);
         
-  /*
-        init_star_gravitywell_jump_point(system, system_center_of_mass, starA, star_jump_dist_factor_min, star_jump_dist_factor_max);
-        init_star_gravitywell_jump_point(system, system_center_of_mass, starB, star_jump_dist_factor_min, star_jump_dist_factor_max);
-
-*/
-        
-        //system.autogenerateHyperspaceJumpPoints();
-      /*  JumpPointAPI star_A_jump_point = init_star_gravitywell_jump_point(system, system_center_of_mass, starA,
-                star_jump_dist_factor_min, star_jump_dist_factor_max);
-        system.setHyperspaceAnchor(star_A_jump_point);
-
-        init_star_gravitywell_jump_point(system, system_center_of_mass, starB,
-                star_jump_dist_factor_min, star_jump_dist_factor_max);
-
-        init_jump_anchor_near_planet(system, system_center_of_mass, planet_I, "Jump Point Alpha", 0f, 500f, 30f);
-*/
         planet_I.setCustomDescriptionId("nom_planet_naera");
 
 
@@ -164,36 +142,5 @@ public class TheNomadsNur implements SectorGeneratorPlugin {
         }
         return location;
     }
-/*
-    @Override
-    public void handle_event(CampaignArmadaControllerEvent event) {
-        // Oasis is not in play; put it for sale at the station (yay!)
-        if ("NON_EXISTENT".equals(event.controller_state)) {
-            // add no more than one Oasis
-            int count = 0; // first count oasis ships (player could have bought one previously and sold it back)
-            FleetDataAPI station_ships = station.getCargo().getMothballedShips();
-            for (Iterator i = station_ships.getMembersInPriorityOrder().iterator(); i.hasNext();) {
-                FleetMemberAPI ship = (FleetMemberAPI) i.next();
-                if ("nom_oasis".equals(ship.getHullId())) {
-                    ++count;
-                }
-            }
-            if (count == 0) {
-                station_ships.addFleetMember(factory.createFleetMember(FleetMemberType.SHIP, "nom_oasis_standard"));
-                trylobot.debug("added OASIS to station cargo");
-            }
-        } // Oasis is in play; be patient! T_T
-        else if ("JOURNEYING_LIKE_A_BOSS".equals(event.controller_state)) {
-            // remove all Oasis hulls, there's only supposed to be one, and it's cruising around.
-            FleetDataAPI station_ships = station.getCargo().getMothballedShips();
-            for (Iterator i = station_ships.getMembersInPriorityOrder().iterator(); i.hasNext();) {
-                FleetMemberAPI ship = (FleetMemberAPI) i.next();
-                if ("nom_oasis".equals(ship.getHullId())) {
-                    station_ships.removeFleetMember(ship);
-                    trylobot.debug("removed OASIS from station cargo");
-                }
-            }
-        }
-    }
-*/
+
 }

@@ -6,3 +6,11 @@ Snrasha:
 -Fix hullmod when i have completely forgot.
 -Fix ship supply to deploy.
 -Fix OP, put main hullmod to build-in.
+-Fix fuel/ly value
+-Fix too high cargo/fuel of frigates.
+-Divise the faction per two, The Oasis fleet is a special faction of nomads.
+
+
+
+PokerChen:
+-Add Lore

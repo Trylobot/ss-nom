@@ -1,13 +1,12 @@
 {
   "displayName": "Support",
   "fluxCapacitors": 0,
-  "fluxVents": 4,
+  "fluxVents": 12,
   "hullId": "nom_flycatcher",
   "hullMods": [
-    "insulatedengine",
-    "augmentedengines"
+    "insulatedengine"
   ],
-  "variantId": "nom_flycatcher_carrier",
+  "variantId": "nom_flycatcher_toad",
   "weaponGroups": [
     {
       "autofire": true,
@@ -29,5 +28,5 @@
     }
   ],
  "wings": [
-    "nom_iguana_wing" ]
+    "nom_toad_wing" ]
 }

@@ -45,5 +45,5 @@ Based on their current fleet technology, the initial Nomad fleet likely maintain
 
 Will they prove to be a painful reminder of ancient history, or a beacon to humanity's future?",,,
 ,,,,,
-nom_damselfly_drone,SHIPSYSTEM,Need a lore.,,,
-nom_gecko_drone,SHIPSYSTEM,Need a lore.,,,
+nom_damselfly_drone,SHIP_SYSTEM,Need a lore.,,,
+nom_gecko_drone,SHIP_SYSTEM,Need a lore.,,,
