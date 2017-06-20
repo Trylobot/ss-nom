@@ -42,44 +42,22 @@ public class MissionDefinition implements MissionDefinitionPlugin
 		api.addToFleet(FleetSide.ENEMY, "nom_komodo_assault", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.ENEMY, "nom_komodo_assault", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.ENEMY, "nom_roadrunner_pursuit", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.ENEMY, "nom_flycatcher_carrier", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.ENEMY, "nom_flycatcher_carrier", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.ENEMY, "nom_flycatcher_carrier", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.ENEMY, "nom_death_bloom_strike", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.ENEMY, "nom_death_bloom_strike", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.ENEMY, "nom_yellowjacket_sniper", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.ENEMY, "nom_yellowjacket_sniper", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.ENEMY, "nom_yellowjacket_sniper", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.ENEMY, "nom_wurm_assault", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.ENEMY, "nom_wurm_assault", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.ENEMY, "nom_wurm_assault", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.ENEMY, "nom_wurm_assault", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.ENEMY, "nom_wurm_assault", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.ENEMY, "nom_wurm_assault", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.ENEMY, "nom_fang_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_fang_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_fang_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_toad_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_toad_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_toad_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_toad_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_toad_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_toad_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_iguana_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_scarab_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_scarab_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_scarab_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_scarab_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_scarab_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.ENEMY, "nom_scarab_wing", FleetMemberType.FIGHTER_WING, false);
+		api.addToFleet(FleetSide.ENEMY, "nom_flycatcher_toad", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.ENEMY, "nom_flycatcher_iguana", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.ENEMY, "nom_flycatcher_fang", FleetMemberType.SHIP, true);
 
+		api.addToFleet(FleetSide.ENEMY, "nom_death_bloom_strike", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.ENEMY, "nom_death_bloom_strike", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.ENEMY, "nom_yellowjacket_sniper", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.ENEMY, "nom_yellowjacket_sniper", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.ENEMY, "nom_yellowjacket_sniper", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.ENEMY, "nom_wurm_assault", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.ENEMY, "nom_wurm_assault", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.ENEMY, "nom_wurm_assault", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.ENEMY, "nom_wurm_assault", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.ENEMY, "nom_wurm_assault", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.ENEMY, "nom_wurm_assault", FleetMemberType.SHIP, true);
+	
 		// 551 point fleet
 		api.addToFleet(FleetSide.PLAYER, "conquest_Elite", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "conquest_Elite", FleetMemberType.SHIP, true);
@@ -124,25 +102,7 @@ public class MissionDefinition implements MissionDefinitionPlugin
 		api.addToFleet(FleetSide.PLAYER, "brawler_Assault", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "brawler_Assault", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "brawler_Assault", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.PLAYER, "gladius_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.PLAYER, "gladius_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.PLAYER, "gladius_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.PLAYER, "gladius_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.PLAYER, "gladius_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.PLAYER, "gladius_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.PLAYER, "gladius_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.PLAYER, "gladius_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.PLAYER, "warthog_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.PLAYER, "warthog_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.PLAYER, "warthog_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.PLAYER, "warthog_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.PLAYER, "warthog_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.PLAYER, "thunder_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.PLAYER, "thunder_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.PLAYER, "thunder_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.PLAYER, "thunder_wing", FleetMemberType.FIGHTER_WING, false);
-		api.addToFleet(FleetSide.PLAYER, "thunder_wing", FleetMemberType.FIGHTER_WING, false);
-		
+
 		// Set up the map.
 		float width = 20000f;
 		float height = 26000f;
