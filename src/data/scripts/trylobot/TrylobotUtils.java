@@ -70,16 +70,16 @@ public class TrylobotUtils
 	
 	public static void debug( String message )
 	{
-//		if( Global.getSettings().isDevMode() )
-//		{
-//			Class caller_class = sun.reflect.Reflection.getCallerClass( 2 );
-//			Global.getLogger( caller_class ).debug( message );
-//		}
+		if( Global.getSettings().isDevMode() )
+		{
+			Class caller_class = sun.reflect.Reflection.getCallerClass( 2 );
+			Global.getLogger( caller_class ).debug( message );
+		}
 	}
 	
 	public static void print( String message )
 	{
-//		Class caller_class = sun.reflect.Reflection.getCallerClass( 2 );
-//		Global.getLogger( caller_class ).debug( message );
+		Class caller_class = sun.reflect.Reflection.getCallerClass( 2 );
+		Global.getLogger( caller_class ).debug( message );
 	}
 }
