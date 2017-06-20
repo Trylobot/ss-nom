@@ -9,11 +9,17 @@
     -2.5,
     7
   ],
+  "builtInMods": [
+    "naeran_flux_shunts"
+  ],
+  "builtInWeapons":{
+    "TOW_CABLE":"nom_damselfly_tow_cable"
+  },
   "center": [
     9,
     12
   ],
-  "collisionRadius": 14.008925,
+  "collisionRadius": 15,
   "engineSlots": [
     {
       "angle": 180,
@@ -49,6 +55,7 @@
       "width": 4
     }
   ],
+  "width": 19,
   "height": 24,
   "hullId": "nom_damselfly",
   "hullName": "Damselfly",
@@ -69,9 +76,5 @@
     "mount":"TURRET",
     "size":"SMALL",
     "type":"SYSTEM"
-  }],
-  "width": 19,
-  "builtInWeapons":{
-    "TOW_CABLE":"nom_damselfly_tow_cable"
-  }
+  }]
 }

@@ -1,0 +1,32 @@
+{
+  "displayName": "Support",
+  "fluxCapacitors": 0,
+  "fluxVents": 11,
+  "hullId": "nom_flycatcher",
+  "hullMods": [
+    "insulatedengine"
+  ],
+  "variantId": "nom_flycatcher_fang",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0004": "nom_self_sustained_fusion_torpedo_mini",
+        "WS0005": "nom_self_sustained_fusion_torpedo_mini"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "nom_firecracker",
+        "WS0002": "nom_twin_ultralight_electron_maser",
+        "WS0003": "nom_twin_ultralight_electron_maser",
+        "WS0006": "nom_firecracker"
+      }
+    }
+  ],
+ "wings": [
+    "nom_fang_wing" ]
+}

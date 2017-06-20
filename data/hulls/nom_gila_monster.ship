@@ -93,6 +93,9 @@
     256.5,
     26.5
   ],
+  "builtInMods": [
+    "naeran_flux_shunts"
+  ],
   "builtInWeapons": {
         "WS0001": "nom_doom_cannon",
         "WS0002": "nom_firecracker",

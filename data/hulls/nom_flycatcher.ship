@@ -37,6 +37,9 @@
     53.5,
     -9
   ],
+  "builtInMods": [
+    "naeran_flux_shunts"
+  ],
   "builtInWeapons": {
     "WS0001": "nom_firecracker",
     "WS0002": "nom_twin_ultralight_electron_maser",

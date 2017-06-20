@@ -17,6 +17,9 @@
     6.5,
     12.5
   ],
+  "builtInMods": [
+    "naeran_flux_shunts"
+  ],
   "center": [
     17.0,
     21.0

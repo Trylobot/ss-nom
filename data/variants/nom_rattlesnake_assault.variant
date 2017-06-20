@@ -52,5 +52,9 @@
         "WS_PD4": "nom_firecracker"
       }
     }
+  ],
+  "wings": [
+    "nom_scarab_wing",
+    "nom_scarab_wing"
   ]
 }

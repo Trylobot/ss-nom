@@ -1,0 +1,12 @@
+{
+	"version": 2.0,
+	"initialStepsToRun": 20,
+	"maxExoticUtilityAtRange": 14000,
+	"defaultConnectionMult": 1.1,
+	"defaultConnectionFlat": 1,
+	"defaultTariff": 0.3,
+	"starSystems": [
+		"Nur.json",
+	],
+	"map": "../starmap.json",
+}

@@ -1,0 +1,14 @@
+{
+  "starSystem": "nur_a",
+  "markets": [{
+    "entities": ["stationnom1"],
+    "faction": "nomads",
+    "size": 3,
+    "startingConditions": [
+      "orbital_station",
+      "spaceport",
+      "population_3",
+      "free_market",
+    ]
+  }, ]
+}

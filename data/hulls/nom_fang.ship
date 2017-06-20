@@ -15,6 +15,9 @@
     -13.5,
     13.5
   ],
+  "builtInMods": [
+    "naeran_flux_shunts"
+  ],
   "builtInWeapons": {
     "gun": "nom_ultralight_electron_maser",
     "missile": "nom_self_sustained_fusion_torpedo_mini",

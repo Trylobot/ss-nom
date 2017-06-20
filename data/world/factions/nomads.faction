@@ -1,252 +1,277 @@
 {
-	"id":"nomads",
-	"color":[234,214,124,255],
+  "id":"nomads",
+  "color":[ 234,214,124,255 ],
+  "displayName":"Nomad",
+  "displayNameWithArticle":"the Nomad",
+  "displayNameLong":"Nomad",
+  "displayNameLongWithArticle":"the Nomad",
+  "shipNamePrefix":"NA",
+  "description":"No description yet.",
+  "logo":"graphics/nom/factions/ss_nom_Flag.png",
+  "crest":"graphics/nom/factions/ss_nom_Crest.png",
+  "names":{
+    "fringe":1,
+  },
+  "shipNameSources":{
+    "ANCIENT_NAERAN":1
+  },
+  "portraits":{
+    "standard_male":[
+      "graphics/nom/portraits/gorrem_chani_child.png",
+      "graphics/nom/portraits/gorrem_chani_young_adult.png",
+      "graphics/nom/portraits/gorrem_chani_priestess.png",
+    ],
+    "standard_female":[
+      "graphics/nom/portraits/gorrem_chani_child.png",
+      "graphics/nom/portraits/gorrem_chani_young_adult.png",
+      "graphics/nom/portraits/gorrem_chani_priestess.png",
+    ],
+  },
 
-	"baseUIColor":[234,214,124,255],
-	"darkUIColor":[134,114,74,175],
-	"gridUIColor":[234,214,124,75],
+  "illegalCommodities":[
+  ],
+  "hullMods":[
+    "turretgyros",
+    "armoredweapons",
+    "autorepair",
+    "auxiliarythrusters",
+    "blast_doors",
+    "dedicated_targeting_core",
+    "eccm",
+    "magazines",
+    "missleracks",
+    "fluxcoil",
+    "fluxdistributor",
+    "hardened_subsystems",
+    "insulatedengine",
+    "reinforcedhull",
+    "fluxbreakers",
+    "surveying_equipment",
+    "unstable_injector",
+    "expanded_deck_crew",
+    "recovery_shuttles",
+    "operations_center",
+    "nav_relay",
+    "ecm",
+  ],
+  "custom":{
+    "allowsTransponderOffTrade":true,
+    "offersCommissions":false,
+    "engagesInHostilities":false,
+    "buysAICores":true,
+    "AICoreValueMult":2,
+    "AICoreRepMult":1,
+    "buysSurveyData":true,
+  },
+  "fleetTypeNames":{
+    "mercScout":"Mercenary Scout",
+    "mercBountyHunter":"Bounty Hunter",
+    "mercPrivateer":"Privateer",
+    "mercPatrol":"Mercenary Patrol",
+    "mercArmada":"Mercenary Company",
+  },
 
-	"entityNamePrefix":"Nomad",
-	"displayName":"Nomad",
-	"displayNameWithArticle":"The Nomad",
-	"displayNameIsOrAre":"are",
-	"logo":"graphics/nom/factions/nomads.png",
+  "shipRoles":{
+    "fastAttack":{
+      "fallback":{"combatSmall":1},
+    },
+    "escortSmall":{
+      "fallback":{"combatSmall":1},
+    },
+    "escortMedium":{
+      "fallback":{"combatMedium":1},
+    },
 
-	"shipNamePrefix":"NA",
-	"shipNameSources":{
-		"ANCIENT_NAERAN":1
-	},
 
-	"names":{
-		"fringe":1,
-	},
-	"illegalCommodities": [],
-	"music": {},
+    "combatSmall":{
+      "nom_death_bloom_strike":1,
+      "nom_yellowjacket_sniper":3,
+      "nom_wurm_assault":10,
+      "fallback":{"escortSmall":1},
+    },
+    "combatMedium":{
+      "nom_death_bloom_strike":1,
+      "nom_yellowjacket_sniper":3,
+      "nom_scorpion_assault":10,
+      "nom_komodo_mk2_assault":8,
+      "nom_komodo_assault":10,
+      "fallback":{"combatSmall":2},
+    },
+    "combatLarge":{
+      "nom_sandstorm_assault":10,
+      "nom_rattlesnake_assault":10,
+      "fallback":{"combatMedium":2},
+    },
+    "combatCapital":{
+      "nom_gila_monster_antibattleship":10,
+      "fallback":{"combatLarge":2},
+    },
 
-	"portraits":{
-		"standard_male":[
-			"graphics/nom/portraits/gorrem_chani_child.png",
-			"graphics/nom/portraits/gorrem_chani_young_adult.png",
-			"graphics/nom/portraits/gorrem_chani_priestess.png",
-		],
-		"standard_female":[
-			"graphics/nom/portraits/gorrem_chani_child.png",
-			"graphics/nom/portraits/gorrem_chani_young_adult.png",
-			"graphics/nom/portraits/gorrem_chani_priestess.png",
-		],
-	},
-	"ranks":{
-		"ranks":{
 
-		},
-		"posts":{
 
-		}
-	},
-	"custom":{
+    # hybrid ships with good combat and cargo capacity
+    "combatFreighterSmall":{
+      "nom_wurm_assault":10,
+      "fallback":{"freighterSmall":1},
+    },
 
-	},
-	"shipRoles":{
+    "combatFreighterMedium":{
+      "nom_flycatcher_scarab":2,
+      "nom_flycatcher_toad":2,
+      "nom_flycatcher_iguana":2,
+      "nom_flycatcher_fang":2,
+      "nom_komodo_assault":10,
+      "nom_komodo_mk2_assault":10,
+      "fallback":{"combatFreighterSmall":2},
+    },
+    "combatFreighterLarge":{
+      "nom_gila_monster_antibattleship":10,
+      "fallback":{"combatFreighterMedium":2},
+    },
 
-	},
-	"fleetTypeNames":{
+    "civilianRandom":{
+      "nom_wurm_assault":1000,
 
-	},
-	"traits":{ 
-		"admiral":{
-		},
-		"captain":{
-			"cowardly":1,
-			"cautious":5,
-			"steady":20,
-			"aggressive":10,
-			"suicidal":2,
-			"fearless":2,
-		},
-	},
-	"doctrine": {
+      "fallback":{"freighterSmall":1},
+    },
 
-	}
-	
-	# "fleetCompositions":{
-	# 	"scout":{
-	# 		"displayName":"Scout",
-	# 		"maxFleetPoints":11,
-	# 		"daysWorthOfSupplies":[80, 120],
-	# 		"lyWorthOfFuel":[40, 80],
-	# 		"extraCrewPercent":[10, 20],
-	# 		"marinesPercent":[0, 0],
-	# 		"ships":{
-	# 			"nom_wurm_assault":[1, 1],                  # 4
-	# 			"nom_toad_wing":[0, 1],                     # 7
-	# 			"nom_iguana_wing":[0, 1],                   # 5
-	# 			"nom_scarab_wing":[0, 2],                   # 3
-	# 		},
-	# 	},
-	# 	"longRangeScout":{
-	# 		"displayName":"Long-Range Scout",
-	# 		"maxFleetPoints":20,
-	# 		"daysWorthOfSupplies":[80, 120],
-	# 		"lyWorthOfFuel":[60, 120],
-	# 		"extraCrewPercent":[40, 60],
-	# 		"marinesPercent":[0, 0],
-	# 		"ships":{
-	# 			"nom_flycatcher_carrier":[1, 1],            # 5
-	# 			"nom_wurm_assault":[0, 2],                  # 4
-	# 			"nom_yellowjacket_sniper":[0, 2],           # 6
-	# 			"nom_toad_wing":[0, 2],                     # 7
-	# 			"nom_iguana_wing":[0, 3],                   # 5
-	# 			"nom_scarab_wing":[0, 5],                   # 3
-	# 		},
-	# 	},
-	# 	"battleGroup":{
-	# 		"displayName":"Battle Group",
-	# 		"maxFleetPoints":33,
-	# 		"daysWorthOfSupplies":[50, 100],
-	# 		"lyWorthOfFuel":[50, 100],
-	# 		"extraCrewPercent":[40, 60],
-	# 		"marinesPercent":[0, 0],
-	# 		"ships":{
-	# 			"nom_scorpion_assault":[0, 2],              # 10
-	# 			"nom_komodo_mk2_assault":[0, 1],            # 12
-	# 			"nom_komodo_assault":[0, 2],                # 9
-	# 			"nom_roadrunner_pursuit":[0, 1],            # 10
-	# 			"nom_flycatcher_carrier":[0, 2],            # 5
-	# 			"nom_yellowjacket_sniper":[0, 4],           # 6
-	# 			"nom_wurm_assault":[1, 5],                  # 4
-	# 			"nom_fang_wing":[0, 1],                     # 8
-	# 			"nom_toad_wing":[0, 4],                     # 7
-	# 			"nom_iguana_wing":[0, 6],                   # 5
-	# 			"nom_scarab_wing":[0, 7],                   # 3
-	# 		},
-	# 	},
-	# 	"assassin":{
-	# 		"displayName":"Death Commandos",
-	# 		"maxFleetPoints":38,
-	# 		"daysWorthOfSupplies":[50, 70],
-	# 		"lyWorthOfFuel":[30, 60],
-	# 		"extraCrewPercent":[35, 50],
-	# 		"marinesPercent":[0, 0],
-	# 		"ships":{
-	# 			"nom_roadrunner_pursuit":[1, 1],            # 10
-	# 			"nom_death_bloom_strike":[1, 1],            # 13
-	# 			"nom_scarab_wing":[4, 4],                   # 3
-	# 		},
-	# 	},
-	# 	"royalGuard":{
-	# 		"displayName":"Royal Guard",
-	# 		"maxFleetPoints":75,
-	# 		"daysWorthOfSupplies":[50, 100],
-	# 		"lyWorthOfFuel":[50, 100],
-	# 		"extraCrewPercent":[40, 60],
-	# 		"marinesPercent":[0, 0],
-	# 		"ships":{
-	# 			"nom_sandstorm_assault":[0, 1],             # 22
-	# 			"nom_rattlesnake_assault":[0, 1],           # 16
-	# 			"nom_scorpion_assault":[1, 2],              # 10
-	# 			"nom_komodo_mk2_assault":[0, 1],            # 12
-	# 			"nom_komodo_assault":[1, 3],                # 9
-	# 			"nom_roadrunner_pursuit":[0, 1],            # 10
-	# 			"nom_flycatcher_carrier":[0, 2],            # 5
-	# 			"nom_death_bloom_strike":[0, 1],            # 13
-	# 			"nom_yellowjacket_sniper":[1, 4],           # 6
-	# 			"nom_wurm_assault":[1, 6],                  # 4
-	# 			"nom_toad_wing":[1, 5],                     # 7
-	# 			"nom_iguana_wing":[1, 7],                   # 5
-	# 			"nom_scarab_wing":[1, 6],                   # 3
-	# 		},
-	# 	},
-	# 	"jihadFleet":{
-	# 		"displayName":"Jihad Death Fleet",
-	# 		"maxFleetPoints":115,
-	# 		"daysWorthOfSupplies":[50, 100],
-	# 		"lyWorthOfFuel":[50, 100],
-	# 		"extraCrewPercent":[40, 60],
-	# 		"marinesPercent":[20, 20],
-	# 		"ships":{
-	# 			"nom_gila_monster_antibattleship":[0, 1],   # 26
-	# 			"nom_sandstorm_assault":[0, 2],             # 22
-	# 			"nom_rattlesnake_assault":[0, 2],           # 16
-	# 			"nom_scorpion_assault":[0, 2],              # 10
-	# 			"nom_komodo_mk2_assault":[0, 2],            # 12
-	# 			"nom_komodo_assault":[0, 3],                # 9
-	# 			"nom_roadrunner_pursuit":[0, 2],            # 10
-	# 			"nom_flycatcher_carrier":[0, 2],            # 5
-	# 			"nom_death_bloom_strike":[0, 2],            # 13
-	# 			"nom_yellowjacket_sniper":[1, 4],           # 6
-	# 			"nom_fang_wing":[0, 3],                     # 8
-	# 			"nom_wurm_assault":[0, 6],                  # 4
-	# 			"nom_toad_wing":[0, 5],                     # 7
-	# 			"nom_iguana_wing":[0, 7],                   # 5
-	# 			"nom_scarab_wing":[0, 6],                   # 3
-	# 		},
-	# 	},
-	# 	"carrierGroup":{
-	# 		"displayName":"Carrier Group",
-	# 		"maxFleetPoints":115,
-	# 		"daysWorthOfSupplies":[50, 100],
-	# 		"lyWorthOfFuel":[50, 100],
-	# 		"extraCrewPercent":[40, 60],
-	# 		"marinesPercent":[20, 20],
-	# 		"ships":{
-	# 			"nom_gila_monster_antibattleship":[0, 1],   # 26
-	# 			"nom_rattlesnake_assault":[0, 1],           # 16
-	# 			"nom_flycatcher_carrier":[1, 3],            # 5
-	# 			"nom_fang_wing":[1, 11],                    # 8
-	# 			"nom_toad_wing":[1, 14],                    # 7
-	# 			"nom_iguana_wing":[1, 20],                  # 5
-	# 			"nom_scarab_wing":[1, 30],                  # 3
-	# 		},
-	# 	},
-	# 	"royalCommandFleet":{
-	# 		"displayName":"Royal Command Fleet",
-	# 		"maxFleetPoints":180,
-	# 		"daysWorthOfSupplies":[50, 100],
-	# 		"lyWorthOfFuel":[50, 100],
-	# 		"extraCrewPercent":[40, 60],
-	# 		"marinesPercent":[20, 20],
-	# 		"ships":{
-	# 			"nom_gila_monster_antibattleship":[1, 2],   # 26
-	# 			"nom_sandstorm_assault":[1, 3],             # 22
-	# 			"nom_rattlesnake_assault":[1, 5],           # 16
-	# 			"nom_scorpion_assault":[1, 2],              # 10
-	# 			"nom_komodo_mk2_assault":[1, 2],            # 12
-	# 			"nom_komodo_assault":[1, 5],                # 9
-	# 			"nom_roadrunner_pursuit":[1, 2],            # 10
-	# 			"nom_flycatcher_carrier":[1, 2],            # 5
-	# 			"nom_death_bloom_strike":[3, 3],            # 13
-	# 			"nom_yellowjacket_sniper":[1, 4],           # 6
-	# 			"nom_fang_wing":[1, 5],                     # 8
-	# 			"nom_wurm_assault":[1, 8],                  # 4
-	# 			"nom_toad_wing":[1, 7],                     # 7
-	# 			"nom_iguana_wing":[1, 9],                   # 5
-	# 			"nom_scarab_wing":[1, 10],                  # 3
-	# 		},
-	# 	},
-	# 	"colonyFleet":{
-	# 		"displayName":"Colony Transport Group",
-	# 		"maxFleetPoints":164,
-	# 		"daysWorthOfSupplies":[50, 100],
-	# 		"lyWorthOfFuel":[50, 100],
-	# 		"extraCrewPercent":[90, 100],
-	# 		"marinesPercent":[0, 0],
-	# 		"ships":{
-	# 			"nom_oasis_standard":[1, 1],               # 5
-	# 			"nom_sandstorm_assault":[2, 2],            # 22
-	# 			"nom_rattlesnake_assault":[2, 2],          # 16
-	# 			"nom_komodo_mk2_assault":[2, 2],           # 12
-	# 			"nom_flycatcher_carrier":[2, 2],           # 5
-	# 			"nom_fang_wing":[1, 1],                    # 8
-	# 			"nom_toad_wing":[2, 2],                    # 7
-	# 			"nom_iguana_wing":[3, 3],                  # 5
-	# 			"nom_scarab_wing":[4, 4],                  # 3
-	# 		},
-	# 	},
-	# },
-	# "dialogue":{
-	# 	"greetingFriendly":"We greet you with arms wide.",
-	# 	"greetingNeutral":"Do we have business, traveler?",
-	# 	"greetingHostileAggressive":"Your ship looks.. valuable.",
-	# 	"greetingHostileTimid":"Leave us be, we mean you no harm!",
-	# }
+
+    # carriers
+    "carrierSmall":{
+      "nom_flycatcher_scarab":2,
+      "nom_flycatcher_toad":2,
+      "nom_flycatcher_iguana":2,
+      "nom_flycatcher_fang":2,
+      "fallback":{"carrierMedium":0.5},
+    },
+    "carrierMedium":{
+      "nom_rattlesnake_assault":10,
+      "fallback":{"carrierSmall":2},
+    },
+    "carrierLarge":{
+      "nom_gila_monster_antibattleship":10,
+      "fallback":{"carrierMedium":4},
+    },
+
+    # freighters and such
+    "freighterSmall":{
+      "nom_wurm_assault":30,
+      "nom_flycatcher_scarab":2,
+      "nom_flycatcher_toad":2,
+      "nom_flycatcher_iguana":2,
+      "nom_flycatcher_fang":2,
+      "fallback":{"freighterMedium":0.5},
+    },
+    "freighterMedium":{
+      "nom_flycatcher_scarab":2,
+      "nom_flycatcher_toad":2,
+      "nom_flycatcher_iguana":2,
+      "nom_flycatcher_fang":2,
+      "nom_komodo_assault":10,
+      "nom_komodo_mk2_assault":10,
+      "fallback":{"freighterSmall":2},
+    },
+    "freighterLarge":{
+      "nom_gila_monster_antibattleship":10,
+      "fallback":{"freighterMedium":2},
+    },
+
+    "tankerSmall":{
+      "nom_wurm_assault":10,
+      "fallback":{"tankerMedium":0.5},
+    },
+    "tankerMedium":{
+      "nom_flycatcher_scarab":2,
+      "nom_flycatcher_toad":2,
+      "nom_flycatcher_iguana":2,
+      "nom_flycatcher_fang":2,
+      "nom_komodo_assault":10,
+      "nom_komodo_mk2_assault":10,
+      "fallback":{"tankerSmall":2},
+    },
+    "tankerLarge":{
+      "nom_gila_monster_antibattleship":10,
+      "fallback":{"tankerMedium":2},
+    },
+
+    "personnelSmall":{
+      "nom_wurm_assault":10,
+      "fallback":{"personnelMedium":0.5},
+    },
+    "personnelMedium":{
+
+      "fallback":{"personnelSmall":2},
+    },
+    "personnelLarge":{
+
+      "fallback":{"personnelMedium":2},
+    },
+
+    # utility ships
+    "tug":{
+      "fallback":{"utility":1},
+    },
+    "crig":{
+      "fallback":{"utility":1},
+    },
+    "utility":{
+      "nom_wurm_assault":10,
+    },
+  },
+
+  "traits":{
+    "admiral":{
+    },
+    "captain":{
+      "timid":1,
+      "cautious":1,
+      "steady":1,
+      "aggressive":1,
+    "reckless":1,
+    },
+  },
+
+  "doctrine":{
+    # ship distribution
+    ## tending toward small & defensive
+    "small":8,
+    "fast":4,
+    "medium":12,
+    "large":4,
+    "capital":1,
+
+    # as fraction of combat ships of same size
+    "escortSmallFraction":1,
+    "escortMediumFraction":1,
+
+    ## poorly armed
+    "combatFreighterProbability":0.30,
+
+    ## poor access to capital ships
+    "minPointsForCombatCapital":30,
+    "minPointsForLargeCarrier":30,
+
+    ## slight preference for carriers
+    "smallCarrierProbability":0.30,
+    "mediumCarrierProbability":0.30,
+    "largeCarrierProbability":0.30,
+
+    # officers
+    ## fewer officers, less training
+    "officersPerPoint":0.20,
+    "officerLevelPerPoint":0.18,
+    "officerLevelBase":4,
+    "officerLevelVariance":0.2,
+
+    "commanderSkillsPerLevel":0.2,
+    "commanderSkillChance":0.3,
+    "commanderSkillLevelPerLevel":0.15,
+    "commanderSkills":{
+      "officer_management":10,
+      "coordinated_maneuvers":10,
+      "fighter_doctrine":10,
+      "electronic_warfare":10,
+    },
+  },
+
 }

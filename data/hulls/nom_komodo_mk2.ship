@@ -61,6 +61,9 @@
     89,
     7
   ],
+  "builtInMods": [
+    "naeran_flux_shunts"
+  ],
   "builtInWeapons": {
     "PD1": "nom_firecracker",
     "PD2": "nom_firecracker",

@@ -29,6 +29,9 @@
     29,
     0.5
   ],
+  "builtInMods": [
+    "naeran_flux_shunts"
+  ],
   "builtInWeapons": {
     "main_gun": "nom_solar_crucible"
   },

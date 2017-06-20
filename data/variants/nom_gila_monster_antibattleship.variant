@@ -60,5 +60,10 @@
         "WS0024": "nom_ultralight_electron_maser",
       }
     }
+  ],
+  "wings": [
+    "nom_fang_wing",
+    "nom_toad_wing",
+    "nom_fang_wing"
   ]
 }

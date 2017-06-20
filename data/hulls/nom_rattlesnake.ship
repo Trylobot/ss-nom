@@ -89,6 +89,9 @@
     144,
     26
   ],
+  "builtInMods": [
+    "naeran_flux_shunts"
+  ],
   "builtInWeapons": {
     "WS_L1": "nom_twin_electron_maser",
     "WS_L2": "nom_triple_electron_maser",
