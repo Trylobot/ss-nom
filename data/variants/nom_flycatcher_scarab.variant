@@ -1,13 +1,17 @@
 {
   "displayName": "Support",
-  "fluxCapacitors": 0,
-  "fluxVents": 8,
+  "fluxCapacitors": 6,
+  "fluxVents": 0,
   "hullId": "nom_flycatcher",
   "hullMods": [
-    "insulatedengine",
-    "augmentedengines"
+    "expanded_deck_crew",
+    "recovery_shuttles"
   ],
+  "quality": 0,
   "variantId": "nom_flycatcher_scarab",
+  "wings": [
+    "nom_scarab_wing",
+  ],
   "weaponGroups": [
     {
       "autofire": true,
@@ -27,7 +31,5 @@
         "WS0006": "nom_firecracker"
       }
     }
-  ],
- "wings": [
-    "nom_scarab_wing" ]
+  ]
 }
