@@ -5,6 +5,8 @@
   "id":"nomads",
   "version":"1.1",
   "gameVersion":"0.8.1a",
-  "modPlugin":"data.scripts.TheNomadsModPlugin",
-  "jars":["jars/TheNomads.jar"]
+  "jars":[
+    "jars/TheNomads.jar"
+  ],
+  "modPlugin":"data.scripts.TheNomadsModPlugin"
 }
