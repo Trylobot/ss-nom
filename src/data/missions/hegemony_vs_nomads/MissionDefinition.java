@@ -8,7 +8,6 @@ import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
 
 public class MissionDefinition implements MissionDefinitionPlugin
 {
-        @Override
 	public void defineMission(MissionDefinitionAPI api)
 	{
 		// Set up the fleets

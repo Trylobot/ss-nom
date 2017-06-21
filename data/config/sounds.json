@@ -1,4 +1,12 @@
 {
+	# Music
+
+	"nom_theme_music":{
+		"sounds":[
+			{"file":"sounds/nom/music/Lena Chamamyan - Love In Damascus.ogg","pitch":1,"volume":1}
+		]
+	},
+
 	###################################
 	##  Sounds by Cycerin, Oct 2013  ##
 	###################################

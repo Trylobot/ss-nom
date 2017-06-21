@@ -1,20 +1,21 @@
 {
   "id":"nomads",
-  "color":[ 234,214,124,255 ],
+  "description":"No description yet.",
   "displayName":"Nomad",
   "displayNameWithArticle":"the Nomad",
   "displayNameLong":"Nomad",
   "displayNameLongWithArticle":"the Nomad",
   "shipNamePrefix":"NA",
-  "description":"No description yet.",
-  "logo":"graphics/nom/factions/ss_nom_Flag.png",
-  "crest":"graphics/nom/factions/ss_nom_Crest.png",
   "names":{
     "fringe":1,
   },
   "shipNameSources":{
     "ANCIENT_NAERAN":1
   },
+  
+  "color":[ 234,214,124,255 ],
+  "logo":"graphics/nom/factions/ss_nom_Flag.png",
+  "crest":"graphics/nom/factions/ss_nom_Crest.png",
   "portraits":{
     "standard_male":[
       "graphics/nom/portraits/gorrem_chani_child.png",
@@ -27,62 +28,62 @@
       "graphics/nom/portraits/gorrem_chani_priestess.png",
     ],
   },
+  "music":{
+    "theme": "nom_theme_music",
+    "market_neutral": "nom_theme_music",
+    "market_hostile": "nom_theme_music",
+    "market_friendly": "nom_theme_music",
+    "encounter_neutral": "nom_theme_music",
+    "encounter_hostile": "nom_theme_music",
+    "encounter_friendly": "nom_theme_music",
+  }
 
   "illegalCommodities":[
-  ],
+  ],  
   "hullMods":[
-    "turretgyros",
     "armoredweapons",
-    "autorepair",
-    "auxiliarythrusters",
-    "blast_doors",
     "dedicated_targeting_core",
+    "ecm",
     "eccm",
-    "magazines",
     "missleracks",
-    "fluxcoil",
-    "fluxdistributor",
     "hardened_subsystems",
     "insulatedengine",
     "reinforcedhull",
-    "fluxbreakers",
     "surveying_equipment",
     "unstable_injector",
     "expanded_deck_crew",
     "recovery_shuttles",
     "operations_center",
-    "nav_relay",
-    "ecm",
+    "nav_relay"
   ],
   "custom":{
-    "allowsTransponderOffTrade":true,
-    "offersCommissions":false,
-    "engagesInHostilities":false,
-    "buysAICores":true,
-    "AICoreValueMult":2,
-    "AICoreRepMult":1,
-    "buysSurveyData":true,
+    "allowsTransponderOffTrade": true,
+    "offersCommissions": false,
+    "engagesInHostilities": false,
+    "buysAICores": false,
+    "buysSurveyData": true,
+    "engageWhenEvenStrength":true,
+    "exemptFromFoodShortages":true,
+    "willTradeWhenHostile":true,
+    "noPatrols":true,
+    "ignoreTradeWithEnemiesForReputation":true,
+    "postsNoBounties":true,
+    "offerMissionsWhenHostile":true,
   },
-  "fleetTypeNames":{
-    "mercScout":"Mercenary Scout",
-    "mercBountyHunter":"Bounty Hunter",
-    "mercPrivateer":"Privateer",
-    "mercPatrol":"Mercenary Patrol",
-    "mercArmada":"Mercenary Company",
+  
+  "ranks":{
+    "ranks":{
+      "spaceCommander":{"name":"Wanderer"},
+    },
+    "posts":{
+      "fleetCommander":{"name":"Wanderer"},
+      "patrolCommander":{"name":"Lookout"},
+      "baseCommander":{"name":"Builder"},
+      "administrator":{"name":"Keeper"},
+    },
   },
 
   "shipRoles":{
-    "fastAttack":{
-      "fallback":{"combatSmall":1},
-    },
-    "escortSmall":{
-      "fallback":{"combatSmall":1},
-    },
-    "escortMedium":{
-      "fallback":{"combatMedium":1},
-    },
-
-
     "combatSmall":{
       "nom_death_bloom_strike":1,
       "nom_yellowjacket_sniper":3,
@@ -106,15 +107,10 @@
       "nom_gila_monster_antibattleship":10,
       "fallback":{"combatLarge":2},
     },
-
-
-
-    # hybrid ships with good combat and cargo capacity
     "combatFreighterSmall":{
       "nom_wurm_assault":10,
       "fallback":{"freighterSmall":1},
     },
-
     "combatFreighterMedium":{
       "nom_flycatcher_scarab":2,
       "nom_flycatcher_toad":2,
@@ -128,15 +124,19 @@
       "nom_gila_monster_antibattleship":10,
       "fallback":{"combatFreighterMedium":2},
     },
-
+    "fastAttack":{
+      "fallback":{"combatSmall":1},
+    },
+    "escortSmall":{
+      "fallback":{"combatSmall":1},
+    },
+    "escortMedium":{
+      "fallback":{"combatMedium":1},
+    },
     "civilianRandom":{
       "nom_wurm_assault":1000,
-
       "fallback":{"freighterSmall":1},
     },
-
-
-    # carriers
     "carrierSmall":{
       "nom_flycatcher_scarab":2,
       "nom_flycatcher_toad":2,
@@ -152,8 +152,6 @@
       "nom_gila_monster_antibattleship":10,
       "fallback":{"carrierMedium":4},
     },
-
-    # freighters and such
     "freighterSmall":{
       "nom_wurm_assault":30,
       "nom_flycatcher_scarab":2,
@@ -175,10 +173,8 @@
       "nom_gila_monster_antibattleship":10,
       "fallback":{"freighterMedium":2},
     },
-
     "tankerSmall":{
       "nom_wurm_assault":10,
-      "fallback":{"tankerMedium":0.5},
     },
     "tankerMedium":{
       "nom_flycatcher_scarab":2,
@@ -193,30 +189,27 @@
       "nom_gila_monster_antibattleship":10,
       "fallback":{"tankerMedium":2},
     },
-
     "personnelSmall":{
       "nom_wurm_assault":10,
-      "fallback":{"personnelMedium":0.5},
     },
     "personnelMedium":{
-
       "fallback":{"personnelSmall":2},
     },
     "personnelLarge":{
-
       "fallback":{"personnelMedium":2},
     },
-
-    # utility ships
+    "utility":{
+      "nom_wurm_assault":10,
+    },
     "tug":{
       "fallback":{"utility":1},
     },
     "crig":{
       "fallback":{"utility":1},
     },
-    "utility":{
-      "nom_wurm_assault":10,
-    },
+  },
+
+  "fleetTypeNames":{
   },
 
   "traits":{
@@ -232,6 +225,7 @@
   },
 
   "doctrine":{
+    
     # ship distribution
     ## tending toward small & defensive
     "small":8,
@@ -271,7 +265,8 @@
       "coordinated_maneuvers":10,
       "fighter_doctrine":10,
       "electronic_warfare":10,
-    },
-  },
+    }
+
+  }
 
 }

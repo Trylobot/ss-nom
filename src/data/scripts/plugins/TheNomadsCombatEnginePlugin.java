@@ -14,8 +14,11 @@ import java.util.List;
 import org.lwjgl.util.vector.Vector2f;
 
 
-public class TheNomadsCombatEnginePlugin implements CombatEnginePlugin, EveryFrameCombatPlugin
+// [TODO] disabled for now; might be causing problem
+public class TheNomadsCombatEnginePlugin // implements CombatEnginePlugin, EveryFrameCombatPlugin
 {
+  /*
+  
 	private CombatEngineAPI engine = null;
 	private boolean executed = true;
 	
@@ -66,14 +69,13 @@ public class TheNomadsCombatEnginePlugin implements CombatEnginePlugin, EveryFra
 		}		
 	}
 
-  @Override
   public void renderInWorldCoords(ViewportAPI vapi) {
     // ...
   }
 
-  @Override
   public void renderInUICoords(ViewportAPI vapi) {
     // ...
   }
   
+  */
 }

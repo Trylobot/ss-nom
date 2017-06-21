@@ -6,10 +6,10 @@ import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.mission.MissionDefinitionAPI;
 import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
 
-public class MissionDefinition implements MissionDefinitionPlugin {
-
-	public void defineMission(MissionDefinitionAPI api) {
-
+public class MissionDefinition implements MissionDefinitionPlugin
+{
+	public void defineMission(MissionDefinitionAPI api)
+  {
 		// Set up the fleets
 		api.initFleet(FleetSide.PLAYER, "NA", FleetGoal.ATTACK, false);
 		api.setFleetTagline(FleetSide.PLAYER, "Nomad Roadrunner Pursuit Squad");

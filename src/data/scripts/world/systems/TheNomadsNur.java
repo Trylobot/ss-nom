@@ -21,6 +21,8 @@ import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.fleet.FleetMemberType;
 import com.fs.starfarer.api.impl.campaign.ids.StarTypes;
+import com.fs.starfarer.api.impl.campaign.fleets.FleetParams;
+import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV2;
 
 import data.scripts.trylobot.TrylobotUtils;
 import data.scripts.world.armada.CampaignArmadaController;
@@ -76,6 +78,8 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
     system.addEntity(jumpPoint);
     system.autogenerateHyperspaceJumpPoints(true, true);
 		
+    /*
+    
 		// armada formation
 		CampaignArmadaEscortFleetPositionerAPI armada_formation =
 			new CampaignArmadaFormationOrbit(
@@ -228,6 +232,8 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 			restock_ship_wait_days,
 		    station );
 		system.addScript( station_cargo_restocker );
+
+    */
 	}
 	
 	public void handle_event( CampaignArmadaControllerEvent event )
