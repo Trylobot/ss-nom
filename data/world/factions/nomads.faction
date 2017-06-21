@@ -10,7 +10,7 @@
     "fringe":1,
   },
   "shipNameSources":{
-    "ANCIENT_NAERAN":1
+    "ANCIENT_NAERAN":1,
   },
   
   "color":[ 234,214,124,255 ],
@@ -36,7 +36,7 @@
     "encounter_neutral": "nom_theme_music",
     "encounter_hostile": "nom_theme_music",
     "encounter_friendly": "nom_theme_music",
-  }
+  },
 
   "illegalCommodities":[
   ],  
@@ -54,7 +54,7 @@
     "expanded_deck_crew",
     "recovery_shuttles",
     "operations_center",
-    "nav_relay"
+    "nav_relay",
   ],
   "custom":{
     "allowsTransponderOffTrade": true,
@@ -265,8 +265,8 @@
       "coordinated_maneuvers":10,
       "fighter_doctrine":10,
       "electronic_warfare":10,
-    }
+    },
 
-  }
+  },
 
 }
