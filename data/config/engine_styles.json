@@ -1,9 +1,6 @@
 {
-	# Reserved engine style ids (can not be used):
-	# "CUSTOM"
-	# "midlineFlare", "LOW_TECH", "MIDLINE", "HIGH_TECH"
-	
 	"ANCIENT_NAERAN":{
+		"mode":"PARTICLES", # PARTICLES or QUAD_STRIP
 		"type":"SMOKE", # GLOW or SMOKE
 		"engineColor":   [194,194, 54,255],
 		"contrailColor": [ 50, 50, 50, 50],
@@ -14,6 +11,7 @@
 		"contrailAngularVelocityMult":0.45,
 	},
 	"FUSION_TORPEDO":{
+		"mode":"PARTICLES", # PARTICLES or QUAD_STRIP
 		"type":"SMOKE", # GLOW or SMOKE
 		"engineColor":   [255,255,255,  0],
 		"contrailColor": [100, 50, 50, 50],
