@@ -30,7 +30,7 @@ public class TheNomadsDamselflyTowCableFXPlugin implements CombatEnginePlugin, E
 
 	public void advance( float amount, List events )
 	{
-		if( engine.isPaused() )
+		if( engine == null || engine.isPaused() )
 			return;
 		accumulator += amount;
 		if( accumulator < MIN_SEARCH_DELAY_SEC )

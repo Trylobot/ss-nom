@@ -36,7 +36,7 @@ public class TheNomadsRetributionWeaponPlugin implements CombatEnginePlugin, Eve
 
 	public void advance( float amount, List events )
 	{
-		if( engine.isPaused() )
+		if( engine == null || engine.isPaused() )
 			return;
 		
 		clock += amount; // for fang launch timings

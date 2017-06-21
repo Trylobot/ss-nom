@@ -11,8 +11,10 @@ public class TheNomadsHabitatRingRotationEffect implements EveryFrameWeaponEffec
 	
 	public void advance( float amount, CombatEngineAPI engine, WeaponAPI weapon )
 	{
-		if( engine.isPaused() ) return;
-		if( weapon.getShip().isHulk() ) return;
+		if( engine == null || engine.isPaused() )
+      return;
+    if( weapon.getShip().isHulk() )
+      return;
 		
 		angle = normalizeAngle( angle + (amount * direction * degrees_per_second) );
 		// habitat ring rotates at a fixed rate

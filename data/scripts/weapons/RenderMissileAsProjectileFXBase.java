@@ -20,7 +20,7 @@ public abstract class RenderMissileAsProjectileFXBase implements EveryFrameWeapo
 	
 	public void advance( float amount, CombatEngineAPI engine, WeaponAPI weapon )
 	{
-		if( engine.isPaused() || FX_WEAPON_ID() == null )
+		if( engine == null || engine.isPaused() || FX_WEAPON_ID() == null )
 			return;
 		
 		// for every missile launched from this weapon

@@ -16,7 +16,7 @@ public class TheNomadsDoomCannonEffect implements EveryFrameWeaponEffectPlugin
 	
 	public void advance( float amount, CombatEngineAPI engine, WeaponAPI weapon )
 	{
-		if( engine.isPaused() )
+		if( engine == null || engine.isPaused() )
 			return;
 		List projectiles = engine.getProjectiles();
 		List missiles = engine.getMissiles();

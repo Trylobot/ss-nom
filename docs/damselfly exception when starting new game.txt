@@ -1,0 +1,13 @@
+245712 [Thread-4] ERROR com.fs.starfarer.combat.CombatMain  - java.lang.NullPointerException
+java.lang.NullPointerException
+  at data.scripts.plugins.TheNomadsDamselflyTowCableFXPlugin.advance(TheNomadsDamselflyTowCableFXPlugin.java:33)
+  at com.fs.starfarer.title.ooOO.K$Oo.super(Unknown Source)
+  at com.fs.starfarer.combat.A.new.o00000(Unknown Source)
+  at com.fs.starfarer.combat.CombatEngine.advanceInner(Unknown Source)
+  at com.fs.starfarer.combat.CombatEngine.advance(Unknown Source)
+  at com.fs.starfarer.title.TitleScreenState.advance(Unknown Source)
+  at com.fs.starfarer.BaseGameState.traverse(Unknown Source)
+  at com.fs.state.AppDriver.begin(Unknown Source)
+  at com.fs.starfarer.combat.CombatMain.main(Unknown Source)
+  at com.fs.starfarer.StarfarerLauncher$1.run(Unknown Source)
+  at java.lang.Thread.run(Unknown Source)

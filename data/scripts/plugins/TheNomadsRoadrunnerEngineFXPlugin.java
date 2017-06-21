@@ -31,8 +31,8 @@ public class TheNomadsRoadrunnerEngineFXPlugin implements CombatEnginePlugin, Ev
 	public class EngineFX
 	{
 		ShipAPI ship;
-		ShipEngineControllerAPI engine;
-		AnimationAPI engine_anim;
+		ShipEngineControllerAPI ship_engine;
+		AnimationAPI ship_engine_anim;
 		float accumulator = 0.0f;
 		
 		public EngineFX(
@@ -41,15 +41,15 @@ public class TheNomadsRoadrunnerEngineFXPlugin implements CombatEnginePlugin, Ev
 		  AnimationAPI engine_anim )
 		{
 			this.ship = ship;
-			this.engine = engine;
-			this.engine_anim = engine_anim;
+			this.ship_engine = engine;
+			this.ship_engine_anim = engine_anim;
 		}
 
 		public void advance( float amount )
 		{
 			accumulator += amount;
 			float frame_delay = ENGINE_MIN_FPS__FRAME_DELAY;
-			if( engine.isAccelerating() )
+			if( ship_engine.isAccelerating() )
 			{
 				float speed = ship.getVelocity().length();
 				float pct = 0f;
@@ -70,10 +70,10 @@ public class TheNomadsRoadrunnerEngineFXPlugin implements CombatEnginePlugin, Ev
 		
 		public void next_frame()
 		{
-			int f = engine_anim.getFrame() + 1;
-			if( f >= engine_anim.getNumFrames() )
+			int f = ship_engine_anim.getFrame() + 1;
+			if( f >= ship_engine_anim.getNumFrames() )
 				f = 0;
-			engine_anim.setFrame( f );
+			ship_engine_anim.setFrame( f );
 		}
 	}
 	
@@ -86,7 +86,7 @@ public class TheNomadsRoadrunnerEngineFXPlugin implements CombatEnginePlugin, Ev
 
 	public void advance( float amount, List events )
 	{
-		if( engine.isPaused() )
+		if( engine == null || engine.isPaused() )
 			return;
 		accumulator += amount;
 		if( accumulator < MIN_EXPENSIVE_UPDATE_DELAY_SEC )
@@ -103,7 +103,10 @@ public class TheNomadsRoadrunnerEngineFXPlugin implements CombatEnginePlugin, Ev
 	
 	public void do_expensive_update()
 	{
-		for( Iterator s = engine.getShips().iterator(); s.hasNext(); )
+		if( engine == null || engine.isPaused() )
+			return;
+    
+    for( Iterator s = engine.getShips().iterator(); s.hasNext(); )
 		{
 			ShipAPI ship = (ShipAPI) s.next();
 			if( tracker.containsKey( ship ))
