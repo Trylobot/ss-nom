@@ -1,17 +1,17 @@
 package data.scripts.plugins;
 
-import com.fs.starfarer.api.combat.CombatEngineAPI;
-import com.fs.starfarer.api.combat.CombatEnginePlugin;
-import com.fs.starfarer.api.combat.CombatFleetManagerAPI;
-import com.fs.starfarer.api.combat.EveryFrameCombatPlugin;
-import com.fs.starfarer.api.combat.ViewportAPI;
-import com.fs.starfarer.api.fleet.FleetGoal;
-import com.fs.starfarer.api.fleet.FleetMemberAPI;
-import com.fs.starfarer.api.mission.FleetSide;
-import data.scripts.trylobot.TrylobotUtils;
-import java.util.Iterator;
-import java.util.List;
-import org.lwjgl.util.vector.Vector2f;
+//import com.fs.starfarer.api.combat.CombatEngineAPI;
+//import com.fs.starfarer.api.combat.CombatEnginePlugin;
+//import com.fs.starfarer.api.combat.CombatFleetManagerAPI;
+//import com.fs.starfarer.api.combat.EveryFrameCombatPlugin;
+//import com.fs.starfarer.api.combat.ViewportAPI;
+//import com.fs.starfarer.api.fleet.FleetGoal;
+//import com.fs.starfarer.api.fleet.FleetMemberAPI;
+//import com.fs.starfarer.api.mission.FleetSide;
+//import data.scripts.trylobot.TrylobotUtils;
+//import java.util.Iterator;
+//import java.util.List;
+//import org.lwjgl.util.vector.Vector2f;
 
 
 // [TODO] disabled for now; might be causing problem
