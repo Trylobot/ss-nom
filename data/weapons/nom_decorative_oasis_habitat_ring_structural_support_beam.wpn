@@ -1,6 +1,6 @@
 {
-	"specClass":"beam",
 	"id":"nom_decorative_oasis_habitat_ring_structural_support_beam",
+	"specClass":"beam",
 	"type":"DECORATIVE",
 	"size":"MEDIUM", # renders overtop small mounts
 	"turretSprite":"graphics/nom/weapons/decorative/nom_oasis_crossbar.png",

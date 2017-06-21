@@ -250,7 +250,7 @@
       ],
       "mount": "TURRET",
       "size": "LARGE",
-      "type": "SYSTEM"
+      "type": "DECORATIVE"
     },
     ### there must be a separate anchor defined for each active damselfly drone
     ### and the slots must be named according to the convention "tow_anchor_N"
@@ -264,7 +264,7 @@
       ],
       "mount": "HIDDEN",
       "size": "SMALL",
-      "type": "SYSTEM"
+      "type": "DECORATIVE"
     },
     {
       "angle": 0,
@@ -276,7 +276,7 @@
       ],
       "mount": "HIDDEN",
       "size": "SMALL",
-      "type": "SYSTEM"
+      "type": "DECORATIVE"
     },
   ],
   "width": 138

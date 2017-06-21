@@ -1,6 +1,6 @@
 {
-	"specClass":"beam",
 	"id":"nom_decorative_oasis_habitat_ring",
+	"specClass":"beam",
 	"type":"DECORATIVE",
 	"size":"SMALL", # renders under any larger mounts except missiles
 	"everyFrameEffect":"data.scripts.plugins.TheNomadsHabitatRingRotationEffect",
