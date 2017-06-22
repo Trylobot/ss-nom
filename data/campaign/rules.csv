@@ -14,4 +14,4 @@ NGCSetDifficulty normal
 NGCSetWithTimePass false
 NGCDone",,,
 ,,,,,,
-dialog_Nomad_BeginFleetEncounter,BeginFleetEncounter,$faction.id == nomads,OpenComms,,,
+dialogNomadBeginFleetEncounter,BeginFleetEncounter,$faction.id == nomads,FireBest OpenCDE,,,

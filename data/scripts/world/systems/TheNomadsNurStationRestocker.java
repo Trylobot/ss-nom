@@ -27,7 +27,31 @@ public class TheNomadsNurStationRestocker implements EveryFrameScript
 	
 	private int               count;
 	private long[]            restock_timestamps;
-	
+  
+  public TheNomadsNurStationRestocker(
+    StockDescriptor[] restock,
+    SectorEntityToken orbital_station )
+  {
+    this.restock_ship_variant_or_wing_ids = new String[restock.length];
+		this.restock_ship_types =               new FleetMemberType[restock.length];
+		this.restock_ship_count_cap =           new int[restock.length];
+		this.restock_ship_wait_days =           new float[restock.length];
+    this.orbital_station = orbital_station;
+    
+    for( int i = 0; i < restock.length; ++i ) {
+      restock_ship_variant_or_wing_ids[i] = restock[i].variant;
+      restock_ship_types[i] = FleetMemberType.SHIP;
+      restock_ship_count_cap[i] = restock[i].count_cap;
+      restock_ship_wait_days[i] = restock[i].wait_days;
+    }
+    
+		count = restock_ship_variant_or_wing_ids.length;
+		restock_timestamps = new long[count];
+		
+		clock = Global.getSector().getClock();
+		for( int i = 0; i < count; ++i )
+			restock_timestamps[i] = clock.getTimestamp();
+  }
 
 	public TheNomadsNurStationRestocker(
 		String[]          restock_ship_variant_or_wing_ids,
