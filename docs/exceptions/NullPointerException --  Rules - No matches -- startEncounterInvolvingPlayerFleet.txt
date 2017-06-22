@@ -1,0 +1,347 @@
+469887 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Looking for best match
+469887 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Memory:
+469888 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Found 14 rules for trigger [BeginFleetEncounter]
+469888 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: dialogHegRelayInterference_start
+469888 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: !$sniffer_didAlready $respondingToCommRelayInterference score:100 $global.csInProgress
+469888 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $respondingToCommRelayInterference score:100
+469888 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: dialogHegRelayInterference_cancelledAndRan
+469888 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: !$sniffer_didAlready $respondingToCommRelayInterference score:100
+469888 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $respondingToCommRelayInterference score:100
+469888 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: LPTitheCheck
+469888 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == luddic_path score:100 RepIsAtWorst $faction.id HOSTILE !$LP_tithePaid !$LP_titheAskedFor $relativeStrength >= 0 LPTitheCalc
+469888 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == luddic_path score:100
+469888 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: customsInspectionScan
+469888 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $doingCustomsInspection score:100
+469888 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $doingCustomsInspection score:100
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: customsInspectionWaitFinished
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $doingCustomsInspection score:100 $global.ciFinished
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $doingCustomsInspection score:100
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: mpm_pirateEncounter
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $mpm_isSpawnedByMPM !$ignorePlayerCommRequests
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $mpm_isSpawnedByMPM
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: tOffPatrolBegin
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: CaresAboutTransponder !$tOff_didAlready !$isHostile !$faction.c:allowsTransponderOffTrade !$sourceMarket.mc:free_market $isPatrol $sawPlayerTransponderOff score:100
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: CaresAboutTransponder
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: tOffPatrolBeginNoTalk
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: CaresAboutTransponder !$tOff_didAlready !$isHostile !$faction.c:allowsTransponderOffTrade !$sourceMarket.mc:free_market $isPatrol $sawPlayerTransponderOff score:100 $sawPlayerWithTOffCount > 1 score:100
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: CaresAboutTransponder
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: cargoScanInitial
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: !$cargoScan_didAlready !$isHostile $pursuePlayer_smugglingScan score:50
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $pursuePlayer_smugglingScan score:50
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: remnantStationFleetOpenDefault
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $isStation $faction.id == remnant !$printedDesc
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $isStation
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: remnantStationFleetOpenDamaged
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $isStation $damagedStation $faction.id == remnant !$printedDesc
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $isStation
+469889 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: dstr_normalStart
+469890 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: !$isHostile $distress score:1000 !$distressNoHail
+469890 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $distress score:1000
+469890 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: dcall_normalStart
+469890 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: !$isHostile $distressResponse score:1000 !$distressNoHail
+469890 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $distressResponse score:1000
+469890 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: dialog_Nomad_BeginFleetEncounter
+469890 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == nomads
+469890 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - All conditions passed, score 1
+469890 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Number of matches with same score: 1, picking one randomly.
+469890 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Picked: dialog_Nomad_BeginFleetEncounter
+469893 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Looking for best match
+469893 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Memory:
+469894 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Found 68 rules for trigger [OpenCommLink]
+469894 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: dialogCommLinkIgnore_1
+469894 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $entity.ignorePlayerCommRequests score:1000
+469894 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.ignorePlayerCommRequests score:1000
+469894 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: dialogHegRelayInterference_open1
+469894 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $entity.respondingToCommRelayInterference score:100 $entity.timesSawPlayerInterferingWithRelay <= 1 !$entity.isHostile
+469894 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.respondingToCommRelayInterference score:100
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: dialogHegRelayInterference_open2
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $warnedPlayerAboutRelayInterference score:10 $playerAcknowledgedRelayInterferenceWarning $entity.timesSawPlayerInterferingWithRelay <= 1
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $warnedPlayerAboutRelayInterference score:10
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: dialogHegRelayInterference_openHostile
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $entity.respondingToCommRelayInterference score:100 $entity.isHostile
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.respondingToCommRelayInterference score:100
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: dialogHegRelayInterference_openWarnedBefore
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $entity.respondingToCommRelayInterference score:100 $entity.timesSawPlayerInterferingWithRelay > 1
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.respondingToCommRelayInterference score:100
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingDefaultTOffNormal
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: !$player.transponderOn $entity.relativeStrength >= 0
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: !$player.transponderOn
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingDefaultTOffWeaker
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: !$player.transponderOn $entity.relativeStrength < 0
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: !$player.transponderOn
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingDefaultFriendly
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.friendlyToPlayer
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.friendlyToPlayer
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingDefaultHostileWeaker
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $entity.isHostile $entity.relativeStrength < 0
+469895 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.isHostile
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingDefaultHostileWeakerDefiant
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $entity.isHostile $entity.relativeStrength < 0 $entity.weakerThanPlayerButHolding
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.isHostile
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingDefaultHostileStronger
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $entity.isHostile $entity.relativeStrength >= 0
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.isHostile
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingDefaultNeutral
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.neutralToPlayer
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - All conditions passed, score 1
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingHegemonyFriendly
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == hegemony $faction.friendlyToPlayer
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == hegemony
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingHegemonyHostileWeaker
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == hegemony $entity.isHostile $entity.relativeStrength < 0
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == hegemony
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingHegemonyHostileWeakerDefiant
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == hegemony $entity.isHostile $entity.relativeStrength < 0 $entity.weakerThanPlayerButHolding
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == hegemony
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingHegemonyHostileStronger
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == hegemony $entity.isHostile $entity.relativeStrength >= 0
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == hegemony
+469896 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingHegemonyNeutral
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == hegemony $faction.neutralToPlayer
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == hegemony
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingTTFriendly
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == tritachyon $faction.friendlyToPlayer
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == tritachyon
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingTTHostileWeaker
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == tritachyon $entity.isHostile $entity.relativeStrength < 0
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == tritachyon
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingTTHostileWeakerDefiant
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == tritachyon $entity.isHostile $entity.relativeStrength < 0 $entity.weakerThanPlayerButHolding
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == tritachyon
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingTTHostileStronger
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == tritachyon $entity.isHostile $entity.relativeStrength >= 0
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == tritachyon
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingTTNeutral
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == tritachyon $faction.neutralToPlayer
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == tritachyon
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingDiktatFriendly
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == sindrian_diktat $faction.friendlyToPlayer
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == sindrian_diktat
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingDiktatHostileWeaker
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == sindrian_diktat $entity.isHostile $entity.relativeStrength < 0
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == sindrian_diktat
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingDiktatHostileWeakerDefiant
+469897 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == sindrian_diktat $entity.isHostile $entity.relativeStrength < 0 $entity.weakerThanPlayerButHolding
+469898 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == sindrian_diktat
+469898 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingDiktatHostileStronger
+469898 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == sindrian_diktat $entity.isHostile $entity.relativeStrength >= 0
+469898 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == sindrian_diktat
+469898 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingDiktatNeutral
+469898 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == sindrian_diktat $faction.neutralToPlayer
+469898 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == sindrian_diktat
+469898 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingLCFriendly
+469898 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == luddic_church $faction.friendlyToPlayer
+469898 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == luddic_church
+469898 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingLCHostileWeaker
+469898 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == luddic_church $entity.isHostile $entity.relativeStrength < 0
+469898 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == luddic_church
+469898 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingLCHostileWeakerDefiant
+469898 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == luddic_church $entity.isHostile $entity.relativeStrength < 0 $entity.weakerThanPlayerButHolding
+469898 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == luddic_church
+469898 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingLCHostileStronger
+469898 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == luddic_church $entity.isHostile $entity.relativeStrength >= 0
+469898 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == luddic_church
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingLCNeutral
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == luddic_church $faction.neutralToPlayer
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == luddic_church
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingLPFriendly
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == luddic_path $faction.friendlyToPlayer
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == luddic_path
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingLPHostileWeaker
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == luddic_path $entity.isHostile $entity.relativeStrength < 0
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == luddic_path
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingLPHostileWeakerDefiant
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == luddic_path $entity.isHostile $entity.relativeStrength < 0 $entity.weakerThanPlayerButHolding
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == luddic_path
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingLPHostileStronger
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == luddic_path $entity.isHostile $entity.relativeStrength >= 0
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == luddic_path
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingLPNeutral
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == luddic_path
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == luddic_path
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: LPTithePre
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $entity.LP_titheConv score:100
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.LP_titheConv score:100
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingPirateFriendly
+469899 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == pirates $faction.friendlyToPlayer
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == pirates
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingPirateHostileWeaker
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == pirates $entity.isHostile $entity.relativeStrength < 0
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == pirates
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingPirateHostileWeakerDefiant
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == pirates $entity.isHostile $entity.relativeStrength < 0 $entity.weakerThanPlayerButHolding
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == pirates
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingPirateHostileStronger
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == pirates $entity.isHostile $entity.relativeStrength >= 0
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == pirates
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingPirateNeutral
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == pirates $faction.neutralToPlayer
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == pirates
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingRogueMinerFriendly
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == pirates $faction.friendlyToPlayer $entity.rogueMiner == true
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == pirates
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingRogueMinerHostileWeaker
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == pirates $entity.isHostile $entity.relativeStrength < 0 $entity.rogueMiner == true
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == pirates
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingRogueMinerHostileWeakerDefiant
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == pirates $entity.isHostile $entity.relativeStrength < 0 $entity.weakerThanPlayerButHolding $entity.rogueMiner == true
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == pirates
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingRogueMinerHostileStronger
+469900 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == pirates $entity.isHostile $entity.relativeStrength >= 0 $entity.rogueMiner == true
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == pirates
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingRogueMinerNeutral
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == pirates $faction.neutralToPlayer $entity.rogueMiner == true
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == pirates
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingRemnantFriendly
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == remnant score:1000 $faction.friendlyToPlayer
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == remnant score:1000
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingRemnantHostile
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == remnant score:1000 $entity.isHostile
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == remnant score:1000
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingRemnantNeutral
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == remnant score:1000 $faction.neutralToPlayer
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == remnant score:1000
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingDerelictFriendly
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == derelict score:1000 $faction.friendlyToPlayer
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == derelict score:1000
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingDerelictHostile
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == derelict score:1000 $entity.isHostile
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == derelict score:1000
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: greetingDerelictNeutral
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $faction.id == derelict score:1000 $faction.neutralToPlayer
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $faction.id == derelict score:1000
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: customsInspectionConvStart
+469901 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $entity.doingCustomsInspection score:100 $entity.customsInspectionStage == 0
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.doingCustomsInspection score:100
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: customsInspectionAddContinue
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $entity.doingCustomsInspection score:100 $entity.customsInspectionStage == 1
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.doingCustomsInspection score:100
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: mpm_pirateOpenComms
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $isPerson $entity.mpm_isSpawnedByMPM score:100
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.mpm_isSpawnedByMPM score:100
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: tOffPatrolOpenComm
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $entity.transponderOffConv score:100
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.transponderOffConv score:100
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: tOffPatrolOpenCommUnknown
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $entity.transponderOffConv score:100 !$entity.knowsWhoPlayerIs
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.transponderOffConv score:100
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: tOffPatrolOpenCommTOn
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $entity.transponderOffConv score:100 $player.transponderOn
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.transponderOffConv score:100
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: tOffPatrolOpenCommNotFirstTime
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $entity.transponderOffConv score:100 $entity.sawPlayerWithTOffCount == 2.0 score:10 $entity.relativeStrength >= 0
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.transponderOffConv score:100
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: cargoScanFirstComms
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $entity.cargoScanConv score:100
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.cargoScanConv score:100
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: dstr_openComms
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: !$isHostile !$distressTalkedToPlayerBefore $entity.distress score:1000
+469902 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.distress score:1000
+469903 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: dstr_openCommsLuddic
+469903 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: !$isHostile !$distressTalkedToPlayerBefore $entity.distress score:1000 $faction.id == luddic_church
+469903 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.distress score:1000
+469903 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: dstr_openCommsRepeat
+469903 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: !$isHostile $entity.distress score:1000
+469903 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.distress score:1000
+469903 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: dcall_openCommsInhospitable
+469903 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: !$isHostile RepIsAtBest $faction.id INHOSPITABLE $entity.distressResponse score:1000
+469903 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: RepIsAtBest $faction.id INHOSPITABLE
+469903 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: dcall_openComms
+469903 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: RepIsAtWorst $faction.id SUSPICIOUS !$distressTalkedToPlayerBefore $entity.distressResponse score:1000
+469903 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.distressResponse score:1000
+469903 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: dcall_openCommsRepeat
+469903 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: RepIsAtWorst $faction.id SUSPICIOUS $entity.distressResponse score:1000
+469903 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $entity.distressResponse score:1000
+469904 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Number of matches with same score: 1, picking one randomly.
+469904 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Picked: greetingDefaultNeutral
+469905 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Looking for all matches
+469905 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Memory:
+469907 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Found 23 rules for trigger [PopulateOptions]
+469907 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: commRelayAddOptionInstallSniffer
+469907 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $tag:comm_relay $menuState == main !$commSnifferInstalled $faction.id != neutral
+469907 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $tag:comm_relay
+469907 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: commRelaySaySnifferRunning
+469907 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $tag:comm_relay $menuState == main $commSnifferInstalled !$saidCommSnifferRunning
+469907 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $tag:comm_relay
+469907 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: commRelayAddOptionUninstallSniffer
+469907 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $tag:comm_relay $menuState == main $commSnifferInstalled
+469907 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $tag:comm_relay
+469907 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: commRelayAddOptionLeave
+469907 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $tag:comm_relay $menuState == main
+469907 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $tag:comm_relay
+469907 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: surveyAddOptionPerform
+469907 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $market.isPlanetConditionMarketOnly !$market.isSurveyed
+469907 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $market.isPlanetConditionMarketOnly
+469907 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: surveyAddOptionPerformedAlready
+469907 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $market.isPlanetConditionMarketOnly $market.isSurveyed
+469907 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $market.isPlanetConditionMarketOnly
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: surveyAddOptionLeave
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $market.isPlanetConditionMarketOnly
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $market.isPlanetConditionMarketOnly
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: marketAddOptionCommDir
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $hasMarket $menuState == main !$faction.isNeutralFaction
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $hasMarket
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: marketAddOptionTradeCargo
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $hasMarket $menuState == main $tradeMode != NONE !$faction.isNeutralFaction
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $hasMarket
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: marketAddOptionTradeShips
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $hasMarket $menuState == main $tradeMode != NONE !$faction.isNeutralFaction
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $hasMarket
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: marketAddOptionTradeRefit
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $hasMarket $menuState == main $tradeMode != NONE !$faction.isNeutralFaction
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $hasMarket
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: marketAddOptionTradeCargo2
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $hasMarket $menuState == main $tradeMode != NONE $faction.isNeutralFaction
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $hasMarket
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: marketAddOptionTradeShips2
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $hasMarket $menuState == main $tradeMode != NONE $faction.isNeutralFaction
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $hasMarket
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: marketAddOptionTradeRefit2
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $hasMarket $menuState == main $tradeMode != NONE $faction.isNeutralFaction
+469908 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $hasMarket
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: marketAddOptionRepair1
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $hasMarket $menuState == main $tradeMode == OPEN RepairAvailable RepairNeeded RepairEnoughSupplies
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $hasMarket
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: marketAddOptionRepair2
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $hasMarket $menuState == main $tradeMode == OPEN RepairAvailable !RepairNeeded
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $hasMarket
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: marketAddOptionRepair3
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $hasMarket $menuState == main $tradeMode == OPEN RepairAvailable RepairNeeded !RepairEnoughSupplies
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $hasMarket
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: marketAddOptionLeave
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $hasMarket $menuState == main
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $hasMarket
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: convOptionLeave
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $isPerson !$cutCommLinkPolite
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - All conditions passed
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: convOptionLeavePolite
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $isPerson $cutCommLinkPolite
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $cutCommLinkPolite
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: mpm_hasEnoughOption
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $mpm_isPlayerContact CallEvent $mpm_eventRef hasEnough
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $mpm_isPlayerContact
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: aem_surveyFinished
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $market.isPlanetConditionMarketOnly $market.isSurveyed $spm_target
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: $market.isPlanetConditionMarketOnly
+469909 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Checking rule: aiCores_turnInOption
+469910 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Conditions: $isPerson AICores personCanAcceptCores
+469910 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Failed condition: AICores personCanAcceptCores
+469910 [Thread-4] INFO  com.fs.starfarer.campaign.rules.Rules  - Number of matches: 1
+469912 [Thread-4] INFO  sound.oo0O  - Cleaning up music with id [miscallenous_corvus_campaign_music.ogg]
+469988 [Thread-4] ERROR com.fs.starfarer.combat.CombatMain  - java.lang.NullPointerException
+java.lang.NullPointerException
+  at com.fs.starfarer.ooOO.J.ö00000(Unknown Source)
+  at com.fs.starfarer.ooOO.J.o00000(Unknown Source)
+  at com.fs.starfarer.ooOO.E.o00000(Unknown Source)
+  at com.fs.starfarer.ooOO.E.Ó00000(Unknown Source)
+  at com.fs.starfarer.campaign.CampaignState.startEncounterInvolvingPlayerFleet(Unknown Source)
+  at com.fs.starfarer.campaign.BaseLocation.advance(Unknown Source)
+  at com.fs.starfarer.campaign.StarSystem.advance(Unknown Source)
+  at com.fs.starfarer.campaign.CampaignEngine.advance(Unknown Source)
+  at com.fs.starfarer.campaign.CampaignState.advance(Unknown Source)
+  at com.fs.starfarer.BaseGameState.traverse(Unknown Source)
+  at com.fs.state.AppDriver.begin(Unknown Source)
+  at com.fs.starfarer.combat.CombatMain.main(Unknown Source)
+  at com.fs.starfarer.StarfarerLauncher$1.run(Unknown Source)
+  at java.lang.Thread.run(Unknown Source)
+

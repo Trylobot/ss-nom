@@ -63,10 +63,10 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
     // moons
     PlanetAPI planet_I__moon_a = system.addPlanet("nur_d", planet_I, "Ixaith", "rocky_unstable", 0f, 60f, 800f, 67f);
     PlanetAPI planet_I__moon_b = system.addPlanet("nur_e", planet_I, "Ushaise", "rocky_ice", 45f, 45f, 1000f, 120f);
-    PlanetAPI planet_I__moon_c = system.addPlanet("nur_g", planet_I, "Riaze", "barren", 90f, 100f, 1200f, 130f);
+    PlanetAPI planet_I__moon_c = system.addPlanet("nur_f", planet_I, "Riaze", "barren", 90f, 100f, 1200f, 130f);
     PlanetAPI planet_I__moon_d = system.addPlanet("nur_g", planet_I, "Riaze-Tremn", "frozen", 135f, 35f, 1500f, 132f);
     PlanetAPI planet_I__moon_e = system.addPlanet("nur_h", planet_I, "Eufariz", "frozen", 180f, 65f, 1750f, 200f);
-    PlanetAPI planet_I__moon_f = system.addPlanet("nur_l", planet_I, "Thumn", "rocky_ice", 225f, 100f, 2000f, 362f);
+    PlanetAPI planet_I__moon_f = system.addPlanet("nur_i", planet_I, "Thumn", "rocky_ice", 225f, 100f, 2000f, 362f);
     // stations
     station = system.addOrbitalStation("stationnom1", planet_I__moon_e, 180f, 300f, 50, "Naeran Orbital Storage & Resupply", "nomads");
     station.setCircularOrbitPointingDown(system.getEntityById("nur_h"), 45, 300, 50);
@@ -77,6 +77,26 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
     jumpPoint.setStandardWormholeToHyperspaceVisual();
     system.addEntity(jumpPoint);
     system.autogenerateHyperspaceJumpPoints(true, true);
+    
+    // relationships
+		FactionAPI nomads_faction = sector.getFaction( "nomads" );
+		Object[] all_factions = sector.getAllFactions().toArray();
+		for( int i = 0; i < all_factions.length; ++i )
+		{
+			FactionAPI cur_faction = (FactionAPI) all_factions[i];
+			if( cur_faction == nomads_faction )
+				continue;
+			if( "neutral".equals(    cur_faction.getId())
+			||  "independent".equals(cur_faction.getId()) ) {
+        // neutral and independent are friendly
+				nomads_faction.setRelationship( cur_faction.getId(), 1 );
+			} else {
+        // all other factions are hostiles
+				nomads_faction.setRelationship( cur_faction.getId(), -1 );
+			}
+		}
+    // the player is neutral
+		nomads_faction.setRelationship( "player", 0 );
 		
     // armada formation
 		CampaignArmadaEscortFleetPositionerAPI armada_formation =

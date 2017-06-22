@@ -1,19 +1,17 @@
 id,trigger,conditions,script,text,options,notes
 ,,,,,,
 # new game creation,,,,,,
-initNewGameChoicesNomadsDev,InitNewGameChoices,$global.isDevMode,,,102:ngcNomadsDevStart:>>(dev) Nomads Start [Nur],
+initNewGameChoicesNomadsDev,InitNewGameChoices,$global.isDevMode,,,99:ngcNomadsDevStart:[DEV] NOMADS Start,
 ,,,,,,
-ngcNomadsDevStartOption,NewGameOptionSelected,$option == ngcNomadsDevStart,"
-  NGCAddShip ""nom_death_bloom_strike""
-  NGCAddShip ""nom_komodo_mk2_assault""
-  NGCAddCargo RESOURCES crew 70
-  NGCAddCargo RESOURCES supplies 110
-  NGCAddCargo RESOURCES fuel 125
-  NGCAddCredits 1000000
-  NGCSetStartingLocation Nur 0 0
-  NGCSetDifficulty normal
-  NGCSetWithTimePass false
-  #NGCSetCustom customDevStart true
-  #NGCAddDevStartingScript
-  NGCDone",,,
+ngcNomadsDevStartOption,NewGameOptionSelected,$option == ngcNomadsDevStart,"NGCAddShip ""nom_death_bloom_strike""
+NGCAddShip ""nom_komodo_mk2_assault""
+NGCAddCargo RESOURCES crew 70
+NGCAddCargo RESOURCES supplies 110
+NGCAddCargo RESOURCES fuel 125
+NGCAddCredits 1000000
+NGCSetStartingLocation Nur 5000 5000
+NGCSetDifficulty normal
+NGCSetWithTimePass false
+NGCDone",,,
 ,,,,,,
+dialog_Nomad_BeginFleetEncounter,BeginFleetEncounter,$faction.id == nomads,OpenComms,,,
