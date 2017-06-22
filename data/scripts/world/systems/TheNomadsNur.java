@@ -36,8 +36,18 @@ import data.scripts.world.armada.api.CampaignArmadaEscortFleetPositionerAPI;
 @SuppressWarnings( "unchecked" )
 public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaControllerEventListener
 {
+  private boolean colony_armada_feature_bit = true;
+  
   private FactoryAPI factory;
   private SectorEntityToken station;
+  
+  
+  public TheNomadsNur() {
+  }
+  
+  public TheNomadsNur( boolean colony_armada_feature_enabled ) {
+    this.colony_armada_feature_bit = colony_armada_feature_enabled;
+  }
   
   
 	public void generate( SectorAPI sector )

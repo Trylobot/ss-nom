@@ -1,0 +1,2 @@
+id,type,size,intensity,fadeout,color,offset,hit size,hit intensity,hit fadeout,hit color,flash size,flash intensity,flash fadeout,flash color,flash offset,chance,fighter dim
+nom_heavy_electron_maser_shot,projectile,120,0.333,0.25,"[240,98,98]",,120,0.3,0.8,"[240,98,98]",85,0.2,0.15,"[240,98,98]",,1,TRUE
