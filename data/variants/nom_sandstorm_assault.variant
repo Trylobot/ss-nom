@@ -1,12 +1,12 @@
 {
   "displayName": "Assault",
   "fluxCapacitors": 0,
-  "fluxVents": 15,
+  "fluxVents": 10,
   "hullId": "nom_sandstorm",
   "hullMods": [
-    "naeran_flux_shunts",
-    "fluxbreakers",
-    "targetingunit"
+    "autorepair",
+    "armoredweapons",
+    "turretgyros"
   ],
   "variantId": "nom_sandstorm_assault",
   "weaponGroups": [

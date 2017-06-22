@@ -5,7 +5,6 @@
   "fluxVents": 6,
   "hullId": "nom_death_bloom",
   "hullMods": [
-    "naeran_flux_shunts",
     "fluxbreakers",
     "unstable_injector"
   ],

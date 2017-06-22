@@ -2,13 +2,12 @@
   "displayName": "Missile Support",
   "hullId": "nom_scorpion",
   "variantId": "nom_scorpion_assault",
-  "fluxVents": 3,
+  "fluxVents": 4,
   "fluxCapacitors": 0,
   "hullMods": [
-    "naeran_flux_shunts",
     "missleracks",
     "eccm",
-    "hardenedshieldemitter"
+    "armoredweapons"
   ],
   "weaponGroups": [
     {

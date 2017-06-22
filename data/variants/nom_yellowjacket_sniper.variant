@@ -4,7 +4,6 @@
   "fluxVents": 10,
   "hullId": "nom_yellowjacket",
   "hullMods": [
-    "naeran_flux_shunts",
     "fluxbreakers",
     "targetingunit",
     "auxiliarythrusters"

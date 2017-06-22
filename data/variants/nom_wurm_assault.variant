@@ -4,7 +4,6 @@
   "fluxVents": 7,
   "hullId": "nom_wurm",
   "hullMods": [
-    "naeran_flux_shunts",
     "fluxbreakers",
     "targetingunit"
   ],

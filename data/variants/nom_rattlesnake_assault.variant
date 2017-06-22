@@ -4,7 +4,6 @@
   "fluxVents": 6,
   "hullId": "nom_rattlesnake",
   "hullMods": [
-    "naeran_flux_shunts",
     "heavyarmor",
     "fluxbreakers"
   ],
@@ -52,9 +51,5 @@
         "WS_PD4": "nom_firecracker"
       }
     }
-  ],
-  "wings": [
-    "nom_scarab_wing",
-    "nom_scarab_wing"
   ]
 }

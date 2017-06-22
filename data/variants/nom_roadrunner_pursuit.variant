@@ -1,13 +1,12 @@
 {
   "displayName": "Pursuit",
   "fluxCapacitors": 3,
-  "fluxVents": 10,
+  "fluxVents": 12,
   "hullId": "nom_roadrunner",
   "hullMods": [
-    "naeran_flux_shunts",
     "fluxbreakers",
     "unstable_injector",
-    "insulatedengine",
+    "nav_relay",
   ],
   "variantId": "nom_roadrunner_pursuit",
   "weaponGroups": [

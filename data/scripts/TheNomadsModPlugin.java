@@ -16,9 +16,7 @@ public class TheNomadsModPlugin extends BaseModPlugin
       return;
     
     // normal initialization
-    TrylobotUtils.print("about to generate sector");
     new TheNomadsNur().generate(Global.getSector());
-    TrylobotUtils.print("finished generating sector");
 
   }
 }

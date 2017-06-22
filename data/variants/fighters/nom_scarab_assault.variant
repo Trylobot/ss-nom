@@ -4,9 +4,7 @@
 	"variantId":"nom_scarab_assault",
 	"fluxVents":0,
 	"fluxCapacitors":0,
-	"hullMods":[
-		"naeran_flux_shunts",
-	],
+	"hullMods":[],
 	"weaponGroups":[{
 		"mode":"LINKED",
 		"weapons":{

@@ -4,7 +4,6 @@
   "fluxVents": 10,
   "hullId": "nom_komodo_mk2",
   "hullMods": [
-    "naeran_flux_shunts",
     "fluxbreakers",
     "heavyarmor",
     "armoredweapons",

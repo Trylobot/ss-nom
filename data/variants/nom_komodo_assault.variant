@@ -1,10 +1,9 @@
 {
   "displayName": "Assault",
-  "fluxCapacitors": 0,
-  "fluxVents": 19,
+  "fluxCapacitors": 1,
+  "fluxVents": 20,
   "hullId": "nom_komodo",
   "hullMods": [
-    "naeran_flux_shunts",
     "fluxbreakers",
     "targetingunit"
   ],

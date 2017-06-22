@@ -3,9 +3,7 @@
   "fluxCapacitors": 0,
   "fluxVents": 0,
   "hullId": "nom_fang",
-  "hullMods": [
-    "naeran_flux_shunts"
-  ],
+  "hullMods": [],
   "variantId": "nom_fang_bomber",
   "weaponGroups": [
     {
