@@ -18,9 +18,7 @@
   "crest":"graphics/nom/factions/ss_nom_Crest.png",
   "portraits":{
     "standard_male":[
-      "graphics/nom/portraits/gorrem_chani_child.png",
-      "graphics/nom/portraits/gorrem_chani_young_adult.png",
-      "graphics/nom/portraits/gorrem_chani_priestess.png",
+      "graphics/nom/portraits/lucas_staniec_bene_gesserit.png",
     ],
     "standard_female":[
       "graphics/nom/portraits/gorrem_chani_child.png",

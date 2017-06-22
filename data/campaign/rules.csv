@@ -1,0 +1,22 @@
+id,trigger,conditions,script,text,options,notes
+,,,,,,
+# new game creation,,,,,,
+initNewGameChoicesNomadsDev,InitNewGameChoices,$global.isDevMode,,,102:ngcNomadsDevStart:>>(dev) nomads start,
+,,,,,,
+ngcNomadsDevStartOption,NewGameOptionSelected,$option == ngcNomadsDevStart,"
+  NGCAddShip ""tempest_Starting""
+  NGCAddCargo RESOURCES crew 20
+  NGCAddCargo RESOURCES supplies 20
+  NGCAddCargo RESOURCES fuel 20
+  NGCAddCredits 1000000
+  NGCSetAptitude technology 0
+  NGCSetSkill gunnery_implants 0
+  NGCSetSkill navigation 0
+  NGCSetAptitude combat 0
+  NGCAddCharacterPoints 100
+  NGCSetStartingLocation hyperspace -10000 -10000
+  NGCSetDifficulty normal
+  NGCSetWithTimePass false
+  NGCAddDevStartingScript
+  NGCDone",,,
+,,,,,,
