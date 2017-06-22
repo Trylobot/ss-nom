@@ -1,17 +1,17 @@
 name,id,designation,system id,fleet pts,hitpoints,armor rating,max flux,8/6/5/4%,flux dissipation,ordnance points,fighter bays,max speed,acceleration,deceleration,max turn rate,turn acceleration,mass,shield type,defense id,shield arc,shield upkeep,shield efficiency,phase cost,phase upkeep,min crew,max crew,cargo,fuel,fuel/ly,range,max burn,base value,cr %/day,CR to deploy,peak CR sec,CR loss/sec,supplies/rec,supplies/mo,hints,breakProb,minPieces,maxPieces,number
-Oasis,nom_oasis,Civilian,nom_gecko_drone,5,20000,300,15000,,300,90,,20,10,10,7,3,6050,FRONT,,360,0.15,0.4,,,50,8950,2200,4110,10,700,6,175000,5,10,,,10,0.25,CIVILIAN,0.2,2,3,1337107
-Sandstorm,nom_sandstorm,Battlecruiser,highenergyfocus,22,12500,1050,1200,,950,60,,45,20,15,10,5,3000,OMNI,,120,0.5,0.7,,,400,600,300,300,10,50,8,140000,4,25,720,0.25,35,15,,0.2,2,3,1337106
-Gila Monster,nom_gila_monster,Battleship,highenergyfocus,26,25000,1200,1700,,1075,55,3,30,15,10,4.25,3.12,5100,OMNI,,165,0.4,0.75,,,550,1500,600,1200,10,40,7,160000,4,30,720,0.25,40,20,,0.2,2,3,1337104
+Oasis,nom_oasis,Civilian,nom_gecko_drone,5,20000,300,15000,,300,90,,20,10,10,7,3,6050,FRONT,,360,0.15,0.4,,,50,8950,2200,4110,10,700,6,175000,5,5,,,10,0.25,CIVILIAN,0.2,2,5,1337107
+Sandstorm,nom_sandstorm,Battlecruiser,highenergyfocus,22,12500,1050,1200,,950,60,,45,20,15,10,5,3000,OMNI,,120,0.5,0.7,,,400,600,300,300,10,50,8,140000,4,25,720,0.25,35,15,,0.2,2,4,1337106
+Gila Monster,nom_gila_monster,Battleship,highenergyfocus,26,25000,1200,1700,,1075,55,3,30,15,10,4.25,3.12,5100,OMNI,,165,0.4,0.75,,,550,1500,600,1200,10,40,7,160000,4,30,720,0.25,40,20,,0.2,2,4,1337104
 Rattlesnake,nom_rattlesnake,Heavy Cruiser,highenergyfocus,16,10750,1450,900,,675,65,2,45,30,25,18,15,2000,OMNI,,150,0.3,0.88,,,180,500,250,250,4,40,9,40000,5,25,540,0.25,25,8,,0.2,2,3,1337112
 Scorpion,nom_scorpion,Destroyer,fastmissileracks,10,3000,225,90,,225,30,,65,50,20,30,30,200,OMNI,,220,0.15,0.7,,,10,15,100,100,2,50,7,9000,5,25,480,0.25,12,5,,0.2,2,3,1337105
 Komodo Mk.II,nom_komodo_mk2,Destroyer,highenergyfocus,11,5300,625,205,,450,50,,55,40,35,25,50,600,OMNI,,170,0.225,0.9,,,20,50,100,100,2,50,7,22500,5,20,540,0.2,12,5,,0.2,2,3,1337110
 Komodo,nom_komodo,Destroyer,highenergyfocus,9,4500,450,160,,365,35,,80,50,40,28,60,400,OMNI,,160,0.25,0.8,,,30,60,150,150,2,50,6,12000,5,20,480,0.25,10,4,,0.2,2,3,1337103
 Roadrunner,nom_roadrunner,Destroyer,nom_damselfly_drone,10,3150,325,205,,285,40,,139,55,48,35,18,700,FRONT,,90,0.4,0.9,,,20,30,100,100,2,50,10,17500,5,10,240,0.2,10,5,,0.2,2,3,1337114
 Flycatcher,nom_flycatcher,Ultralight Carrier,fastmissileracks,5,2500,250,65,,215,25,1,100,90,150,50,100,250,OMNI,,220,0.15,0.65,,,15,50,200,100,1,100,8,9000,8,15,240,0.25,11,2,CARRIER,0.2,2,3,1337111
-Death Bloom,nom_death_bloom,Frigate,highenergyfocus,13,1000,100,150,,270,35,,160,200,220,120,400,165,OMNI,,200,0.5,0.7,,,6,20,10,25,1,50,10,19000,10,65,160,0.33,6,2.75,,0.2,2,3,1337109
-Yellowjacket,nom_yellowjacket,Frigate,highenergyfocus,6,750,120,55,,240,25,,150,155,120,70,85,100,OMNI,,220,0.3,0.6,,,10,15,50,50,1,25,9,7000,10,40,180,0.25,4,2,,0.2,2,3,1337108
+Death Bloom,nom_death_bloom,Frigate,highenergyfocus,13,1000,100,150,,270,35,,160,200,220,120,400,165,OMNI,,200,0.5,0.7,,,6,20,10,25,1,50,10,19000,10,25,160,0.33,6,2.75,,0.2,2,3,1337109
+Yellowjacket,nom_yellowjacket,Frigate,highenergyfocus,6,750,120,55,,240,25,,150,155,120,70,85,100,OMNI,,220,0.3,0.6,,,10,15,50,50,1,25,9,7000,10,15,180,0.25,4,2,,0.2,2,3,1337108
 Wurm,nom_wurm,Frigate,highenergyfocus,4,1250,200,42,,230,12,,130,120,110,80,200,150,OMNI,,120,0.2,0.48,,,12,24,75,75,1,60,9,4500,8,20,240,0.2,3,1.5,,0.2,2,3,1337102
-Fang,nom_fang,,,,1000,50,15,,100,0,,100,75,50,30,90,250,NONE,,0,0,1,,,1,1,,,,,,,,,,,,,,0,,,1337113
+Fang,nom_fang,,,,1000,50,15,,100,0,,110,85,50,35,95,220,NONE,,0,0,1,,,1,1,,,,,,,,,,,,,,0,,,1337113
 Toad,nom_toad,,,,1000,150,29,,200,0,,135,110,100,95,180,110,OMNI,,90,0.2,1,,,2,2,,,,,,,,,,,,,,0,,,1337112
 Iguana,nom_iguana,,,,750,100,22,,225,0,,185,120,125,108,275,50,OMNI,,90,0.08,0.85,,,4,4,,,,,,,,,,,,,,0,,,1337101
 Scarab,nom_scarab,,,,300,50,9,,55,0,,195,150,150,120,220,10,NONE,,0,0,1,,,1,1,,,,,,,,,,,,,,0,,,1337100
