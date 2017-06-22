@@ -2,10 +2,11 @@
   "variantId": "nom_death_bloom_strike",
   "displayName": "Strike",
   "fluxCapacitors": 10,
-  "fluxVents": 6,
+  "fluxVents": 5,
   "hullId": "nom_death_bloom",
   "hullMods": [
     "fluxbreakers",
+    "fluxcoil",
     "unstable_injector"
   ],
   "weaponGroups": [

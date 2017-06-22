@@ -78,9 +78,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
     system.addEntity(jumpPoint);
     system.autogenerateHyperspaceJumpPoints(true, true);
 		
-    /*
-    
-		// armada formation
+    // armada formation
 		CampaignArmadaEscortFleetPositionerAPI armada_formation =
 			new CampaignArmadaFormationOrbit(
 				sector,
@@ -232,10 +230,9 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 			restock_ship_wait_days,
 		    station );
 		system.addScript( station_cargo_restocker );
-
-    */
 	}
 	
+  @Override
 	public void handle_event( CampaignArmadaControllerEvent event )
 	{
 		// Oasis is not in play; put it for sale at the station (yay!)
