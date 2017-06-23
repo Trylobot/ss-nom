@@ -1,6 +1,0 @@
-id,type,size,intensity,fadeout,color,offset,hit size,hit intensity,hit fadeout,hit color,flash size,flash intensity,flash fadeout,flash color,flash offset,chance,fighter dim
-#,,,,,,,,,,,,,,,,,
-#chaingun_shot,projectile,90,0.25,0.2,"[255,180,60]",,120,0.3,0.8,"[255,180,60]",85,0.2,0.15,"[255,240,165]",,1,TRUE
-#mjolnir_shot,projectile,150,0.45,0.175,"[90,70,255]",,200,0.55,1,"[90,70,255]",200,0.3,0.35,"[255,185,215]",,1,TRUE
-#,,,,,,,,,,,,,,,,,
-#annihilator_rocket,projectile,75,0.25,0.4,"[255,125,25]",11,250,0.25,1,"[255,165,10]",,,,,,0.5,FALSE
