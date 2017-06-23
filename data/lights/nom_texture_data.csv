@@ -1,2 +1,10 @@
 id,type,frame,magnitude,map,path
+,,,,,
 nom_wurm,ship,,1,normal,graphics/nom/ships/shaders/nom_wurm_normal.png
+,,,,,
+nom_gila_monster,ship,,1,normal,graphics/nom/ships/shaders/nom_gila_monster_normal.png
+,,,,,
+nom_doom_cannon,turret,,1,normal,graphics/nom/weapons/shaders/nom_doom_cannon_hardpoint_base_normal.png
+nom_doom_cannon,hardpoint,,1,normal,graphics/nom/weapons/shaders/nom_doom_cannon_hardpoint_base_normal.png
+nom_doom_cannon,turretbarrel,,1,normal,graphics/nom/weapons/shaders/nom_doom_cannon_hardpoint_recoil_normal.png
+nom_doom_cannon,hardpointbarrel,,1,normal,graphics/nom/weapons/shaders/nom_doom_cannon_hardpoint_recoil_normal.png
