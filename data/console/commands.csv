@@ -1,0 +1,2 @@
+command,class,tags,syntax,help
+ListNomads,data.console.ListNomads,"nomads,campaign",listnomads,"Lists all Nomads fleets and their locations, and the locations of any Oasis ships."

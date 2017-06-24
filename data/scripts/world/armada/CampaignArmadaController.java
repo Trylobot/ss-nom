@@ -1,5 +1,11 @@
 package data.scripts.world.armada;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import org.lwjgl.util.vector.Vector2f;
 import com.fs.starfarer.api.EveryFrameScript;
+import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignClockAPI;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.FleetAssignment;
@@ -7,15 +13,19 @@ import com.fs.starfarer.api.campaign.JumpPointAPI.JumpDestination;
 import com.fs.starfarer.api.campaign.LocationAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
+import com.fs.starfarer.api.campaign.econ.MarketAPI;
+import com.fs.starfarer.api.characters.PersonAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
+import com.fs.starfarer.api.impl.campaign.events.OfficerManagerEvent;
+import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV2;
+import com.fs.starfarer.api.impl.campaign.fleets.FleetParams;
+import com.fs.starfarer.api.impl.campaign.ids.Ranks;
+import com.fs.starfarer.api.loading.AbilitySpecAPI;
 import data.scripts.trylobot.TrylobotUtils;
 import data.scripts.world.armada.CampaignArmadaWaypointController.CampaignArmadaWaypoint;
 import data.scripts.world.armada.api.CampaignArmadaAPI;
 import data.scripts.world.armada.api.CampaignArmadaEscortFleetPositionerAPI;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import org.lwjgl.util.vector.Vector2f;
+import java.util.Random;
 
 
 @SuppressWarnings("unchecked")
@@ -25,6 +35,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	private SectorAPI sector;
 	private LocationAPI spawn_system;
 	private SectorEntityToken spawn_location;
+  private MarketAPI market;
 
 	// basic behavior options
 	private String faction_id;
@@ -37,6 +48,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	private int dead_time_days;
 	
 	private CampaignClockAPI clock;
+  private Random random = new Random();
 	
 	private float fleet_ticks;
 	private final float OFFSCREEN_ESCORT_FLEET_UPDATE_MIN_SEC = 2.0f;
@@ -71,13 +83,14 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		String vip_ship_id,
 		SectorAPI sector,
 		SectorEntityToken spawn_location,
+    MarketAPI market,
 		int escort_fleet_count,
 		String[] escort_fleet_composition_pool,
 		int[] escort_fleet_composition_weights, // must total 1000
 		CampaignArmadaEscortFleetPositionerAPI escort_positioner,
 		int waypoints_per_system_minimum,
 		int waypoints_per_system_maximum,
-		int dead_time_days )
+		int dead_time_days)
 	{
 		// setup behaviors; these are not modified by the controller
 		this.faction_id = faction_id;
@@ -156,12 +169,8 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	
 	private CampaignFleetAPI create_leader_fleet()
 	{
-		CampaignFleetAPI fleet = sector.createFleet( faction_id, leader_fleet_id );
-		fleet.getCommanderStats().setAptitudeLevel( "leadership", 10.0f );
-		fleet.getCommanderStats().setSkillLevel( "fleet_logistics", 10.0f );
-		fleet.setPreferredResupplyLocation( leader_fleet ); // LAWL
-		//fleet.getAI();
-		
+    CampaignFleetAPI fleet = sector.createFleet( faction_id, leader_fleet_id );
+    flesh_out_fleet(fleet);
 		return fleet;
 	}
 	
@@ -173,14 +182,31 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 			String fleet_id = weighted_string_pick( 
 				escort_fleet_composition_pool,
 				escort_fleet_composition_weights );
+      //
 			escort_fleets[i] = sector.createFleet( faction_id, fleet_id );
-			escort_fleets[i].getCommanderStats().setAptitudeLevel( "leadership", 10.0f );
-			escort_fleets[i].getCommanderStats().setSkillLevel( "fleet_logistics", 10.0f );
-			if( leader_fleet != null )
-				escort_fleets[i].setPreferredResupplyLocation( leader_fleet );
+			flesh_out_fleet(escort_fleets[i]);
 		}
 		return escort_fleets;
 	}
+  
+  private void flesh_out_fleet(CampaignFleetAPI fleet) {
+    //
+    fleet.setMarket(market);
+    //
+    for (String id : Global.getSettings().getSortedAbilityIds()) {
+      AbilitySpecAPI spec = Global.getSettings().getAbilitySpec(id);
+      if (spec.isAIDefault()) {
+        fleet.addAbility(id);
+      }
+    }
+    //
+    FleetFactoryV2.addCommanderAndOfficers(4, 5.0f,10.0f, fleet, null, random);
+    //
+    fleet.forceSync();
+    for (FleetMemberAPI member : fleet.getMembersWithFightersCopy()) {
+			member.getRepairTracker().setCR(member.getRepairTracker().getMaxCR());
+		}
+  }
 	
 	private boolean check_leader()
 	{
