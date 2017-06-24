@@ -28,7 +28,7 @@ public class TheNomadsModPlugin extends BaseModPlugin
     
     // disable "wandering colony armada" feature for supported total conversions
     if (Global.getSettings().getModManager().isModEnabled("nexerelin")) {
-      enable_colony_armada_feature = false;
+      enable_colony_armada_feature = exerelin.campaign.SectorManager.getCorvusMode();
     }
     
     new TheNomadsNur( enable_colony_armada_feature ).generate( sector );
