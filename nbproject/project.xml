@@ -6,7 +6,7 @@
             <name>Starsector -  The Nomads</name>
             <explicit-platform explicit-source-supported="true"/>
             <source-roots>
-                <root id="src.ss-nom.dir"/>
+                <root id="src.src.dir"/>
             </source-roots>
             <test-roots/>
         </data>

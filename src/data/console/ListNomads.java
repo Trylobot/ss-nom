@@ -42,10 +42,10 @@ public class ListNomads implements BaseCommand{
       //
       StringBuilder output = new StringBuilder();
       for (Map.Entry<LocationAPI, Integer> entry : nomad_fleet_counts_by_location.entrySet()) {
-        output.append(entry.getKey());
-        output.append(":");
         output.append(entry.getValue());
-        output.append(", ");
+        output.append("x @ ");
+        output.append(entry.getKey().getName());
+        output.append("\n");
       }
       Console.showMessage(output.toString());
       //
