@@ -19,6 +19,8 @@ import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.events.OfficerManagerEvent;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV2;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetParams;
+import com.fs.starfarer.api.impl.campaign.ids.Commodities;
+import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
 import com.fs.starfarer.api.impl.campaign.ids.Ranks;
 import com.fs.starfarer.api.loading.AbilitySpecAPI;
 import data.scripts.trylobot.TrylobotUtils;
@@ -171,7 +173,8 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	{
     CampaignFleetAPI fleet = sector.createFleet( faction_id, leader_fleet_id );
     flesh_out_fleet(fleet);
-    fleet.addTag("NOMAD_COLONY_FLEET");
+    fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_TRADE_FLEET, Boolean.TRUE);
+    fleet.getCargo().addCommodity(Commodities.DRUGS, 250);
 		return fleet;
 	}
 	
@@ -184,8 +187,10 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 				escort_fleet_composition_pool,
 				escort_fleet_composition_weights );
       //
-			escort_fleets[i] = sector.createFleet( faction_id, fleet_id );
-			flesh_out_fleet(escort_fleets[i]);
+			CampaignFleetAPI fleet = sector.createFleet( faction_id, fleet_id );
+			flesh_out_fleet(fleet);
+      fleet.getCargo().addCommodity(Commodities.DRUGS, 30);
+      escort_fleets[i] = fleet;
 		}
 		return escort_fleets;
 	}

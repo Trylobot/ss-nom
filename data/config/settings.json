@@ -6,5 +6,8 @@
     "illustrations":{
       "desert_moons_ruins":"graphics/illustrations/desert_moons_ruins.jpg",
     },
-  }
+  },
+  "ruleCommandPackages": [
+    "data.campaign.rulecmd",
+  ],
 }

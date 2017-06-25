@@ -23,6 +23,8 @@ import com.fs.starfarer.api.fleet.FleetMemberType;
 import com.fs.starfarer.api.impl.campaign.ids.StarTypes;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetParams;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV2;
+import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
+import com.fs.starfarer.api.impl.campaign.ids.Tags;
 
 import data.scripts.trylobot.TrylobotUtils;
 import data.scripts.world.armada.CampaignArmadaController;
@@ -80,6 +82,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
     // stations
     station = system.addOrbitalStation("stationnom1", planet_I__moon_e, 180f, 300f, 50, "Naeran Orbital Storage & Resupply", "nomads");
     station.setCircularOrbitPointingDown(system.getEntityById("nur_h"), 45, 300, 50);
+    station.addTag(Tags.STATION);
     // hyperspace
     JumpPointAPI jumpPoint = factory.createJumpPoint("jump_point_alpha", "Jump Point Alpha");
     OrbitAPI orbit = Global.getFactory().createCircularOrbit(system_center_of_mass, 0f, 500f, 30f);
