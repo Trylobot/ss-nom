@@ -1,4 +1,5 @@
 {
+  
   "graphics":{
     "nomads":{
       "nom_fang_empty":"graphics/nom/ships/nom_fang_empty.png",
@@ -7,7 +8,24 @@
       "desert_moons_ruins":"graphics/illustrations/desert_moons_ruins.jpg",
     },
   },
+  
   "ruleCommandPackages": [
     "data.campaign.rulecmd",
   ],
+  
+  "plugins":{
+    
+    "TheNomadsDamselflyTowCableFXPlugin": "data.scripts.plugins.TheNomadsDamselflyTowCableFXPlugin",
+    "TheNomadsRoadrunnerEngineFXPlugin": "data.scripts.plugins.TheNomadsRoadrunnerEngineFXPlugin",
+    "TheNomadsRetributionWeaponPlugin": "data.scripts.plugins.TheNomadsRetributionWeaponPlugin",
+
+    #### disabled
+    # "TheNomadsCombatEnginePlugin": "data.scripts.plugins.TheNomadsCombatEnginePlugin",
+    #############
+
+    #### explicitly referenced directly from weapon
+    # "TheNomadsHabitatRingRotationEffect": "data.scripts.plugins.TheNomadsHabitatRingRotationEffect",
+    #############
+
+  }
 }

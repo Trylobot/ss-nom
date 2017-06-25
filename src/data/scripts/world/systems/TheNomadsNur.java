@@ -7,6 +7,7 @@ import org.lwjgl.util.vector.Vector2f;
 import com.fs.starfarer.api.FactoryAPI;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CargoAPI;
+import com.fs.starfarer.api.campaign.CargoAPI.CargoItemType;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.FleetDataAPI;
 import com.fs.starfarer.api.campaign.JumpPointAPI;
@@ -60,10 +61,15 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
     system.setLightColor( new Color( 185, 185, 240 )); // light color in entire system, affects all entities
 		system.getLocation().set( 18000f, -900f );
 		SectorEntityToken system_center_of_mass = system.initNonStarCenter();
+    //
     PlanetAPI starA = system.addPlanet("nur_a", system_center_of_mass, "Nur-A", StarTypes.BLUE_GIANT, 90f, 1000f, 1500f, 30f);
     system.setStar(starA);
+    system.addCorona(starA, 75f, 0f, 0.05f, 0.0f);
+    //
     PlanetAPI starB = system.addPlanet("nur_b", system_center_of_mass, "Nur-B", StarTypes.RED_GIANT, 270f, 300f, 600f, 30f);
     system.setSecondary(starB);
+    system.addCorona(starB, 75f, 0f, 0.05f, 0.0f);
+    //
     // planets
     PlanetAPI planet_I = system.addPlanet("nur_c", system_center_of_mass, "Naera", "desert", 45f, 300f, 8000f, 199f);
     system.addRingBand(planet_I, "misc", "rings_asteroids0", 256f, 0, Color.white, 256f, 630f, 30f);
@@ -80,15 +86,15 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
     PlanetAPI planet_I__moon_e = system.addPlanet("nur_h", planet_I, "Eufariz", "frozen", 180f, 65f, 1750f, 200f);
     PlanetAPI planet_I__moon_f = system.addPlanet("nur_i", planet_I, "Thumn", "rocky_ice", 225f, 100f, 2000f, 362f);
     // stations
-    station = system.addOrbitalStation("stationnom1", planet_I__moon_e, 180f, 300f, 50, "Naeran Orbital Storage & Resupply", "nomads");
+    station = system.addOrbitalStation("stationnom1", planet_I__moon_e, 180f, 300f, 50f, "Naeran Orbital Storage & Resupply", "nomads");
     station.setCircularOrbitPointingDown(system.getEntityById("nur_h"), 45, 300, 50);
     station.addTag(Tags.STATION);
     // hyperspace
-    JumpPointAPI jumpPoint = factory.createJumpPoint("jump_point_alpha", "Jump Point Alpha");
-    OrbitAPI orbit = Global.getFactory().createCircularOrbit(system_center_of_mass, 0f, 500f, 30f);
-    jumpPoint.setOrbit(orbit);
+    JumpPointAPI jumpPoint = factory.createJumpPoint("jmp_stationnom1", "Orbital Station Jump Point");
+    jumpPoint.setOrbit(Global.getFactory().createCircularOrbit(planet_I__moon_e, 90f, 300f, 50f));
     jumpPoint.setStandardWormholeToHyperspaceVisual();
     system.addEntity(jumpPoint);
+    //
     system.autogenerateHyperspaceJumpPoints(true, true);
     
     // relationships
@@ -111,15 +117,17 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
     // the player is neutral
 		nomads_faction.setRelationship( "player", 0 );
 		
-    // armada formation
-		CampaignArmadaEscortFleetPositionerAPI armada_formation =
-			new CampaignArmadaFormationOrbit(
-				sector,
-				300.0f, // orbitRadius
-				1.0f, // orbitDirection
-				0.8f // orbitPeriodDays
-			);
-		// escorts
+    // DEPRECATED
+    //// armada formation
+    //CampaignArmadaEscortFleetPositionerAPI armada_formation =
+    //  new CampaignArmadaFormationOrbit(
+    //    sector,
+    //    300.0f, // orbitRadius
+    //    1.0f, // orbitDirection
+    //    0.8f // orbitPeriodDays
+    //  );
+    
+		// armada (leader fleet + escorts) controller script
 		String[] escort_pool = { 
 			"scout", 
 			"longRangeScout", 
@@ -140,8 +148,6 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 			100,
 			75
 		};
-    
-		// armada waypoint controller script
 		CampaignArmadaController nomad_armada =
 			new CampaignArmadaController(
 				"nomads", // faction
@@ -153,7 +159,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 				8, // escort_fleet_count
 				escort_pool,
 				escort_weights,
-				armada_formation,
+				null,
 				1, // waypoint_per_trip_minimum
 				6, // waypoint_per_trip_maximum
 				30 // dead_time_days
@@ -177,6 +183,26 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
     
     // station cargo
     CargoAPI cargo = station.getCargo();
+    // make sure all Nomad-used hullmods are purchaseable!
+    cargo.addItems(CargoItemType.MOD_SPEC, "fluxbreakers", 1);
+    cargo.addItems(CargoItemType.MOD_SPEC, "fluxcoil", 1);
+    cargo.addItems(CargoItemType.MOD_SPEC, "unstable_injector", 1);
+    cargo.addItems(CargoItemType.MOD_SPEC, "recovery_shuttles", 1);
+    cargo.addItems(CargoItemType.MOD_SPEC, "expanded_deck_crew", 1);
+    cargo.addItems(CargoItemType.MOD_SPEC, "magazines", 1);
+    cargo.addItems(CargoItemType.MOD_SPEC, "targetingunit", 1);
+    cargo.addItems(CargoItemType.MOD_SPEC, "heavyarmor", 1);
+    cargo.addItems(CargoItemType.MOD_SPEC, "armoredweapons", 1);
+    cargo.addItems(CargoItemType.MOD_SPEC, "turretgyros", 1);
+    cargo.addItems(CargoItemType.MOD_SPEC, "blast_doors", 1);
+    cargo.addItems(CargoItemType.MOD_SPEC, "reinforcedhull", 1);
+    cargo.addItems(CargoItemType.MOD_SPEC, "autorepair", 1);
+    cargo.addItems(CargoItemType.MOD_SPEC, "unstable_injector", 1);
+    cargo.addItems(CargoItemType.MOD_SPEC, "nav_relay", 1);
+    cargo.addItems(CargoItemType.MOD_SPEC, "missleracks", 1);
+    cargo.addItems(CargoItemType.MOD_SPEC, "eccm", 1);
+    cargo.addItems(CargoItemType.MOD_SPEC, "auxiliarythrusters", 1);
+    //
 		FleetDataAPI station_ships = cargo.getMothballedShips();
 		//station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.SHIP, "nom_oasis_standard" ));
 		station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.SHIP, "nom_komodo_assault" ));

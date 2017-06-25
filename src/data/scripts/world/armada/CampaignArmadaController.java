@@ -19,10 +19,12 @@ import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.events.OfficerManagerEvent;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV2;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetParams;
+import com.fs.starfarer.api.impl.campaign.ids.Abilities;
 import com.fs.starfarer.api.impl.campaign.ids.Commodities;
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
 import com.fs.starfarer.api.impl.campaign.ids.Ranks;
 import com.fs.starfarer.api.loading.AbilitySpecAPI;
+import com.fs.starfarer.api.util.Misc;
 import data.scripts.trylobot.TrylobotUtils;
 import data.scripts.world.armada.CampaignArmadaWaypointController.CampaignArmadaWaypoint;
 import data.scripts.world.armada.api.CampaignArmadaAPI;
@@ -64,6 +66,9 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	// Collection of non-leader fleets intended to provide a massive escort for
 	//  the fleet leader.
 	private CampaignFleetAPI[] escort_fleets = null;
+  private long[] escort_fleet_leash_yank_ts = null;
+  private final static float ESCORT_FLEET_LEASH_LENGTH = 500.0f;
+  private final static float ESCORT_FLEET_LEASH_YANK_THROTTLE_WINDOW_DAYS = 3.0f;
 	// 
 	private CampaignArmadaWaypointController waypoint_controller = null;
 	
@@ -140,10 +145,13 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 					leader_fleet = create_leader_fleet();
 					spawn_system.spawnFleet( spawn_location, 0, 0, leader_fleet );
 					// create & spawn escort fleets
-					escort_fleets = create_escort_fleets();
+					escort_fleets = create_escort_fleets( leader_fleet );
+          escort_fleet_leash_yank_ts = new long[escort_fleets.length];
 					for( int i = 0; i < escort_fleets.length; ++i )
 						spawn_system.spawnFleet( spawn_location, 0, 0, escort_fleets[i] );
-					escort_positioner.set_armada( this );
+					if( escort_positioner != null )
+            escort_positioner.set_armada( this );
+          //
 					waypoint_controller.run();
 					change_state( JOURNEYING_LIKE_A_BOSS );
 					notifyListeners( "JOURNEYING_LIKE_A_BOSS" );
@@ -173,12 +181,15 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	{
     CampaignFleetAPI fleet = sector.createFleet( faction_id, leader_fleet_id );
     flesh_out_fleet(fleet);
+    // ensure the VIP fleet can never outrun its escorts (protection!)
+    fleet.removeAbility(Abilities.SUSTAINED_BURN);
     fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_TRADE_FLEET, Boolean.TRUE);
     fleet.getCargo().addCommodity(Commodities.DRUGS, 250);
+    //
 		return fleet;
 	}
 	
-	private CampaignFleetAPI[] create_escort_fleets()
+	private CampaignFleetAPI[] create_escort_fleets(CampaignFleetAPI leader_fleet)
 	{
 		CampaignFleetAPI[] escort_fleets = new CampaignFleetAPI[escort_fleet_count];
 		for( int i = 0; i < escort_fleets.length; ++i )
@@ -190,6 +201,8 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 			CampaignFleetAPI fleet = sector.createFleet( faction_id, fleet_id );
 			flesh_out_fleet(fleet);
       fleet.getCargo().addCommodity(Commodities.DRUGS, 30);
+      fleet.addAssignment(FleetAssignment.ORBIT_AGGRESSIVE, leader_fleet, Float.MAX_VALUE /* functionally, infinity */ );
+      //
       escort_fleets[i] = fleet;
 		}
 		return escort_fleets;
@@ -239,35 +252,54 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		
 		CampaignArmadaWaypoint waypoint = waypoint_controller.current_waypoint;
 		boolean leader_in_hyperspace_transition = leader_fleet.isInHyperspaceTransition();
+    LocationAPI leader_location = leader_fleet.getContainingLocation();
+    //
 		for( int i = 0; i < escort_fleets.length; ++i )
 		{
 			CampaignFleetAPI escort_fleet = escort_fleets[i];
-			// in a hyperspace transition, allow to happen naturally if possible (sometimes it works, sometimes it doesn't)
-			if( leader_in_hyperspace_transition && waypoint != null
-			&&  !escort_fleet.isInHyperspaceTransition() )
-			{
-				escort_fleet.clearAssignments();
-				sector.doHyperspaceTransition( escort_fleet, escort_fleet, 
-					new JumpDestination( waypoint.target, "Jump" ));
-			}
-			// non-hyperspace transition: force follow (immediate)
-			if( !leader_in_hyperspace_transition 
-			&&  escort_fleet.getContainingLocation() != leader_fleet.getContainingLocation() )
-			{
-				escort_fleet.getContainingLocation().removeEntity( escort_fleet );
-				leader_fleet.getContainingLocation().spawnFleet( leader_fleet, 0, 0, escort_fleet );
-			}
+      LocationAPI escort_location = escort_fleet.getContainingLocation();
+      
+      // leader-leash, hyperspace transition
+      if( escort_location != leader_location ) {
+        yank_escort_leash( i );
+      }
+      // leader-leash, via assignment reset
+      if( escort_location == leader_location ) {
+        float leader_distance = Misc.getDistance(escort_fleet.getLocation(), leader_fleet.getLocation());
+        if (leader_fleet.isInHyperspaceTransition() != escort_fleet.isInHyperspaceTransition()
+        ||  leader_distance > ESCORT_FLEET_LEASH_LENGTH) {
+          yank_escort_leash( i );
+        }
+      }
+      
 		}
 		// local position update (every frame, unless player is offscreen)
 		if( leader_fleet.isInCurrentLocation()
 		||  fleet_ticks >= OFFSCREEN_ESCORT_FLEET_UPDATE_MIN_SEC )
 		{
-			escort_positioner.update_escort_fleet_positions( amount );
+			if( escort_positioner != null )
+        escort_positioner.update_escort_fleet_positions( amount );
 		}
 		// timer
 		if( fleet_ticks >= OFFSCREEN_ESCORT_FLEET_UPDATE_MIN_SEC )
 			fleet_ticks -= OFFSCREEN_ESCORT_FLEET_UPDATE_MIN_SEC;
 	}
+  
+  private void yank_escort_leash( int i ) {
+    CampaignFleetAPI escort_fleet = escort_fleets[i];
+    long yank_ts = escort_fleet_leash_yank_ts[i];
+    //
+    if (escort_fleets == null || escort_fleet_leash_yank_ts == null
+    ||  escort_fleet == null || escort_fleet.isAlive()
+    || (clock.getElapsedDaysSince(yank_ts) < ESCORT_FLEET_LEASH_YANK_THROTTLE_WINDOW_DAYS)) {
+      return;
+    }
+    //
+    escort_fleet_leash_yank_ts[i] = clock.getTimestamp();
+    escort_fleet.clearAssignments();
+    escort_fleet.addAssignment(FleetAssignment.FOLLOW, leader_fleet, ESCORT_FLEET_LEASH_YANK_THROTTLE_WINDOW_DAYS);
+    escort_fleet.addAssignment(FleetAssignment.ORBIT_AGGRESSIVE, leader_fleet, Float.MAX_VALUE /* functionally, infinity */ );
+  }
 	
 	private void scatter_fleets()
 	{
@@ -276,6 +308,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 			CampaignFleetAPI escort_fleet = escort_fleets[i];
 			if( escort_fleet.isAlive() )
 			{
+        escort_fleet.clearAssignments();
 				// kill everyone aaghhhh!
 				escort_fleet.addAssignment( 
 					FleetAssignment.RAID_SYSTEM,
