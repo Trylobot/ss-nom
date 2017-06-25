@@ -1,5 +1,6 @@
 {
   "displayName": "Transport",
+  "goalVariant": true,
   "fluxCapacitors": 0,
   "fluxVents": 10,
   "hullId": "nom_oasis",
@@ -8,6 +9,8 @@
     "reinforcedhull", # 30
     "autorepair",     # 25
   ],
+  "permaMods": [],
+  "quality": 0.5,
   "variantId": "nom_oasis_standard",
   "weaponGroups": []
 }

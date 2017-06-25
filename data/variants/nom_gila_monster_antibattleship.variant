@@ -1,5 +1,7 @@
 {
+  "variantId": "nom_gila_monster_antibattleship",
   "displayName": "Anti-Battleship",
+  "goalVariant": true,
   "fluxCapacitors": 0,
   "fluxVents": 10,
   "hullId": "nom_gila_monster",
@@ -7,7 +9,8 @@
     "fluxbreakers",
     "magazines"
   ],
-  "variantId": "nom_gila_monster_antibattleship",
+  "permaMods": [],
+  "quality": 0.5,
   "weaponGroups": [
     {
       "autofire": false,

@@ -1,5 +1,6 @@
 {
   "displayName": "Assault",
+  "goalVariant": true,
   "fluxCapacitors": 0,
   "fluxVents": 7,
   "hullId": "nom_wurm",
@@ -7,6 +8,8 @@
     "fluxbreakers",
     "targetingunit"
   ],
+  "permaMods": [],
+  "quality": 0.5,
   "variantId": "nom_wurm_assault",
   "weaponGroups": [
     {

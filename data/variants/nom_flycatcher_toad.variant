@@ -1,14 +1,15 @@
 {
+  "variantId": "nom_flycatcher_toad",
   "displayName": "Support",
+  "goalVariant": true,
   "fluxCapacitors": 2,
-  "fluxVents": 0,
+  "fluxVents": 8,
   "hullId": "nom_flycatcher",
   "hullMods": [
-    "recovery_shuttles",
     "expanded_deck_crew"
   ],
-  "quality": 0,
-  "variantId": "nom_flycatcher_toad",
+  "permaMods": [],
+  "quality": 0.5,
   "wings": [
     "nom_toad_wing",
   ],

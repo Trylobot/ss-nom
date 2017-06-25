@@ -1,5 +1,6 @@
 {
   "displayName": "Assault",
+  "goalVariant": true,
   "fluxCapacitors": 9,
   "fluxVents": 10,
   "hullId": "nom_komodo_mk2",
@@ -9,6 +10,8 @@
     "armoredweapons",
     "turretgyros"
   ],
+  "permaMods": [],
+  "quality": 0.5,
   "variantId": "nom_komodo_mk2_assault",
   "weaponGroups": [
     {

@@ -1,13 +1,15 @@
 {
+  "variantId": "nom_flycatcher_fang",
   "displayName": "Support",
+  "goalVariant": true,
   "fluxCapacitors": 9,
-  "fluxVents": 0,
+  "fluxVents": 8,
   "hullId": "nom_flycatcher",
   "hullMods": [
-    "expanded_deck_crew"
+    "recovery_shuttles"
   ],
-  "quality": 0,
-  "variantId": "nom_flycatcher_fang",
+  "permaMods": [],
+  "quality": 0.5,
   "wings": [
     "nom_fang_wing",
   ],

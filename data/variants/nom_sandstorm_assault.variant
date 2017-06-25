@@ -1,5 +1,6 @@
 {
   "displayName": "Assault",
+  "goalVariant": true,
   "fluxCapacitors": 0,
   "fluxVents": 10,
   "hullId": "nom_sandstorm",
@@ -8,6 +9,8 @@
     "armoredweapons",
     "turretgyros"
   ],
+  "permaMods": [],
+  "quality": 0.5,
   "variantId": "nom_sandstorm_assault",
   "weaponGroups": [
     {

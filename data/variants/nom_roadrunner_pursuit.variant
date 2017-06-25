@@ -1,5 +1,6 @@
 {
   "displayName": "Pursuit",
+  "goalVariant": true,
   "fluxCapacitors": 3,
   "fluxVents": 12,
   "hullId": "nom_roadrunner",
@@ -8,6 +9,8 @@
     "unstable_injector",
     "nav_relay",
   ],
+  "permaMods": [],
+  "quality": 0.5,
   "variantId": "nom_roadrunner_pursuit",
   "weaponGroups": [
     {

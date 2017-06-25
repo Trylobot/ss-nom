@@ -63,9 +63,9 @@
     "engageWhenEvenStrength":true,
     "exemptFromFoodShortages":true,
     "willTradeWhenHostile":true,
-    "noPatrols":true,
+    "noPatrols":false,
     "ignoreTradeWithEnemiesForReputation":true,
-    "postsNoBounties":true,
+    "postsNoBounties":false,
     "offerMissionsWhenHostile":true,
   },
   

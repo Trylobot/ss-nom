@@ -31,6 +31,9 @@ public class TheNomadsModPlugin extends BaseModPlugin
       enable_colony_armada_feature = exerelin.campaign.SectorManager.getCorvusMode();
     }
     
+    // generate Nur star system, and optionally, the oasis armada
     new TheNomadsNur( enable_colony_armada_feature ).generate( sector );
+    
+    
   }
 }

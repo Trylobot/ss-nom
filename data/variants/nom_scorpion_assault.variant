@@ -1,5 +1,6 @@
 {
   "displayName": "Missile Support",
+  "goalVariant": true,
   "hullId": "nom_scorpion",
   "variantId": "nom_scorpion_assault",
   "fluxVents": 4,
@@ -9,6 +10,8 @@
     "eccm",
     "armoredweapons"
   ],
+  "permaMods": [],
+  "quality": 0.5,
   "weaponGroups": [
     {
       "autofire": true,

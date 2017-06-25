@@ -1,5 +1,6 @@
 {
   "displayName": "Assault",
+  "goalVariant": true,
   "fluxCapacitors": 1,
   "fluxVents": 20,
   "hullId": "nom_komodo",
@@ -7,6 +8,8 @@
     "fluxbreakers",
     "targetingunit"
   ],
+  "permaMods": [],
+  "quality": 0.5,
   "variantId": "nom_komodo_assault",
   "weaponGroups": [
     {

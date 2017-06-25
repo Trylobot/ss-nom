@@ -1,5 +1,6 @@
 {
   "displayName": "Sniper",
+  "goalVariant": true,
   "fluxCapacitors": 5,
   "fluxVents": 10,
   "hullId": "nom_yellowjacket",
@@ -8,6 +9,8 @@
     "targetingunit",
     "auxiliarythrusters"
   ],
+  "permaMods": [],
+  "quality": 0.5,
   "variantId": "nom_yellowjacket_sniper",
   "weaponGroups": [
     {

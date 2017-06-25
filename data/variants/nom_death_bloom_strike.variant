@@ -1,6 +1,7 @@
 {
   "variantId": "nom_death_bloom_strike",
   "displayName": "Strike",
+  "goalVariant": true,
   "fluxCapacitors": 10,
   "fluxVents": 5,
   "hullId": "nom_death_bloom",
@@ -9,6 +10,8 @@
     "fluxcoil",
     "unstable_injector"
   ],
+  "permaMods": [],
+  "quality": 0.75,
   "weaponGroups": [
     {
       "autofire": false,

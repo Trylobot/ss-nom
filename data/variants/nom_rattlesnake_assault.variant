@@ -1,5 +1,6 @@
 {
   "displayName": "Assault",
+  "goalVariant": true,
   "fluxCapacitors": 0,
   "fluxVents": 6,
   "hullId": "nom_rattlesnake",
@@ -7,6 +8,8 @@
     "heavyarmor",
     "fluxbreakers"
   ],
+  "permaMods": [],
+  "quality": 0.5,
   "variantId": "nom_rattlesnake_assault",
   "weaponGroups": [
     {
