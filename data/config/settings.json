@@ -1,10 +1,10 @@
 {
-	"graphics":{
-		"nomads":{
-			"nom_fang_empty":"graphics/nom/ships/nom_fang_empty.png",
-		},
-		"illustrations":{
-			"desert_moons_ruins":"graphics/illustrations/desert_moons_ruins.jpg",
-		},
-	}
+  "graphics":{
+    "nomads":{
+      "nom_fang_empty":"graphics/nom/ships/nom_fang_empty.png",
+    },
+    "illustrations":{
+      "desert_moons_ruins":"graphics/illustrations/desert_moons_ruins.jpg",
+    },
+  }
 }

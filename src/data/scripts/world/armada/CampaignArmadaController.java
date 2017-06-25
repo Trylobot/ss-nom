@@ -171,6 +171,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	{
     CampaignFleetAPI fleet = sector.createFleet( faction_id, leader_fleet_id );
     flesh_out_fleet(fleet);
+    fleet.addTag("NOMAD_COLONY_FLEET");
 		return fleet;
 	}
 	
@@ -210,7 +211,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	
 	private boolean check_leader()
 	{
-		return (leader_fleet != null && leader_fleet.isAlive()
+    return (leader_fleet != null && leader_fleet.isAlive()
 		  && (vip_ship_id == null || find_vip_ship( leader_fleet )));
 	}
 	
