@@ -9,6 +9,7 @@ import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
 import data.scripts.trylobot.TrylobotUtils;
 import data.scripts.world.armada.api.CampaignArmadaAPI;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -67,7 +68,8 @@ public class CampaignArmadaWaypointController implements Script
 			waypoint.target,
 			waypoint.duration_in_days,
 			this );
-		current_waypoint = waypoint;
+    current_waypoint = waypoint;
+    fleet.addFloatingText("Journeying to "+waypoint.target.getName(), new Color(234,214,124,255), 1.0f, false);
 	}
 	
 	private void generate_waypoints( CampaignFleetAPI fleet )
@@ -105,9 +107,7 @@ public class CampaignArmadaWaypointController implements Script
 			if( entity_token == null )
 				continue;
 			waypoints.add( new CampaignArmadaWaypoint(
-				FleetAssignment.GO_TO_LOCATION,
-				entity_token,
-			    Float.MAX_VALUE ));
+				FleetAssignment.GO_TO_LOCATION, entity_token, Float.MAX_VALUE ));
 		}
 	}
 

@@ -3,13 +3,13 @@ package data.scripts.world.systems;
 import com.fs.starfarer.api.EveryFrameScript;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignClockAPI;
-import com.fs.starfarer.api.campaign.FleetDataAPI;
+import com.fs.starfarer.api.campaign.CargoStackAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
+import com.fs.starfarer.api.campaign.econ.SubmarketAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.fleet.FleetMemberType;
-import data.scripts.trylobot.TrylobotUtils;
-import java.util.Iterator;
-import java.util.List;
+import com.fs.starfarer.api.loading.HullModSpecAPI;
+
 
 public class TheNomadsNurStationRestocker implements EveryFrameScript
 {
@@ -19,10 +19,7 @@ public class TheNomadsNurStationRestocker implements EveryFrameScript
 	private CampaignClockAPI clock;
 	//private float seconds_per_day;
 	
-	private String[]          restock_ship_variant_or_wing_ids;
-	private FleetMemberType[] restock_ship_types;
-	private int[]             restock_ship_count_cap;
-	private float[]           restock_ship_wait_days;
+	private StockDescriptor[] restock;
 	private SectorEntityToken orbital_station;
 	
 	private int               count;
@@ -32,48 +29,16 @@ public class TheNomadsNurStationRestocker implements EveryFrameScript
     StockDescriptor[] restock,
     SectorEntityToken orbital_station )
   {
-    this.restock_ship_variant_or_wing_ids = new String[restock.length];
-		this.restock_ship_types =               new FleetMemberType[restock.length];
-		this.restock_ship_count_cap =           new int[restock.length];
-		this.restock_ship_wait_days =           new float[restock.length];
+    this.restock = restock;
     this.orbital_station = orbital_station;
-    
-    for( int i = 0; i < restock.length; ++i ) {
-      restock_ship_variant_or_wing_ids[i] = restock[i].variant;
-      restock_ship_types[i] = FleetMemberType.SHIP;
-      restock_ship_count_cap[i] = restock[i].count_cap;
-      restock_ship_wait_days[i] = restock[i].wait_days;
-    }
-    
-		count = restock_ship_variant_or_wing_ids.length;
+
+    count = restock.length;
 		restock_timestamps = new long[count];
-		
 		clock = Global.getSector().getClock();
 		for( int i = 0; i < count; ++i )
 			restock_timestamps[i] = clock.getTimestamp();
   }
 
-	public TheNomadsNurStationRestocker(
-		String[]          restock_ship_variant_or_wing_ids,
-		FleetMemberType[] restock_ship_types,
-		int[]             restock_ship_count_cap,
-		float[]           restock_ship_wait_days,
-		SectorEntityToken orbital_station )
-	{
-		this.restock_ship_variant_or_wing_ids = restock_ship_variant_or_wing_ids;
-		this.restock_ship_types = restock_ship_types;
-		this.restock_ship_count_cap = restock_ship_count_cap;
-		this.restock_ship_wait_days = restock_ship_wait_days;
-		this.orbital_station = orbital_station;
-		
-		count = restock_ship_variant_or_wing_ids.length;
-		restock_timestamps = new long[count];
-		
-		clock = Global.getSector().getClock();
-		for( int i = 0; i < count; ++i )
-			restock_timestamps[i] = clock.getTimestamp();
-	}
-	
 	public void advance( float amount )
 	{
 		tick += amount;
@@ -81,47 +46,56 @@ public class TheNomadsNurStationRestocker implements EveryFrameScript
 			return;
 		tick -= SCRIPT_UPDATE_WAIT_MIN_SEC;
 		
-		for( int i = 0; i < count; ++i )
+		SubmarketAPI open_market = orbital_station.getMarket().getSubmarket("open_market");
+    //
+    for( int i = 0; i < count; ++i )
 		{
-			if( clock.getElapsedDaysSince( restock_timestamps[i] ) >= restock_ship_wait_days[i] )
+			if( clock.getElapsedDaysSince( restock_timestamps[i] ) >= restock[i].wait_days )
 			{
 				restock_timestamps[i] = clock.getTimestamp();
-				int stock = count_ship_stock( orbital_station, restock_ship_variant_or_wing_ids[i] );
-				if( stock < restock_ship_count_cap[i] )
+				int stock = count_stock( orbital_station, restock[i] );
+				if( stock < restock[i].count_cap )
 				{
-					// add 1 ship
-					orbital_station.getCargo().getMothballedShips().addFleetMember(
-					  Global.getFactory().createFleetMember(
-						restock_ship_types[i], restock_ship_variant_or_wing_ids[i] ));
-					TrylobotUtils.debug("  ADDED mothballed ship "+restock_ship_variant_or_wing_ids[i]+" to station cargo");
-				}
-				else if( stock > restock_ship_count_cap[i] )
-				{
-					// remove (N - cap) ships
-					FleetDataAPI station_moth_fleet = orbital_station.getCargo().getMothballedShips();
-					List station_ships = station_moth_fleet.getMembersListCopy();
-					for( Iterator t = station_ships.iterator(); t.hasNext(); )
-					{
-						FleetMemberAPI ship = (FleetMemberAPI)t.next();
-						if( restock_ship_variant_or_wing_ids[i].equals( ship.getSpecId() )) {
-							station_moth_fleet.removeFleetMember( ship );
-						}
-					}
+					if (restock[i].type == StockDescriptor.SHIP)
+          {
+            open_market.getCargo().getMothballedShips().addFleetMember(
+              Global.getFactory().createFleetMember(
+                FleetMemberType.SHIP, restock[i].id) );
+          }
+          else if (restock[i].type == StockDescriptor.FIGHTER_LPC) {
+            orbital_station.getMarket().getSubmarket("open_market").getCargo()
+              .addFighters(restock[i].id, 1);
+          }
+          else if (restock[i].type == StockDescriptor.HULLMOD_SPEC) {
+            orbital_station.getMarket().getSubmarket("open_market").getCargo()
+              .addHullmods(restock[i].id, 1);
+          }
 				}
 			}
 		}
 	}
 	
-	private int count_ship_stock( SectorEntityToken station, String variant_or_wing_id )
+	private int count_stock( SectorEntityToken station, StockDescriptor restock )
 	{
 		int stock = 0;
-		List station_ships = station.getCargo().getMothballedShips().getMembersInPriorityOrder();
-		for( Iterator i = station_ships.iterator(); i.hasNext(); )
-		{
-			FleetMemberAPI ship = (FleetMemberAPI)i.next();
-			if( variant_or_wing_id.equals( ship.getSpecId() ))
-				++stock;
-		}
+    //
+    if (restock.type == StockDescriptor.SHIP) {
+      SubmarketAPI open_market = station.getMarket().getSubmarket("open_market");
+      for (FleetMemberAPI ship : open_market.getCargo().getMothballedShips().getMembersInPriorityOrder()) {
+        if( restock.id.equals( ship.getSpecId() ))
+          ++stock;
+      }
+    } else if (restock.type == StockDescriptor.FIGHTER_LPC) {
+      stock += station.getMarket().getSubmarket("open_market").getCargo().getNumFighters( restock.id );
+    } else if (restock.type == StockDescriptor.HULLMOD_SPEC) {
+      for (CargoStackAPI cargo_stack : station.getMarket().getSubmarket("open_market").getCargo().getStacksCopy()) {
+        HullModSpecAPI hullmod_spec = cargo_stack.getHullModSpecIfHullMod();
+        if (hullmod_spec != null && hullmod_spec.getId() == restock.id) {
+          stock += cargo_stack.getSize();
+        }
+      }
+    }
+    //
 		return stock;
 	}
 	

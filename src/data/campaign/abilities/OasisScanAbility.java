@@ -399,7 +399,7 @@ public class OasisScanAbility extends BaseToggleAbility {
 				float grav = getFieldStrengthAt(angle);
 				//if (grav > 500) System.out.println(grav);
 				//if (grav > 300) grav = 300;
-				if (grav > 750) grav = 750;
+				if (grav > 1000f) grav = 1000f; // 750f;
 				grav *= 250f / 750f;
 				grav *= level;
 				//grav *= 0.5f;
@@ -412,7 +412,7 @@ public class OasisScanAbility extends BaseToggleAbility {
 				//System.out.println(grav);
 				
 				float alpha = alphaMult;
-				alpha *= 0.25f + Math.min(grav / 100, 0.75f);
+				alpha *= 0.10f + Math.min(grav / 100, 0.90f);
 				//alpha *= 0.75f;
 				
 //			

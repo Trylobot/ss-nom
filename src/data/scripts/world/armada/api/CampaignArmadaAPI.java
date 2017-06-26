@@ -6,7 +6,5 @@ public interface CampaignArmadaAPI
 {
 	CampaignFleetAPI getLeaderFleet();
 	CampaignFleetAPI[] getEscortFleets();
-	
-	CampaignArmadaEscortFleetPositionerAPI getEscortFleetPositioner();
 }
 

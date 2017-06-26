@@ -77,8 +77,11 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 
 	private void auto_redistribute_resources()
 	{
-		CampaignFleetAPI leader_fleet = armada.getLeaderFleet();
-		
+		if ( armada.getLeaderFleet() == null || armada.getEscortFleets() == null )
+      return;
+    
+    CampaignFleetAPI leader_fleet = armada.getLeaderFleet();
+    
 		// if the leader fleet is destroyed, abort
 		if( !leader_fleet.isAlive() )
 			return;
@@ -408,7 +411,11 @@ public class CampaignArmadaResourceSharingController implements EveryFrameScript
 	// not used unless cheater flag is set
 	private void cheat_resources()
 	{
-		CampaignFleetAPI[] escort_fleets = armada.getEscortFleets();
+		if ( armada.getLeaderFleet() == null || armada.getEscortFleets() == null )
+      return;
+
+    CampaignFleetAPI[] escort_fleets = armada.getEscortFleets();
+    
 		int cheated_fleets = 0;
 		float cheated_crew = 0;
 		float cheated_supplies = 0.0f;

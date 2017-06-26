@@ -19,6 +19,7 @@ import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.SectorGeneratorPlugin;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
+import com.fs.starfarer.api.campaign.econ.SubmarketAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.fleet.FleetMemberType;
 import com.fs.starfarer.api.impl.campaign.ids.StarTypes;
@@ -88,7 +89,6 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
     // stations
     station = system.addOrbitalStation("stationnom1", planet_I__moon_e, 180f, 300f, 50f, "Naeran Orbital Storage & Resupply", "nomads");
     station.setCircularOrbitPointingDown(system.getEntityById("nur_h"), 45, 300, 50);
-    station.addTag(Tags.STATION);
     // hyperspace
     JumpPointAPI jumpPoint = factory.createJumpPoint("jmp_stationnom1", "Orbital Station Jump Point");
     jumpPoint.setOrbit(Global.getFactory().createCircularOrbit(planet_I__moon_e, 90f, 300f, 50f));
@@ -99,23 +99,17 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
     
     // relationships
 		FactionAPI nomads_faction = sector.getFaction( "nomads" );
-		Object[] all_factions = sector.getAllFactions().toArray();
-		for( int i = 0; i < all_factions.length; ++i )
-		{
-			FactionAPI cur_faction = (FactionAPI) all_factions[i];
-			if( cur_faction == nomads_faction )
-				continue;
-			if( "neutral".equals(    cur_faction.getId())
-			||  "independent".equals(cur_faction.getId()) ) {
-        // neutral and independent are friendly
-				nomads_faction.setRelationship( cur_faction.getId(), 1 );
+    for (FactionAPI cur_faction : sector.getAllFactions()) {
+    	if( "nomads".equals(cur_faction.getId()) ||
+          "independent".equals(cur_faction.getId()) ||
+          "neutral".equals(cur_faction.getId()) )
+				nomads_faction.setRelationship( cur_faction.getId(), 1.00f );
+			if( "pirates".equals(cur_faction.getId())) {
+				nomads_faction.setRelationship( cur_faction.getId(), -0.65f );
 			} else {
-        // all other factions are hostiles
-				nomads_faction.setRelationship( cur_faction.getId(), -1 );
+				nomads_faction.setRelationship( cur_faction.getId(), 0.00f );
 			}
 		}
-    // the player is neutral
-		nomads_faction.setRelationship( "player", 0 );
 		
     // DEPRECATED
     //// armada formation
@@ -159,7 +153,6 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 				8, // escort_fleet_count
 				escort_pool,
 				escort_weights,
-				null,
 				1, // waypoint_per_trip_minimum
 				6, // waypoint_per_trip_maximum
 				30 // dead_time_days
@@ -180,55 +173,47 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 				20.0f // 15 light-years worth of fuel at fleet's current fuel consumption rate
 			);
 		sector.addScript( armada_resource_pool );
-    
-    // station cargo
-    CargoAPI cargo = station.getCargo();
-    // make sure all Nomad-used hullmods are purchaseable!
-    cargo.addItems(CargoItemType.MOD_SPEC, "fluxbreakers", 1);
-    cargo.addItems(CargoItemType.MOD_SPEC, "fluxcoil", 1);
-    cargo.addItems(CargoItemType.MOD_SPEC, "unstable_injector", 1);
-    cargo.addItems(CargoItemType.MOD_SPEC, "recovery_shuttles", 1);
-    cargo.addItems(CargoItemType.MOD_SPEC, "expanded_deck_crew", 1);
-    cargo.addItems(CargoItemType.MOD_SPEC, "magazines", 1);
-    cargo.addItems(CargoItemType.MOD_SPEC, "targetingunit", 1);
-    cargo.addItems(CargoItemType.MOD_SPEC, "heavyarmor", 1);
-    cargo.addItems(CargoItemType.MOD_SPEC, "armoredweapons", 1);
-    cargo.addItems(CargoItemType.MOD_SPEC, "turretgyros", 1);
-    cargo.addItems(CargoItemType.MOD_SPEC, "blast_doors", 1);
-    cargo.addItems(CargoItemType.MOD_SPEC, "reinforcedhull", 1);
-    cargo.addItems(CargoItemType.MOD_SPEC, "autorepair", 1);
-    cargo.addItems(CargoItemType.MOD_SPEC, "unstable_injector", 1);
-    cargo.addItems(CargoItemType.MOD_SPEC, "nav_relay", 1);
-    cargo.addItems(CargoItemType.MOD_SPEC, "missleracks", 1);
-    cargo.addItems(CargoItemType.MOD_SPEC, "eccm", 1);
-    cargo.addItems(CargoItemType.MOD_SPEC, "auxiliarythrusters", 1);
-    //
-		FleetDataAPI station_ships = cargo.getMothballedShips();
-		//station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.SHIP, "nom_oasis_standard" ));
-		station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.SHIP, "nom_komodo_assault" ));
-		station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.SHIP, "nom_wurm_assault" ));
-		station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.SHIP, "nom_wurm_assault" ));
-		station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.FIGHTER_WING, "nom_iguana_wing" ));
-		station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.FIGHTER_WING, "nom_scarab_wing" ));
-		cargo.addCrew( 1120 );
-		cargo.addSupplies( 3000.0f );
-		cargo.addFuel( 3000.0f );
-    
+        
 		// restocker script
 		StockDescriptor[] restock = {
-      new StockDescriptor("nom_gila_monster_antibattleship", 1, 92.0f),
-      new StockDescriptor("nom_sandstorm_assault", 2, 59.0f),
-      new StockDescriptor("nom_rattlesnake_assault", 2, 39.0f),
-      new StockDescriptor("nom_scorpion_assault", 3, 29.0f),
-      new StockDescriptor("nom_komodo_mk2_assault", 2, 25.0f),
-      new StockDescriptor("nom_komodo_assault", 4, 21.0f),
-      new StockDescriptor("nom_roadrunner_pursuit", 4, 13.0f),
-      new StockDescriptor("nom_flycatcher_fang", 1, 15.0f),
-      new StockDescriptor("nom_flycatcher_iguana", 1, 15.0f),
-      new StockDescriptor("nom_flycatcher_scarab", 1, 15.0f),
-      new StockDescriptor("nom_flycatcher_toad", 1, 15.0f),
-      new StockDescriptor("nom_yellowjacket_sniper", 2, 29.0f),
-      new StockDescriptor("nom_death_bloom_strike", 5, 9.0f),
+      //
+      new StockDescriptor(StockDescriptor.HULLMOD_SPEC, "fluxbreakers", 1, 1f),
+      new StockDescriptor(StockDescriptor.HULLMOD_SPEC, "fluxcoil", 1, 1f),
+      new StockDescriptor(StockDescriptor.HULLMOD_SPEC, "unstable_injector", 1, 1f),
+      new StockDescriptor(StockDescriptor.HULLMOD_SPEC, "recovery_shuttles", 1, 1f),
+      new StockDescriptor(StockDescriptor.HULLMOD_SPEC, "expanded_deck_crew", 1, 1f),
+      new StockDescriptor(StockDescriptor.HULLMOD_SPEC, "magazines", 1, 1f),
+      new StockDescriptor(StockDescriptor.HULLMOD_SPEC, "targetingunit", 1, 1f),
+      new StockDescriptor(StockDescriptor.HULLMOD_SPEC, "heavyarmor", 1, 1f),
+      new StockDescriptor(StockDescriptor.HULLMOD_SPEC, "armoredweapons", 1, 1f),
+      new StockDescriptor(StockDescriptor.HULLMOD_SPEC, "turretgyros", 1, 1f),
+      new StockDescriptor(StockDescriptor.HULLMOD_SPEC, "blast_doors", 1, 1f),
+      new StockDescriptor(StockDescriptor.HULLMOD_SPEC, "reinforcedhull", 1, 1f),
+      new StockDescriptor(StockDescriptor.HULLMOD_SPEC, "autorepair", 1, 1f),
+      new StockDescriptor(StockDescriptor.HULLMOD_SPEC, "unstable_injector", 1, 1f),
+      new StockDescriptor(StockDescriptor.HULLMOD_SPEC, "nav_relay", 1, 1f),
+      new StockDescriptor(StockDescriptor.HULLMOD_SPEC, "missleracks", 1, 1f),
+      new StockDescriptor(StockDescriptor.HULLMOD_SPEC, "eccm", 1, 1f),
+      new StockDescriptor(StockDescriptor.HULLMOD_SPEC, "auxiliarythrusters", 1, 1f),
+      //
+      new StockDescriptor(StockDescriptor.SHIP, "nom_gila_monster_antibattleship", 1, 11f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_sandstorm_assault", 2, 8f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_rattlesnake_assault", 3, 8f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_scorpion_assault", 3, 3f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_komodo_mk2_assault", 3, 3f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_komodo_assault", 4, 3f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_roadrunner_pursuit", 4, 3f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_flycatcher_fang", 2, 1f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_flycatcher_iguana", 1, 1f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_flycatcher_scarab", 2, 1f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_flycatcher_toad", 1, 1f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_yellowjacket_sniper", 5, 1f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_death_bloom_strike", 4, 1f),
+      //
+      new StockDescriptor(StockDescriptor.FIGHTER_LPC, "nom_fang_wing", 2, 1f),
+      new StockDescriptor(StockDescriptor.FIGHTER_LPC, "nom_toad_wing", 2, 1f),
+      new StockDescriptor(StockDescriptor.FIGHTER_LPC, "nom_iguana_wing", 2, 1f),
+      new StockDescriptor(StockDescriptor.FIGHTER_LPC, "nom_scarab_wing", 2, 1f)
     };
 		TheNomadsNurStationRestocker station_cargo_restocker
       = new TheNomadsNurStationRestocker( restock, station );
