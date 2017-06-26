@@ -223,6 +223,10 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
   @Override
 	public void handle_event( CampaignArmadaControllerEvent event )
 	{
+    if (station == null || station.getMarket() == null
+    ||  station.getMarket().getSubmarket("open_market") == null)
+      return;
+    
     SubmarketAPI open_market = station.getMarket().getSubmarket("open_market");
     // Oasis is not in play; put it for sale at the station (yay!)
 		if( "NON_EXISTENT".equals( event.controller_state ))

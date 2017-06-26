@@ -22,17 +22,15 @@ public class TheNomadsModPlugin extends BaseModPlugin
   
   @Override
   public void onNewGame() {
-    
     SectorAPI sector = Global.getSector();
-    boolean enable_colony_armada_feature = true;
     
-    // disable "wandering colony armada" feature for supported total conversions
-    if (Global.getSettings().getModManager().isModEnabled("nexerelin")) {
-      enable_colony_armada_feature = exerelin.campaign.SectorManager.getCorvusMode();
-    }
+    // total conversions
+    if (Global.getSettings().getModManager().isModEnabled("nexerelin"))
+      if (!exerelin.campaign.SectorManager.getCorvusMode())
+        return;
     
     // generate Nur star system, and optionally, the oasis armada
-    new TheNomadsNur( enable_colony_armada_feature ).generate( sector );
+    new TheNomadsNur( true ).generate( sector );
     
     
   }
