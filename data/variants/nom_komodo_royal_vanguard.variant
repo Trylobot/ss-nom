@@ -19,14 +19,14 @@
       "weapons": {
         "WS 001": "nom_twin_electron_maser",
         "WS 002": "nom_triple_electron_maser",
-        "WS 003": "nom_twin_electron_maser",
+        "WS 003": "nom_twin_electron_maser"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS 006": "nom_light_electron_maser"
+        "WS 006": "nom_light_electron_maser",
         "WS 007": "nom_light_electron_maser",
         "WS 1": "nom_light_electron_maser"
       }

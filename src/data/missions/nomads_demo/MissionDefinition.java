@@ -1,17 +1,22 @@
 package data.missions.nomads_demo;
 
+import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.fleet.FleetGoal;
 import com.fs.starfarer.api.fleet.FleetMemberType;
 import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.mission.MissionDefinitionAPI;
 import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
+import data.scripts.plugins.TheNomadsCombatEnginePlugin;
+
 
 public class MissionDefinition implements MissionDefinitionPlugin
 {
 	public void defineMission(MissionDefinitionAPI api)
 	{
+    //api.addPlugin(new TheNomadsCombatEnginePlugin());
+    
 		// Set up the fleets
-		api.initFleet(FleetSide.PLAYER, "NA", FleetGoal.ATTACK, false);
+		api.initFleet(FleetSide.PLAYER, "NFS", FleetGoal.ATTACK, false);
 		api.setFleetTagline(FleetSide.PLAYER, "The Nomads (Demo Fleet)");
 		
 		api.initFleet(FleetSide.ENEMY, "ISS", FleetGoal.ATTACK, true);
@@ -30,12 +35,12 @@ public class MissionDefinition implements MissionDefinitionPlugin
 		api.addToFleet(FleetSide.PLAYER, "nom_flycatcher_scarab", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_flycatcher_iguana", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_flycatcher_fang", FleetMemberType.SHIP, true);
-
-                api.addToFleet(FleetSide.PLAYER, "nom_death_bloom_strike", FleetMemberType.SHIP, true);
+    api.addToFleet(FleetSide.PLAYER, "nom_death_bloom_strike", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_yellowjacket_sniper", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_wurm_assault", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.PLAYER, "nom_wurm_royal_vanguard", FleetMemberType.SHIP, true);
 		// Set up the enemy fleet
-                api.addToFleet(FleetSide.ENEMY, "onslaught_Outdated", FleetMemberType.SHIP, false);
+    api.addToFleet(FleetSide.ENEMY, "onslaught_Outdated", FleetMemberType.SHIP, false);
 		api.addToFleet(FleetSide.ENEMY, "onslaught_Outdated", FleetMemberType.SHIP, false);
 		api.addToFleet(FleetSide.ENEMY, "dominator_Assault", FleetMemberType.SHIP, false);
 		api.addToFleet(FleetSide.ENEMY, "hammerhead_Balanced", FleetMemberType.SHIP, false);

@@ -5,13 +5,17 @@ import com.fs.starfarer.api.fleet.FleetMemberType;
 import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.mission.MissionDefinitionAPI;
 import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
+import data.scripts.plugins.TheNomadsCombatEnginePlugin;
 
-public class MissionDefinition implements MissionDefinitionPlugin {
 
-	public void defineMission(MissionDefinitionAPI api) {
-
+public class MissionDefinition implements MissionDefinitionPlugin
+{
+	public void defineMission(MissionDefinitionAPI api)
+  {
+    //api.addPlugin(new TheNomadsCombatEnginePlugin());
+    
 		// Set up the fleets
-		api.initFleet(FleetSide.PLAYER, "NA", FleetGoal.ATTACK, false);
+		api.initFleet(FleetSide.PLAYER, "NFS", FleetGoal.ATTACK, false);
 		api.setFleetTagline(FleetSide.PLAYER, "The Nomad Armada (Death Commandos)");
 		
 		api.initFleet(FleetSide.ENEMY, "HSS", FleetGoal.ATTACK, true);

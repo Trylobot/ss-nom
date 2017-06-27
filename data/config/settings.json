@@ -19,9 +19,8 @@
     "TheNomadsRoadrunnerEngineFXPlugin": "data.scripts.plugins.TheNomadsRoadrunnerEngineFXPlugin",
     "TheNomadsRetributionWeaponPlugin": "data.scripts.plugins.TheNomadsRetributionWeaponPlugin",
 
-    #### disabled
-    # "TheNomadsCombatEnginePlugin": "data.scripts.plugins.TheNomadsCombatEnginePlugin",
-    #############
+    # sets theme music if nomads are about
+    "TheNomadsCombatEnginePlugin": "data.scripts.plugins.TheNomadsCombatEnginePlugin",
 
     #### explicitly referenced directly from weapon
     # "TheNomadsHabitatRingRotationEffect": "data.scripts.plugins.TheNomadsHabitatRingRotationEffect",

@@ -6,13 +6,17 @@ import com.fs.starfarer.api.fleet.FleetMemberType;
 import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.mission.MissionDefinitionAPI;
 import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
+import data.scripts.plugins.TheNomadsCombatEnginePlugin;
+
 
 public class MissionDefinition implements MissionDefinitionPlugin
 {
 	public void defineMission(MissionDefinitionAPI api)
 	{
+    //api.addPlugin(new TheNomadsCombatEnginePlugin());
+    
 		// Set up the fleets
-		api.initFleet(FleetSide.ENEMY, "NA", FleetGoal.ATTACK, true);
+		api.initFleet(FleetSide.ENEMY, "NFS", FleetGoal.ATTACK, true);
 		api.setFleetTagline(FleetSide.ENEMY, "The Nomad Armada");
 		
 		api.initFleet(FleetSide.PLAYER, "SDS", FleetGoal.ATTACK, false);

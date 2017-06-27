@@ -1,81 +1,89 @@
 package data.scripts.plugins;
 
-//import com.fs.starfarer.api.combat.CombatEngineAPI;
-//import com.fs.starfarer.api.combat.CombatEnginePlugin;
-//import com.fs.starfarer.api.combat.CombatFleetManagerAPI;
-//import com.fs.starfarer.api.combat.EveryFrameCombatPlugin;
-//import com.fs.starfarer.api.combat.ViewportAPI;
-//import com.fs.starfarer.api.fleet.FleetGoal;
-//import com.fs.starfarer.api.fleet.FleetMemberAPI;
-//import com.fs.starfarer.api.mission.FleetSide;
-//import data.scripts.trylobot.TrylobotUtils;
-//import java.util.Iterator;
-//import java.util.List;
-//import org.lwjgl.util.vector.Vector2f;
+import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.CampaignFleetAPI;
+import com.fs.starfarer.api.combat.BattleCreationContext;
+import com.fs.starfarer.api.combat.CombatEngineAPI;
+import com.fs.starfarer.api.combat.EveryFrameCombatPlugin;
+import com.fs.starfarer.api.combat.ViewportAPI;
+import com.fs.starfarer.api.fleet.FleetMemberAPI;
+import data.scripts.trylobot.TrylobotUtils;
+import java.util.List;
 
 
-// [TODO] disabled for now; might be causing problem
-public class TheNomadsCombatEnginePlugin // implements CombatEnginePlugin, EveryFrameCombatPlugin
+public class TheNomadsCombatEnginePlugin implements EveryFrameCombatPlugin
 {
-  /*
-  
 	private CombatEngineAPI engine = null;
 	private boolean executed = true;
 	
+  @Override
 	public void init( CombatEngineAPI engine )
 	{
 		this.engine = engine;
 		executed = false;
 	}
 
+  @Override
 	public void advance( float amount, List events )
 	{
 		if( executed )
 			return;
 		executed = true;
-		if( engine.getContext() != null
-		&&  engine.getContext().getOtherFleet() != null
-		&&  engine.getContext().getOtherFleet().getFaction() != null
-		&&  "nomads".equals( engine.getContext().getOtherFleet().getFaction().getId() ))
-		{
-			CombatFleetManagerAPI fleet_mgr = engine.getFleetManager( FleetSide.ENEMY );
-			List reserves = fleet_mgr.getReservesCopy();
-			for( Iterator i = reserves.iterator(); i.hasNext(); )
-			{
-				FleetMemberAPI ship = (FleetMemberAPI)i.next();
-				if( !ship.canBeDeployedForCombat() )
-					return;
-				
-				Vector2f spawn_location = new Vector2f();
-				if( engine.getContext().getOtherGoal() == FleetGoal.ATTACK )
-				{
-					spawn_location.x = -0.45f * engine.getMapWidth() + 0.90f * (float)Math.random() * engine.getMapWidth();
-					spawn_location.y = 0.50f * engine.getMapHeight() + 0.10f * (float)Math.random() * engine.getMapHeight();
-				}
-				else if( engine.getContext().getOtherGoal() == FleetGoal.ESCAPE )
-				{
-					spawn_location.x = -0.30f * engine.getMapWidth() + 0.60f * (float)Math.random() * engine.getMapWidth();
-					spawn_location.y = -0.20f * engine.getMapHeight() + 0.10f * (float)Math.random() * engine.getMapHeight();
-				}
-				try
-				{
-					fleet_mgr.spawnShipOrWing( ship.getSpecId(), spawn_location, 270.0f );
-				}
-				catch( NullPointerException e )
-				{
-					TrylobotUtils.debug("NullPointerException in CombatFleetManagerAPI.spawnShipOrWing for "+ship.getSpecId());
-				}
-			}
-		}		
+    
+    // If fighting against Nomads, or fighting using mostly Nomad ships, set the mood appropriately
+    boolean set_the_mood = false;
+    BattleCreationContext battle = engine.getContext();
+    //
+    if (battle != null) {
+      CampaignFleetAPI other_fleet = battle.getOtherFleet();
+      CampaignFleetAPI player_fleet = battle.getPlayerFleet();
+      //
+      if ( other_fleet != null && other_fleet.getFaction() != null
+      && "nomads".equals( other_fleet.getFaction().getId()) ) {
+        set_the_mood = true; // fighting Nomads! set the mood!
+      }
+      //
+      if ( !set_the_mood && other_fleet != null ) {
+        float ship_count = 0f;
+        float nomad_ship_count = 0f;
+        for (FleetMemberAPI ship : other_fleet.getMembersWithFightersCopy()) {
+          ship_count += 1f;
+          if (ship.getHullId().startsWith("nom_"))
+            nomad_ship_count += 1f;
+        }
+        if (ship_count != 0f && ((nomad_ship_count / ship_count) >= 0.50f)) {
+          set_the_mood = true; // we've obviously got a Nomads fan here, set the mood!
+        }
+      }
+      //
+      if ( !set_the_mood && player_fleet != null ) {
+        float ship_count = 0f;
+        float nomad_ship_count = 0f;
+        for (FleetMemberAPI ship : player_fleet.getMembersWithFightersCopy()) {
+          ship_count += 1f;
+          if (ship.getHullId().startsWith("nom_"))
+            nomad_ship_count += 1f;
+        }
+        if (ship_count != 0f && ((nomad_ship_count / ship_count) >= 0.50f)) {
+          set_the_mood = true; // we've obviously got a Nomads fan here, set the mood!
+        }
+      }
+		}
+    //
+    if (!"nom_theme_music".equals(Global.getSoundPlayer().getCurrentMusicId())
+    && set_the_mood ) {
+      Global.getSoundPlayer().playMusic(2, 1, "nom_theme_music");
+    }
 	}
 
+  @Override
   public void renderInWorldCoords(ViewportAPI vapi) {
     // ...
   }
 
+  @Override
   public void renderInUICoords(ViewportAPI vapi) {
     // ...
   }
   
-  */
 }

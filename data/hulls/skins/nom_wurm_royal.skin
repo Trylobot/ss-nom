@@ -1,0 +1,22 @@
+{
+  "baseHullId":"nom_wurm",
+  "skinHullId":"nom_wurm_royal",
+  "hullName":"Wurm (Royal)",
+  "descriptionId":"wurm",
+  "descriptionPrefix":"The Nomad Royal Escort fleets make use of a specially-modified version of the Wurm; it has higher engine output and weapon targeting range; the exact methods & specifications of the modifications are a closely-guarded Nomad military secret, but they are extensive enough that they cannot be performed outside of drydock. They may not even be fully known to the Nomads themselves, anymore, or they may now lack appropriate facilities, but the Armada would never admit this.",
+  "ordnancePoints": 18,
+  "baseValueMult": 1.50,
+  "spriteName":"graphics/nom/ships/nom_wurm_royal.png",
+  "removeWeaponSlots":[     # ids
+    "WS 002"
+  ],
+  "removeEngineSlots":[],     # indices, as engine slots have no id in the .ship file
+  "removeBuiltInMods":[],     # hullmod ids
+  "removeBuiltInWeapons":[     # weapon slot ids
+    "WS 002"
+  ],
+  "builtInMods":["nomad_royal"],
+  "builtInWeapons":{
+    "WS 001": "nom_twin_electron_maser"
+  },
+}
