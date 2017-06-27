@@ -1,0 +1,28 @@
+{
+  "baseHullId":"nom_komodo",
+  "skinHullId":"nom_komodo_royal",
+  "hullName":"Komodo (Royal)",
+  "descriptionId":"komodo",
+  "descriptionPrefix":"The Nomad Royal Escort fleets make use of a specially-modified version of the Komodo; it has higher engine output and weapon targeting range; the exact methods & specifications of the modifications are a closely-guarded Nomad military secret, but they are extensive enough that they cannot be performed outside of drydock. They may not even be fully known to the Nomads themselves, anymore, or they may now lack appropriate facilities, but the Armada would never admit this.",
+  "ordnancePoints": 50,
+  "baseValueMult": 1.50,
+  "spriteName":"graphics/nom/ships/nom_komodo_royal.png",
+  "removeWeaponSlots":[     # ids
+    "WS 004",
+    "WS 005",
+    "WS 008"
+  ],
+  "removeEngineSlots":[],     # indices, as engine slots have no id in the .ship file
+  "removeBuiltInMods":[],     # hullmod ids
+  "removeBuiltInWeapons":[     # weapon slot ids
+    "WS 004",
+    "WS 005",
+    "WS 008"
+  ],
+  "builtInMods":["nomad_royal"],
+  "builtInWeapons":{
+    "WS 001": "nom_twin_electron_maser",
+    "WS 002": "nom_triple_electron_maser",
+    "WS 003": "nom_twin_electron_maser",
+  },
+}

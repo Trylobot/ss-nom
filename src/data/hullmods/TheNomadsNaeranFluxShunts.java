@@ -15,8 +15,6 @@ public class TheNomadsNaeranFluxShunts extends BaseHullMod
 		stats.getFluxCapacity().modifyFlat( id, (25.0f * base) - base );
 		// fix complete auto-aiming uselessness problem of all maser weapons
 		stats.getAutofireAimAccuracy().modifyFlat( id, 0.5f );
-		// Ordnance Expert 10 (Optimized Assembly Perk) - hack
-		
 	}
 	
 	@Override

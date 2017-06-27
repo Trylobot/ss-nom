@@ -58,6 +58,7 @@
     "missleracks",
     "eccm",
     "auxiliarythrusters",
+    "pointdefenseai",
   ],
   "custom":{
     "allowsTransponderOffTrade": true,
