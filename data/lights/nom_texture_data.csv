@@ -13,6 +13,8 @@ nom_rattlesnake,ship,,1,normal,graphics/nom/ships/shaders/nom_rattlesnake_normal
 ,,,,,
 nom_scorpion,ship,,1,normal,graphics/nom/ships/shaders/nom_scorpion_normal.png
 ,,,,,
+nom_tortoise,ship,,1,normal,graphics/nom/ships/shaders/nom_tortoise_normal.png
+,,,,,
 nom_komodo_royal,ship,,,material,graphics/nom/ships/shaders/nom_komodo_royal_material.png
 nom_komodo_royal,ship,,1,normal,graphics/nom/ships/shaders/nom_komodo_royal_normal.png
 nom_komodo_royal,ship,,,surface,graphics/nom/ships/shaders/nom_komodo_royal_surface.png

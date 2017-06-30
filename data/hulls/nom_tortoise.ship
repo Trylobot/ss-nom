@@ -1,0 +1,252 @@
+{
+  "coversColor": "234,214,124,255",
+  "bounds": [
+    93.5,
+    17,
+    92,
+    6,
+    77,
+    -12.5,
+    89.5,
+    -24.5,
+    74,
+    -52,
+    38,
+    -49.5,
+    15.5,
+    -33,
+    -9.5,
+    -39,
+    -11,
+    -55.5,
+    -19.5,
+    -54.5,
+    -23,
+    -47.5,
+    -36.5,
+    -46,
+    -37.5,
+    -38.5,
+    -20,
+    -33,
+    -35.5,
+    -10.5,
+    -51,
+    -31.5,
+    -71,
+    -22.5,
+    -76.5,
+    -13,
+    -91.5,
+    -4.5,
+    -91,
+    3.5,
+    -74.5,
+    12.5,
+    -52.5,
+    37,
+    -38.5,
+    9.5,
+    -18,
+    19,
+    -34.5,
+    41,
+    -8.5,
+    44,
+    -7,
+    61.5,
+    0,
+    59.5,
+    3,
+    27.5,
+    22,
+    47.5,
+    49.5,
+    47.5,
+    49,
+    58.5,
+    83,
+    46.5,
+    84,
+    24
+  ],
+  "builtInMods": [
+    "naeran_flux_shunts"
+  ],
+  "builtInWeapons": {
+    "WS0001": "nom_twin_ultralight_electron_maser",
+    "WS0002": "nom_twin_ultralight_electron_maser",
+    "WS0003": "nom_firecracker",
+    "WS0004": "nom_firecracker"
+  },
+  "builtInWings": [],
+  "center": [
+    67.5,
+    98
+  ],
+  "collisionRadius": 116.5,
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 14,
+      "length": 32.5,
+      "location": [
+        -93,
+        -1.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 14
+    },
+    {
+      "angle": 180,
+      "contrailSize": 8,
+      "length": 18,
+      "location": [
+        -79,
+        14
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 8
+    },
+    {
+      "angle": 180,
+      "contrailSize": 6,
+      "length": 13,
+      "location": [
+        -68.5,
+        24.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 6
+    },
+    {
+      "angle": 180,
+      "contrailSize": 9,
+      "length": 17,
+      "location": [
+        -35,
+        39
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 9
+    },
+    {
+      "angle": 180,
+      "contrailSize": 6,
+      "length": 11.5,
+      "location": [
+        -33,
+        33.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 6
+    },
+    {
+      "angle": 180,
+      "contrailSize": 7,
+      "length": 12,
+      "location": [
+        -22.5,
+        25
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 7
+    },
+    {
+      "angle": 180,
+      "contrailSize": 11,
+      "length": 24.5,
+      "location": [
+        -39,
+        -41
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 11
+    },
+    {
+      "angle": 180,
+      "contrailSize": 11,
+      "length": 19.5,
+      "location": [
+        -73,
+        -19
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 11
+    },
+    {
+      "angle": 180,
+      "contrailSize": 7,
+      "length": 13,
+      "location": [
+        -85,
+        -11.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 7
+    }
+  ],
+  "height": 199,
+  "hullId": "nom_tortoise",
+  "hullName": "Tortoise",
+  "hullSize": "DESTROYER",
+  "shieldCenter": [
+    3,
+    1.5
+  ],
+  "shieldRadius": 106,
+  "spriteName": "graphics/nom/ships/nom_tortoise.png",
+  "style": "ANCIENT_NAERAN",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 20.5,
+      "arc": 360,
+      "id": "WS0001",
+      "locations": [
+        16,
+        35.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": -14.5,
+      "arc": 360,
+      "id": "WS0002",
+      "locations": [
+        1.5,
+        -21.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": -133.5,
+      "arc": 360,
+      "id": "WS0003",
+      "locations": [
+        -48.5,
+        -14.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 149.5,
+      "arc": 360,
+      "id": "WS0004",
+      "locations": [
+        -53,
+        23.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    }
+  ],
+  "width": 130
+}

@@ -1,0 +1,29 @@
+{
+  "displayName": "Standard",
+  "fluxCapacitors": 0,
+  "fluxVents": 4,
+  "hullId": "nom_tortoise",
+  "hullMods": [
+    "insulatedengine"
+  ],
+  "quality": 0,
+  "variantId": "nom_tortoise_freighter",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "nom_twin_ultralight_electron_maser",
+        "WS0002": "nom_twin_ultralight_electron_maser"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0003": "nom_firecracker",
+        "WS0004": "nom_firecracker"
+      }
+    }
+  ]
+}
