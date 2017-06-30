@@ -2,18 +2,12 @@ package data.scripts.world.systems;
 
 import java.awt.Color;
 import java.util.Iterator;
-import org.lwjgl.util.vector.Vector2f;
 
 import com.fs.starfarer.api.FactoryAPI;
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.campaign.CargoAPI;
-import com.fs.starfarer.api.campaign.CargoAPI.CargoItemType;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.FleetDataAPI;
 import com.fs.starfarer.api.campaign.JumpPointAPI;
-import com.fs.starfarer.api.campaign.JumpPointAPI.JumpDestination;
-import com.fs.starfarer.api.campaign.LocationAPI;
-import com.fs.starfarer.api.campaign.OrbitAPI;
 import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
@@ -23,18 +17,12 @@ import com.fs.starfarer.api.campaign.econ.SubmarketAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.fleet.FleetMemberType;
 import com.fs.starfarer.api.impl.campaign.ids.StarTypes;
-import com.fs.starfarer.api.impl.campaign.fleets.FleetParams;
-import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV2;
-import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
-import com.fs.starfarer.api.impl.campaign.ids.Tags;
 
 import data.scripts.trylobot.TrylobotUtils;
 import data.scripts.world.armada.CampaignArmadaController;
 import data.scripts.world.armada.CampaignArmadaController.CampaignArmadaControllerEvent;
 import data.scripts.world.armada.CampaignArmadaController.CampaignArmadaControllerEventListener;
-import data.scripts.world.armada.CampaignArmadaFormationOrbit;
 import data.scripts.world.armada.CampaignArmadaResourceSharingController;
-import data.scripts.world.armada.api.CampaignArmadaEscortFleetPositionerAPI;
 
 
 @SuppressWarnings( "unchecked" )
@@ -54,6 +42,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
   }
   
   
+  @Override
 	public void generate( SectorAPI sector )
 	{
 		factory = Global.getFactory();

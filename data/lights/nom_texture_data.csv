@@ -3,9 +3,11 @@ id,type,frame,magnitude,map,path
 ,,,,,
 nom_oasis,ship,,1,normal,graphics/nom/ships/shaders/nom_oasis_normal.png
 ,,,,,
-nom_sandstorm,ship,,1,normal,graphics/nom/ships/shaders/nom_sandstorm_normal.png
-,,,,,
 nom_gila_monster,ship,,1,normal,graphics/nom/ships/shaders/nom_gila_monster_normal.png
+,,,,,
+nom_queen_bee,ship,,1,normal,graphics/nom/ships/shaders/nom_queen_bee_normal.png
+,,,,,
+nom_sandstorm,ship,,1,normal,graphics/nom/ships/shaders/nom_sandstorm_normal.png
 ,,,,,
 nom_rattlesnake,ship,,1,normal,graphics/nom/ships/shaders/nom_rattlesnake_normal.png
 ,,,,,

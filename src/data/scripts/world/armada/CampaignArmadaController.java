@@ -3,59 +3,44 @@ package data.scripts.world.armada;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import org.lwjgl.util.vector.Vector2f;
 import com.fs.starfarer.api.EveryFrameScript;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignClockAPI;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.FleetAssignment;
-import com.fs.starfarer.api.campaign.JumpPointAPI.JumpDestination;
 import com.fs.starfarer.api.campaign.LocationAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
-import com.fs.starfarer.api.campaign.ai.FleetAssignmentDataAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
-import com.fs.starfarer.api.characters.PersonAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
-import com.fs.starfarer.api.impl.campaign.events.OfficerManagerEvent;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV2;
-import com.fs.starfarer.api.impl.campaign.fleets.FleetParams;
-import com.fs.starfarer.api.impl.campaign.ids.Abilities;
 import com.fs.starfarer.api.impl.campaign.ids.Commodities;
-import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
-import com.fs.starfarer.api.impl.campaign.ids.Ranks;
 import com.fs.starfarer.api.loading.AbilitySpecAPI;
-import com.fs.starfarer.api.util.Misc;
 import data.scripts.trylobot.TrylobotUtils;
-import data.scripts.world.armada.CampaignArmadaWaypointController.CampaignArmadaWaypoint;
 import data.scripts.world.armada.api.CampaignArmadaAPI;
-import data.scripts.world.armada.api.CampaignArmadaEscortFleetPositionerAPI;
-import java.awt.Color;
 import java.util.Random;
-import org.lazywizard.lazylib.campaign.MessageUtils;
 
 
-@SuppressWarnings("unchecked")
 public class CampaignArmadaController implements EveryFrameScript, CampaignArmadaAPI
 {
 	// current star system
-	private SectorAPI sector;
-	private LocationAPI spawn_system;
-	private SectorEntityToken spawn_location;
+	private final SectorAPI sector;
+	private final LocationAPI spawn_system;
+	private final SectorEntityToken spawn_location;
   private MarketAPI market;
 
 	// basic behavior options
-	private String faction_id;
-	private String leader_fleet_id;
-	private String vip_ship_id;
-	private int escort_fleet_count;
-	private String[] escort_fleet_composition_pool;
-	private int[] escort_fleet_composition_weights;
+	private final String faction_id;
+	private final String leader_fleet_id;
+	private final String vip_ship_id;
+	private final int escort_fleet_count;
+	private final String[] escort_fleet_composition_pool;
+	private final int[] escort_fleet_composition_weights;
 	//private CampaignArmadaEscortFleetPositionerAPI escort_positioner;
-	private int dead_time_days;
+	private final int dead_time_days;
 	
-	private CampaignClockAPI clock;
-  private Random random = new Random();
+	private final CampaignClockAPI clock;
+  private final Random random = new Random();
 	
 	// Refers to the "Armada Leader" - this fleet is the one issued the waypoint
 	//  movement orders, and the armada will do its best to protect this fleet.
@@ -77,7 +62,8 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	// used for measuring idle time; defaults to very low value so armada will spawn immediately
 	private long last_state_change_timestamp = Long.MIN_VALUE;
 	
-
+	private final List _listeners = new LinkedList();
+	
 	// Constructor also initializes the spawning system and begins spawning fleets
 	//  Spawning is immediate and automatic
     //  escort pool and weights assumed to be non-null, non-empty and of equal length
@@ -104,7 +90,6 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		this.escort_fleet_count = escort_fleet_count;
 		this.escort_fleet_composition_pool = escort_fleet_composition_pool;
 		this.escort_fleet_composition_weights = escort_fleet_composition_weights;
-		//this.escort_positioner = escort_positioner;
 		this.dead_time_days = dead_time_days;
 		
 		this.waypoint_controller = new CampaignArmadaWaypointController(
@@ -115,7 +100,10 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	}
 	
 	// API methods
+  @Override
 	public CampaignFleetAPI getLeaderFleet() { return leader_fleet; }
+  
+  @Override
 	public CampaignFleetAPI[] getEscortFleets() { return escort_fleets; }
 	
 	//public CampaignArmadaEscortFleetPositionerAPI getEscortFleetPositioner() { return escort_positioner; }
@@ -144,9 +132,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 					escort_fleets = create_escort_fleets( leader_fleet );
 					for( int i = 0; i < escort_fleets.length; ++i )
 						spawn_system.spawnFleet( spawn_location, 0, 0, escort_fleets[i] );
-					//
-          //if( escort_positioner != null )
-          //  escort_positioner.set_armada( this );
+          //
           waypoint_controller.run();
           //
 					change_state( JOURNEYING_LIKE_A_BOSS );
@@ -193,6 +179,8 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 			CampaignFleetAPI fleet = sector.createFleet( faction_id, fleet_id );
 			flesh_out_fleet(fleet);
       fleet.getCargo().addCommodity(Commodities.DRUGS, 30);
+      //
+      //fleet.setAI(new CampaignArmadaEscortFleetAI(fleet));
       fleet.addAssignment(FleetAssignment.ORBIT_PASSIVE, leader_fleet, Float.MAX_VALUE); // forever
       //
       fleets[i] = fleet;
@@ -200,46 +188,6 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		return fleets;
 	}
   
-//  private long last_debug_ts = 0L;
-  
-  private void update_fleets( float amount )
-	{
-//    CampaignFleetAPI fleet;
-//    FleetAssignmentDataAPI assignment;
-    
-//    if( clock.getElapsedDaysSince(last_debug_ts) >= 1f ) {
-//      last_debug_ts = clock.getTimestamp();
-//      StringBuilder s = new StringBuilder();
-//      for (FleetAssignmentDataAPI a : leader_fleet.getAssignmentsCopy()) {
-//        s.append(a.getAssignment().toString()+" ");
-//      }
-//      MessageUtils.showMessage(s.toString());
-//    }
-    
-    //// leader
-    //fleet = leader_fleet;
-    //assignment = fleet.getCurrentAssignment();
-    //if (assignment != null) {
-    //  if (assignment.getAssignment() != FleetAssignment.GO_TO_LOCATION) {
-    //    assignment.expire(); // ignore them fool, get going
-    //  }
-    //}
-//    // escorts
-//		for( int i = 0; i < escort_fleets.length; ++i )
-//		{
-//			fleet = escort_fleets[i];
-//      assignment = fleet.getCurrentAssignment();
-//      if (assignment != null) {
-//        if (assignment.getAssignment() != FleetAssignment.ORBIT_PASSIVE) {
-//          assignment.expire();
-//        }
-//      }
-//      if (fleet.getAssignmentsCopy().size() == 0) {
-//        
-//      }
-//		}
-	}
-	
   private void flesh_out_fleet(CampaignFleetAPI fleet) {
     //
     fleet.setMarket(market);
@@ -264,6 +212,9 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
     return (leader_fleet != null && leader_fleet.isAlive()
 		  && (vip_ship_id == null || find_vip_ship( leader_fleet )));
 	}
+	
+  private void update_fleets( float amount )
+	{ }
 	
 	private boolean find_vip_ship( CampaignFleetAPI fleet )
 	{
@@ -317,11 +268,13 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	}
 	
 	// API methods must be defined
+  @Override
 	public boolean isDone()
 	{
 		return false; // never done
 	}
 
+  @Override
 	public boolean runWhilePaused()
 	{
 		return false; // do not do this
@@ -338,8 +291,6 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	{
 		public void handle_event( CampaignArmadaControllerEvent event );
 	}
-	
-	private List _listeners = new LinkedList();
 	
 	public void addListener( CampaignArmadaControllerEventListener listener )
 	{

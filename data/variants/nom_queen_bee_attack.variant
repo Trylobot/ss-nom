@@ -1,0 +1,56 @@
+{
+  "displayName": "Attack",
+  "fluxCapacitors": 0,
+  "fluxVents": 1,
+  "hullId": "nom_queen_bee",
+  "hullMods": [
+    "expanded_deck_crew"
+  ],
+  "quality": 0,
+  "variantId": "nom_queen_bee_attack",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0002": "nom_twin_electron_maser",
+        "WS0005": "nom_triple_electron_maser",
+        "WS0007": "nom_twin_electron_maser",
+        "WS0020": "nom_heavy_electron_maser",
+        "WS0022": "nom_heavy_electron_maser",
+        "WS0024": "nom_heavy_electron_maser"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0004": "nom_self_sustained_fusion_torpedo_bank",
+        "WS0006": "nom_self_sustained_fusion_torpedo_bank"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "nom_firecracker",
+        "WS0008": "nom_heavy_electron_maser",
+        "WS0010": "nom_heavy_electron_maser",
+        "WS0015": "nom_light_electron_maser",
+        "WS0018": "nom_light_electron_maser",
+        "WS0025": "nom_ultralight_electron_maser",
+        "WS0027": "nom_twin_ultralight_electron_maser",
+        "WS0028": "nom_twin_ultralight_electron_maser",
+        "WS0030": "nom_ultralight_electron_maser"
+      }
+    }
+  ],
+  "wings": [
+    "nom_toad_wing",
+    "nom_toad_wing",
+    "nom_toad_wing",
+    "nom_iguana_wing",
+    "nom_iguana_wing",
+    "nom_fang_wing"
+  ]
+}
