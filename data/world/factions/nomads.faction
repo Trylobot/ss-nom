@@ -344,14 +344,13 @@
         "nom_sandstorm_assault":[0, 1],             # 22
         "nom_rattlesnake_assault":[0, 1],           # 16
         "nom_scorpion_assault":[1, 2],              # 10
-        "nom_komodo_mk2_assault":[0, 1],            # 12
-        "nom_komodo_assault":[1, 3],                # 9
+        "nom_komodo_royal_vanguard":[1, 4],         # 12
         "nom_roadrunner_pursuit":[0, 1],            # 10
         "nom_flycatcher_toad":[0, 1],               # 5
         "nom_flycatcher_fang":[0, 1],               # 5
         "nom_death_bloom_strike":[0, 1],            # 13
         "nom_yellowjacket_sniper":[1, 4],           # 6
-        "nom_wurm_assault":[1, 6],                  # 4
+        "nom_wurm_royal_vanguard":[1, 6],           # 4
       },
     },
     "jihadFleet":{
@@ -383,12 +382,12 @@
       "extraCrewPercent":[40, 60],
       "marinesPercent":[20, 20],
       "ships":{
-        "nom_queen_bee_attack":[1, 2],   # 26
+        "nom_queen_bee_attack":[1, 2],              # 26
         "nom_rattlesnake_assault":[0, 2],           # 16
         "nom_flycatcher_iguana":[0, 2],             # 5
         "nom_flycatcher_toad":[0, 2],               # 5
         "nom_flycatcher_fang":[0, 2],               # 5
-        "nom_wurm_assault":[0, 5],                 # 4
+        "nom_wurm_assault":[0, 5],                  # 4
       },
     },
     "royalCommandFleet":{
@@ -400,17 +399,18 @@
       "marinesPercent":[20, 50],
       "ships":{
         "nom_gila_monster_antibattleship":[1, 2],   # 26
-        "nom_sandstorm_assault":[2, 5],             # 22
+        "nom_queen_bee_attack":[1, 1],              # 26
+        "nom_sandstorm_assault":[1, 4],             # 22
         "nom_rattlesnake_assault":[3, 6],           # 16
         "nom_scorpion_assault":[2, 5],              # 10
-        "nom_komodo_mk2_assault":[3, 7],            # 12
+        "nom_komodo_royal_vanguard":[3, 7],         # 12
         "nom_roadrunner_pursuit":[1, 8],            # 10
         "nom_flycatcher_fang":[1, 4],               # 5
         "nom_flycatcher_iguana":[0, 4],             # 5
         "nom_flycatcher_toad":[0, 4],               # 5
         "nom_death_bloom_strike":[3, 3],            # 13
         "nom_yellowjacket_sniper":[2, 8],           # 6
-        "nom_wurm_assault":[5, 16],                 # 4
+        "nom_wurm_royal_vanguard":[5, 16],          # 4
       },
     },
     "colonyFleet":{
