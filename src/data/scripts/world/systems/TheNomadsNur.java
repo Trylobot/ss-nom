@@ -186,9 +186,11 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
       new StockDescriptor(StockDescriptor.HULLMOD_SPEC, "auxiliarythrusters", 1, 1f),
       //
       new StockDescriptor(StockDescriptor.SHIP, "nom_gila_monster_antibattleship", 1, 11f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_queen_bee_attack", 1, 11f),
       new StockDescriptor(StockDescriptor.SHIP, "nom_sandstorm_assault", 2, 8f),
       new StockDescriptor(StockDescriptor.SHIP, "nom_rattlesnake_assault", 3, 8f),
       new StockDescriptor(StockDescriptor.SHIP, "nom_scorpion_assault", 3, 3f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_komodo_royal_vanguard", 1, 5f),
       new StockDescriptor(StockDescriptor.SHIP, "nom_komodo_mk2_assault", 3, 3f),
       new StockDescriptor(StockDescriptor.SHIP, "nom_komodo_assault", 4, 3f),
       new StockDescriptor(StockDescriptor.SHIP, "nom_roadrunner_pursuit", 4, 3f),
@@ -196,10 +198,13 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
       new StockDescriptor(StockDescriptor.SHIP, "nom_flycatcher_iguana", 1, 1f),
       new StockDescriptor(StockDescriptor.SHIP, "nom_flycatcher_scarab", 2, 1f),
       new StockDescriptor(StockDescriptor.SHIP, "nom_flycatcher_toad", 1, 1f),
-      new StockDescriptor(StockDescriptor.SHIP, "nom_yellowjacket_sniper", 5, 1f),
-      new StockDescriptor(StockDescriptor.SHIP, "nom_death_bloom_strike", 4, 1f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_yellowjacket_sniper", 4, 1f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_death_bloom_strike", 2, 1f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_wurm_royal_vanguard", 1, 3f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_wurm_assault", 4, 1f),
       //
       new StockDescriptor(StockDescriptor.FIGHTER_LPC, "nom_fang_wing", 2, 1f),
+      new StockDescriptor(StockDescriptor.FIGHTER_LPC, "nom_tarantula_wing", 2, 1f),
       new StockDescriptor(StockDescriptor.FIGHTER_LPC, "nom_toad_wing", 2, 1f),
       new StockDescriptor(StockDescriptor.FIGHTER_LPC, "nom_iguana_wing", 2, 1f),
       new StockDescriptor(StockDescriptor.FIGHTER_LPC, "nom_scarab_wing", 2, 1f)
