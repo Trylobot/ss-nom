@@ -1,0 +1,8 @@
+title: ss-nom
+description: "Starsector Mod: The Nomads"
+google_analytics: UA-44885201-1
+show_downloads: true
+theme: jekyll-theme-slate
+
+gems:
+  - jekyll-mentions
