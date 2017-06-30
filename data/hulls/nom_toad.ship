@@ -1,5 +1,4 @@
 {
-  "coversColor": "234,214,124,255",
   "bounds": [
     -3.5,
     23,
@@ -19,11 +18,18 @@
   "builtInMods": [
     "naeran_flux_shunts"
   ],
+  "builtInWeapons": {
+    "left_gun": "nom_light_electron_maser",
+    "missile_1": "nom_self_sustained_fusion_torpedo_mini",
+    "right_gun": "nom_light_electron_maser"
+  },
+  "builtInWings": [],
   "center": [
     25.5,
     18
   ],
   "collisionRadius": 29.004311,
+  "coversColor": "234,214,124,255",
   "engineSlots": [
     {
       "angle": 180,
@@ -117,12 +123,12 @@
   "viewOffset": 0,
   "weaponSlots": [
     {
-      "angle": 0,
+      "angle": 26.5,
       "arc": 0,
       "id": "missile_1",
       "locations": [
-        5,
-        0
+        -2.5,
+        6.5
       ],
       "mount": "HIDDEN",
       "size": "SMALL",
@@ -133,7 +139,7 @@
       "arc": 25,
       "id": "left_gun",
       "locations": [
-        25,
+        23,
         6.5
       ],
       "mount": "HIDDEN",
@@ -145,7 +151,7 @@
       "arc": 25,
       "id": "right_gun",
       "locations": [
-        25,
+        23,
         -6.5
       ],
       "mount": "HIDDEN",
@@ -153,10 +159,5 @@
       "type": "BUILT_IN"
     }
   ],
-  "width": 54,
-  "builtInWeapons": {
-    "left_gun": "nom_light_electron_maser",
-    "right_gun": "nom_light_electron_maser",
-    "missile_1": "nom_self_sustained_fusion_torpedo_mini",
-  },
+  "width": 54
 }

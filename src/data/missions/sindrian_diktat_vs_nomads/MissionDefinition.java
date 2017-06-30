@@ -26,7 +26,7 @@ public class MissionDefinition implements MissionDefinitionPlugin
 		api.addToFleet(FleetSide.ENEMY, "nom_oasis_standard", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.ENEMY, "nom_gila_monster_antibattleship", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.ENEMY, "nom_gila_monster_antibattleship", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.ENEMY, "nom_sandstorm_assault", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.ENEMY, "nom_queen_bee_attack", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.ENEMY, "nom_sandstorm_assault", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.ENEMY, "nom_sandstorm_assault", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.ENEMY, "nom_rattlesnake_assault", FleetMemberType.SHIP, true);

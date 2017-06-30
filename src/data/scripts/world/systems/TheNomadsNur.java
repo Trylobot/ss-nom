@@ -128,8 +128,8 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 			185,
 			175,
 			125,
-			100,
-			75
+			200,
+			100
 		};
 		CampaignArmadaController nomad_armada =
 			new CampaignArmadaController(

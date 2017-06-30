@@ -377,17 +377,18 @@
     },
     "carrierGroup":{
       "displayName":"Carrier Group",
-      "maxFleetPoints":115,
+      "maxFleetPoints":200,
       "daysWorthOfSupplies":[50, 100],
       "lyWorthOfFuel":[50, 100],
       "extraCrewPercent":[40, 60],
       "marinesPercent":[20, 20],
       "ships":{
-        "nom_gila_monster_antibattleship":[0, 1],   # 26
-        "nom_rattlesnake_assault":[0, 1],           # 16
-        "nom_flycatcher_iguana":[1, 1],             # 5
-        "nom_flycatcher_toad":[1, 1],               # 5
-        "nom_flycatcher_fang":[1, 1],               # 5
+        "nom_queen_bee_attack":[1, 2],   # 26
+        "nom_rattlesnake_assault":[0, 2],           # 16
+        "nom_flycatcher_iguana":[0, 2],             # 5
+        "nom_flycatcher_toad":[0, 2],               # 5
+        "nom_flycatcher_fang":[0, 2],               # 5
+        "nom_wurm_assault":[0, 5],                 # 4
       },
     },
     "royalCommandFleet":{
