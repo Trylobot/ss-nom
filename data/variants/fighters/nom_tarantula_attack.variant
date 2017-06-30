@@ -1,0 +1,28 @@
+{
+  "displayName": "Attack",
+  "hullId": "nom_tarantula",
+  "variantId": "nom_tarantula_attack",
+  "fluxVents": 0,
+  "fluxCapacitors": 0,
+  "hullMods": [],
+  "weaponGroups": [{
+    "autofire": false,
+    "mode": "LINKED",
+    "weapons": {
+      "Main Cannon": "nom_heavy_electron_maser"
+    }
+  },{
+    "autofire": false,
+    "mode": "ALTERNATING",
+    "weapons": {
+      "Left Sidegun": "nom_light_electron_maser",
+      "Right Sidegun": "nom_light_electron_maser"
+    }
+  },{
+    "autofire": true,
+    "mode": "LINKED",
+    "weapons": {
+      "Tailgun": "nom_twin_ultralight_electron_maser"
+    }
+  },]
+}

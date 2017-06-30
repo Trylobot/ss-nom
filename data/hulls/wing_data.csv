@@ -1,4 +1,5 @@
 id,variant,tags,tier,rarity,fleet pts,op cost,formation,range,attackRunRange,num,role,role desc,refit,base value,,,,,,,,,,,,,number
+nom_tarantula_wing,nom_tarantula_attack,"fighter1, fighter, low",2,,3,9,CLAW,4000,600,2,FIGHTER,fighter,15,150000,,,,,,,,,,,,,1337110
 nom_fang_wing,nom_fang_bomber,"bomber1, bomber, low",2,,1,8,CLAW,8000,2500,3,BOMBER,bomber,5,8000,,,,,,,,,,,,,1337109
 nom_toad_wing,nom_toad_assault,"fighter1, fighter, low",2,,3,7,V,4000,500,2,FIGHTER,fighter,12,110000,,,,,,,,,,,,,1337108
 nom_iguana_wing,nom_iguana_assault,"fighter1, fighter, low",2,,3,5,V,4000,500,3,FIGHTER,fighter,15,6500,,,,,,,,,,,,,1337107

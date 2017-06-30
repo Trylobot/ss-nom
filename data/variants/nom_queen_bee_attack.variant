@@ -1,7 +1,7 @@
 {
   "displayName": "Attack",
   "fluxCapacitors": 0,
-  "fluxVents": 1,
+  "fluxVents": 3,
   "hullId": "nom_queen_bee",
   "hullMods": [
     "expanded_deck_crew"
@@ -43,13 +43,23 @@
         "WS0028": "nom_twin_ultralight_electron_maser",
         "WS0030": "nom_ultralight_electron_maser"
       }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
     }
   ],
   "wings": [
+    "nom_tarantula_wing",
+    "nom_tarantula_wing",
+    "nom_tarantula_wing",
     "nom_toad_wing",
-    "nom_toad_wing",
-    "nom_toad_wing",
-    "nom_iguana_wing",
     "nom_iguana_wing",
     "nom_fang_wing"
   ]

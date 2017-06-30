@@ -1,0 +1,168 @@
+{
+  "bounds": [
+    12,
+    16.5,
+    12,
+    -15,
+    5,
+    -21.5,
+    -1,
+    -13.5,
+    -8,
+    -18.5,
+    -16,
+    -10,
+    -15,
+    12,
+    -2,
+    14.5,
+    -0.5,
+    23.5
+  ],
+  "builtInMods": [
+    "naeran_flux_shunts"
+  ],
+  "builtInWeapons": {
+    "Left Sidegun": "nom_light_electron_maser",
+    "Main Cannon": "nom_heavy_electron_maser",
+    "Right Sidegun": "nom_light_electron_maser",
+    "Tailgun": "nom_twin_ultralight_electron_maser"
+  },
+  "builtInWings": [],
+  "center": [
+    26.5,
+    22.5
+  ],
+  "collisionRadius": 36.5,
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 6,
+      "length": 12,
+      "location": [
+        -20,
+        5.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 6
+    },
+    {
+      "angle": 180,
+      "contrailSize": 7,
+      "length": 20,
+      "location": [
+        -16.5,
+        -1.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 7
+    },
+    {
+      "angle": 180,
+      "contrailSize": 4,
+      "length": 8,
+      "location": [
+        -17.5,
+        11.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 4
+    },
+    {
+      "angle": 180,
+      "contrailSize": 6,
+      "length": 11,
+      "location": [
+        -19,
+        -6.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 6
+    },
+    {
+      "angle": 180,
+      "contrailSize": 4,
+      "length": 6.5,
+      "location": [
+        -18.5,
+        -9.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 4
+    },
+    {
+      "angle": 180,
+      "contrailSize": 4,
+      "length": 5.5,
+      "location": [
+        -15,
+        1.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 4
+    }
+  ],
+  "height": 60,
+  "hullId": "nom_tarantula",
+  "hullName": "Tarantula",
+  "hullSize": "FIGHTER",
+  "shieldCenter": [
+    0,
+    -0
+  ],
+  "shieldRadius": 29.5,
+  "spriteName": "graphics/nom/ships/nom_tarantula.png",
+  "style": "ANCIENT_NAERAN",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 0,
+      "arc": 24,
+      "id": "Left Sidegun",
+      "locations": [
+        29.5,
+        14.5
+      ],
+      "mount": "HIDDEN",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 0,
+      "arc": 24,
+      "id": "Right Sidegun",
+      "locations": [
+        29.5,
+        -13.5
+      ],
+      "mount": "HIDDEN",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 0,
+      "arc": 12,
+      "id": "Main Cannon",
+      "locations": [
+        34.5,
+        -0
+      ],
+      "mount": "HIDDEN",
+      "size": "MEDIUM",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 180,
+      "arc": 115,
+      "id": "Tailgun",
+      "locations": [
+        5.5,
+        6.5
+      ],
+      "mount": "HIDDEN",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    }
+  ],
+  "width": 51
+}

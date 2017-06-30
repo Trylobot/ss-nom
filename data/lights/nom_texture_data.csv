@@ -34,6 +34,8 @@ nom_wurm,ship,,1,normal,graphics/nom/ships/shaders/nom_wurm_normal.png
 nom_wurm_royal,material,,,material,graphics/nom/ships/shaders/nom_wurm_royal_material.png
 nom_wurm_royal,ship,,1,normal,graphics/nom/ships/shaders/nom_wurm_normal.png
 ,,,,,
+nom_tarantula,ship,,1,normal,graphics/nom/ships/shaders/nom_tarantula_normal.png
+,,,,,
 nom_fang,ship,,1,normal,graphics/nom/ships/shaders/nom_fang_normal.png
 ,,,,,
 nom_toad,ship,,1,normal,graphics/nom/ships/shaders/nom_toad_normal.png
