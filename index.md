@@ -2,9 +2,13 @@ This mod adds a new faction, _The Nomads,_ to the game with custom ships and wea
 
 **Credits**
 * Trylobot: Design, Programming, Artwork
-* Cycerin: Sound
+* Cycerin: Sound FX
+* Snrasha: Additional Programming
+* PokerChen: Lore
+* Deathfly: New Editor
+
 
 ### [Original Forum Post](http://fractalsoftworks.com/forum/index.php?topic=162.0)
 ### [Buy Starsector](http://fractalsoftworks.com/preorder/)
 
-![The Nomads Roster](http://i.imgur.com/IJtRkd4.png)
+![The Nomads Roster](http://i.imgur.com/Z5wImNr.png)
