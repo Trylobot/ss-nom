@@ -1,5 +1,6 @@
 {
   "displayName": "Attack",
+  "goalVariant": true,
   "fluxCapacitors": 0,
   "fluxVents": 3,
   "hullId": "nom_queen_bee",

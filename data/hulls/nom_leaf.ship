@@ -1,0 +1,129 @@
+{
+  "bounds": [
+    19.5,
+    40,
+    30.5,
+    7.5,
+    34,
+    -0,
+    41.5,
+    -3.5,
+    37.5,
+    -14,
+    34,
+    -3.5,
+    21,
+    -36,
+    15.5,
+    -32,
+    4.5,
+    -39.5,
+    0.5,
+    -36,
+    15.5,
+    -17.5,
+    1.5,
+    -19,
+    -7,
+    -13,
+    -15.5,
+    -17,
+    -26.5,
+    -11,
+    -24.5,
+    -4,
+    -38,
+    -3,
+    -38,
+    4,
+    -24,
+    5,
+    -26.5,
+    14,
+    -8,
+    15,
+    2,
+    18,
+    -3.5,
+    28.5,
+    16.5,
+    20,
+    13,
+    42
+  ],
+  "builtInMods": [
+    "naeran_flux_shunts",
+    "surveying_equipment"
+  ],
+  "builtInWeapons": {
+    "WS0001": "nom_twin_ultralight_electron_maser"
+  },
+  "builtInWings": [],
+  "center": [
+    45,
+    43
+  ],
+  "collisionRadius": 58.5,
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 13,
+      "length": 36,
+      "location": [
+        -40,
+        -0
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 13
+    },
+    {
+      "angle": 170,
+      "contrailSize": 11,
+      "length": 28.5,
+      "location": [
+        -26,
+        9
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 11
+    },
+    {
+      "angle": -170,
+      "contrailSize": 9,
+      "length": 20,
+      "location": [
+        -26,
+        -9.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 9
+    }
+  ],
+  "height": 113,
+  "hullId": "nom_leaf",
+  "hullName": "Leaf",
+  "hullSize": "FRIGATE",
+  "shieldCenter": [
+    3,
+    1.5
+  ],
+  "shieldRadius": 46.5,
+  "spriteName": "graphics/nom/ships/nom_leaf.png",
+  "style": "ANCIENT_NAERAN",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 0,
+      "arc": 360,
+      "id": "WS0001",
+      "locations": [
+        28,
+        14.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    }
+  ],
+  "width": 89
+}

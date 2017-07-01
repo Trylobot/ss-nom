@@ -1,5 +1,6 @@
 {
   "displayName": "Standard",
+  "goalVariant": true,
   "fluxCapacitors": 0,
   "fluxVents": 4,
   "hullId": "nom_tortoise",
