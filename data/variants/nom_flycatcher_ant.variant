@@ -1,5 +1,5 @@
 {
-  "variantId": "nom_flycatcher_scarab",
+  "variantId": "nom_flycatcher_ant",
   "displayName": "Support",
   "goalVariant": true,
   "fluxCapacitors": 6,
@@ -11,7 +11,7 @@
   "permaMods": [],
   "quality": 0.5,
   "wings": [
-    "nom_scarab_wing",
+    "nom_ant_wing",
   ],
   "weaponGroups": [
     {

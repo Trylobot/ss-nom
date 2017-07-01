@@ -34,7 +34,7 @@ public class MissionDefinition implements MissionDefinitionPlugin
 		api.addToFleet(FleetSide.PLAYER, "nom_komodo_mk2_assault", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_komodo_royal_vanguard", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_roadrunner_pursuit", FleetMemberType.SHIP, true);
-		api.addToFleet(FleetSide.PLAYER, "nom_flycatcher_scarab", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.PLAYER, "nom_flycatcher_ant", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_flycatcher_iguana", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_flycatcher_fang", FleetMemberType.SHIP, true);
     api.addToFleet(FleetSide.PLAYER, "nom_death_bloom_strike", FleetMemberType.SHIP, true);

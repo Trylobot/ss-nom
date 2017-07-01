@@ -1,0 +1,14 @@
+{
+	"displayName":"Interceptor",
+	"hullId":"nom_ant",
+	"variantId":"nom_ant_interceptor",
+	"fluxVents":0,
+	"fluxCapacitors":0,
+	"hullMods":[],
+	"weaponGroups":[{
+		"mode":"LINKED",
+		"weapons":{
+			"WS 001":"nom_ultralight_electron_maser",
+		},
+	}],
+}

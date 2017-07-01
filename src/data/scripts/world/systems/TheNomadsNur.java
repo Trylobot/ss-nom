@@ -196,7 +196,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
       new StockDescriptor(StockDescriptor.SHIP, "nom_roadrunner_pursuit", 4, 3f),
       new StockDescriptor(StockDescriptor.SHIP, "nom_flycatcher_fang", 2, 1f),
       new StockDescriptor(StockDescriptor.SHIP, "nom_flycatcher_iguana", 1, 1f),
-      new StockDescriptor(StockDescriptor.SHIP, "nom_flycatcher_scarab", 2, 1f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_flycatcher_ant", 2, 1f),
       new StockDescriptor(StockDescriptor.SHIP, "nom_flycatcher_toad", 1, 1f),
       new StockDescriptor(StockDescriptor.SHIP, "nom_yellowjacket_sniper", 4, 1f),
       new StockDescriptor(StockDescriptor.SHIP, "nom_death_bloom_strike", 2, 1f),
@@ -207,7 +207,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
       new StockDescriptor(StockDescriptor.FIGHTER_LPC, "nom_tarantula_wing", 2, 1f),
       new StockDescriptor(StockDescriptor.FIGHTER_LPC, "nom_toad_wing", 2, 1f),
       new StockDescriptor(StockDescriptor.FIGHTER_LPC, "nom_iguana_wing", 2, 1f),
-      new StockDescriptor(StockDescriptor.FIGHTER_LPC, "nom_scarab_wing", 2, 1f)
+      new StockDescriptor(StockDescriptor.FIGHTER_LPC, "nom_ant_wing", 2, 1f)
     };
 		TheNomadsNurStationRestocker station_cargo_restocker
       = new TheNomadsNurStationRestocker( restock, station );

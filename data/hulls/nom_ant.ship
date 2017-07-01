@@ -44,15 +44,15 @@
   ],
   "height": 24.0,
   "width": 19.0,
-  "hullId": "nom_scarab",
-  "hullName": "Scarab",
+  "hullId": "nom_ant",
+  "hullName": "Ant",
   "hullSize": "FIGHTER",
   "shieldCenter": [
     0.0,
     0.0
   ],
   "shieldRadius": 14.2,
-  "spriteName": "graphics/nom/ships/nom_scarab.png",
+  "spriteName": "graphics/nom/ships/nom_ant.png",
   "style": "ANCIENT_NAERAN",
   "viewOffset": 0.0,
   "weaponSlots": [
