@@ -11,4 +11,4 @@ This mod adds a new faction, _The Nomads,_ to the game with custom ships and wea
 ### [Original Forum Post](http://fractalsoftworks.com/forum/index.php?topic=162.0)
 ### [Buy Starsector](http://fractalsoftworks.com/preorder/)
 
-![The Nomads Roster](Trylobot/ss-nom/master/docs/roster.png)
+![The Nomads Roster](https://raw.githubusercontent.com/Trylobot/ss-nom/master/docs/roster.png)
