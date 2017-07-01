@@ -3,7 +3,7 @@
   "description":"The Nomad Armada wanders about.",
   "author":"Trylobot",
   "id":"nomads",
-  "version":"1.4.0",
+  "version":"1.4.1",
   "gameVersion":"0.8.1a",
   "jars":["jars/TheNomads.jar"],
   "modPlugin":"data.scripts.TheNomadsModPlugin",
