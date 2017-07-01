@@ -271,7 +271,7 @@
       ],
       "mount": "TURRET",
       "size": "MEDIUM",
-      "type": "UNIVERSAL"
+      "type": "BALLISTIC"
     },
     {
       "angle": -4.398705,
@@ -403,7 +403,7 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "UNIVERSAL"
+      "type": "BALLISTIC"
     },
     {
       "angle": 17.744671,
@@ -415,7 +415,7 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "UNIVERSAL"
+      "type": "BALLISTIC"
     },
     {
       "angle": -32.195732,
@@ -463,7 +463,7 @@
       ],
       "mount": "TURRET",
       "size": "MEDIUM",
-      "type": "UNIVERSAL"
+      "type": "BALLISTIC"
     },
     {
       "angle": 25.016893,

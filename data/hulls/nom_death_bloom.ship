@@ -155,7 +155,7 @@
       ],
       "mount": "TURRET",
       "size": "SMALL",
-      "type": "ENERGY"
+      "type": "BALLISTIC"
     }
   ],
   "width": 70
