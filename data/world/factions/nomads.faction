@@ -77,143 +77,180 @@
   
   "ranks":{
     "ranks":{
-      "spaceCommander":{"name":"Wanderer"},
+      "spaceCommander":{"name":"Space Commander"},
     },
     "posts":{
-      "fleetCommander":{"name":"Wanderer"},
-      "patrolCommander":{"name":"Lookout"},
-      "baseCommander":{"name":"Builder"},
-      "administrator":{"name":"Keeper"},
-    },
-  },
-
-  "shipRoles":{
-    "combatSmall":{
-      "nom_death_bloom_strike":1,
-      "nom_yellowjacket_sniper":3,
-      "nom_wurm_assault":10,
-      "fallback":{"escortSmall":1},
-    },
-    "combatMedium":{
-      "nom_death_bloom_strike":1,
-      "nom_yellowjacket_sniper":3,
-      "nom_scorpion_assault":10,
-      "nom_komodo_mk2_assault":8,
-      "nom_komodo_assault":10,
-      "fallback":{"combatSmall":2},
-    },
-    "combatLarge":{
-      "nom_sandstorm_assault":10,
-      "nom_rattlesnake_assault":10,
-      "fallback":{"combatMedium":2},
-    },
-    "combatCapital":{
-      "nom_gila_monster_antibattleship":10,
-      "fallback":{"combatLarge":2},
-    },
-    "combatFreighterSmall":{
-      "nom_wurm_assault":10,
-      "fallback":{"freighterSmall":1},
-    },
-    "combatFreighterMedium":{
-      "nom_flycatcher_ant":2,
-      "nom_flycatcher_toad":2,
-      "nom_flycatcher_iguana":2,
-      "nom_flycatcher_fang":2,
-      "nom_komodo_assault":10,
-      "nom_komodo_mk2_assault":10,
-      "fallback":{"combatFreighterSmall":2},
-    },
-    "combatFreighterLarge":{
-      "nom_gila_monster_antibattleship":10,
-      "fallback":{"combatFreighterMedium":2},
-    },
-    "fastAttack":{
-      "fallback":{"combatSmall":1},
-    },
-    "escortSmall":{
-      "fallback":{"combatSmall":1},
-    },
-    "escortMedium":{
-      "fallback":{"combatMedium":1},
-    },
-    "civilianRandom":{
-      "nom_wurm_assault":1000,
-      "fallback":{"freighterSmall":1},
-    },
-    "carrierSmall":{
-      "nom_flycatcher_ant":2,
-      "nom_flycatcher_toad":2,
-      "nom_flycatcher_iguana":2,
-      "nom_flycatcher_fang":2,
-      "fallback":{"carrierMedium":0.5},
-    },
-    "carrierMedium":{
-      "nom_rattlesnake_assault":10,
-      "fallback":{"carrierSmall":2},
-    },
-    "carrierLarge":{
-      "nom_gila_monster_antibattleship":10,
-      "fallback":{"carrierMedium":4},
-    },
-    "freighterSmall":{
-      "nom_wurm_assault":30,
-      "nom_flycatcher_ant":2,
-      "nom_flycatcher_toad":2,
-      "nom_flycatcher_iguana":2,
-      "nom_flycatcher_fang":2,
-      "fallback":{"freighterMedium":0.5},
-    },
-    "freighterMedium":{
-      "nom_flycatcher_ant":2,
-      "nom_flycatcher_toad":2,
-      "nom_flycatcher_iguana":2,
-      "nom_flycatcher_fang":2,
-      "nom_komodo_assault":10,
-      "nom_komodo_mk2_assault":10,
-      "fallback":{"freighterSmall":2},
-    },
-    "freighterLarge":{
-      "nom_gila_monster_antibattleship":10,
-      "fallback":{"freighterMedium":2},
-    },
-    "tankerSmall":{
-      "nom_wurm_assault":10,
-    },
-    "tankerMedium":{
-      "nom_flycatcher_ant":2,
-      "nom_flycatcher_toad":2,
-      "nom_flycatcher_iguana":2,
-      "nom_flycatcher_fang":2,
-      "nom_komodo_assault":10,
-      "nom_komodo_mk2_assault":10,
-      "fallback":{"tankerSmall":2},
-    },
-    "tankerLarge":{
-      "nom_gila_monster_antibattleship":10,
-      "fallback":{"tankerMedium":2},
-    },
-    "personnelSmall":{
-      "nom_wurm_assault":10,
-    },
-    "personnelMedium":{
-      "fallback":{"personnelSmall":2},
-    },
-    "personnelLarge":{
-      "fallback":{"personnelMedium":2},
-    },
-    "utility":{
-      "nom_wurm_assault":10,
-    },
-    "tug":{
-      "fallback":{"utility":1},
-    },
-    "crig":{
-      "fallback":{"utility":1},
+      "patrolCommander":{"name":"Patrol Commander"},
+      "fleetCommander":{"name":"Fleet Commander"},
+      "baseCommander":{"name":"Base Commander"},
+      "administrator":{"name":"Clerk"},
     },
   },
 
   "fleetTypeNames":{
+    
+    "foodReliefFleet": "Herald of the Oasis",
+    
+    "smallTrader": "Wanderer",
+    "trade": "Merchant",
+    "tradeSmuggler": "Vagabond",
+    "tradeLiner": "Diplomat",
+    
+    "patrolSmall": "Lookout",
+    "patrolMedium": "Sentry",
+    "patrolLarge": "Observer",
+    
+    "scavengerSmall": "Gatherer",
+    "scavengerMedium": "Gatherer",
+    "scavengerLarge": "Gatherer",
+    
+    "mercScout": "Peeper",
+    "mercBountyHunter": "Hunter",
+    "mercPrivateer": "Swindler",
+    "mercPatrol": "Vulture",
+    "mercArmada": "Outcast",
+  },
+
+  "shipRoles":{
+
+    "escortSmall": {
+      "fallback": {"combatSmall":1},
+    },
+    "escortMedium": {
+      "fallback": {"combatMedium":1},
+    },
+    "combatSmall":{
+      "nom_wurm_assault":10,
+      "nom_wurm_royal_vanguard":3,
+      "nom_death_bloom_strike":8,
+      "nom_yellowjacket_sniper":9,
+      "fallback":{"combatMedium":0.5},
+    },
+    "combatMedium":{
+      "nom_komodo_assault":10,
+      "nom_komodo_mk2_assault":6,
+      "nom_komodo_royal_vanguard":3,
+      "nom_scorpion_assault":10,
+      "nom_roadrunner_pursuit":7,
+      "fallback":{"combatSmall":1},
+    },
+    "combatLarge":{
+      "nom_rattlesnake_assault":10,
+      "fallback":{"combatMedium":1},
+    },
+    "combatCapital":{
+      "nom_sandstorm_assault":10,
+      "nom_gila_monster_antibattleship":5,
+      "fallback":{"combatLarge":1},
+    },
+    "fastAttack": {
+      "nom_roadrunner_pursuit": 10,
+      "nom_death_bloom_strike": 5,
+      "fallback":{"combatSmall":1},
+    },
+
+    "combatFreighterSmall": {
+      "nom_wurm_assault":10,
+      "fallback": {"combatFreighterMedium":5},
+    },
+    "combatFreighterMedium": {
+      "nom_komodo_assault":10,
+      "fallback": {"combatFreighterSmall":1},
+    },
+    "combatFreighterLarge": {
+      "fallback": {"combatFreighterMedium":1},
+    },
+  
+    "civilianRandom": {
+      "nom_leaf_probe": 10,
+      "nom_tortoise_freighter":10,
+      # Cactus
+      # Cobra
+      # Slate
+      "fallback": {"escortSmall":1},
+    },
+    "marketRandom": {
+      "nom_tortoise_freighter":10,
+      # Cactus
+      "fallback": {"civilianRandom":1},
+    },
+  
+    "carrierSmall":{
+      "nom_flycatcher_ant":10,
+      "nom_flycatcher_toad":10,
+      "nom_flycatcher_iguana":10,
+      "nom_flycatcher_fang":10,
+      "fallback":{"carrierMedium":1},
+    },
+    "carrierMedium": {
+      "fallback": {"carrierSmall":1},
+    },
+    "carrierLarge": {
+      "nom_queen_bee_attack":10,
+      "fallback": {"carrierMedium":1},
+    },
+
+    "freighterSmall": {
+      "fallback": {"freighterMedium":1},
+    },
+    "freighterMedium": {
+      "nom_tortoise_freighter":10,
+    },
+    "freighterLarge": {
+      "fallback": {"freighterMedium":1},
+    },
+
+    "tankerSmall": {
+      # Cactus
+      "fallback": {"tankerMedium":1},
+    },
+    "tankerMedium": {
+      # Cactus
+      "fallback": {"tankerSmall":1},
+    },
+    "tankerLarge": {
+      # Cactus
+      "fallback": {"tankerMedium":1},
+    },
+
+    "personnelSmall": {
+      # Cobra
+      "fallback": {"personnelMedium":1},
+    },
+    "personnelMedium": {
+      # Cobra
+      "fallback": {"personnelSmall":1},
+    },
+    "personnelLarge": {
+      # Cobra
+      "fallback": {"personnelMedium":1},
+    },
+
+    "linerSmall": {
+      # Cobra
+      "fallback": {"linerMedium":1},
+    },
+    "linerMedium": {
+      # Cobra
+      "fallback": {"linerSmall":1},
+    },
+    "linerLarge": {
+      # Cobra
+      "fallback": {"linerMedium":1},
+    },
+
+    "tug": {
+      "fallback":{"utility":1},
+    },
+    "crig": {
+      # Slate
+      "fallback":{"utility":1},
+    },
+    "utility": {
+      # Slate
+      "nom_leaf_probe":10,
+    },
+    
   },
 
   "traits":{
@@ -230,51 +267,43 @@
 
   "doctrine":{
     
-    # ship distribution
-    ## tending toward small & defensive
     "small":8,
-    "fast":4,
-    "medium":12,
-    "large":4,
-    "capital":1,
+    "fast":8,
+    "medium":10,
+    "large":6,
+    "capital":2,
 
-    # as fraction of combat ships of same size
     "escortSmallFraction":1,
     "escortMediumFraction":1,
 
-    ## poorly armed
-    "combatFreighterProbability":0.30,
+    "combatFreighterProbability":0.12,
 
-    ## poor access to capital ships
-    "minPointsForCombatCapital":30,
-    "minPointsForLargeCarrier":30,
+    "minPointsForCombatCapital":17,
+    "minPointsForLargeCarrier":15,
 
-    ## slight preference for carriers
-    "smallCarrierProbability":0.30,
-    "mediumCarrierProbability":0.30,
-    "largeCarrierProbability":0.30,
+    "smallCarrierProbability":0.35,
+    "mediumCarrierProbability":0.05,
+    "largeCarrierProbability":0.35,
 
-    # officers
-    ## fewer officers, less training
-    "officersPerPoint":0.20,
-    "officerLevelPerPoint":0.18,
-    "officerLevelBase":4,
-    "officerLevelVariance":0.2,
+    "officersPerPoint":0.25,
+    "officerLevelPerPoint":0.2,
+    "officerLevelBase":5,
+    "officerLevelVariance":0.25,
 
     "commanderSkillsPerLevel":0.2,
-    "commanderSkillChance":0.3,
-    "commanderSkillLevelPerLevel":0.15,
+    "commanderSkillChance":0.5,
+    "commanderSkillLevelPerLevel":0.2,
     "commanderSkills":{
-      "officer_management":10,
+      "officer_management":2,
       "coordinated_maneuvers":10,
       "fighter_doctrine":10,
-      "electronic_warfare":10,
+      "electronic_warfare":1,
     },
 
   },
 
   # legacy fleetCompositions below still used by data.scripts.world.armada.CampaignArmadaController
-  #  to spawn the wandering Oasis fleet, and its orbiting escort fleets.
+  #   to spawn the wandering Oasis fleet, and its orbiting escort fleets.
   "fleetCompositions":{
     "scout":{
       "displayName":"Scout",
