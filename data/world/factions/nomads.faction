@@ -89,7 +89,7 @@
 
   "fleetTypeNames":{
     
-    "foodReliefFleet": "Herald of the Oasis",
+    "foodReliefFleet": "Herald",
     
     "smallTrader": "Wanderer",
     "trade": "Merchant",
@@ -235,8 +235,8 @@
       "fallback": {"linerSmall":1},
     },
     "linerLarge": {
-      # Cobra
-      "fallback": {"linerMedium":1},
+      "nom_oasis_standard": 2, # this might be fun, we'll try it
+      "fallback": {"linerMedium":10},
     },
 
     "tug": {

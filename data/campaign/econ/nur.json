@@ -5,10 +5,12 @@
     "faction": "nomads",
     "size": 3,
     "startingConditions": [
+      "frontier",
       "orbital_station",
       "spaceport",
       "population_3",
       "free_market",
+      "vice_demand",
     ]
-  }, ]
+  }]
 }
