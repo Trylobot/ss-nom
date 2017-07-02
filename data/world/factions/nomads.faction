@@ -164,14 +164,14 @@
     "civilianRandom": {
       "nom_leaf_probe": 10,
       "nom_tortoise_freighter":10,
-      # Cactus
+      "nom_cactus_tanker":10,
       # Cobra
       # Slate
       "fallback": {"escortSmall":1},
     },
     "marketRandom": {
       "nom_tortoise_freighter":10,
-      # Cactus
+      "nom_cactus_tanker":10,
       "fallback": {"civilianRandom":1},
     },
   
@@ -201,15 +201,13 @@
     },
 
     "tankerSmall": {
-      # Cactus
       "fallback": {"tankerMedium":1},
     },
     "tankerMedium": {
-      # Cactus
+      "nom_cactus_tanker":10,
       "fallback": {"tankerSmall":1},
     },
     "tankerLarge": {
-      # Cactus
       "fallback": {"tankerMedium":1},
     },
 
@@ -235,19 +233,19 @@
       "fallback": {"linerSmall":1},
     },
     "linerLarge": {
-      "nom_oasis_standard": 2, # this might be fun, we'll try it
-      "fallback": {"linerMedium":10},
+      "nom_oasis_standard": 10,
+      "fallback": {"linerMedium":1},
     },
 
     "tug": {
+      "ox_Standard": 10,
       "fallback":{"utility":1},
     },
     "crig": {
-      # Slate
+      "crig_Standard": 10,
       "fallback":{"utility":1},
     },
     "utility": {
-      # Slate
       "nom_leaf_probe":10,
     },
     
