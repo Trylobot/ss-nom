@@ -87,25 +87,25 @@
     {
       "angle": 180,
       "contrailSize": 40,
-      "length": 110,
+      "width": 40,
+      "length": 76,
       "location": [
-        -103.5,
+        -113.5,
         14.5
       ],
       "style": "ANCIENT_NAERAN",
-      "width": 50
     },
     ### BIGGIE
     {
       "angle": 180,
       "contrailSize": 40,
-      "length": 110,
+      "width": 40,
+      "length": 76,
       "location": [
-        -103.5,
+        -113.5,
         -14.5
       ],
       "style": "ANCIENT_NAERAN",
-      "width": 50
     },
     {
       "angle": 165,
@@ -246,7 +246,7 @@
       "arc": 0,
       "id": "engine_fx",
       "locations": [
-        -50.5,
+        -28.5,
         0
       ],
       "mount": "TURRET",
