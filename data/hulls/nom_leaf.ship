@@ -1,4 +1,5 @@
 {
+  "coversColor": "234,214,124,255",
   "bounds": [
     19.5,
     40,
@@ -53,7 +54,8 @@
   ],
   "builtInMods": [
     "naeran_flux_shunts",
-    "surveying_equipment"
+    "surveying_equipment",
+    "civgrade",
   ],
   "builtInWeapons": {
     "WS0001": "nom_twin_ultralight_electron_maser"

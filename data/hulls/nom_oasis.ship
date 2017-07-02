@@ -180,7 +180,9 @@
     "biosphere",
     "cloning_vats",
     "automated_nanobot_fabricators",
-    "logistical_distribution_drones"
+    "logistical_distribution_drones",
+    "surveying_equipment",
+    "civgrade",
   ],
   "builtInWeapons": {
     "WS_habitat_ring": "nom_decorative_oasis_habitat_ring",

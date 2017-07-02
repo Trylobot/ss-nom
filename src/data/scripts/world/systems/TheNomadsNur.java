@@ -77,6 +77,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
     PlanetAPI planet_I__moon_f = system.addPlanet("nur_i", planet_I, "Thumn", "rocky_ice", 225f, 100f, 2000f, 362f);
     // stations
     station = system.addOrbitalStation("stationnom1", planet_I__moon_e, 180f, 300f, 50f, "Naeran Orbital Storage & Resupply", "nomads");
+    station.addTag("station");
     station.setCircularOrbitPointingDown(system.getEntityById("nur_h"), 45, 300, 50);
     // hyperspace
     JumpPointAPI jumpPoint = factory.createJumpPoint("jmp_stationnom1", "Orbital Station Jump Point");

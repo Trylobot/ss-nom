@@ -1,0 +1,36 @@
+{
+  "displayName": "Standard",
+  "goalVariant": true,
+  "fluxCapacitors": 0,
+  "fluxVents": 5,
+  "hullId": "nom_cactus",
+  "hullMods": [
+    "unstable_injector"
+  ],
+  "quality": 0.5,
+  "variantId": "nom_cactus_tanker",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0002": "nom_light_electron_maser"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "nom_firecracker",
+        "WS0004": "nom_twin_ultralight_electron_maser"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "nom_twin_ultralight_electron_maser"
+      }
+    }
+  ]
+}

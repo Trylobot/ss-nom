@@ -1,0 +1,210 @@
+{
+  "coversColor": "234,214,124,255",
+  "bounds": [
+    77,
+    22.5,
+    53.5,
+    12,
+    84.5,
+    -1.5,
+    94.5,
+    18.5,
+    100.5,
+    11.5,
+    100.5,
+    -29,
+    72.5,
+    -55.5,
+    54,
+    -54,
+    53.5,
+    -43.5,
+    64.5,
+    -33,
+    40,
+    -12,
+    -14,
+    -13,
+    -36,
+    -23,
+    -14,
+    -44.5,
+    -57.5,
+    -46.5,
+    -83,
+    -17,
+    -107.5,
+    -12.5,
+    -99,
+    14.5,
+    -81,
+    16,
+    -82.5,
+    31,
+    -67.5,
+    31,
+    -58.5,
+    47.5,
+    -49.5,
+    32.5,
+    -22,
+    46.5,
+    -8.5,
+    38.5,
+    -6.5,
+    51.5,
+    11,
+    52,
+    40.5,
+    32,
+    55.5,
+    38.5
+  ],
+  "builtInMods": [
+    "naeran_flux_shunts",
+    "civgrade",
+  ],
+  "builtInWeapons": {
+    "WS0001": "nom_twin_ultralight_electron_maser",
+    "WS0002": "nom_light_electron_maser",
+    "WS0003": "nom_firecracker",
+    "WS0004": "nom_twin_ultralight_electron_maser"
+  },
+  "builtInWings": [],
+  "center": [
+    58,
+    120
+  ],
+  "collisionRadius": 142.5,
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 13,
+      "length": 35,
+      "location": [
+        -109,
+        -10
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 13
+    },
+    {
+      "angle": 180,
+      "contrailSize": 10,
+      "length": 23.5,
+      "location": [
+        -104.5,
+        -0
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 10
+    },
+    {
+      "angle": 180,
+      "contrailSize": 7,
+      "length": 20,
+      "location": [
+        -84.5,
+        18.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 7
+    },
+    {
+      "angle": 180,
+      "contrailSize": 12,
+      "length": 34,
+      "location": [
+        -85,
+        28
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 12
+    },
+    {
+      "angle": 180,
+      "contrailSize": 9,
+      "length": 17.5,
+      "location": [
+        -100,
+        11
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 9
+    },
+    {
+      "angle": 180,
+      "contrailSize": 7,
+      "length": 13,
+      "location": [
+        -85.5,
+        -15.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 7
+    }
+  ],
+  "height": 234,
+  "hullId": "nom_cactus",
+  "hullName": "Cactus",
+  "hullSize": "DESTROYER",
+  "shieldCenter": [
+    0,
+    -0
+  ],
+  "shieldRadius": 120,
+  "spriteName": "graphics/nom/ships/nom_cactus.png",
+  "style": "ANCIENT_NAERAN",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": -11.5,
+      "arc": 360,
+      "id": "WS0001",
+      "locations": [
+        -58.5,
+        -24.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 12,
+      "arc": 360,
+      "id": "WS0002",
+      "locations": [
+        -60.5,
+        30.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": -7.5,
+      "arc": 360,
+      "id": "WS0003",
+      "locations": [
+        79.5,
+        -36.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 7,
+      "arc": 360,
+      "id": "WS0004",
+      "locations": [
+        91,
+        -15
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    }
+  ],
+  "width": 120
+}

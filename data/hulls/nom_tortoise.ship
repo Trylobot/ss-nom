@@ -71,7 +71,8 @@
     24
   ],
   "builtInMods": [
-    "naeran_flux_shunts"
+    "naeran_flux_shunts",
+    "civgrade",
   ],
   "builtInWeapons": {
     "WS0001": "nom_twin_ultralight_electron_maser",

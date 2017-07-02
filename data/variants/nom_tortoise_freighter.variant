@@ -7,7 +7,7 @@
   "hullMods": [
     "insulatedengine"
   ],
-  "quality": 0,
+  "quality": 0.5,
   "variantId": "nom_tortoise_freighter",
   "weaponGroups": [
     {
