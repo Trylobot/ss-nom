@@ -1,10 +1,9 @@
 {
   "displayName": "Missile Support",
+  "fluxCapacitors": 0,
+  "fluxVents": 4,
   "goalVariant": true,
   "hullId": "nom_scorpion",
-  "variantId": "nom_scorpion_assault",
-  "fluxVents": 4,
-  "fluxCapacitors": 0,
   "hullMods": [
     "missleracks",
     "eccm",
@@ -12,12 +11,14 @@
   ],
   "permaMods": [],
   "quality": 0.5,
+  "variantId": "nom_scorpion_assault",
   "weaponGroups": [
     {
       "autofire": true,
       "mode": "ALTERNATING",
       "weapons": {
-        "Large 1": "nom_self_sustained_fusion_torpedo_bank", 
+        "Large 1": "nom_self_sustained_fusion_torpedo_bank",
+        "Large 2": "nom_self_sustained_fusion_torpedo_bank"
       }
     },
     {
@@ -25,25 +26,18 @@
       "mode": "ALTERNATING",
       "weapons": {
         "Med 2": "nom_self_sustained_fusion_torpedo_pod",
-        "Med 3": "nom_self_sustained_fusion_torpedo_pod",
         "Med 4": "nom_self_sustained_fusion_torpedo_pod",
         "Med 5": "nom_self_sustained_fusion_torpedo_pod",
+        "Small 6": "nom_self_sustained_fusion_torpedo_mini",
+        "Small 7": "nom_self_sustained_fusion_torpedo_mini"
       }
     },
     {
       "autofire": true,
       "mode": "ALTERNATING",
       "weapons": {
-        "Small 6": "nom_self_sustained_fusion_torpedo_mini",
-        "Small 7": "nom_self_sustained_fusion_torpedo_mini",
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
         "Small 8": "nom_firecracker",
-        "Small 9": "nom_ultralight_electron_maser",
+        "Small 9": "nom_ultralight_electron_maser"
       }
     }
   ]

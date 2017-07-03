@@ -66,15 +66,21 @@
 
 	##  Sounds by Trylobot
 
+	"nom_self_sustained_fusion_torpedo_large_fire":
+	[
+		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":0.70,"volume":1.2},
+		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":0.68,"volume":1.2},
+		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":1.72,"volume":1.2},
+	],
 	"nom_self_sustained_fusion_torpedo_fire":
 	[
-		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":1.0,"volume":0.9},
-		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":0.98,"volume":0.9},
-		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":1.02,"volume":0.9},
+		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":1.00,"volume":0.8},
+		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":0.98,"volume":0.8},
+		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":1.02,"volume":0.8},
 	],
 	"nom_self_sustained_fusion_torpedo_mini_fire":
 	[
-		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":1.5,"volume":0.5},
+		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":1.50,"volume":0.5},
 		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":1.48,"volume":0.5},
 		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":1.52,"volume":0.5},
 	],

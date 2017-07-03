@@ -135,6 +135,9 @@ nom_self_sustained_fusion_torpedo_pod,hardpoint,,1,normal,graphics/nom/weapons/s
 nom_self_sustained_fusion_torpedo_bank,turret,,1,normal,graphics/nom/weapons/shaders/nom_self_sustained_fusion_torpedo_bank_base_normal.png
 nom_self_sustained_fusion_torpedo_bank,hardpoint,,1,normal,graphics/nom/weapons/shaders/nom_self_sustained_fusion_torpedo_bank_base_normal.png
 ,,,,,
+nom_self_sustained_fusion_torpedo_large,turret,,1,normal,graphics/nom/weapons/shaders/nom_self_sustained_fusion_torpedo_large_base_normal.png
+nom_self_sustained_fusion_torpedo_large,hardpoint,,1,normal,graphics/nom/weapons/shaders/nom_self_sustained_fusion_torpedo_large_base_normal.png
+,,,,,
 nom_solar_crucible,turret,,1,normal,graphics/nom/weapons/shaders/nom_solar_crucible_hardpoint_all_normal.png
 nom_solar_crucible,hardpoint,,1,normal,graphics/nom/weapons/shaders/nom_solar_crucible_hardpoint_all_normal.png
 ,,,,,
