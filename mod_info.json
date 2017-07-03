@@ -6,5 +6,5 @@
   "version":"1.4.4-rc2",
   "gameVersion":"0.8.1a",
   "jars":["jars/TheNomads.jar"],
-  "modPlugin":"data.scripts.TheNomadsModPlugin",
+  "modPlugin":"data.scripts.TheNomadsModPlugin"
 }
