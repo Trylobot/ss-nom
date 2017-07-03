@@ -1,7 +1,7 @@
 {
   "baseHullId":"nom_komodo",
   "skinHullId":"nom_komodo_royal",
-  "hullName":"Royal Komodo",
+  "hullName":"Komodo (Royal)",
 
   "descriptionId":"komodo",
   "descriptionPrefix":"The Nomad Royal Escort fleets make use of a specially-modified version of the Komodo; it has higher engine output and weapon targeting range; the exact methods & specifications of the modifications are a closely-guarded Nomad military secret, but they are extensive enough that they cannot be performed outside of drydock. They may not even be fully known to the Nomads themselves, anymore, or they may now lack appropriate facilities, but the Armada would never admit this.",
