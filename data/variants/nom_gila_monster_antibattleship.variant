@@ -1,30 +1,36 @@
 {
-  "variantId": "nom_gila_monster_antibattleship",
   "displayName": "Anti-Battleship",
-  "goalVariant": true,
   "fluxCapacitors": 0,
-  "fluxVents": 10,
+  "fluxVents": 15,
+  "goalVariant": true,
   "hullId": "nom_gila_monster",
   "hullMods": [
-    "fluxbreakers",
-    "magazines"
+    "dedicated_targeting_core",
+    "armoredweapons"
   ],
   "permaMods": [],
   "quality": 0.5,
+  "variantId": "nom_gila_monster_antibattleship",
   "weaponGroups": [
     {
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "nom_doom_cannon",
+        "WS0001": "nom_doom_cannon"
       }
     },
     {
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS0025": "nom_twin_electron_maser",
-        "WS0026": "nom_twin_electron_maser",
+        "WS0004": "nom_light_electron_maser",
+        "WS0005": "nom_light_electron_maser",
+        "WS0012": "nom_heavy_electron_maser",
+        "WS0013": "nom_heavy_electron_maser",
+        "WS0015": "nom_heavy_electron_maser",
+        "WS0017": "nom_light_electron_maser",
+        "WS0025": "nom_triple_electron_maser",
+        "WS0026": "nom_twin_electron_maser"
       }
     },
     {
@@ -32,40 +38,28 @@
       "mode": "LINKED",
       "weapons": {
         "WS0002": "nom_firecracker",
-        "WS0006": "nom_firecracker",
-        "WS0009": "nom_firecracker",
-        "WS0013": "nom_firecracker",
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
         "WS0003": "nom_light_electron_maser",
-        "WS0004": "nom_light_electron_maser",
-        "WS0005": "nom_light_electron_maser",
+        "WS0006": "nom_firecracker",
         "WS0007": "nom_light_electron_maser",
         "WS0008": "nom_light_electron_maser",
+        "WS0009": "nom_firecracker",
         "WS0010": "nom_light_electron_maser",
-        "WS0011": "nom_ultralight_electron_maser",
-        "WS0012": "nom_ultralight_electron_maser",
-        "WS0014": "nom_ultralight_electron_maser",
-        "WS0015": "nom_ultralight_electron_maser",
+        "WS0011": "nom_twin_ultralight_electron_maser",
+        "WS0014": "nom_twin_ultralight_electron_maser",
         "WS0016": "nom_ultralight_electron_maser",
-        "WS0017": "nom_ultralight_electron_maser",
-        "WS0018": "nom_ultralight_electron_maser",
+        "WS0018": "nom_twin_ultralight_electron_maser",
         "WS0019": "nom_ultralight_electron_maser",
         "WS0020": "nom_ultralight_electron_maser",
-        "WS0021": "nom_ultralight_electron_maser",
-        "WS0022": "nom_ultralight_electron_maser",
+        "WS0021": "nom_twin_ultralight_electron_maser",
+        "WS0022": "nom_twin_ultralight_electron_maser",
         "WS0023": "nom_ultralight_electron_maser",
-        "WS0024": "nom_ultralight_electron_maser",
+        "WS0024": "nom_ultralight_electron_maser"
       }
     }
   ],
   "wings": [
-    "nom_fang_wing",
+    "nom_toad_wing",
     "nom_iguana_wing",
-    "nom_toad_wing"
+    "nom_fang_wing"
   ]
 }

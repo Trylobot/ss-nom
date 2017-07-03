@@ -1,5 +1,4 @@
 {
-  "coversColor": "234,214,124,255",
   "bounds": [
     183.5,
     37.5,
@@ -98,38 +97,40 @@
     "naeran_flux_shunts"
   ],
   "builtInWeapons": {
-        "WS0001": "nom_doom_cannon",
-        "WS0002": "nom_firecracker",
-        "WS0003": "nom_light_electron_maser",
-        "WS0004": "nom_light_electron_maser",
-        "WS0005": "nom_light_electron_maser",
-        "WS0006": "nom_firecracker",
-        "WS0007": "nom_light_electron_maser",
-        "WS0008": "nom_light_electron_maser",
-        "WS0009": "nom_firecracker",
-        "WS0010": "nom_light_electron_maser",
-        "WS0011": "nom_ultralight_electron_maser",
-        "WS0012": "nom_ultralight_electron_maser",
-        "WS0013": "nom_firecracker",
-        "WS0014": "nom_ultralight_electron_maser",
-        "WS0015": "nom_ultralight_electron_maser",
-        "WS0016": "nom_ultralight_electron_maser",
-        "WS0017": "nom_ultralight_electron_maser",
-        "WS0018": "nom_ultralight_electron_maser",
-        "WS0019": "nom_ultralight_electron_maser",
-        "WS0020": "nom_ultralight_electron_maser",
-        "WS0021": "nom_ultralight_electron_maser",
-        "WS0022": "nom_ultralight_electron_maser",
-        "WS0023": "nom_ultralight_electron_maser",
-        "WS0024": "nom_ultralight_electron_maser",
-        "WS0025": "nom_twin_electron_maser",
-        "WS0026": "nom_twin_electron_maser"
+    "WS0001": "nom_doom_cannon",
+    "WS0002": "nom_firecracker",
+    "WS0003": "nom_light_electron_maser",
+    "WS0004": "nom_light_electron_maser",
+    "WS0005": "nom_light_electron_maser",
+    "WS0006": "nom_firecracker",
+    "WS0007": "nom_light_electron_maser",
+    "WS0008": "nom_light_electron_maser",
+    "WS0009": "nom_firecracker",
+    "WS0010": "nom_light_electron_maser",
+    "WS0011": "nom_twin_ultralight_electron_maser",
+    "WS0012": "nom_heavy_electron_maser",
+    "WS0013": "nom_heavy_electron_maser",
+    "WS0014": "nom_twin_ultralight_electron_maser",
+    "WS0015": "nom_heavy_electron_maser",
+    "WS0016": "nom_ultralight_electron_maser",
+    "WS0017": "nom_light_electron_maser",
+    "WS0018": "nom_twin_ultralight_electron_maser",
+    "WS0019": "nom_ultralight_electron_maser",
+    "WS0020": "nom_ultralight_electron_maser",
+    "WS0021": "nom_twin_ultralight_electron_maser",
+    "WS0022": "nom_twin_ultralight_electron_maser",
+    "WS0023": "nom_ultralight_electron_maser",
+    "WS0024": "nom_ultralight_electron_maser",
+    "WS0025": "nom_triple_electron_maser",
+    "WS0026": "nom_twin_electron_maser"
   },
+  "builtInWings": [],
   "center": [
     191,
     276
   ],
   "collisionRadius": 276,
+  "coversColor": "234,214,124,255",
   "engineSlots": [
     {
       "angle": 180,
@@ -454,31 +455,31 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": 82.699997,
+      "angle": 11.5,
       "arc": 305.200012,
       "id": "WS0013",
       "locations": [
-        116.5,
-        134.5
+        114.5,
+        137
       ],
       "mount": "TURRET",
-      "size": "SMALL",
+      "size": "MEDIUM",
       "type": "BUILT_IN"
     },
     {
-      "angle": 82.699997,
+      "angle": 9,
       "arc": 305.200012,
       "id": "WS0015",
       "locations": [
-        156.5,
-        127.5
+        157,
+        124.5
       ],
       "mount": "TURRET",
-      "size": "SMALL",
+      "size": "MEDIUM",
       "type": "BUILT_IN"
     },
     {
-      "angle": 8.3,
+      "angle": 10,
       "arc": 305.200012,
       "id": "WS0017",
       "locations": [
@@ -490,15 +491,15 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": -20.6,
+      "angle": -31,
       "arc": 305.200012,
       "id": "WS0012",
       "locations": [
-        174.5,
-        -40.5
+        170.5,
+        -42.5
       ],
       "mount": "TURRET",
-      "size": "SMALL",
+      "size": "MEDIUM",
       "type": "BUILT_IN"
     },
     {
@@ -662,7 +663,7 @@
       "type": "LAUNCH_BAY"
     },
     {
-      "angle": 22.328657,
+      "angle": 0,
       "arc": 283.905914,
       "id": "WS0025",
       "locations": [
@@ -674,11 +675,11 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": -8.403371,
+      "angle": -8.5,
       "arc": 283.905914,
       "id": "WS0026",
       "locations": [
-        213,
+        217.5,
         -44.5
       ],
       "mount": "TURRET",
