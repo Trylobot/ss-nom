@@ -1,0 +1,161 @@
+{
+  "baseHullId":"nom_komodo",
+  "skinHullId":"nom_komodo_mk2",
+  "hullName":"Komodo Mk.II",
+
+  "descriptionId":"nom_komodo_mk2",
+  
+  "spriteName":"graphics/nom/ships/nom_komodo_mk2.png",
+
+  "fleetPoints": 10,
+  "ordnancePoints": 25,
+  "baseValueMult": 1.25,
+
+  # ----- documented from ship_data.csv
+  # "hitPointsMult": 1.17778,
+  # "armorRatingMult": 1.38889,
+  # "maxFluxMult": 1.28125,
+  # "fluxDissipationMult": 1.23288,
+  # "maxSpeedMult": 0.9375,
+  # "accelerationMult": 0.8,
+  # "decelerationMult": 0.875,
+  # "maxTurnRateMult": 0.89286,
+  # "turnAccelerationMult": 0.83333,
+  # "massMult": 1.5,
+  # "shieldArcMult": 1.125,
+  # "shieldUpkeepMult": 0.9,
+  # "shieldEfficiencyMult": 1.125,
+  # "minCrewMult": 0.66667,
+  # "maxCrewMult": 0.83333,
+  # "cargoMult": 0.5,
+  # "fuelMult": 1.16667,
+
+  "removeBuiltInMods":[],     # hullmod ids
+  "builtInMods":[
+    "heavyarmor",
+    "frontemitter",
+    "fluxcoil",
+    "fluxdistributor",
+  ],
+
+  "removeBuiltInWeapons":[     # weapon slot ids
+  ],
+  "removeWeaponSlots":[     # ids
+  ],
+  "weaponSlotChanges":{
+    "WS_SMALL_BOW_2": {
+      "size": "MEDIUM",
+    },
+    "WS_SMALL_PORT":{
+      "size": "MEDIUM",
+    },
+  },
+  "builtInWeapons":{
+    "WS_SMALL_BOW_2": "nom_heavy_electron_maser",
+    "WS_SMALL_PORT": "nom_heavy_electron_maser",
+  },
+
+  "removeEngineSlots":[     # indices, as engine slots have no id in the .ship file
+  ],
+  "engineSlotChanges":{
+    "0":{
+      "angle": 180,
+      "contrailSize": 7,
+      "length": 13.5,
+      "location": [
+        -65.5,
+        28.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 7
+    },
+    "1":{
+      "angle": 180,
+      "contrailSize": 10,
+      "length": 26,
+      "location": [
+        -67,
+        22
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 10
+    },
+    "2":{
+      "angle": 180,
+      "contrailSize": 6,
+      "length": 13.5,
+      "location": [
+        -78.5,
+        16
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 6
+    },
+    "3":{
+      "angle": 180,
+      "contrailSize": 8,
+      "length": 17.5,
+      "location": [
+        -72,
+        9
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 8
+    },
+    "4":{
+      "angle": 180,
+      "contrailSize": 9,
+      "length": 23.5,
+      "location": [
+        -79,
+        3
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 9
+    },
+    "5":{
+      "angle": 180,
+      "contrailSize": 6,
+      "length": 10,
+      "location": [
+        -77.5,
+        -2
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 6
+    },
+    "6":{
+      "angle": 180,
+      "contrailSize": 13,
+      "length": 24.5,
+      "location": [
+        -72,
+        -17.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 13
+    },
+    "7":{
+      "angle": 180,
+      "contrailSize": 6,
+      "length": 11.5,
+      "location": [
+        -72.5,
+        -24
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 6
+    },
+    "8":{
+      "angle": 180,
+      "contrailSize": 5,
+      "length": 8,
+      "location": [
+        -67.5,
+        -10
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 5
+    }  
+  }
+}

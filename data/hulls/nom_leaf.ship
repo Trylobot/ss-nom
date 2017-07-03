@@ -55,6 +55,7 @@
   "builtInMods": [
     "naeran_flux_shunts",
     "surveying_equipment",
+    "automated",
     "civgrade",
   ],
   "builtInWeapons": {

@@ -1,14 +1,12 @@
 {
   "displayName": "Assault",
   "goalVariant": true,
-  "fluxCapacitors": 9,
-  "fluxVents": 10,
+  "fluxCapacitors": 0,
+  "fluxVents": 13,
   "hullId": "nom_komodo_mk2",
   "hullMods": [
-    "fluxbreakers",
-    "heavyarmor",
-    "armoredweapons",
-    "turretgyros"
+    "fluxbreakers",   # 6
+    "armoredweapons", # 6
   ],
   "permaMods": [],
   "quality": 0.5,
@@ -18,22 +16,21 @@
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS 001": "nom_heavy_electron_maser",
-        "WS 002": "nom_twin_electron_maser",
-        "WS 003": "nom_heavy_electron_maser",
-        "WS 005": "nom_heavy_electron_maser",
-        "WS 006": "nom_light_electron_maser",
-        "WS 007": "nom_light_electron_maser",
-        "WS 1": "nom_heavy_electron_maser"
+        "WS_LARGE_MIDSHIP": "nom_twin_electron_maser",
+        "WS_MEDIUM_PORT": "nom_heavy_electron_maser",
+        "WS_MEDIUM_STERN": "nom_heavy_electron_maser",
+        "WS_SMALL_BOW_1": "nom_light_electron_maser",
+        "WS_SMALL_BOW_2": "nom_heavy_electron_maser",
+        "WS_SMALL_PORT": "nom_heavy_electron_maser",
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "PD1": "nom_firecracker",
-        "PD2": "nom_firecracker",
-        "WS0001": "nom_ultralight_electron_maser"
+        "WS_SMALL_STERN": "nom_light_electron_maser",
+        "WS_SMALL_AFT_1": "nom_firecracker",
+        "WS_SMALL_AFT_2": "nom_firecracker",
       }
     }
   ]

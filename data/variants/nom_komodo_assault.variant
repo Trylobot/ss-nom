@@ -8,7 +8,6 @@
     "fluxbreakers",
     "targetingunit"
   ],
-  "permaMods": [],
   "quality": 0.5,
   "variantId": "nom_komodo_assault",
   "weaponGroups": [
@@ -16,21 +15,21 @@
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS 001": "nom_heavy_electron_maser",
-        "WS 002": "nom_twin_electron_maser",
-        "WS 003": "nom_heavy_electron_maser",
-        "WS 005": "nom_light_electron_maser",
-        "WS 006": "nom_light_electron_maser"
+        "WS_LARGE_MIDSHIP": "nom_twin_electron_maser",
+        "WS_MEDIUM_PORT": "nom_heavy_electron_maser",
+        "WS_MEDIUM_STERN": "nom_heavy_electron_maser",
+        "WS_SMALL_BOW_1": "nom_light_electron_maser",
+        "WS_SMALL_BOW_2": "nom_light_electron_maser",
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS 004": "nom_firecracker",
-        "WS 007": "nom_light_electron_maser",
-        "WS 008": "nom_firecracker",
-        "WS 1": "nom_light_electron_maser"
+        "WS_SMALL_PORT": "nom_light_electron_maser",
+        "WS_SMALL_STERN": "nom_light_electron_maser",
+        "WS_SMALL_AFT_1": "nom_firecracker",
+        "WS_SMALL_AFT_2": "nom_firecracker",
       }
     }
   ]

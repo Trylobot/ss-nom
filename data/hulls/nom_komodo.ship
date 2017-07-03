@@ -1,157 +1,108 @@
 {
-  "coversColor": "234,214,124,255",
   "bounds": [
-    108,
+    83.5,
+    16,
+    102,
     -1,
-    111,
-    -11,
-    104,
-    -20,
-    75,
-    -23,
-    58,
-    -23,
-    53,
-    -33,
-    38,
+    110.5,
+    -2,
+    112,
+    -10,
+    103.5,
+    -19.5,
+    57.5,
+    -23.5,
+    52,
+    -33.5,
+    39.5,
     -42,
+    32,
+    -39,
     31,
-    -42,
-    31,
-    -48,
-    22,
+    -47,
+    21.5,
+    -49,
+    11.5,
+    -42.5,
+    -42.5,
+    -34.5,
     -51,
-    10,
-    -44,
-    -6,
-    -44,
-    -9,
-    -39,
-    -26,
-    -37,
-    -28,
-    -39,
-    -48,
-    -36,
-    -48,
-    -40,
-    -51,
-    -42,
-    -66,
-    -39,
+    -39.5,
+    -67,
+    -34,
+    -64,
+    4.5,
     -72,
-    -33,
-    -71,
-    -26,
-    -76,
-    -26,
-    -76,
-    -21,
-    -71,
-    -21,
-    -71,
-    -10,
-    -74,
-    -10,
-    -74,
-    -5,
-    -70,
-    -1,
-    -70,
-    5,
-    -76,
-    5,
-    -76,
-    11,
-    -73,
-    13,
-    -78,
-    14,
-    -78,
-    20,
-    -70,
-    20,
-    -70,
-    24,
-    -65,
-    24,
-    -65,
-    29,
-    -59,
-    29,
-    -45,
-    37,
-    -35,
+    7.5,
+    -75.5,
+    18.5,
+    -44,
     35,
     -12,
-    38,
-    -5,
-    44,
-    12,
-    41,
-    16,
-    35,
-    21,
-    39,
-    45,
+    36,
+    -2,
+    43,
+    14.5,
+    40,
+    17,
+    32,
+    22.5,
+    37.5,
+    46,
     33,
-    53,
-    20,
-    85,
-    15,
-    85,
-    9,
-    103,
-    -1
+    54.5,
+    19
   ],
   "builtInMods": [
     "naeran_flux_shunts"
   ],
   "builtInWeapons": {
-    "WS 001": "nom_heavy_electron_maser",
-    "WS 002": "nom_twin_electron_maser",
-    "WS 003": "nom_heavy_electron_maser",
-    "WS 004": "nom_firecracker",
-    "WS 005": "nom_light_electron_maser",
-    "WS 006": "nom_light_electron_maser",
-    "WS 007": "nom_light_electron_maser",
-    "WS 008": "nom_firecracker",
-    "WS 1": "nom_light_electron_maser"
+    "WS_LARGE_MIDSHIP": "nom_twin_electron_maser",
+    "WS_MEDIUM_PORT": "nom_heavy_electron_maser",
+    "WS_MEDIUM_STERN": "nom_heavy_electron_maser",
+    "WS_SMALL_AFT_1": "nom_firecracker",
+    "WS_SMALL_AFT_2": "nom_firecracker",
+    "WS_SMALL_BOW_1": "nom_light_electron_maser",
+    "WS_SMALL_BOW_2": "nom_light_electron_maser",
+    "WS_SMALL_PORT": "nom_light_electron_maser",
+    "WS_SMALL_STERN": "nom_light_electron_maser"
   },
+  "builtInWings": [],
   "center": [
-    48,
-    85
+    70,
+    96
   ],
-  "collisionRadius": 149.5,
+  "collisionRadius": 135,
+  "coversColor": "234,214,124,255",
   "engineSlots": [
     {
       "angle": 180,
-      "contrailSize": 8,
-      "length": 23,
+      "contrailSize": 5,
+      "length": 17.5,
       "location": [
-        -66,
+        -63.5,
         27
       ],
       "style": "ANCIENT_NAERAN",
-      "width": 8
+      "width": 5
     },
     {
       "angle": 180,
-      "contrailSize": 7,
-      "length": 18,
+      "contrailSize": 6,
+      "length": 16,
       "location": [
-        -71,
+        -68.5,
         22
       ],
       "style": "ANCIENT_NAERAN",
-      "width": 7
+      "width": 6
     },
     {
       "angle": 180,
       "contrailSize": 10,
-      "length": 30,
+      "length": 22,
       "location": [
-        -79,
+        -76.5,
         17
       ],
       "style": "ANCIENT_NAERAN",
@@ -159,113 +110,80 @@
     },
     {
       "angle": 180,
-      "contrailSize": 6,
-      "length": 22,
+      "contrailSize": 4,
+      "length": 13.5,
       "location": [
-        -74,
+        -71.5,
         13
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 4
+    },
+    {
+      "angle": 180,
+      "contrailSize": 14,
+      "length": 34,
+      "location": [
+        -74.5,
+        8
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 14
+    },
+    {
+      "angle": 180,
+      "contrailSize": 6,
+      "length": 13.5,
+      "location": [
+        -70.5,
+        -2
       ],
       "style": "ANCIENT_NAERAN",
       "width": 6
     },
     {
       "angle": 180,
-      "contrailSize": 13,
-      "length": 42.5,
-      "location": [
-        -77,
-        8
-      ],
-      "style": "ANCIENT_NAERAN",
-      "width": 13
-    },
-    {
-      "angle": 180,
-      "contrailSize": 9,
-      "length": 23.5,
-      "location": [
-        -71,
-        1
-      ],
-      "style": "ANCIENT_NAERAN",
-      "width": 9
-    },
-    {
-      "angle": 180,
-      "contrailSize": 8,
-      "length": 17.5,
-      "location": [
-        -73,
-        -3
-      ],
-      "style": "ANCIENT_NAERAN",
-      "width": 8
-    },
-    {
-      "angle": 180,
       "contrailSize": 10,
       "length": 23.5,
       "location": [
-        -75,
-        -8
+        -72.5,
+        -7
       ],
       "style": "ANCIENT_NAERAN",
       "width": 10
     },
     {
       "angle": 180,
-      "contrailSize": 9,
-      "length": 16,
+      "contrailSize": 5,
+      "length": 12.5,
       "location": [
-        -72,
-        -12
+        -69.5,
+        -12.5
       ],
       "style": "ANCIENT_NAERAN",
-      "width": 9
-    },
-    {
-      "angle": 180,
-      "contrailSize": 11,
-      "length": 19,
-      "location": [
-        -72,
-        -19
-      ],
-      "style": "ANCIENT_NAERAN",
-      "width": 11
+      "width": 5
     },
     {
       "angle": 180,
       "contrailSize": 12,
-      "length": 32,
+      "length": 31,
       "location": [
-        -77,
-        -24
+        -69,
+        -19.5
       ],
       "style": "ANCIENT_NAERAN",
       "width": 12
-    },
-    {
-      "angle": 180,
-      "contrailSize": 4,
-      "length": 11.2,
-      "location": [
-        -71,
-        -26.5
-      ],
-      "style": "ANCIENT_NAERAN",
-      "width": 4
     }
   ],
-  "height": 200,
+  "height": 233,
   "hullId": "nom_komodo",
   "hullName": "Komodo",
   "hullSize": "DESTROYER",
   "shieldCenter": [
-    15.5,
-    0
+    18.5,
+    -6
   ],
-  "shieldRadius": 117.099998,
+  "shieldRadius": 105.5,
   "spriteName": "graphics/nom/ships/nom_komodo.png",
   "style": "ANCIENT_NAERAN",
   "viewOffset": 0,
@@ -273,10 +191,10 @@
     {
       "angle": 30,
       "arc": 220,
-      "id": "WS 001",
+      "id": "WS_MEDIUM_PORT",
       "locations": [
-        28.5,
-        34.5
+        29,
+        35
       ],
       "mount": "TURRET",
       "size": "MEDIUM",
@@ -285,10 +203,10 @@
     {
       "angle": 0,
       "arc": 90,
-      "id": "WS 002",
+      "id": "WS_LARGE_MIDSHIP",
       "locations": [
         43,
-        6.5
+        7
       ],
       "mount": "TURRET",
       "size": "LARGE",
@@ -297,9 +215,9 @@
     {
       "angle": -15.9,
       "arc": 220,
-      "id": "WS 003",
+      "id": "WS_MEDIUM_STERN",
       "locations": [
-        45.5,
+        46,
         -31
       ],
       "mount": "TURRET",
@@ -307,11 +225,11 @@
       "type": "BUILT_IN"
     },
     {
-      "angle": 90,
+      "angle": 112,
       "arc": 344,
-      "id": "WS 004",
+      "id": "WS_SMALL_AFT_2",
       "locations": [
-        -52,
+        -51,
         29
       ],
       "mount": "TURRET",
@@ -321,10 +239,10 @@
     {
       "angle": 28.299999,
       "arc": 310,
-      "id": "WS 005",
+      "id": "WS_SMALL_BOW_2",
       "locations": [
-        76.5,
-        11
+        76,
+        10
       ],
       "mount": "TURRET",
       "size": "SMALL",
@@ -333,10 +251,10 @@
     {
       "angle": 0,
       "arc": 310,
-      "id": "WS 006",
+      "id": "WS_SMALL_BOW_1",
       "locations": [
         95,
-        -16.5
+        -16
       ],
       "mount": "TURRET",
       "size": "SMALL",
@@ -345,22 +263,22 @@
     {
       "angle": -60.299999,
       "arc": 310,
-      "id": "WS 007",
+      "id": "WS_SMALL_STERN",
       "locations": [
-        7.5,
-        -39
+        8,
+        -38
       ],
       "mount": "TURRET",
       "size": "SMALL",
       "type": "BUILT_IN"
     },
     {
-      "angle": -90,
+      "angle": -115.5,
       "arc": 347.299988,
-      "id": "WS 008",
+      "id": "WS_SMALL_AFT_1",
       "locations": [
-        -60.5,
-        -34.5
+        -60,
+        -34
       ],
       "mount": "TURRET",
       "size": "SMALL",
@@ -369,9 +287,9 @@
     {
       "angle": 77,
       "arc": 310,
-      "id": "WS 1",
+      "id": "WS_SMALL_PORT",
       "locations": [
-        4.5,
+        5,
         38
       ],
       "mount": "TURRET",
@@ -379,5 +297,5 @@
       "type": "BUILT_IN"
     }
   ],
-  "width": 105
+  "width": 150
 }
