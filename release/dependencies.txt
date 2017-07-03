@@ -1,0 +1,2 @@
+7z.exe   download 7-zip;    put on path
+json     download node.js;  npm install -g json
