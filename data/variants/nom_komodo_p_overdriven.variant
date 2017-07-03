@@ -1,0 +1,44 @@
+{
+  "displayName": "Overdriven",
+  "fluxCapacitors": 1,
+  "fluxVents": 20,
+  "hullId": "nom_komodo_p",
+  "hullMods": [
+  ],
+  "goalVariant": true,
+  "quality": 0,
+  "variantId": "nom_komodo_p_overdriven",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS_SMALL_BOW_2": "lightdualac",
+        "WS_LARGE_PORT": "squall",
+      }
+    },{
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS_LARGE_MIDSHIP": "hephag",
+        "WS_MEDIUM_BOW_1": "heavymortar",
+        "WS_MEDIUM_STERN": "heavymortar",
+        "WS_SMALL_PORT": "lightag",
+        "WS_SMALL_STERN": "lightag",
+      }
+    },{
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS_SMALL_BOW_1": "annihilator",
+      }
+    },{
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS_SMALL_AFT_1": "lightmg",
+        "WS_SMALL_AFT_2": "lightmg",
+      }
+    }
+  ]
+}

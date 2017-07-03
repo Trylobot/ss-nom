@@ -1,0 +1,278 @@
+{
+  "bounds": [
+    68,
+    20.5,
+    121.5,
+    2,
+    99.5,
+    -7,
+    123,
+    -13.5,
+    100.5,
+    -21,
+    74,
+    -22,
+    74,
+    -48.5,
+    59,
+    -54.5,
+    64,
+    -23,
+    25,
+    -49.5,
+    11.5,
+    -42.5,
+    -9,
+    -49,
+    -19,
+    -36.5,
+    -27,
+    -42,
+    -50,
+    -39.5,
+    -58,
+    -47,
+    -73,
+    -24,
+    -72,
+    16.5,
+    -34.5,
+    42.5,
+    -17.5,
+    42,
+    -14,
+    33,
+    -2,
+    43,
+    14.5,
+    40,
+    17,
+    32,
+    22.5,
+    37.5,
+    46,
+    33,
+    56,
+    21
+  ],
+  "builtInWings": [],
+  "center": [
+    70,
+    96
+  ],
+  "collisionRadius": 146,
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 20,
+      "length": 39,
+      "location": [
+        -73,
+        12
+      ],
+      "style": "LOW_TECH",
+      "width": 20
+    },
+    {
+      "angle": 180,
+      "contrailSize": 13,
+      "length": 25,
+      "location": [
+        -68,
+        23
+      ],
+      "style": "LOW_TECH",
+      "width": 13
+    },
+    {
+      "angle": 180,
+      "contrailSize": 11,
+      "length": 27,
+      "location": [
+        -75.5,
+        1.5
+      ],
+      "style": "LOW_TECH",
+      "width": 11
+    },
+    {
+      "angle": 180,
+      "contrailSize": 11,
+      "length": 27,
+      "location": [
+        -78,
+        -6.5
+      ],
+      "style": "LOW_TECH",
+      "width": 11
+    },
+    {
+      "angle": 180,
+      "contrailSize": 13,
+      "length": 38,
+      "location": [
+        -82.5,
+        -16.5
+      ],
+      "style": "LOW_TECH",
+      "width": 13
+    },
+    {
+      "angle": -160,
+      "contrailSize": 7,
+      "length": 15,
+      "location": [
+        -73,
+        -21.5
+      ],
+      "style": "LOW_TECH",
+      "width": 7
+    },
+    {
+      "angle": 160,
+      "contrailSize": 7,
+      "length": 15,
+      "location": [
+        -58,
+        30
+      ],
+      "style": "LOW_TECH",
+      "width": 7
+    }
+  ],
+  "height": 233,
+  "hullId": "nom_komodo_p",
+  "hullName": "Komodo (P)",
+  "hullSize": "DESTROYER",
+  "shieldCenter": [
+    21.5,
+    -6.5
+  ],
+  "shieldRadius": 114,
+  "spriteName": "graphics/nom/ships/nom_komodo_p.png",
+  "style": "LOW_TECH",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 0,
+      "arc": 25,
+      "id": "WS_LARGE_PORT",
+      "locations": [
+        47.5,
+        27
+      ],
+      "mount": "HARDPOINT",
+      "size": "LARGE",
+      "type": "MISSILE"
+    },
+    {
+      "angle": 0,
+      "arc": 160,
+      "id": "WS_LARGE_MIDSHIP",
+      "locations": [
+        0,
+        0.5
+      ],
+      "mount": "TURRET",
+      "size": "LARGE",
+      "type": "BALLISTIC"
+    },
+    {
+      "angle": 8.5,
+      "arc": 100,
+      "id": "WS_MEDIUM_STERN",
+      "locations": [
+        35.5,
+        -26.5
+      ],
+      "mount": "TURRET",
+      "size": "MEDIUM",
+      "type": "BALLISTIC"
+    },
+    {
+      "angle": 104,
+      "arc": 280,
+      "id": "WS_SMALL_AFT_2",
+      "locations": [
+        -38.5,
+        33
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BALLISTIC"
+    },
+    {
+      "angle": 3.5,
+      "arc": 310,
+      "id": "WS_SMALL_BOW_2",
+      "locations": [
+        67.5,
+        -8
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BALLISTIC"
+    },
+    {
+      "angle": 4,
+      "arc": 155,
+      "id": "WS_MEDIUM_BOW_1",
+      "locations": [
+        68.5,
+        -36
+      ],
+      "mount": "TURRET",
+      "size": "MEDIUM",
+      "type": "BALLISTIC"
+    },
+    {
+      "angle": -76.5,
+      "arc": 280,
+      "id": "WS_SMALL_STERN",
+      "locations": [
+        -8,
+        -18.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BALLISTIC"
+    },
+    {
+      "angle": -117.5,
+      "arc": 280,
+      "id": "WS_SMALL_AFT_1",
+      "locations": [
+        -51,
+        -22
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BALLISTIC"
+    },
+    {
+      "angle": 77,
+      "arc": 280,
+      "id": "WS_SMALL_PORT",
+      "locations": [
+        5,
+        38
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BALLISTIC"
+    },
+    {
+      "angle": 0,
+      "arc": 15,
+      "id": "WS_SMALL_BOW_1",
+      "locations": [
+        99,
+        -6
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "MISSILE"
+    }
+  ],
+  "width": 150
+}
