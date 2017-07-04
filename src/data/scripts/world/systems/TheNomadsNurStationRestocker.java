@@ -3,12 +3,14 @@ package data.scripts.world.systems;
 import com.fs.starfarer.api.EveryFrameScript;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignClockAPI;
+import com.fs.starfarer.api.campaign.CargoAPI;
 import com.fs.starfarer.api.campaign.CargoStackAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.econ.SubmarketAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.fleet.FleetMemberType;
 import com.fs.starfarer.api.loading.HullModSpecAPI;
+import data.scripts.trylobot.TrylobotUtils;
 
 
 public class TheNomadsNurStationRestocker implements EveryFrameScript
@@ -46,7 +48,7 @@ public class TheNomadsNurStationRestocker implements EveryFrameScript
 			return;
 		tick -= SCRIPT_UPDATE_WAIT_MIN_SEC;
 		
-		SubmarketAPI open_market = orbital_station.getMarket().getSubmarket("open_market");
+		CargoAPI open_market_cargo = orbital_station.getMarket().getSubmarket("open_market").getCargo();
     //
     for( int i = 0; i < count; ++i )
 		{
@@ -58,17 +60,16 @@ public class TheNomadsNurStationRestocker implements EveryFrameScript
 				{
 					if (restock[i].type == StockDescriptor.SHIP)
           {
-            open_market.getCargo().getMothballedShips().addFleetMember(
-              Global.getFactory().createFleetMember(
-                FleetMemberType.SHIP, restock[i].id) );
+            TrylobotUtils.debug("Trylobot.Debug: Adding SHIP "+restock[i].id);
+            open_market_cargo.addMothballedShip(FleetMemberType.SHIP, restock[i].id, null);
           }
           else if (restock[i].type == StockDescriptor.FIGHTER_LPC) {
-            orbital_station.getMarket().getSubmarket("open_market").getCargo()
-              .addFighters(restock[i].id, 1);
+            TrylobotUtils.debug("Trylobot.Debug: Adding FIGHTER_LPC "+restock[i].id);
+            open_market_cargo.addFighters(restock[i].id, 1);
           }
           else if (restock[i].type == StockDescriptor.HULLMOD_SPEC) {
-            orbital_station.getMarket().getSubmarket("open_market").getCargo()
-              .addHullmods(restock[i].id, 1);
+            TrylobotUtils.debug("Trylobot.Debug: Adding HULLMOD_SPEC "+restock[i].id);
+            open_market_cargo.addHullmods(restock[i].id, 1);
           }
 				}
 			}
