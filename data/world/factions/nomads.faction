@@ -114,9 +114,11 @@
   "shipRoles":{
 
     "escortSmall": {
+      "nom_wurm_assault":10,
       "fallback": {"combatSmall":1},
     },
     "escortMedium": {
+      "nom_komodo_assault":10,
       "fallback": {"combatMedium":1},
     },
     "combatSmall":{
@@ -130,7 +132,9 @@
       "nom_komodo_assault":10,
       "nom_komodo_mk2_assault":6,
       "nom_komodo_royal_vanguard":3,
+      "nom_komodo_p_overdriven":2,
       "nom_scorpion_assault":10,
+      "nom_scorpion_royal_vanguard":3,
       "nom_roadrunner_pursuit":7,
       "fallback":{"combatSmall":1},
     },
@@ -145,7 +149,7 @@
     },
     "fastAttack": {
       "nom_roadrunner_pursuit": 10,
-      "nom_death_bloom_strike": 5,
+      "nom_death_bloom_strike": 7,
       "fallback":{"combatSmall":1},
     },
 
@@ -195,6 +199,7 @@
     },
     "freighterMedium": {
       "nom_tortoise_freighter":10,
+      "fallback": {"freighterSmall":1},
     },
     "freighterLarge": {
       "fallback": {"freighterMedium":1},

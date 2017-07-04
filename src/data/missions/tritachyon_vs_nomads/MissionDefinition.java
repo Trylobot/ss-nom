@@ -34,13 +34,13 @@ public class MissionDefinition implements MissionDefinitionPlugin
     api.addToFleet(FleetSide.ENEMY, "nom_rattlesnake_assault", FleetMemberType.SHIP, true);
     api.addToFleet(FleetSide.ENEMY, "nom_rattlesnake_assault", FleetMemberType.SHIP, true);
     api.addToFleet(FleetSide.ENEMY, "nom_rattlesnake_assault", FleetMemberType.SHIP, true);
-    api.addToFleet(FleetSide.ENEMY, "nom_scorpion_assault", FleetMemberType.SHIP, true);
+    api.addToFleet(FleetSide.ENEMY, "nom_scorpion_royal_vanguard", FleetMemberType.SHIP, true);
     api.addToFleet(FleetSide.ENEMY, "nom_scorpion_assault", FleetMemberType.SHIP, true);
     api.addToFleet(FleetSide.ENEMY, "nom_scorpion_assault", FleetMemberType.SHIP, true);
     api.addToFleet(FleetSide.ENEMY, "nom_komodo_royal_vanguard", FleetMemberType.SHIP, true);
     api.addToFleet(FleetSide.ENEMY, "nom_komodo_mk2_assault", FleetMemberType.SHIP, true);
     api.addToFleet(FleetSide.ENEMY, "nom_komodo_mk2_assault", FleetMemberType.SHIP, true);
-    api.addToFleet(FleetSide.ENEMY, "nom_komodo_assault", FleetMemberType.SHIP, true);
+    api.addToFleet(FleetSide.ENEMY, "nom_komodo_p_overdriven", FleetMemberType.SHIP, true);
     api.addToFleet(FleetSide.ENEMY, "nom_komodo_assault", FleetMemberType.SHIP, true);
     api.addToFleet(FleetSide.ENEMY, "nom_komodo_assault", FleetMemberType.SHIP, true);
     api.addToFleet(FleetSide.ENEMY, "nom_komodo_assault", FleetMemberType.SHIP, true);
