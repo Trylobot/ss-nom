@@ -1,10 +1,10 @@
 {
-  "name":"The Nomads",
-  "description":"The Nomad Armada wanders about.",
-  "author":"Trylobot",
-  "id":"nomads",
-  "version":"1.4.5",
-  "gameVersion":"0.8.1a",
-  "jars":["jars/TheNomads.jar"],
-  "modPlugin":"data.scripts.TheNomadsModPlugin"
+  "name": "The Nomads",
+  "description": "The Nomad Armada wanders about.",
+  "author": "Trylobot",
+  "id": "nomads",
+  "version": "1.4.5",
+  "gameVersion": "0.8.1a",
+  "jars": [ "jars/TheNomads.jar" ],
+  "modPlugin": "data.scripts.TheNomadsModPlugin"
 }

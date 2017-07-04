@@ -1,0 +1,225 @@
+{
+  "bounds": [
+    116.5,
+    30.5,
+    123.5,
+    15,
+    139.5,
+    6,
+    182.5,
+    5,
+    195.5,
+    -19,
+    -61.5,
+    -58,
+    -160.5,
+    5.5,
+    -134,
+    16.5,
+    -132.5,
+    25.5,
+    -100,
+    30.5,
+    -89.5,
+    40.5,
+    20.5,
+    40
+  ],
+  "builtInMods": [
+    "naeran_flux_shunts",
+    "civgrade",
+    "ecm"
+  ],
+  "builtInWeapons": {
+    "WS0001": "nom_firecracker",
+    "WS0002": "nom_light_electron_maser",
+    "WS0003": "nom_firecracker",
+    "WS0004": "nom_light_electron_maser",
+    "WS0005": "nom_twin_ultralight_electron_maser",
+    "WS0006": "nom_twin_ultralight_electron_maser"
+  },
+  "builtInWings": [],
+  "center": [
+    54,
+    166.5
+  ],
+  "collisionRadius": 226.5,
+  "coversColor": "234,214,124,255",
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 25,
+      "length": 74,
+      "location": [
+        -161,
+        5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 25
+    },
+    {
+      "angle": 180,
+      "contrailSize": 18,
+      "length": 53.5,
+      "location": [
+        -148.5,
+        -6
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 18
+    },
+    {
+      "angle": 180,
+      "contrailSize": 18,
+      "length": 53.5,
+      "location": [
+        -123,
+        -17
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 18
+    },
+    {
+      "angle": 180,
+      "contrailSize": 6,
+      "length": 24,
+      "location": [
+        -118,
+        -25.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 6
+    },
+    {
+      "angle": 180,
+      "contrailSize": 6,
+      "length": 24,
+      "location": [
+        -100.5,
+        -34.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 6
+    },
+    {
+      "angle": 180,
+      "contrailSize": 15,
+      "length": 52,
+      "location": [
+        -136.5,
+        21.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 15
+    },
+    {
+      "angle": 180,
+      "contrailSize": 5,
+      "length": 18,
+      "location": [
+        -135,
+        14
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 5
+    },
+    {
+      "angle": 180,
+      "contrailSize": 5,
+      "length": 17,
+      "location": [
+        -109.5,
+        29
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 5
+    }
+  ],
+  "height": 400,
+  "hullId": "nom_cobra",
+  "hullName": "Cobra",
+  "hullSize": "DESTROYER",
+  "shieldCenter": [
+    19.5,
+    -1.5
+  ],
+  "shieldRadius": 188.5,
+  "spriteName": "graphics/nom/ships/nom_cobra.png",
+  "style": "ANCIENT_NAERAN",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 161,
+      "arc": 324,
+      "id": "WS0001",
+      "locations": [
+        -90.5,
+        30.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 0,
+      "arc": 360,
+      "id": "WS0002",
+      "locations": [
+        -65.5,
+        37.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": -145.5,
+      "arc": 323,
+      "id": "WS0003",
+      "locations": [
+        -79.5,
+        -19.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": -1.5,
+      "arc": 360,
+      "id": "WS0004",
+      "locations": [
+        -66.5,
+        -48
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 33,
+      "arc": 324,
+      "id": "WS0005",
+      "locations": [
+        -20.5,
+        39
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": -33.5,
+      "arc": 323,
+      "id": "WS0006",
+      "locations": [
+        -7.5,
+        -36
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    }
+  ],
+  "width": 120
+}

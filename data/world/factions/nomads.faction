@@ -169,13 +169,14 @@
       "nom_leaf_probe": 10,
       "nom_tortoise_freighter":10,
       "nom_cactus_tanker":10,
-      # Cobra
+      "nom_cobra_personnel": 10,
       # Slate
       "fallback": {"escortSmall":1},
     },
     "marketRandom": {
       "nom_tortoise_freighter":10,
       "nom_cactus_tanker":10,
+      "nom_cobra_personnel": 10,
       "fallback": {"civilianRandom":1},
     },
   
@@ -217,29 +218,26 @@
     },
 
     "personnelSmall": {
-      # Cobra
       "fallback": {"personnelMedium":1},
     },
     "personnelMedium": {
-      # Cobra
+      "nom_cobra_personnel": 10,
       "fallback": {"personnelSmall":1},
     },
     "personnelLarge": {
-      # Cobra
       "fallback": {"personnelMedium":1},
     },
 
     "linerSmall": {
-      # Cobra
       "fallback": {"linerMedium":1},
     },
     "linerMedium": {
-      # Cobra
+      "nom_cobra_personnel": 10,
       "fallback": {"linerSmall":1},
     },
     "linerLarge": {
-      "nom_oasis_standard": 10,
-      "fallback": {"linerMedium":1},
+      "nom_oasis_standard": 5,
+      "fallback": {"linerMedium":5},
     },
 
     "tug": {

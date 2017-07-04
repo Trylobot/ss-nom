@@ -6,11 +6,12 @@
     "size": 3,
     "startingConditions": [
       "frontier",
-      "orbital_station",
+      "hydroponics_complex",
       "spaceport",
+      "orbital_station",
+      "vice_demand",
       "population_3",
       "free_market",
-      "vice_demand",
     ]
   }]
 }

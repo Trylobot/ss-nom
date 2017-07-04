@@ -24,6 +24,7 @@ public class MissionDefinition implements MissionDefinitionPlugin
 
 		// Set up the player's fleet
 		api.addToFleet(FleetSide.PLAYER, "nom_oasis_standard", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.PLAYER, "nom_cobra_personnel", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_tortoise_freighter", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_cactus_tanker", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_leaf_probe", FleetMemberType.SHIP, true);

@@ -1,0 +1,33 @@
+{
+  "displayName": "Standard",
+  "fluxCapacitors": 0,
+  "fluxVents": 2,
+  "goalVariant": true,
+  "hullId": "nom_cobra",
+  "hullMods": [
+    "augmentedengines"
+  ],
+  "permaMods": [],
+  "quality": 0.5,
+  "variantId": "nom_cobra_personnel",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "nom_firecracker",
+        "WS0002": "nom_light_electron_maser",
+        "WS0005": "nom_twin_ultralight_electron_maser"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "nom_firecracker",
+        "WS0004": "nom_light_electron_maser",
+        "WS0006": "nom_twin_ultralight_electron_maser"
+      }
+    }
+  ]
+}

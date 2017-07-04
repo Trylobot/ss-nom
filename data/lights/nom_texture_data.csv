@@ -15,10 +15,6 @@ nom_scorpion_royal,ship,,1,normal,graphics/nom/ships/shaders/nom_scorpion_royal_
 ,,,,,
 nom_scorpion,ship,,1,normal,graphics/nom/ships/shaders/nom_scorpion_normal.png
 ,,,,,
-nom_tortoise,ship,,1,normal,graphics/nom/ships/shaders/nom_tortoise_normal.png
-,,,,,
-nom_cactus,ship,,1,normal,graphics/nom/ships/shaders/nom_cactus_normal.png
-,,,,,
 nom_komodo_p,ship,,1,normal,graphics/nom/ships/shaders/nom_komodo_p_normal.png
 ,,,,,
 nom_komodo_royal,ship,,,material,graphics/nom/ships/shaders/nom_komodo_royal_material.png
@@ -30,6 +26,12 @@ nom_komodo_mk2,ship,,1,normal,graphics/nom/ships/shaders/nom_komodo_mk2_normal.p
 nom_komodo,ship,,1,normal,graphics/nom/ships/shaders/nom_komodo_normal.png
 ,,,,,
 nom_roadrunner,ship,,1,normal,graphics/nom/ships/shaders/nom_roadrunner_normal.png
+,,,,,
+nom_cobra,ship,,1,normal,graphics/nom/ships/shaders/nom_cobra_normal.png
+,,,,,
+nom_tortoise,ship,,1,normal,graphics/nom/ships/shaders/nom_tortoise_normal.png
+,,,,,
+nom_cactus,ship,,1,normal,graphics/nom/ships/shaders/nom_cactus_normal.png
 ,,,,,
 nom_flycatcher,ship,,1,normal,graphics/nom/ships/shaders/nom_flycatcher_normal.png
 ,,,,,
