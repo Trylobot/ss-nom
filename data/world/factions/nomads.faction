@@ -264,7 +264,7 @@
       "cautious":1,
       "steady":1,
       "aggressive":1,
-    "reckless":1,
+      "reckless":1,
     },
   },
 
@@ -375,7 +375,7 @@
       "ships":{
         "nom_sandstorm_assault":[0, 1],             # 22
         "nom_rattlesnake_assault":[0, 1],           # 16
-        "nom_scorpion_assault":[1, 2],              # 10
+        "nom_scorpion_royal_vanguard":[1, 2],       # 10
         "nom_komodo_royal_vanguard":[1, 4],         # 12
         "nom_roadrunner_pursuit":[0, 1],            # 10
         "nom_flycatcher_toad":[0, 1],               # 5
@@ -397,8 +397,7 @@
         "nom_sandstorm_assault":[0, 2],             # 22
         "nom_rattlesnake_assault":[0, 2],           # 16
         "nom_scorpion_assault":[0, 2],              # 10
-        "nom_komodo_mk2_assault":[0, 2],            # 12
-        "nom_komodo_assault":[0, 3],                # 9
+        "nom_komodo_assault":[0, 5],                # 9
         "nom_roadrunner_pursuit":[0, 2],            # 10
         "nom_flycatcher_fang":[0, 2],               # 5
         "nom_death_bloom_strike":[0, 2],            # 13
@@ -434,7 +433,7 @@
         "nom_queen_bee_attack":[1, 1],              # 26
         "nom_sandstorm_assault":[1, 4],             # 22
         "nom_rattlesnake_assault":[3, 6],           # 16
-        "nom_scorpion_assault":[2, 5],              # 10
+        "nom_scorpion_royal_vanguard":[2, 5],       # 10
         "nom_komodo_royal_vanguard":[3, 7],         # 12
         "nom_roadrunner_pursuit":[1, 8],            # 10
         "nom_flycatcher_fang":[1, 4],               # 5
