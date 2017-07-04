@@ -1,0 +1,48 @@
+{
+    "displayName": "Support",
+    "fluxCapacitors": 1,
+    "fluxVents": 20,
+    "goalVariant": true,
+    "hullId": "nom_komodo_p",
+    "hullMods": ["targetingunit"],
+    "permaMods": [],
+    "quality": 0.5,
+    "variantId": "nom_komodo_p_support",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS_LARGE_MIDSHIP": "gauss",
+                "WS_SMALL_BOW_2": "railgun"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS_MEDIUM_BOW_1": "heavymauler",
+                "WS_MEDIUM_STERN": "heavymortar"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS_LARGE_PORT": "pilum"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS_SMALL_BOW_1": "harpoon_single"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS_SMALL_AFT_1": "lightmg",
+                "WS_SMALL_AFT_2": "lightmg",
+                "WS_SMALL_PORT": "lightmg"
+            }
+        }
+    ]
+}

@@ -5,8 +5,10 @@ import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.combat.BattleCreationContext;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.EveryFrameCombatPlugin;
+import com.fs.starfarer.api.combat.ShipHullSpecAPI;
 import com.fs.starfarer.api.combat.ViewportAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
+import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import data.scripts.trylobot.TrylobotUtils;
 import java.util.List;
 
@@ -14,22 +16,31 @@ import java.util.List;
 public class TheNomadsCombatEnginePlugin implements EveryFrameCombatPlugin
 {
 	private CombatEngineAPI engine = null;
-	private boolean executed = true;
 	
   @Override
 	public void init( CombatEngineAPI engine )
 	{
 		this.engine = engine;
-		executed = false;
+		executed_playNomadThemeMusic = false;
 	}
 
   @Override
 	public void advance( float amount, List events )
 	{
-		if( executed )
-			return;
-		executed = true;
-    
+    // once per init(), try to play the theme
+    if (!executed_playNomadThemeMusic) {
+      executed_playNomadThemeMusic = true;
+      playNomadThemeMusic();
+    }
+
+	}
+  
+  private boolean executed_playNomadThemeMusic = true;
+	//
+  private void playNomadThemeMusic() {
+    if ("nom_theme_music".equals(Global.getSoundPlayer().getCurrentMusicId()))
+      return; // already playin', boys!
+    //
     // If fighting against Nomads, or fighting using mostly Nomad ships, set the mood appropriately
     boolean set_the_mood = false;
     BattleCreationContext battle = engine.getContext();
@@ -70,11 +81,10 @@ public class TheNomadsCombatEnginePlugin implements EveryFrameCombatPlugin
       }
 		}
     //
-    if (!"nom_theme_music".equals(Global.getSoundPlayer().getCurrentMusicId())
-    && set_the_mood ) {
+    if ( set_the_mood ) {
       Global.getSoundPlayer().playMusic(2, 1, "nom_theme_music");
-    }
-	}
+    }    
+  }
 
   @Override
   public void renderInWorldCoords(ViewportAPI vapi) {
