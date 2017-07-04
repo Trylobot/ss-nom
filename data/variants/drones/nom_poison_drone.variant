@@ -1,0 +1,17 @@
+{
+  "displayName": "Elite",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "hullId": "nom_poison",
+  "hullMods": [],
+  "variantId": "nom_poison_drone",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "nom_lunar_crucible_fighter"
+      }
+    }
+  ]
+}

@@ -15,19 +15,13 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "nom_firecracker",
+        "WS0005": "nom_twin_ultralight_electron_maser",
+        "WS0006": "nom_twin_ultralight_electron_maser",
         "WS0002": "nom_light_electron_maser",
-        "WS0005": "nom_twin_ultralight_electron_maser"
+        "WS0004": "nom_light_electron_maser",
+        "WS0001": "nom_firecracker",
+        "WS0003": "nom_firecracker",
       }
     },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
-        "WS0003": "nom_firecracker",
-        "WS0004": "nom_light_electron_maser",
-        "WS0006": "nom_twin_ultralight_electron_maser"
-      }
-    }
   ]
 }

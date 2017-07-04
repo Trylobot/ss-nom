@@ -1,0 +1,62 @@
+{
+  "bounds": [
+    1,
+    8,
+    10,
+    5,
+    1,
+    -8.5,
+    -13,
+    0.5
+  ],
+  "builtInMods": [
+    "naeran_flux_shunts",
+    "no_weapon_flux"
+  ],
+  "builtInWings": [],
+  "center": [
+    10.5,
+    15
+  ],
+  "collisionRadius": 25.5,
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 7,
+      "length": 17.5,
+      "location": [
+        -13.5,
+        0.5
+      ],
+      "style": "HIGH_TECH",
+      "width": 7
+    }
+  ],
+  "height": 32,
+  "hullId": "nom_poison",
+  "hullName": "Poison",
+  "hullSize": "FIGHTER",
+  "shieldCenter": [
+    0,
+    -0
+  ],
+  "shieldRadius": 21,
+  "spriteName": "graphics/nom/ships/nom_poison.png",
+  "style": "ANCIENT_NAERAN",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 0,
+      "arc": 5,
+      "id": "WS0001",
+      "locations": [
+        6.5,
+        0.5
+      ],
+      "mount": "HIDDEN",
+      "size": "SMALL",
+      "type": "ENERGY"
+    }
+  ],
+  "width": 21
+}

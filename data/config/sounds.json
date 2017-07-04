@@ -31,6 +31,17 @@
 		{"file":"sounds/nom/fx/solar_loop.ogg","pitch":0.97,"volume":0.90},
 	],
 
+	"nom_lunar_crucible_intro":[
+		{"file":"sounds/nom/fx/solar_start.ogg","pitch":1.500,"volume":0.5},
+		{"file":"sounds/nom/fx/solar_start.ogg","pitch":1.503,"volume":0.5},
+		{"file":"sounds/nom/fx/solar_start.ogg","pitch":1.497,"volume":0.5},
+	],
+	"nom_lunar_crucible_loop":[
+		{"file":"sounds/nom/fx/solar_loop.ogg","pitch":1.500,"volume":0.5},
+		{"file":"sounds/nom/fx/solar_loop.ogg","pitch":1.503,"volume":0.5},
+		{"file":"sounds/nom/fx/solar_loop.ogg","pitch":1.497,"volume":0.5},
+	],
+
 	"nom_maser_pulse_beam_fire":[
 		{"file":"sounds/nom/fx/maserpulsebeam1.ogg","pitch":1.03,"volume":0.95},
 		{"file":"sounds/nom/fx/maserpulsebeam2.ogg","pitch":1.0,"volume":0.95},
