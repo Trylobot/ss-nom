@@ -6,6 +6,6 @@
 	"collisionClassByFighter":"NONE",
 	"width": 65.0,
 	"fadeTime": 1.0,
-  "fringeColor":[255,110,10,255],
-  "coreColor":[255,225,128,225],
+  "fringeColor":[138,255,0,255],
+  "coreColor":[255,255,255,225],
 }

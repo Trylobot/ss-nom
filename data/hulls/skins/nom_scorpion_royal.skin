@@ -1,0 +1,37 @@
+{
+  "baseHullId":"nom_scorpion",
+  "skinHullId":"nom_scorpion_royal",
+  "hullName":"Scorpion (Royal)",
+  "descriptionId":"scorpion",
+  "descriptionPrefix":"The Nomad Royal Escort fleets make use of a specially-modified version of the Scorpion; it has higher engine output and weapon targeting range; the exact methods & specifications of the modifications are a closely-guarded Nomad military secret, but they are extensive enough that they cannot be performed outside of drydock. They may not even be fully known to the Nomads themselves, anymore, or they may now lack appropriate facilities, but the Armada would never admit this.",
+  
+  "fleetPoints": 13,
+  "ordnancePoints": 45,  # vs 30
+  "baseValueMult": 1.50,
+
+  "spriteName":"graphics/nom/ships/nom_scorpion_royal.png",
+  
+  "builtInMods":[
+    "nomad_royal",
+    "missleracks",
+  ],
+
+  "removeWeaponSlots":[
+    "Small 8", # sacrificed
+    "Small 9", # sacrificed
+  ],
+  "removeBuiltInWeapons":[
+    "Small 8",
+    "Small 9",
+  ],
+  "weaponSlotChanges":{
+    "Med 4":   { "size": "LARGE", },
+    "Small 6": { "size": "LARGE", },
+  },
+  "builtInWeapons":{
+    "Large 1": "nom_self_sustained_fusion_torpedo_large", # upgraded
+    "Large 2": "nom_self_sustained_fusion_torpedo_large", # upgraded
+    "Med 4":   "nom_self_sustained_fusion_torpedo_bank",  # upgraded
+    "Small 6": "nom_self_sustained_fusion_torpedo_bank",  # upgraded
+  }
+}

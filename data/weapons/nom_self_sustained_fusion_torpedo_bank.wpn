@@ -10,7 +10,7 @@
 	"turretAngleOffsets":   [    0,    0,     0 ],
 	"hardpointAngleOffsets":[    0,    0,     0 ],
 	"barrelMode":"ALTERNATING",
-	"displayArcRadius":150,
+	"displayArcRadius":20,
 	"projectileSpecId":"nom_self_sustained_fusion_torpedo_projectile",
 	"animationType":"SMOKE",
 	"smokeSpec":{

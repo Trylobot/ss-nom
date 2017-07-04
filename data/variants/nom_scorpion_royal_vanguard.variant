@@ -1,0 +1,36 @@
+{
+  "displayName": "Vanguard",
+  "fluxCapacitors": 0,
+  "fluxVents": 10,
+  "goalVariant": true,
+  "hullId": "nom_scorpion_royal",
+  "hullMods": [
+    "hardenedshieldemitter",
+    "eccm",
+    "ecm",
+  ],
+  "permaMods": [],
+  "quality": 0.75,
+  "variantId": "nom_scorpion_royal_vanguard",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "Large 1": "nom_self_sustained_fusion_torpedo_large",
+        "Large 2": "nom_self_sustained_fusion_torpedo_large",
+        "Med 4":   "nom_self_sustained_fusion_torpedo_bank", 
+        "Small 6": "nom_self_sustained_fusion_torpedo_bank", 
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "Med 2": "nom_self_sustained_fusion_torpedo_pod",
+        "Med 5": "nom_self_sustained_fusion_torpedo_pod",
+        "Small 7": "nom_self_sustained_fusion_torpedo_mini",
+      }
+    },
+  ],
+}

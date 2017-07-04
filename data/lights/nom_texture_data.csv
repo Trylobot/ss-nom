@@ -11,6 +11,8 @@ nom_sandstorm,ship,,1,normal,graphics/nom/ships/shaders/nom_sandstorm_normal.png
 ,,,,,
 nom_rattlesnake,ship,,1,normal,graphics/nom/ships/shaders/nom_rattlesnake_normal.png
 ,,,,,
+nom_scorpion_royal,ship,,1,normal,graphics/nom/ships/shaders/nom_scorpion_royal_normal.png
+,,,,,
 nom_scorpion,ship,,1,normal,graphics/nom/ships/shaders/nom_scorpion_normal.png
 ,,,,,
 nom_tortoise,ship,,1,normal,graphics/nom/ships/shaders/nom_tortoise_normal.png
