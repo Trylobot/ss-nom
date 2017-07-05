@@ -122,18 +122,17 @@
 		{"file":"sounds/nom/fx/maserpulsebeam1.ogg","pitch":0.40,"volume":0.30},
 		{"file":"sounds/nom/fx/maserpulsebeam2.ogg","pitch":0.40,"volume":0.30},
 		{"file":"sounds/nom/fx/maserpulsebeam3.ogg","pitch":0.40,"volume":0.30},
-		{"file":"sounds/nom/fx/maserpulsebeam1.ogg","pitch":0.39,"volume":0.30},
-		{"file":"sounds/nom/fx/maserpulsebeam2.ogg","pitch":0.39,"volume":0.30},
-		{"file":"sounds/nom/fx/maserpulsebeam3.ogg","pitch":0.39,"volume":0.30},
 		{"file":"sounds/nom/fx/maserpulsebeam1.ogg","pitch":0.38,"volume":0.30},
 		{"file":"sounds/nom/fx/maserpulsebeam2.ogg","pitch":0.38,"volume":0.30},
 		{"file":"sounds/nom/fx/maserpulsebeam3.ogg","pitch":0.38,"volume":0.30},
-		{"file":"sounds/nom/fx/maserpulsebeam1.ogg","pitch":0.37,"volume":0.30},
-		{"file":"sounds/nom/fx/maserpulsebeam2.ogg","pitch":0.37,"volume":0.30},
-		{"file":"sounds/nom/fx/maserpulsebeam3.ogg","pitch":0.37,"volume":0.30},
 		{"file":"sounds/nom/fx/maserpulsebeam1.ogg","pitch":0.36,"volume":0.30},
 		{"file":"sounds/nom/fx/maserpulsebeam2.ogg","pitch":0.36,"volume":0.30},
 		{"file":"sounds/nom/fx/maserpulsebeam3.ogg","pitch":0.36,"volume":0.30},
+	],
+
+	"nom_oasis_scan_activate":
+	[
+		{"file":"sounds/nom/fx/stereo/gasp_no2.ogg","pitch":1.0,"volume":0.8},
 	],
 }
 
