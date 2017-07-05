@@ -1,0 +1,125 @@
+{
+  "bounds": [
+    43.5,
+    13,
+    34.5,
+    -22.5,
+    22.5,
+    -33,
+    8.5,
+    -19.5,
+    -4.5,
+    -38,
+    -40,
+    -29,
+    -40.5,
+    -18.5,
+    -21,
+    -16.5,
+    -21,
+    16.5,
+    -41.5,
+    18,
+    -40,
+    30,
+    -17.5,
+    31,
+    -7.5,
+    37.5,
+    6.5,
+    34,
+    15,
+    26,
+    5.5,
+    16
+  ],
+  "builtInMods": [
+    "naeran_flux_shunts",
+    "civgrade",
+    "drive_field_stabilizer",
+    "high_maintenance",
+  ],
+  "builtInWeapons": {
+    "WS0001": "nom_light_electron_maser"
+  },
+  "builtInWings": [],
+  "center": [
+    40,
+    44.5
+  ],
+  "collisionRadius": 72.5,
+  "coversColor": "234,214,124,255",
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 16,
+      "length": 35.5,
+      "location": [
+        -42.5,
+        23.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 16
+    },
+    {
+      "angle": -180,
+      "contrailSize": 16,
+      "length": 35.5,
+      "location": [
+        -42.5,
+        -24.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 16
+    },
+    {
+      "angle": 161.5,
+      "contrailSize": 4.766751,
+      "length": 10.274703,
+      "location": [
+        -21,
+        31
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 4.766751
+    },
+    {
+      "angle": -161.5,
+      "contrailSize": 4.766751,
+      "length": 10.274703,
+      "location": [
+        -21,
+        -31
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 4.766751
+    }
+  ],
+  "height": 100,
+  "hullId": "nom_dragonfly",
+  "hullName": "Dragonfly",
+  "hullSize": "FRIGATE",
+  "shieldCenter": [
+    -4,
+    -0
+  ],
+  "shieldRadius": 59,
+  "spriteName": "graphics/nom/ships/nom_dragonfly.png",
+  "style": "ANCIENT_NAERAN",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 12,
+      "arc": 331,
+      "id": "WS0001",
+      "locations": [
+        4,
+        14
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    }
+  ],
+  "width": 80
+}

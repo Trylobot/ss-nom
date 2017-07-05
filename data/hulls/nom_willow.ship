@@ -1,0 +1,121 @@
+{
+  "bounds": [
+    47.5,
+    25.5,
+    38,
+    27.5,
+    36.5,
+    11,
+    -70,
+    11.5,
+    -76.5,
+    -16,
+    -49.5,
+    -8.5,
+    24,
+    -10.5,
+    46,
+    -26,
+    52,
+    -8.5
+  ],
+  "builtInMods": [
+    "naeran_flux_shunts",
+    "civgrade",
+    "repair_gantry"
+  ],
+  "builtInWeapons": {
+    "WS0001": "nom_twin_ultralight_electron_maser"
+  },
+  "builtInWings": [],
+  "center": [
+    70.5,
+    85.5
+  ],
+  "collisionRadius": 107.5,
+  "coversColor": "234,214,124,255",
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 9,
+      "length": 20,
+      "location": [
+        -82,
+        -14
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 9
+    },
+    {
+      "angle": 180,
+      "contrailSize": 9,
+      "length": 27,
+      "location": [
+        -75,
+        -8.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 9
+    },
+    {
+      "angle": 180,
+      "contrailSize": 14,
+      "length": 34.5,
+      "location": [
+        -82.5,
+        -2
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 14
+    },
+    {
+      "angle": 180,
+      "contrailSize": 7,
+      "length": 16,
+      "location": [
+        -80,
+        3.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 7
+    },
+    {
+      "angle": 180,
+      "contrailSize": 7,
+      "length": 16,
+      "location": [
+        -70,
+        11.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 7
+    }
+  ],
+  "height": 144,
+  "hullId": "nom_willow",
+  "hullName": "Willow",
+  "hullSize": "DESTROYER",
+  "shieldCenter": [
+    -8,
+    -5
+  ],
+  "shieldRadius": 82.5,
+  "spriteName": "graphics/nom/ships/nom_willow.png",
+  "style": "ANCIENT_NAERAN",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 0,
+      "arc": 328,
+      "id": "WS0001",
+      "locations": [
+        49,
+        -10.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    }
+  ],
+  "width": 144
+}

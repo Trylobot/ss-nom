@@ -1,0 +1,22 @@
+{
+  "displayName": "Standard",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "goalVariant": true,
+  "hullId": "nom_willow",
+  "hullMods": [
+    "insulatedengine"
+  ],
+  "permaMods": [],
+  "quality": 0.5,
+  "variantId": "nom_willow_salvage",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "nom_twin_ultralight_electron_maser"
+      }
+    }
+  ]
+}

@@ -141,6 +141,7 @@
     },
     "combatLarge":{
       "nom_rattlesnake_assault":10,
+      "nom_sandstorm_assault":2,
       "fallback":{"combatMedium":1},
     },
     "combatCapital":{
@@ -160,6 +161,7 @@
     },
     "combatFreighterMedium": {
       "nom_komodo_assault":10,
+      "nom_tortoise_freighter":2,
       "fallback": {"combatFreighterSmall":1},
     },
     "combatFreighterLarge": {
@@ -167,12 +169,12 @@
     },
   
     "civilianRandom": {
-      "nom_leaf_probe": 10,
-      "nom_tortoise_freighter":10,
-      "nom_cactus_tanker":10,
-      "nom_cobra_personnel": 10,
-      # Slate
-      "fallback": {"escortSmall":1},
+      "nom_cobra_personnel":10,
+      "nom_tortoise_freighter":8,
+      "nom_cactus_tanker":8,
+      "nom_willow_salvage":7,
+      "nom_dragonfly_tug":3,
+      "nom_leaf_probe":1,
     },
     "marketRandom": {
       "nom_tortoise_freighter":10,
@@ -242,12 +244,10 @@
     },
 
     "tug": {
-      "ox_Standard": 10,
-      "fallback":{"utility":1},
+      "nom_dragonfly_tug": 10,
     },
     "crig": {
-      "crig_Standard": 10,
-      "fallback":{"utility":1},
+      "nom_willow_salvage": 10,
     },
     "utility": {
       "nom_leaf_probe":10,

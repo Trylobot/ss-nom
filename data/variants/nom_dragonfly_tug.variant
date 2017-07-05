@@ -1,0 +1,22 @@
+{
+  "displayName": "Standard",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "goalVariant": true,
+  "hullId": "nom_dragonfly",
+  "hullMods": [
+    "insulatedengine"
+  ],
+  "permaMods": [],
+  "quality": 0.5,
+  "variantId": "nom_dragonfly_tug",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "nom_light_electron_maser"
+      }
+    }
+  ]
+}

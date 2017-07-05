@@ -27,6 +27,8 @@ public class MissionDefinition implements MissionDefinitionPlugin
 		api.addToFleet(FleetSide.PLAYER, "nom_cobra_personnel", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_tortoise_freighter", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_cactus_tanker", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.PLAYER, "nom_willow_salvage", FleetMemberType.SHIP, true);
+		api.addToFleet(FleetSide.PLAYER, "nom_dragonfly_tug", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_leaf_probe", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_gila_monster_antibattleship", FleetMemberType.SHIP, true);
 		api.addToFleet(FleetSide.PLAYER, "nom_queen_bee_attack", FleetMemberType.SHIP, true);
