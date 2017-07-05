@@ -13,16 +13,12 @@ import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
-import com.fs.starfarer.api.impl.campaign.LeashScript;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV2;
 import com.fs.starfarer.api.impl.campaign.ids.Commodities;
-import com.fs.starfarer.api.impl.campaign.ids.Personalities;
 import com.fs.starfarer.api.loading.AbilitySpecAPI;
 import data.scripts.trylobot.TrylobotUtils;
 import data.scripts.world.armada.api.CampaignArmadaAPI;
-import java.awt.Color;
 import java.util.Random;
-import org.lwjgl.util.vector.Vector2f;
 
 
 public class CampaignArmadaController implements EveryFrameScript, CampaignArmadaAPI
@@ -132,16 +128,16 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 				float days_dead = clock.getElapsedDaysSince( last_state_change_timestamp );
 				if( days_dead >= dead_time_days )
 				{
-					// create & spawn leader fleet
-					leader_fleet = create_leader_fleet();
+					// create fleets and spawn
+          leader_fleet = create_leader_fleet();
 					spawn_system.spawnFleet( spawn_location, 0, 0, leader_fleet );
-					// create & spawn escort fleets
 					escort_fleets = create_escort_fleets( leader_fleet );
-					for( int i = 0; i < escort_fleets.length; ++i )
-						spawn_system.spawnFleet( spawn_location, 0, 0, escort_fleets[i] );
-          //
+					for (CampaignFleetAPI escort_fleet : escort_fleets) {
+						spawn_system.spawnFleet( spawn_location, 0, 0, escort_fleet );
+          }
+          // destinations generator
           waypoint_controller.run();
-          //
+          // events
 					change_state( JOURNEYING_LIKE_A_BOSS );
 					notifyListeners( "JOURNEYING_LIKE_A_BOSS" );
 					TrylobotUtils.debug("armada created");
@@ -160,7 +156,6 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 					TrylobotUtils.debug("armada leader destroyed; escorts scatter");
 					break;
 				}
-        update_fleets( amount );
 				break;
 		}
 	}
@@ -173,9 +168,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
     // let the escorts catch up if they fall behind
     fleet.removeAbility("sustained_burn");
     //
-    fleet.getCommander().setPersonality(Personalities.TIMID);
-    //
-		return fleet;
+    return fleet;
 	}
 	
 	private CampaignFleetAPI[] create_escort_fleets(CampaignFleetAPI leader_fleet)
@@ -188,21 +181,17 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 				escort_fleet_composition_weights );
       //
 			CampaignFleetAPI fleet = sector.createFleet( faction_id, fleet_id );
+      fleet.setAI( new CampaignArmadaEscortFleetAI( fleet, leader_fleet, fleet.getAI() ));
+      //
 			flesh_out_fleet(fleet);
       fleet.getCargo().addCommodity(Commodities.DRUGS, 30);
       // they should be able to use this to follow
       fleet.addAbility("fracture_jump");
       //
-      fleet.getCommander().setPersonality(Personalities.AGGRESSIVE);
-      //
-      //fleet.setAI(new CampaignArmadaEscortFleetAI(fleet));
-      //fleet.addAssignment(FleetAssignment.ORBIT_PASSIVE, leader_fleet, Float.MAX_VALUE); // forever
       fleet.addAssignment(
         FleetAssignment.FOLLOW, leader_fleet, Float.MAX_VALUE); // forever
       fleet.addScript( new CampaignArmadaEscortLeashScript( sector, fleet, leader_fleet, leash_length ));
-      // Research: 
-      //   when the leader fleet gets engaged in battle, do any of the nearby escorts join in? should they?
-      //   when an escort fleet gets engaged in battle, do any of the nearby allied fleets join in? should they?
+      
       fleets[i] = fleet;
 		}
 		return fleets;
@@ -232,14 +221,6 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
     return (leader_fleet != null && leader_fleet.isAlive()
 		  && (vip_ship_id == null || find_vip_ship( leader_fleet )));
 	}
-	
-  private void update_fleets( float amount )
-	{
-    for (CampaignFleetAPI escort_fleet : escort_fleets) {
-      // debug: print distance above each escort fleet
-      //escort_fleet.addFloatingText();
-    }
-  }
 	
 	private boolean find_vip_ship( CampaignFleetAPI fleet )
 	{

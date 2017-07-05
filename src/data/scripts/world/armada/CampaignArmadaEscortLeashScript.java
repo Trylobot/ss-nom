@@ -56,7 +56,13 @@ public class CampaignArmadaEscortLeashScript implements EveryFrameScript
       && !target_battle.isDone()
       && (self_battle == null || self_battle.isDone())
       && target_battle.canJoin( self )) {
-        target_battle.join( self );
+        CampaignFleetAPI closest_fleet = target_battle.getClosestInvolvedFleetTo( self );
+        Vector2f intercept = Misc.getInterceptPoint(self, closest_fleet);
+        self.setMoveDestinationOverride( intercept.x, intercept.y );
+        // get a little closer
+        float battle_distance = Misc.getDistance( self_loc, closest_fleet.getLocation() );
+        if (battle_distance <= (1.5f * (self.getRadius() + closest_fleet.getRadius())))
+          target_battle.join( self );
       }
     }
     else {
