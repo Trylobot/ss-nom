@@ -1,1 +1,2 @@
 name,id,demand class,base price,price variability,utility,decay,origin,tags,stack size,cargo space,icon,sound id,sound id drop,order,economyTier,econUnit,iconWidthMult
+Hallucinomagnetic Locator,oasis_locator,survey_data,,,1,,,nonecon,1000,1,graphics/nom/icons/cargo/hallucinomagnetic_locator.png,ui_chip_pickup,ui_fighter_drop,40,,,1

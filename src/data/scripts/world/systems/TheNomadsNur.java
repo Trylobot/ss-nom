@@ -33,6 +33,8 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
   private FactoryAPI factory;
   private SectorEntityToken station;
   
+  private final Color factionColor = new Color(234,214,124,255);
+  
   
   public TheNomadsNur() {
   }
@@ -134,18 +136,26 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 		};
 		CampaignArmadaController nomad_armada =
 			new CampaignArmadaController(
+        //////////////////////////
+        // spawn info
 				"nomads", // faction
 				"colonyFleet", // leader/VIP fleet
 				"nom_oasis", // flagship of flagships
 				sector, // global sector api
 				planet_I__moon_f, // spawn location
         station.getMarket(), // market
-				8, // escort_fleet_count
+        //////////////////////////
+				// escort fleet info
+        8, // escort_fleet_count
 				escort_pool,
 				escort_weights,
+        500f, // "leash" length
+        //////////////////////////
+        // waypoint info
 				1, // waypoint_per_trip_minimum
 				6, // waypoint_per_trip_maximum
-				30 // dead_time_days
+				30 // dead_time_days (idle time per waypoint)
+        //////////////////////////
 			);
 		sector.addScript( nomad_armada );
 		nomad_armada.addListener( this );
@@ -221,6 +231,8 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 		TheNomadsNurStationRestocker station_cargo_restocker
       = new TheNomadsNurStationRestocker( restock, station );
 		system.addScript( station_cargo_restocker );
+    
+    
 	}
 	
   @Override

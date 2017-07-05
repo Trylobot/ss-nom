@@ -17,7 +17,8 @@ NGCDone",,,
 # dialogNomadBeginFleetEncounter,BeginFleetEncounter,$faction.id == nomads,FireBest OpenCDE,,,
 #,,,,,,
 dialogNomadStationHallucinomagneticLocator,PopulateOptions,"$faction.id == nomads
-# $isStation",,,50:grantAbilityOasisDeepDream:Purchase Hallucinomagnetic Locator,
-grantAbilityOasisDeepDreamOption,DialogOptionSelected,$option == grantAbilityOasisDeepDream,"GrantAbilityPlayerFleet ""oasis_scan""
+$isPerson",,,50:grantAbilityOasisDeepDream:Request Hallucinomagnetic Locator,
+grantAbilityOasisDeepDreamOption,DialogOptionSelected,$option == grantAbilityOasisDeepDream,"AddAbilityFirstFreeSlot ""oasis_scan""
+AddRemoveCommodity oasis_locator 1 true
 ShowDefaultVisual
 EndConversation",,,

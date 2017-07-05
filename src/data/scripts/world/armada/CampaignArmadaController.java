@@ -13,12 +13,16 @@ import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
+import com.fs.starfarer.api.impl.campaign.LeashScript;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV2;
 import com.fs.starfarer.api.impl.campaign.ids.Commodities;
+import com.fs.starfarer.api.impl.campaign.ids.Personalities;
 import com.fs.starfarer.api.loading.AbilitySpecAPI;
 import data.scripts.trylobot.TrylobotUtils;
 import data.scripts.world.armada.api.CampaignArmadaAPI;
+import java.awt.Color;
 import java.util.Random;
+import org.lwjgl.util.vector.Vector2f;
 
 
 public class CampaignArmadaController implements EveryFrameScript, CampaignArmadaAPI
@@ -36,6 +40,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	private final int escort_fleet_count;
 	private final String[] escort_fleet_composition_pool;
 	private final int[] escort_fleet_composition_weights;
+  private final float leash_length;
 	//private CampaignArmadaEscortFleetPositionerAPI escort_positioner;
 	private final int dead_time_days;
 	
@@ -77,6 +82,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		int escort_fleet_count,
 		String[] escort_fleet_composition_pool,
 		int[] escort_fleet_composition_weights, // must total 1000
+    float leash_length,
 		int waypoints_per_system_minimum,
 		int waypoints_per_system_maximum,
 		int dead_time_days)
@@ -90,6 +96,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		this.escort_fleet_count = escort_fleet_count;
 		this.escort_fleet_composition_pool = escort_fleet_composition_pool;
 		this.escort_fleet_composition_weights = escort_fleet_composition_weights;
+    this.leash_length = leash_length;
 		this.dead_time_days = dead_time_days;
 		
 		this.waypoint_controller = new CampaignArmadaWaypointController(
@@ -163,6 +170,10 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
     CampaignFleetAPI fleet = sector.createFleet( faction_id, leader_fleet_id );
     flesh_out_fleet(fleet);
     fleet.getCargo().addCommodity(Commodities.DRUGS, 250);
+    // let the escorts catch up if they fall behind
+    fleet.removeAbility("sustained_burn");
+    //
+    fleet.getCommander().setPersonality(Personalities.TIMID);
     //
 		return fleet;
 	}
@@ -179,10 +190,19 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 			CampaignFleetAPI fleet = sector.createFleet( faction_id, fleet_id );
 			flesh_out_fleet(fleet);
       fleet.getCargo().addCommodity(Commodities.DRUGS, 30);
+      // they should be able to use this to follow
+      fleet.addAbility("fracture_jump");
+      //
+      fleet.getCommander().setPersonality(Personalities.AGGRESSIVE);
       //
       //fleet.setAI(new CampaignArmadaEscortFleetAI(fleet));
-      fleet.addAssignment(FleetAssignment.ORBIT_PASSIVE, leader_fleet, Float.MAX_VALUE); // forever
-      //
+      //fleet.addAssignment(FleetAssignment.ORBIT_PASSIVE, leader_fleet, Float.MAX_VALUE); // forever
+      fleet.addAssignment(
+        FleetAssignment.FOLLOW, leader_fleet, Float.MAX_VALUE); // forever
+      fleet.addScript( new CampaignArmadaEscortLeashScript( sector, fleet, leader_fleet, leash_length ));
+      // Research: 
+      //   when the leader fleet gets engaged in battle, do any of the nearby escorts join in? should they?
+      //   when an escort fleet gets engaged in battle, do any of the nearby allied fleets join in? should they?
       fleets[i] = fleet;
 		}
 		return fleets;
@@ -214,15 +234,19 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	}
 	
   private void update_fleets( float amount )
-	{ }
+	{
+    for (CampaignFleetAPI escort_fleet : escort_fleets) {
+      // debug: print distance above each escort fleet
+      //escort_fleet.addFloatingText();
+    }
+  }
 	
 	private boolean find_vip_ship( CampaignFleetAPI fleet )
 	{
 		if( vip_ship_id == null )
 			return false;
-		for( Iterator i = fleet.getFleetData().getMembersInPriorityOrder().iterator(); i.hasNext(); )
-		{
-			FleetMemberAPI ship = (FleetMemberAPI)i.next();
+		for (FleetMemberAPI ship : fleet.getFleetData().getMembersInPriorityOrder())
+    {
 			if( vip_ship_id.equals( ship.getHullId() ))
 				return true;
 		}
@@ -231,9 +255,8 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	
 	private void scatter_fleets()
 	{
-		for( int i = 0; i < escort_fleets.length; ++i )
+		for (CampaignFleetAPI escort_fleet : escort_fleets)
 		{
-			CampaignFleetAPI escort_fleet = escort_fleets[i];
 			if( escort_fleet.isAlive() )
 			{
         escort_fleet.clearAssignments();

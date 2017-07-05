@@ -445,17 +445,23 @@
     },
     "colonyFleet":{
       "displayName":"Colony Transport Group",
-      "maxFleetPoints":164,
+      "maxFleetPoints":300,  # using 139 fp (intentional)
       "daysWorthOfSupplies":[50, 100],
       "lyWorthOfFuel":[50, 100],
       "extraCrewPercent":[90, 100],
       "marinesPercent":[0, 0],
       "ships":{
-        "nom_oasis_standard":[1, 1],               # 5
-        "nom_sandstorm_assault":[2, 2],            # 22
-        "nom_rattlesnake_assault":[2, 2],          # 16
-        "nom_komodo_mk2_assault":[2, 2],           # 12
-        "nom_flycatcher_ant":[2, 2],               # 5
+        "nom_oasis_standard":[1, 1],                # 5
+        "nom_sandstorm_assault":[2, 2],             # 22
+        "nom_rattlesnake_assault":[2, 2],           # 16
+        "nom_komodo_assault":[2, 2],                # 9
+        "nom_flycatcher_ant":[2, 2],                # 5
+        "nom_cobra_personnel":[1,1],                # 6
+        "nom_tortoise_freighter":[1,1],             # 8
+        "nom_cactus_tanker":[1,1],                  # 8
+        "nom_willow_salvage":[1,1],                 # 3
+        "nom_dragonfly_tug":[1,1],                  # 2
+        "nom_leaf_probe":[3,3],                     # 1
       },
     },
   },

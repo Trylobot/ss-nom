@@ -98,6 +98,9 @@ public class OasisScanAbility extends BaseToggleAbility {
 		} else {
 			tooltip.addPara("Can only function in hyperspace.", pad);
 		}
+    
+    if (getFleet().getCargo().getCommodityQuantity("oasis_locator") < 1)
+      tooltip.addPara("Requires Hallucinomagnetic Locator item.", bad, pad);
 		
 		//tooltip.addPara("Disables the transponder when activated.", pad);
 		addIncompatibleToTooltip(tooltip, expanded);
@@ -167,7 +170,7 @@ public class OasisScanAbility extends BaseToggleAbility {
     } else {
       data = null;
     }
-    
+    // force (off) if run out of commodity
 		if (COMMODITY_ID != null) {
 			float cost = days * COMMODITY_PER_DAY;
 			if (fleet.getCargo().getCommodityQuantity(COMMODITY_ID) > 0 || Global.getSettings().isDevMode()) {
@@ -182,6 +185,9 @@ public class OasisScanAbility extends BaseToggleAbility {
 		if (!fleet.isInHyperspace()) {
 			deactivate();
 		}
+    // force (off) if the "Hallucinomagnetic Locator" quest item is removed
+    if (fleet.getCargo().getCommodityQuantity("oasis_locator") < 1)
+      deactivate();
 	}
   
 	public int getIndex(float angle) {

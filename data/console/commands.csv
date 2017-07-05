@@ -1,2 +1,3 @@
 command,class,tags,syntax,help
 ListNomads,data.console.ListNomads,"nomads,campaign",listnomads,"Lists all Nomads fleets and their locations, and the locations of any Oasis ships."
+DumpMemory,data.console.DumpMemory,"campaign",dumpmemory char,"Dumps all key-value pairs of specific, named MemoryAPI instances in the game engine."
