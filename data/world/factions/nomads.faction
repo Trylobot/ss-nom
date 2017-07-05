@@ -239,8 +239,7 @@
       "fallback": {"linerSmall":1},
     },
     "linerLarge": {
-      "nom_oasis_standard": 5,
-      "fallback": {"linerMedium":5},
+      "fallback": {"linerMedium":1},
     },
 
     "tug": {
