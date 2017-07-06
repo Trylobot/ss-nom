@@ -37,7 +37,7 @@
   },
 
   "illegalCommodities":[
-    "luxury_goods",
+    "survey_data",
   ],
   "hullMods":[
     "fluxbreakers",
@@ -70,7 +70,7 @@
     "exemptFromFoodShortages":true,
     "willTradeWhenHostile":true,
     "noPatrols":false,
-    "ignoreTradeWithEnemiesForReputation":true,
+    "ignoreTradeWithEnemiesForReputation":false,
     "postsNoBounties":false,
     "offerMissionsWhenHostile":true,
   },
@@ -151,7 +151,8 @@
     },
     "fastAttack": {
       "nom_roadrunner_pursuit": 10,
-      "nom_death_bloom_strike": 7,
+      "nom_death_bloom_strike": 3,
+      "nom_yellowjacket_sniper": 3,
       "fallback":{"combatSmall":1},
     },
 

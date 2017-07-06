@@ -6,6 +6,7 @@ import com.fs.starfarer.api.campaign.CampaignClockAPI;
 import com.fs.starfarer.api.campaign.CargoAPI;
 import com.fs.starfarer.api.campaign.CargoStackAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
+import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.econ.SubmarketAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.fleet.FleetMemberType;
@@ -23,13 +24,15 @@ public class TheNomadsNurStationRestocker implements EveryFrameScript
 	
 	private StockDescriptor[] restock;
 	private SectorEntityToken orbital_station;
+  private String            submarket_id;
 	
 	private int               count;
 	private long[]            restock_timestamps;
   
   public TheNomadsNurStationRestocker(
     StockDescriptor[] restock,
-    SectorEntityToken orbital_station )
+    SectorEntityToken orbital_station,
+    String submarket )
   {
     this.restock = restock;
     this.orbital_station = orbital_station;
@@ -48,7 +51,10 @@ public class TheNomadsNurStationRestocker implements EveryFrameScript
 			return;
 		tick -= SCRIPT_UPDATE_WAIT_MIN_SEC;
 		
-		CargoAPI open_market_cargo = orbital_station.getMarket().getSubmarket("open_market").getCargo();
+		SubmarketAPI market = orbital_station.getMarket().getSubmarket(submarket_id);
+    if (market == null)
+      return;
+    CargoAPI cargo = market.getCargo();
     //
     for( int i = 0; i < count; ++i )
 		{
@@ -61,15 +67,15 @@ public class TheNomadsNurStationRestocker implements EveryFrameScript
 					if (restock[i].type == StockDescriptor.SHIP)
           {
             TrylobotUtils.debug("Trylobot.Debug: Adding SHIP "+restock[i].id);
-            open_market_cargo.addMothballedShip(FleetMemberType.SHIP, restock[i].id, null);
+            cargo.addMothballedShip(FleetMemberType.SHIP, restock[i].id, null);
           }
           else if (restock[i].type == StockDescriptor.FIGHTER_LPC) {
             TrylobotUtils.debug("Trylobot.Debug: Adding FIGHTER_LPC "+restock[i].id);
-            open_market_cargo.addFighters(restock[i].id, 1);
+            cargo.addFighters(restock[i].id, 1);
           }
           else if (restock[i].type == StockDescriptor.HULLMOD_SPEC) {
             TrylobotUtils.debug("Trylobot.Debug: Adding HULLMOD_SPEC "+restock[i].id);
-            open_market_cargo.addHullmods(restock[i].id, 1);
+            cargo.addHullmods(restock[i].id, 1);
           }
 				}
 			}
@@ -78,18 +84,23 @@ public class TheNomadsNurStationRestocker implements EveryFrameScript
 	
 	private int count_stock( SectorEntityToken station, StockDescriptor restock )
 	{
-		int stock = 0;
+    SubmarketAPI market = orbital_station.getMarket().getSubmarket(submarket_id);
+    if (market == null)
+      return 0;
+    CargoAPI cargo = market.getCargo();
+		//
+    int stock = 0;
     //
     if (restock.type == StockDescriptor.SHIP) {
-      SubmarketAPI open_market = station.getMarket().getSubmarket("open_market");
-      for (FleetMemberAPI ship : open_market.getCargo().getMothballedShips().getMembersInPriorityOrder()) {
+      
+      for (FleetMemberAPI ship : cargo.getMothballedShips().getMembersInPriorityOrder()) {
         if( restock.id.equals( ship.getSpecId() ))
           ++stock;
       }
     } else if (restock.type == StockDescriptor.FIGHTER_LPC) {
-      stock += station.getMarket().getSubmarket("open_market").getCargo().getNumFighters( restock.id );
+      stock += cargo.getNumFighters( restock.id );
     } else if (restock.type == StockDescriptor.HULLMOD_SPEC) {
-      for (CargoStackAPI cargo_stack : station.getMarket().getSubmarket("open_market").getCargo().getStacksCopy()) {
+      for (CargoStackAPI cargo_stack : cargo.getStacksCopy()) {
         HullModSpecAPI hullmod_spec = cargo_stack.getHullModSpecIfHullMod();
         if (hullmod_spec != null && hullmod_spec.getId() == restock.id) {
           stock += cargo_stack.getSize();

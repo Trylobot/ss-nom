@@ -13,10 +13,15 @@ import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.SectorGeneratorPlugin;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
+import com.fs.starfarer.api.campaign.econ.EconomyAPI;
+import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.econ.SubmarketAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.fleet.FleetMemberType;
+import com.fs.starfarer.api.impl.campaign.ids.Conditions;
 import com.fs.starfarer.api.impl.campaign.ids.StarTypes;
+import com.fs.starfarer.api.impl.campaign.ids.Submarkets;
+import com.fs.starfarer.api.util.Misc;
 
 import data.scripts.trylobot.TrylobotUtils;
 import data.scripts.world.armada.CampaignArmadaController;
@@ -56,12 +61,11 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
     //
     PlanetAPI starA = system.addPlanet("nur_a", system_center_of_mass, "Nur-A", StarTypes.BLUE_GIANT, 90f, 1000f, 1500f, 30f);
     system.setStar(starA);
-    system.addCorona(starA, 75f, 0f, 0.05f, 0.0f);
+    system.addCorona(starA, 300f, 5f, 0f, 1f );
     //
     PlanetAPI starB = system.addPlanet("nur_b", system_center_of_mass, "Nur-B", StarTypes.RED_GIANT, 270f, 300f, 600f, 30f);
     system.setSecondary(starB);
-    system.addCorona(starB, 75f, 0f, 0.05f, 0.0f);
-    //
+    system.addCorona(starB, 50f, 5f, 0.05f, 0.5f);
     // planets
     PlanetAPI planet_I = system.addPlanet("nur_c", system_center_of_mass, "Naera", "desert", 45f, 300f, 8000f, 199f);
     system.addRingBand(planet_I, "misc", "rings_asteroids0", 256f, 0, Color.white, 256f, 630f, 30f);
@@ -78,11 +82,33 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
     PlanetAPI planet_I__moon_e = system.addPlanet("nur_h", planet_I, "Eufariz", "frozen", 180f, 65f, 1750f, 200f);
     PlanetAPI planet_I__moon_f = system.addPlanet("nur_i", planet_I, "Thumn", "rocky_ice", 225f, 100f, 2000f, 362f);
     // stations
-    station = system.addOrbitalStation("stationnom1", planet_I__moon_e, 180f, 300f, 50f, "Naeran Orbital Storage & Resupply", "nomads");
+    station = system.addOrbitalStation("nur_fabricator_station", 
+      planet_I__moon_e, 180f, 300f, 50f, "Naeran Orbital Storage & Resupply", "nomads");
     station.addTag("station");
     station.setCircularOrbitPointingDown(system.getEntityById("nur_h"), 45, 300, 50);
+    // market
+    MarketAPI market = Global.getFactory().createMarket(station.getId()+"_market", station.getName(), 3);
+    market.setSurveyLevel(MarketAPI.SurveyLevel.FULL);
+    market.setFactionId("nomads");
+    market.setPrimaryEntity(station);
+    market.setBaseSmugglingStabilityValue(0);
+    market.getTariff().modifyFlat("generator", 0.3f);
+    // conditions
+    market.addCondition(Conditions.FRONTIER);
+    market.addCondition(Conditions.SPACEPORT);
+    market.addCondition(Conditions.ORBITAL_STATION);
+    market.addCondition(Conditions.VICE_DEMAND);
+    market.addCondition(Conditions.POPULATION_2);
+    market.addCondition(Conditions.SHIPBREAKING_CENTER);
+    // submarkets
+    market.addSubmarket(Submarkets.SUBMARKET_OPEN);
+    market.addSubmarket(Submarkets.GENERIC_MILITARY);
+    market.addSubmarket(Submarkets.SUBMARKET_BLACK);
+    market.addSubmarket(Submarkets.SUBMARKET_STORAGE);
+    Global.getSector().getEconomy().addMarket(market);
+    station.setMarket(market);
     // hyperspace
-    JumpPointAPI jumpPoint = factory.createJumpPoint("jmp_stationnom1", "Orbital Station Jump Point");
+    JumpPointAPI jumpPoint = factory.createJumpPoint("nur_jump_station", "Orbital Station Jump Point");
     jumpPoint.setOrbit(Global.getFactory().createCircularOrbit(planet_I__moon_e, 90f, 300f, 50f));
     jumpPoint.setStandardWormholeToHyperspaceVisual();
     system.addEntity(jumpPoint);
@@ -94,12 +120,13 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
     for (FactionAPI cur_faction : sector.getAllFactions()) {
     	if( "nomads".equals(cur_faction.getId())
       ||  "independent".equals(cur_faction.getId())
+      ||  "scavengers".equals(cur_faction.getId())
       ||  "neutral".equals(cur_faction.getId()) ) {
 				nomads_faction.setRelationship( cur_faction.getId(), 1.00f );
       } else if( "pirates".equals(cur_faction.getId())) {
-				nomads_faction.setRelationship( cur_faction.getId(), -0.50f );
+				nomads_faction.setRelationship( cur_faction.getId(), -0.65f );
       } else if( "hegemony".equals(cur_faction.getId())) {
-				nomads_faction.setRelationship( cur_faction.getId(), -0.25f );
+				nomads_faction.setRelationship( cur_faction.getId(), -0.65f );
 			} else {
 				nomads_faction.setRelationship( cur_faction.getId(), 0.00f );
 			}
@@ -231,7 +258,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
       new StockDescriptor(StockDescriptor.FIGHTER_LPC, "nom_ant_wing", 2, 1f)
     };
 		TheNomadsNurStationRestocker station_cargo_restocker
-      = new TheNomadsNurStationRestocker( restock, station );
+      = new TheNomadsNurStationRestocker( restock, station, Submarkets.GENERIC_MILITARY );
 		system.addScript( station_cargo_restocker );
     
     
