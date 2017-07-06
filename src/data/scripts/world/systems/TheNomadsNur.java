@@ -92,12 +92,14 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
     // relationships
 		FactionAPI nomads_faction = sector.getFaction( "nomads" );
     for (FactionAPI cur_faction : sector.getAllFactions()) {
-    	if( "nomads".equals(cur_faction.getId()) ||
-          "independent".equals(cur_faction.getId()) ||
-          "neutral".equals(cur_faction.getId()) )
+    	if( "nomads".equals(cur_faction.getId())
+      ||  "independent".equals(cur_faction.getId())
+      ||  "neutral".equals(cur_faction.getId()) ) {
 				nomads_faction.setRelationship( cur_faction.getId(), 1.00f );
-			if( "pirates".equals(cur_faction.getId())) {
-				nomads_faction.setRelationship( cur_faction.getId(), -0.65f );
+      } else if( "pirates".equals(cur_faction.getId())) {
+				nomads_faction.setRelationship( cur_faction.getId(), -0.50f );
+      } else if( "hegemony".equals(cur_faction.getId())) {
+				nomads_faction.setRelationship( cur_faction.getId(), -0.25f );
 			} else {
 				nomads_faction.setRelationship( cur_faction.getId(), 0.00f );
 			}

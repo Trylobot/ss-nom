@@ -1,0 +1,21 @@
+id,name,faction,desc,script,icon,order
+open_market,"Open
+Market",,"The open market. Only legal goods may be traded here, and transactions may be subject to tariffs.
+
+Market stability increases prices on this and all other submarkets.",com.fs.starfarer.api.impl.campaign.submarkets.OpenMarketPlugin,,0
+black_market,"Black
+Market",pirates,"The black market. Anything and everything can be bought or sold, and there are no tariffs.
+
+However, transactions may catch the eye of authorities, and large-volume trade may empower local crime syndicates, undermine legitimate authority, and destabilize the overall market. Selling (but not buying) commodities that are illegal on the open market has a much greater impact on stability.
+
+Black market transactions are also less likely to be found out about by the enemies of the faction controlling the market.
+
+More goods are available for sale if the market's stability is low.
+
+Trading with the transponder off and engaging in legitimate trade as a ""cover"" both reduce the probability of attracting the attention of authorities.",com.fs.starfarer.api.impl.campaign.submarkets.BlackMarketPlugin,graphics/factions/black_market.png,999
+storage,Storage,player,Local storage space available for rent.,com.fs.starfarer.api.impl.campaign.submarkets.StoragePlugin,graphics/factions/storage.png,1000
+generic_military,,,"Trade with $theFaction military base.
+
+Weapons and other military hardware can be bought and sold here even if they're illegal on the open market. A commission and better standing with $theFaction results in higher-grade hardware being available.
+
+Will buy locally illegal goods as part of a no-questions-asked buyback program.",com.fs.starfarer.api.impl.campaign.submarkets.MilitarySubmarketPlugin,,100

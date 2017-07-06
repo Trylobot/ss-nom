@@ -168,6 +168,8 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
     // let the escorts catch up if they fall behind
     fleet.removeAbility("sustained_burn");
     //
+    fleet.addScript( new CampaignArmadaOasisRemoteSurveyor( fleet ));
+    //
     return fleet;
 	}
 	
@@ -190,6 +192,7 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
       //
       fleet.addAssignment(
         FleetAssignment.FOLLOW, leader_fleet, Float.MAX_VALUE); // forever
+      
       fleet.addScript( new CampaignArmadaEscortLeashScript( sector, fleet, leader_fleet, leash_length ));
       
       fleets[i] = fleet;

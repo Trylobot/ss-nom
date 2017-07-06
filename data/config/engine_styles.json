@@ -9,6 +9,18 @@
 		"contrailParticleFinalSizeMult":2.45,
 		"contrailMaxSpeedMult":0.45,
 		"contrailAngularVelocityMult":0.45,
+
+		# example from high_tech
+		#"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+		#"engineColor":[100,165,255,255],
+		#"contrailDuration":2,
+		#"contrailWidthMult":3,
+		#"contrailWidthAddedFractionAtEnd":3,  # can be negative. makes trail spread out/narrow at the end
+		#"contrailMinSeg":10, # min segment length, in pixels
+		#"contrailMaxSpeedMult":0.5f,
+		#"contrailAngularVelocityMult":1f,
+		#"contrailColor":[100,165,255,50],
+		#"type":"GLOW" # GLOW or SMOKE; additive or regular blend mode
 	},
 	"FUSION_TORPEDO":{
 		"mode":"PARTICLES", # PARTICLES or QUAD_STRIP

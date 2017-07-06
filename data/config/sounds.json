@@ -134,5 +134,78 @@
 	[
 		{"file":"sounds/nom/fx/stereo/gasp_no2.ogg","pitch":1.0,"volume":0.8},
 	],
+
+
+#	# Engines
+#	# played when engines are being used - depending on ship style and size
+#	# For example - a "new" frigate would play the third sound listed, at volume 0.6
+#
+#	"engine_loop":{
+#		"sounds":[
+#			{"file":"sounds/sfx_engines/engine_01_lotek_00_fighter.ogg","pitch":0.67,"volume":1}, # index:  0
+#			{"file":"sounds/sfx_engines/engine_01_lotek_01_frigate.ogg","pitch":1,"volume":1},    # index:  1
+#			{"file":"sounds/sfx_engines/engine_01_lotek_02_destroyer.ogg","pitch":1,"volume":1},  # index:  2
+#			{"file":"sounds/sfx_engines/engine_01_lotek_03_cruiser.ogg","pitch":1,"volume":1},    # index:  3
+#			{"file":"sounds/sfx_engines/engine_01_lotek_04_capital.ogg","pitch":1,"volume":1},    # index:  4
+#			],
+#
+#		"LOW_TECH":{"sounds":[0,1,2,3,4], "pitch":1, "volume":0.5},
+#		},
+#
+#
+#	"engine_accelerate":{ # played when ship receives an "engine boost" from having zero flux 
+#		"sounds":[
+#			{"file":"sounds/sfx_engines/engine_boost_01.ogg","pitch":1.0,"volume":0.4},
+#			{"file":"sounds/sfx_engines/engine_boost_02.ogg","pitch":1.0,"volume":0.4},
+#			{"file":"sounds/sfx_engines/engine_boost_03.ogg","pitch":1.0,"volume":0.4},
+#		],
+#		"LOW_TECH":{"sounds":[0,1,2], "pitch":0.8, "volume":1},
+#	},
+#
+#	# Shields and related
+#	"shield_burnout":{ # played when a ship overloads
+#		"sounds":[
+#			{"file":"sounds/sfx_shields/shields_burnout_oneshot.ogg","pitch":1,"volume":1},
+#		],
+#		"LOW_TECH":{"sounds":[0], "pitch":0.7, "volume":1},
+#	},
+#	"emp_loop":{ # played to accompany the lighning arcs displayed when a ship is overloaded
+#		"sounds":[
+#			{"file":"sounds/sfx_shields/shields_burnout_loop.ogg","pitch":1,"volume":0.6},
+#		],
+#		"LOW_TECH":{"sounds":[0], "pitch":0.7, "volume":1},
+#	},
+#	"flux_loop":{ # played while a ship is venting flux
+#		"sounds":[
+#			{"file":"sounds/sfx_flux/flux_flush_loop.ogg","pitch":1,"volume":0.8},
+#		],
+#		"LOW_TECH":{"sounds":[0], "pitch":0.7, "volume":1},
+#	},	
+#	"vent_flux":{ # played once when a ship starts venting flux
+#		"sounds":[
+#			{"file":"sounds/sfx_flux/flux_vent.ogg","pitch":1,"volume":0.5},
+#		],
+#		"LOW_TECH":{"sounds":[0], "pitch":0.7, "volume":1},
+#	},	
+#	
+#	# Similar setup to engine loop - defines which of the two sounds to use, and
+#	# what pitch/volume to use them at, depending on ship style and size
+#	"shield_lower":{
+#		"sounds":[
+#			{"file":"sounds/sfx_shields/shields_down_large.ogg","pitch":1,"volume":0.4},
+#			{"file":"sounds/sfx_shields/shields_down_medium.ogg","pitch":1,"volume":0.4},
+#			{"file":"sounds/sfx_shields/shields_down_small.ogg","pitch":1,"volume":0.4},
+#		],
+#		"LOW_TECH":{"sounds":[0,1,2], "pitch":1, "volume":1},
+#	},
+#	"shield_raise":{
+#		"sounds":[
+#			{"file":"sounds/sfx_shields/shields_up_large.ogg","pitch":1,"volume":1},
+#			{"file":"sounds/sfx_shields/shields_up_medium.ogg","pitch":1,"volume":1},
+#			{"file":"sounds/sfx_shields/shields_up_small.ogg","pitch":1,"volume":1},
+#		],
+#		"LOW_TECH":{"sounds":[0,1,2], "pitch":1, "volume":1},
+#	},
+
 }
 
