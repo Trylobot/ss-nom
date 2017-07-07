@@ -86,10 +86,7 @@ public class OasisScanAbility extends BaseToggleAbility {
 		
     tooltip.addPara(
       "Artifially induces a dream state in one of the crew, which when combined with " +
-      "high dosages of recreational drugs, allows for locating vessels in hyperspace.", pad);
-    tooltip.addPara(
-      "Only a vessel fitted with a hyperspace locator crystal (such as the Nomads' Oasis Colony ship) " +
-      "is detectable using this method; interference is otherwise too high for it to be reliable." , pad);
+      "a low dosage of recreational drugs, allows for locating objects in hyperspace.", pad);
     
     tooltip.addPara("Consumes 1 unit of recreational drugs per week.", pad, highlight);
     
@@ -100,7 +97,7 @@ public class OasisScanAbility extends BaseToggleAbility {
 		}
     
     if (getFleet().getCargo().getCommodityQuantity("oasis_locator") < 1)
-      tooltip.addPara("Requires Hallucinomagnetic Locator item.", bad, pad);
+      tooltip.addPara("Requires Hallucinomagnetic Locator.", bad, pad);
 		
 		//tooltip.addPara("Disables the transponder when activated.", pad);
 		addIncompatibleToTooltip(tooltip, expanded);

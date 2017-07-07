@@ -15,8 +15,9 @@ NGCDone",,,
 ,,,,,,
 # acquiring a deep dream,,,,,,
 dialogNomadStationHallucinomagneticLocator,PopulateOptions,"$faction.id == nomads
+!PlayerCargoHas oasis_locator
 $isPerson",,,50:grantAbilityOasisDeepDream:Request Hallucinomagnetic Locator,
-grantAbilityOasisDeepDreamOption,DialogOptionSelected,$option == grantAbilityOasisDeepDream,"AddAbilityFirstFreeSlot ""oasis_scan""
+grantAbilityOasisDeepDreamOption,DialogOptionSelected,$option == grantAbilityOasisDeepDream,"AddAbilityFirstFreeSlot oasis_scan
 AddRemoveCommodity oasis_locator 1 true
 ShowDefaultVisual
 EndConversation",,,
