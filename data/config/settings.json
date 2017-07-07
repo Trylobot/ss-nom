@@ -9,6 +9,7 @@
   },
   "ruleCommandPackages": [
     "data.campaign.rulecmd",
+    "data.campaign.rulecmd.salvage",
   ],
   "plugins":{
     "TheNomadsDamselflyTowCableFXPlugin": "data.scripts.plugins.TheNomadsDamselflyTowCableFXPlugin",

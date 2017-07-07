@@ -66,6 +66,8 @@
     "engagesInHostilities": false,
     "buysAICores": false,
     "buysSurveyData": true,
+    "SurveyDataValueMult": 1,
+    "SurveyDataRepMult": 2,
     "engageWhenEvenStrength":true,
     "exemptFromFoodShortages":true,
     "willTradeWhenHostile":true,
