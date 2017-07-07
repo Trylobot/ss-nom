@@ -11,10 +11,10 @@ Lunar Crucible,nom_lunar_crucible_fighter,1,,2000,450,225,,3,0,30,9,,,,ENERGY,,5
 Solar Crucible,nom_solar_crucible,1,,11000,800,1250,,30,0,5,30,,,,ENERGY,,2500,0.05,2,1,1.5,,,,,10000,,,,,SYSTEM,,1337999
 Gamma Pulse EMP,nom_gamma_pulse_emp,1,,940,800,,30,95,30,40,10,,,,ENERGY,40,,,0.3,2,0.15,,,,,,700,,,100,SYSTEM,,1337115
 Firecracker Burster,nom_firecracker,1,,3000,400,,88,,10,40,8,,,,ENERGY,55,,,1.75,,,,,,,,700,,,30,"SYSTEM, PD, ANTI_FTR",,1337112
-Mini Fusion Torpedo,nom_self_sustained_fusion_torpedo_mini,1,,600,1000,,80,15,10,10,4,10,0.2,,ENERGY,10,,0,2,,,,,,,,350,30,12,50,"SYSTEM, ANTI_FTR, DO_NOT_AIM",,1337109
-Fusion Torpedo Pod,nom_self_sustained_fusion_torpedo_pod,1,,2900,2000,,280,50,50,10,6,5,0.1,,ENERGY,35,,0,6,,,,,,,,300,65,15,150,"SYSTEM, DO_NOT_AIM, HEATSEEKER",,1337107
-Fusion Torpedo Battery,nom_self_sustained_fusion_torpedo_bank,1,,7000,2000,,280,50,50,10,12,20,0.3,,ENERGY,40,,0,6,3,0.315,,,,,,300,65,15,150,"SYSTEM, DO_NOT_AIM, HEATSEEKER",,1337108
-Heavy Fusion Torpedo,nom_self_sustained_fusion_torpedo_large,1,,10000,2500,,600,100,100,10,16,5,0.1,,ENERGY,350,,0,8,,,,,,,,250,80,20,200,"SYSTEM, DO_NOT_AIM, HEATSEEKER",,1337119
+Mini Fusion Torpedo,nom_self_sustained_fusion_torpedo_mini,1,,600,1000,,80,15,10,10,4,15,0.4,,ENERGY,20,,0,2,,,,,,,,370,80,12,50,"SYSTEM, ANTI_FTR, DO_NOT_AIM",,1337109
+Fusion Torpedo Pod,nom_self_sustained_fusion_torpedo_pod,1,,2900,2000,,280,50,50,10,6,8,0.2,,ENERGY,55,,0,6,,,,,,,,320,65,15,150,"SYSTEM, DO_NOT_AIM, HEATSEEKER",,1337107
+Fusion Torpedo Battery,nom_self_sustained_fusion_torpedo_bank,1,,7000,2000,,280,50,50,10,12,25,0.6,,ENERGY,60,,0,6,3,0.315,,,,,,320,65,15,150,"SYSTEM, DO_NOT_AIM, HEATSEEKER",,1337108
+Heavy Fusion Torpedo,nom_self_sustained_fusion_torpedo_large,1,,10000,2500,,600,100,100,10,16,5,0.2,,ENERGY,700,,0,8,,,,,,,,285,20,20,300,"SYSTEM, DO_NOT_AIM",,1337119
 Faux Plasma Mini,nom_effect_faux_plasma_mini,0,,0,1000,,0,,0,0,0,0,0,,ENERGY,0,,0,0,,,,,,,,1,0,99999,1,SYSTEM,,1337111
 Faux Plasma,nom_effect_faux_plasma,0,,0,2000,,0,,0,0,0,0,0,,ENERGY,0,,0,0,,,,,,,,1,0,99999,1,SYSTEM,,1337110
 Faux Plasma Large,nom_effect_faux_plasma_large,0,,0,2500,,0,,0,0,0,0,0,,ENERGY,0,,0,0,,,,,,,,1,0,99999,1,SYSTEM,,1337120

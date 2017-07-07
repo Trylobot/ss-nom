@@ -1,7 +1,7 @@
 {
 	"id":"nom_self_sustained_fusion_torpedo_projectile_large",
 	"specClass":"missile",	
-	"missileType":"HEATSEEKER",
+	"missileType":"MISSILE",
 	"sprite":"graphics/nom/weapons/missiles/trans_1x1.png",
 	"size":[50,50],	
 	"center":[25,25],

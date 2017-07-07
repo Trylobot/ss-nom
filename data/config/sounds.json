@@ -79,9 +79,9 @@
 
 	"nom_self_sustained_fusion_torpedo_large_fire":
 	[
-		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":0.70,"volume":1.2},
-		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":0.68,"volume":1.2},
-		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":1.72,"volume":1.2},
+		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":0.70,"volume":1.25},
+		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":0.68,"volume":1.25},
+		{"file":"sounds/nom/fx/nom_self_sustained_fusion_torpedo_fire.ogg","pitch":1.72,"volume":1.25},
 	],
 	"nom_self_sustained_fusion_torpedo_fire":
 	[
