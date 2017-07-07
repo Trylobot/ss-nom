@@ -16,33 +16,33 @@
 			"droneIndex": [ 0 ],
 			"defaultFacing":"AWAY_FROM_SHIP",	# MATCH_DRONE_HEADING, MATCH_SHIP_HEADING, MATCH_SHIP_FACING, AWAY_FROM_SHIP
 			"faceEnemy":true,
-			"holdRoamRange":100,
-			"freeRoamRange":1500,
+			"holdRoamRange":50,
+			"freeRoamRange":2000,
 			"targetPriority":[FIGHTER, SHIP],
-			"initialOrbitAngle":170,
-			"orbitRadius":10, 			# plus ship radius
+			"initialOrbitAngle":75, # 0 is front of ship, values proceed counter-clockwise
+			"orbitRadius":-60, 			# plus ship radius
 			"orbitDir":1, 					# -1 or 1
 			"orbitSpeed":0, 				# pixels/second
 		},{
 			"droneIndex": [ 1 ],
 			"defaultFacing":"AWAY_FROM_SHIP",	# MATCH_DRONE_HEADING, MATCH_SHIP_HEADING, MATCH_SHIP_FACING, AWAY_FROM_SHIP
 			"faceEnemy":true,
-			"holdRoamRange":100,
-			"freeRoamRange":1500,
+			"holdRoamRange":50,
+			"freeRoamRange":2000,
 			"targetPriority":[FIGHTER, SHIP],
-			"initialOrbitAngle":180,
-			"orbitRadius":10, 			# plus ship radius
+			"initialOrbitAngle":90, # 0 is front of ship, values proceed counter-clockwise
+			"orbitRadius":-60, 			# plus ship radius
 			"orbitDir":1, 					# -1 or 1
 			"orbitSpeed":0, 				# pixels/second
 		},{
 			"droneIndex": [ 2 ],
 			"defaultFacing":"AWAY_FROM_SHIP",	# MATCH_DRONE_HEADING, MATCH_SHIP_HEADING, MATCH_SHIP_FACING, AWAY_FROM_SHIP
 			"faceEnemy":true,
-			"holdRoamRange":100,
-			"freeRoamRange":1500,
+			"holdRoamRange":50,
+			"freeRoamRange":2000,
 			"targetPriority":[FIGHTER, SHIP],
-			"initialOrbitAngle":190,
-			"orbitRadius":10, 		  # plus ship radius
+			"initialOrbitAngle":105,# 0 is front of ship, values proceed counter-clockwise
+			"orbitRadius":-60, 		  # plus ship radius
 			"orbitDir":1, 					# -1 or 1
 			"orbitSpeed":0, 				# pixels/second
 		}
