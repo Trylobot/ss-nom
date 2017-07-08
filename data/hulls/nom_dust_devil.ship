@@ -1,0 +1,202 @@
+{
+  "bounds": [
+    20.5,
+    25,
+    17.5,
+    14,
+    25.5,
+    0.5,
+    17.5,
+    -10.5,
+    25.5,
+    -17.5,
+    7,
+    -39,
+    -13.5,
+    -41.5,
+    -12.5,
+    -28,
+    -25,
+    -14.5,
+    -14.5,
+    1,
+    -28,
+    17,
+    -11.5,
+    30.5,
+    -12,
+    45,
+    1,
+    36,
+    9.5,
+    39
+  ],
+  "builtInMods": [
+    "naeran_flux_shunts"
+  ],
+  "builtInWeapons": {
+    "BOW PORTSIDE HARDPOINT": "nom_heavy_electron_maser",
+    "BOW STERNSIDE HARDPOINT": "nom_heavy_electron_maser",
+    "PORT TURRET": "nom_light_electron_maser",
+    "STERN TURRET": "nom_light_electron_maser"
+  },
+  "builtInWings": [],
+  "center": [
+    51,
+    33
+  ],
+  "collisionRadius": 63,
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 30,
+      "length": 30,
+      "location": [
+        -32,
+        15
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 10
+    },
+    {
+      "angle": 180,
+      "contrailSize": 30,
+      "length": 30,
+      "location": [
+        -32,
+        -14
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 10
+    },
+    {
+      "angle": 180,
+      "contrailSize": 8,
+      "length": 16.5,
+      "location": [
+        -24.5,
+        23.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 8
+    },
+    {
+      "angle": 180,
+      "contrailSize": 5,
+      "length": 11,
+      "location": [
+        -24,
+        -22
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 5
+    },
+    {
+      "angle": -135,
+      "contrailSize": 128,
+      "length": 13,
+      "location": [
+        -15.5,
+        -36.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 7
+    },
+    {
+      "angle": -135,
+      "contrailSize": 128,
+      "length": 18.738329,
+      "location": [
+        -13,
+        -44
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 9.192388
+    },
+    {
+      "angle": 135,
+      "contrailSize": 128,
+      "length": 13,
+      "location": [
+        -15.5,
+        39
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 7
+    },
+    {
+      "angle": 135,
+      "contrailSize": 128,
+      "length": 18.738329,
+      "location": [
+        -13.5,
+        45.5
+      ],
+      "style": "ANCIENT_NAERAN",
+      "width": 9.192388
+    }
+  ],
+  "height": 68,
+  "hullId": "nom_dust_devil",
+  "hullName": "Dust Devil",
+  "hullSize": "FRIGATE",
+  "shieldCenter": [
+    0,
+    -0
+  ],
+  "shieldRadius": 56,
+  "spriteName": "graphics/nom/ships/nom_dust_devil.png",
+  "style": "ANCIENT_NAERAN",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 0,
+      "arc": 10,
+      "id": "BOW PORTSIDE HARDPOINT",
+      "locations": [
+        15,
+        15
+      ],
+      "mount": "HARDPOINT",
+      "size": "MEDIUM",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 0,
+      "arc": 10,
+      "id": "BOW STERNSIDE HARDPOINT",
+      "locations": [
+        15,
+        -14
+      ],
+      "mount": "HARDPOINT",
+      "size": "MEDIUM",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 0,
+      "arc": 100,
+      "id": "PORT TURRET",
+      "locations": [
+        10,
+        31
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 0,
+      "arc": 100,
+      "id": "STERN TURRET",
+      "locations": [
+        10,
+        -30
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    }
+  ],
+  "width": 100
+}

@@ -54,9 +54,9 @@ public class MissionDefinition implements MissionDefinitionPlugin
     api.addToFleet(FleetSide.ENEMY, "nom_yellowjacket_sniper", FleetMemberType.SHIP, true);
     api.addToFleet(FleetSide.ENEMY, "nom_yellowjacket_sniper", FleetMemberType.SHIP, true);
     api.addToFleet(FleetSide.ENEMY, "nom_yellowjacket_sniper", FleetMemberType.SHIP, true);
+    api.addToFleet(FleetSide.ENEMY, "nom_dust_devil_assault", FleetMemberType.SHIP, true);
+    api.addToFleet(FleetSide.ENEMY, "nom_dust_devil_assault", FleetMemberType.SHIP, true);
     api.addToFleet(FleetSide.ENEMY, "nom_wurm_royal_vanguard", FleetMemberType.SHIP, true);
-    api.addToFleet(FleetSide.ENEMY, "nom_wurm_assault", FleetMemberType.SHIP, true);
-    api.addToFleet(FleetSide.ENEMY, "nom_wurm_assault", FleetMemberType.SHIP, true);
     api.addToFleet(FleetSide.ENEMY, "nom_wurm_assault", FleetMemberType.SHIP, true);
     api.addToFleet(FleetSide.ENEMY, "nom_wurm_assault", FleetMemberType.SHIP, true);
     api.addToFleet(FleetSide.ENEMY, "nom_wurm_assault", FleetMemberType.SHIP, true);

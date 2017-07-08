@@ -57,8 +57,8 @@ nom_gamma_pulse_emp,hardpointbarrel,,1,normal,graphics/nom/weapons/shaders/nom_g
 ,,,,,
 nom_heavy_electron_maser,turret,,1,normal,graphics/nom/weapons/shaders/nom_heavy_electron_maser_turret_base_normal.png
 nom_heavy_electron_maser,turretbarrel,,1,normal,graphics/nom/weapons/shaders/nom_heavy_electron_maser_turret_recoil_normal.png
-nom_heavy_electron_maser,hardpoint,,1,normal,graphics/nom/weapons/shaders/nom_heavy_electron_maser_turret_base_normal.png
-nom_heavy_electron_maser,hardpointbarrel,,1,normal,graphics/nom/weapons/shaders/nom_heavy_electron_maser_turret_recoil_normal.png
+nom_heavy_electron_maser,hardpoint,,1,normal,graphics/nom/weapons/shaders/nom_heavy_electron_maser_hardpoint_base_normal.png
+nom_heavy_electron_maser,hardpointbarrel,,1,normal,graphics/nom/weapons/shaders/nom_heavy_electron_maser_hardpoint_recoil_normal.png
 ,,,,,
 nom_twin_electron_maser,turret,,1,normal,graphics/nom/weapons/shaders/nom_twin_electron_maser_turret_base_normal.png
 nom_twin_electron_maser,turretbarrel,,1,normal,graphics/nom/weapons/shaders/nom_twin_electron_maser_turret_recoil_normal.png

@@ -1,0 +1,27 @@
+{
+  "displayName": "Assault",
+  "fluxCapacitors": 0,
+  "fluxVents": 5,
+  "goalVariant": true,
+  "hullId": "nom_dust_devil",
+  "hullMods": [
+    "auxiliarythrusters",
+    "targetingunit"
+  ],
+  "permaMods": [],
+  "quality": 0.5,
+  "variantId": "nom_dust_devil_assault",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "BOW PORTSIDE HARDPOINT": "nom_heavy_electron_maser",
+        "BOW STERNSIDE HARDPOINT": "nom_heavy_electron_maser",
+        "PORT TURRET": "nom_light_electron_maser",
+        "STERN TURRET": "nom_light_electron_maser"
+      }
+    }
+  ],
+  "wings": []
+}

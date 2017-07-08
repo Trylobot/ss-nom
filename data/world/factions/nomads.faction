@@ -117,6 +117,7 @@
 
     "escortSmall": {
       "nom_wurm_assault":10,
+      "nom_dust_devil_assault":8,
       "fallback": {"combatSmall":1},
     },
     "escortMedium": {
@@ -126,8 +127,9 @@
     "combatSmall":{
       "nom_wurm_assault":10,
       "nom_wurm_royal_vanguard":3,
-      "nom_death_bloom_strike":8,
-      "nom_yellowjacket_sniper":9,
+      "nom_dust_devil_assault":8,
+      "nom_death_bloom_strike":4,
+      "nom_yellowjacket_sniper":8,
       "fallback":{"combatMedium":0.5},
     },
     "combatMedium":{
@@ -318,6 +320,7 @@
       "marinesPercent":[0, 0],
       "ships":{
         "nom_wurm_assault":[1, 3],                  # 4
+        "nom_dust_devil_assault":[0, 1],            # 5
         "nom_flycatcher_ant":[0, 1],                # 5
       },
     },
@@ -332,6 +335,7 @@
         "nom_flycatcher_ant":[0, 1],                # 5
         "nom_flycatcher_toad":[0, 1],               # 5
         "nom_wurm_assault":[0, 2],                  # 4
+        "nom_dust_devil_assault":[0, 2],            # 5
         "nom_yellowjacket_sniper":[1, 2],           # 6
       },
     },
@@ -352,6 +356,7 @@
         "nom_flycatcher_iguana":[0, 1],             # 5
         "nom_yellowjacket_sniper":[0, 4],           # 6
         "nom_wurm_assault":[1, 5],                  # 4
+        "nom_dust_devil_assault":[1, 4],            # 5
       },
     },
     "assassin":{
@@ -362,8 +367,8 @@
       "extraCrewPercent":[35, 50],
       "marinesPercent":[0, 0],
       "ships":{
-        "nom_roadrunner_pursuit":[1, 1],            # 10
-        "nom_death_bloom_strike":[1, 1],            # 13
+        "nom_roadrunner_pursuit":[1, 2],            # 10
+        "nom_death_bloom_strike":[1, 2],            # 13
       },
     },
     "royalGuard":{
@@ -384,6 +389,7 @@
         "nom_death_bloom_strike":[0, 1],            # 13
         "nom_yellowjacket_sniper":[1, 4],           # 6
         "nom_wurm_royal_vanguard":[1, 6],           # 4
+        "nom_dust_devil_assault":[1, 5],            # 5
       },
     },
     "jihadFleet":{
@@ -404,6 +410,7 @@
         "nom_death_bloom_strike":[0, 2],            # 13
         "nom_yellowjacket_sniper":[1, 4],           # 6
         "nom_wurm_assault":[0, 6],                  # 4
+        "nom_dust_devil_assault":[0, 5],            # 5
       },
     },
     "carrierGroup":{
@@ -420,6 +427,7 @@
         "nom_flycatcher_toad":[0, 2],               # 5
         "nom_flycatcher_fang":[0, 2],               # 5
         "nom_wurm_assault":[0, 5],                  # 4
+        "nom_dust_devil_assault":[0, 5],            # 5
       },
     },
     "royalCommandFleet":{
@@ -442,7 +450,8 @@
         "nom_flycatcher_toad":[0, 4],               # 5
         "nom_death_bloom_strike":[3, 3],            # 13
         "nom_yellowjacket_sniper":[2, 8],           # 6
-        "nom_wurm_royal_vanguard":[5, 16],          # 4
+        "nom_wurm_royal_vanguard":[3, 16],          # 4
+        "nom_dust_devil_assault":[2, 12],           # 5
       },
     },
     "colonyFleet":{

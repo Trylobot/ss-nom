@@ -242,6 +242,7 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
       new StockDescriptor(StockDescriptor.SHIP, "nom_flycatcher_toad", 1, 1f),
       new StockDescriptor(StockDescriptor.SHIP, "nom_yellowjacket_sniper", 4, 1f),
       new StockDescriptor(StockDescriptor.SHIP, "nom_death_bloom_strike", 2, 1f),
+      new StockDescriptor(StockDescriptor.SHIP, "nom_dust_devil_assault", 2, 3f),
       new StockDescriptor(StockDescriptor.SHIP, "nom_wurm_royal_vanguard", 1, 3f),
       new StockDescriptor(StockDescriptor.SHIP, "nom_wurm_assault", 4, 1f),
       new StockDescriptor(StockDescriptor.SHIP, "nom_cobra_personnel", 1, 2f),
