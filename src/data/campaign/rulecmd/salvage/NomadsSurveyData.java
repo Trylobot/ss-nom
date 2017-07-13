@@ -104,8 +104,8 @@ public class NomadsSurveyData extends BaseCommandPlugin
     //   generally this will be the Colony Fleet.
     // Edge case: a random Nomad fleet who has salvaged an Oasis, which was purchased by the player, and later lost.
     //   this has never happened, and furthermore is actually fine.
-		if (person == null || !buysCommodity)
-      return false;
+		if (person == null || !buysCommodity || !(entity instanceof CampaignFleetAPI))
+      return false; // no active person / doesn't want it / not speaking directly to a person
 		CampaignFleetAPI interactionFleet = (CampaignFleetAPI) entity;
 		if (interactionFleet == null)
       return false; // must be a fleet
