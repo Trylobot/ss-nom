@@ -1,16 +1,26 @@
 {
   "displayName": "Massive",
-  "goalVariant": true,
   "fluxCapacitors": 0,
   "fluxVents": 10,
+  "goalVariant": true,
   "hullId": "nom_oasis",
   "hullMods": [
-    "blast_doors",    # 25
-    "reinforcedhull", # 30
-    "autorepair",     # 25
+    "blast_doors",
+    "reinforcedhull",
+    "autorepair"
   ],
   "permaMods": [],
   "quality": 0.5,
   "variantId": "nom_oasis_standard",
-  "weaponGroups": []
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "MIDSHIP PD 1": "nom_twin_ultralight_electron_maser",
+        "MIDSHIP PD 2": "nom_twin_ultralight_electron_maser"
+      }
+    }
+  ],
+  "wings": []
 }

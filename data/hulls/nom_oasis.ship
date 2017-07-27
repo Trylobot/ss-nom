@@ -1,5 +1,4 @@
 {
-  "coversColor": "234,214,124,255",
   "bounds": [
     283.5,
     59,
@@ -182,17 +181,21 @@
     "automated_nanobot_fabricators",
     "logistical_distribution_drones",
     "surveying_equipment",
-    "civgrade",
+    "civgrade"
   ],
   "builtInWeapons": {
+    "MIDSHIP PD 1": "nom_twin_ultralight_electron_maser",
+    "MIDSHIP PD 2": "nom_twin_ultralight_electron_maser",
     "WS_habitat_ring": "nom_decorative_oasis_habitat_ring",
     "WS_support_beam": "nom_decorative_oasis_habitat_ring_structural_support_beam"
   },
+  "builtInWings": [],
   "center": [
     134,
     455
   ],
   "collisionRadius": 460.635437,
+  "coversColor": "234,214,124,255",
   "engineSlots": [
     {
       "angle": 180,
@@ -349,7 +352,6 @@
       "width": 7
     }
   ],
-  "width": 288,
   "height": 880,
   "hullId": "nom_oasis",
   "hullName": "Oasis",
@@ -386,6 +388,31 @@
       "mount": "TURRET",
       "size": "MEDIUM",
       "type": "DECORATIVE"
+    },
+    {
+      "angle": -15,
+      "arc": 360,
+      "id": "MIDSHIP PD 1",
+      "locations": [
+        -50,
+        22.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 18,
+      "arc": 360,
+      "id": "MIDSHIP PD 2",
+      "locations": [
+        -35,
+        35
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
     }
-  ]
+  ],
+  "width": 288
 }

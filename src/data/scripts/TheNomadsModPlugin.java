@@ -24,11 +24,6 @@ public class TheNomadsModPlugin extends BaseModPlugin
   public void onNewGame() {
     SectorAPI sector = Global.getSector();
     
-    // total conversions
-    if (Global.getSettings().getModManager().isModEnabled("nexerelin"))
-      if (!exerelin.campaign.SectorManager.getCorvusMode())
-        return;
-    
     // generate Nur star system, and optionally, the oasis armada
     new TheNomadsNur( true ).generate( sector );
     
