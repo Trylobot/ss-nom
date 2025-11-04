@@ -6,6 +6,8 @@
   "customRebelFaction": "",
   "customRebelFleetId": "",
   "rebelFleetSuffix": "Vagabond",
+  "maxColonyDistance": 40,
+  "colonyExpeditionChance":5.0,
   "alignments": {
     "technocratic": 0.0,
     "militarist": -0.5,

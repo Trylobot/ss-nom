@@ -1,47 +1,83 @@
 package data.hullmods.base;
+
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.characters.PersonAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.combat.BaseHullMod;
-import java.util.Hashtable;
-import java.util.Iterator;
+
+import java.util.HashMap;
 import java.util.Map;
 
-public abstract class BaseFleetEffectHullMod extends BaseHullMod
-{
-	public CampaignFleetAPI findFleet( FleetMemberAPI member )
-	{
-		Map data = Global.getSector().getPersistentData();
-		final String memo_key = "nom.data.hullmods.base.BaseFleetEffectHullMod.memo";
-		Hashtable memo = (Hashtable) data.get( memo_key );
-		if( memo == null )
-		{
-			memo = new Hashtable();
-			data.put( memo_key, memo );
-		}
-		
-		// ships change fleets infrequently; it's probably going to be in the same fleet
-		PersonAPI commander = member.getFleetCommander();
-		CampaignFleetAPI last_fleet_found = (CampaignFleetAPI)memo.get( member );
-		if( last_fleet_found != null && last_fleet_found.getCommander() == commander )
-			return last_fleet_found;
-		
-		// search all fleets for the commander
-		for( Iterator star_system_i = Global.getSector().getStarSystems().iterator(); star_system_i.hasNext(); )
-		{
-			for( Iterator fleet_i = ((StarSystemAPI)star_system_i.next()).getFleets().iterator(); fleet_i.hasNext(); )
-			{
-				CampaignFleetAPI fleet = (CampaignFleetAPI)fleet_i.next();
-				if( commander == fleet.getCommander() )
-				{
-					memo.put( member, fleet );
-					//_.L("found fleet by commander");
-					return fleet;
-				}
-			}
-		}
-		return null;
-	}	
+/**
+ * A safer version of the original BaseFleetEffectHullMod that avoids writing
+ * game objects into persistent save data (which causes serialization errors).
+ *
+ * Uses a runtime-only cache (cleared automatically between games).
+ */
+public abstract class BaseFleetEffectHullMod extends BaseHullMod {
+
+    // Runtime-only cache, shared across all instances (not saved)
+    private static final Map<FleetMemberAPI, CampaignFleetAPI> memo = new HashMap<>();
+
+    /**
+     * Attempts to find the CampaignFleetAPI associated with the given fleet member.
+     * Uses a simple runtime memoization system to speed up repeated lookups.
+     */
+    public CampaignFleetAPI findFleet(FleetMemberAPI member) {
+        if (member == null) return null;
+
+        PersonAPI commander = member.getFleetCommander();
+        if (commander == null) return null;
+
+        // Reuse cached fleet if the commander still matches
+        CampaignFleetAPI cachedFleet = memo.get(member);
+        if (cachedFleet != null && cachedFleet.getCommander() == commander) {
+            return cachedFleet;
+        }
+
+        // Otherwise, search all star systems for the fleet
+        for (StarSystemAPI system : Global.getSector().getStarSystems()) {
+            for (CampaignFleetAPI fleet : system.getFleets()) {
+                if (fleet.getCommander() == commander) {
+                    memo.put(member, fleet);
+                    return fleet;
+                }
+            }
+        }
+
+        // Fleet not found — clear outdated cache entry
+        memo.remove(member);
+        return null;
+    }
+
+    /**
+     * Clears the runtime cache manually.
+     */
+    public static void clearMemo() {
+        memo.clear();
+    }
+
+    /**
+     * Embedded mod plugin to auto-clear cache when a new game starts or returns to title.
+     * This ensures that old references never persist between campaigns.
+     */
+    public static class CacheCleanupPlugin extends BaseModPlugin {
+        public void onGameLoad(boolean newGame) {
+            clearMemo();
+        }
+        public void onApplicationLoad() {
+            clearMemo();
+        }
+
+        public void onNewGameAfterEconomyLoad() {
+            clearMemo();
+        }
+
+        public void onGameQuit() {
+            clearMemo();
+        }
+    }
 }

@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="TheNomads:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TheNomads_jar</output-path>
+    <root id="archive" name="TheNomads.jar">
+      <element id="module-output" name="ss-nom" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../starsector-core/starfarer.api.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../GraphicsLib/jars/Graphics.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../starsector-core/lwjgl.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Console Commands/jars/lw_Console.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../starsector-core/lwjgl_util.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../LazyLib/jars/LazyLib.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

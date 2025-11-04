@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="TheNomads">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jars/TheNomads.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

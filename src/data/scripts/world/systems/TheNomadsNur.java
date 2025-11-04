@@ -2,18 +2,15 @@ package data.scripts.world.systems;
 
 import java.awt.Color;
 import java.util.Iterator;
-
 import com.fs.starfarer.api.FactoryAPI;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.FleetDataAPI;
-import com.fs.starfarer.api.campaign.JumpPointAPI;
 import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.SectorGeneratorPlugin;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
-import com.fs.starfarer.api.campaign.econ.EconomyAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.econ.SubmarketAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
@@ -22,7 +19,6 @@ import com.fs.starfarer.api.impl.campaign.ids.Conditions;
 import com.fs.starfarer.api.impl.campaign.ids.StarTypes;
 import com.fs.starfarer.api.impl.campaign.ids.Submarkets;
 import com.fs.starfarer.api.util.Misc;
-
 import data.scripts.trylobot.TrylobotUtils;
 import data.scripts.world.armada.CampaignArmadaController;
 import data.scripts.world.armada.CampaignArmadaController.CampaignArmadaControllerEvent;
@@ -50,158 +46,142 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
   
   
   @Override
-	public void generate( SectorAPI sector )
-	{
+	public void generate(SectorAPI sector) {
 		factory = Global.getFactory();
-    // stars, planets, moons
-		StarSystemAPI system = sector.createStarSystem( "Nur" );
-    system.setLightColor( new Color( 185, 185, 240 )); // light color in entire system, affects all entities
-		system.getLocation().set( 18000f, -900f );
-		SectorEntityToken system_center_of_mass = system.initNonStarCenter();
-    //
-    PlanetAPI starA = system.addPlanet("nur_a", system_center_of_mass, "Nur-A", StarTypes.BLUE_GIANT, 90f, 1000f, 1500f, 30f);
-    system.setStar(starA);
-    system.addCorona(starA, 300f, 5f, 0f, 1f );
-    //
-    PlanetAPI starB = system.addPlanet("nur_b", system_center_of_mass, "Nur-B", StarTypes.RED_GIANT, 270f, 300f, 600f, 30f);
-    system.setSecondary(starB);
-    system.addCorona(starB, 50f, 5f, 0.05f, 0.5f);
-    // planets
-    PlanetAPI planet_I = system.addPlanet("nur_c", system_center_of_mass, "Naera", "desert", 45f, 300f, 8000f, 199f);
-    system.addRingBand(planet_I, "misc", "rings_asteroids0", 256f, 0, Color.white, 256f, 630f, 30f);
-    planet_I.setCustomDescriptionId("nom_planet_naera");
-    planet_I.getSpec().setAtmosphereColor(new Color(160, 110, 45, 140));
-    planet_I.getSpec().setCloudColor(new Color(255, 255, 255, 23));
-    planet_I.getSpec().setTilt(15);
-    planet_I.applySpecChanges();
-    // moons
-    PlanetAPI planet_I__moon_a = system.addPlanet("nur_d", planet_I, "Ixaith", "rocky_unstable", 0f, 60f, 800f, 67f);
-    PlanetAPI planet_I__moon_b = system.addPlanet("nur_e", planet_I, "Ushaise", "rocky_ice", 45f, 45f, 1000f, 120f);
-    PlanetAPI planet_I__moon_c = system.addPlanet("nur_f", planet_I, "Riaze", "barren", 90f, 100f, 1200f, 130f);
-    PlanetAPI planet_I__moon_d = system.addPlanet("nur_g", planet_I, "Riaze-Tremn", "frozen", 135f, 35f, 1500f, 132f);
-    PlanetAPI planet_I__moon_e = system.addPlanet("nur_h", planet_I, "Eufariz", "frozen", 180f, 65f, 1750f, 200f);
-    PlanetAPI planet_I__moon_f = system.addPlanet("nur_i", planet_I, "Thumn", "rocky_ice", 225f, 100f, 2000f, 362f);
-    // stations
-    station = system.addOrbitalStation("nur_fabricator_station", 
-      planet_I__moon_e, 180f, 300f, 50f, "Naeran Orbital Storage & Resupply", "nomads");
-    station.addTag("station");
-    station.setCircularOrbitPointingDown(system.getEntityById("nur_h"), 45, 300, 50);
-    // market
-    MarketAPI market = Global.getFactory().createMarket(station.getId()+"_market", station.getName(), 3);
-    market.setSurveyLevel(MarketAPI.SurveyLevel.FULL);
-    market.setFactionId("nomads");
-    market.setPrimaryEntity(station);
-    market.setBaseSmugglingStabilityValue(0);
-    market.getTariff().modifyFlat("generator", 0.3f);
-    // conditions
-    market.addCondition(Conditions.FRONTIER);
-    market.addCondition(Conditions.SPACEPORT);
-    market.addCondition(Conditions.ORBITAL_STATION);
-    market.addCondition(Conditions.VICE_DEMAND);
-    market.addCondition(Conditions.POPULATION_2);
-    market.addCondition(Conditions.SHIPBREAKING_CENTER);
-    // submarkets
-    market.addSubmarket(Submarkets.SUBMARKET_OPEN);
-    market.addSubmarket(Submarkets.GENERIC_MILITARY);
-    market.addSubmarket(Submarkets.SUBMARKET_BLACK);
-    market.addSubmarket(Submarkets.SUBMARKET_STORAGE);
-    Global.getSector().getEconomy().addMarket(market);
-    station.setMarket(market);
-    // hyperspace
-    JumpPointAPI jumpPoint = factory.createJumpPoint("nur_jump_station", "Orbital Station Jump Point");
-    jumpPoint.setOrbit(Global.getFactory().createCircularOrbit(planet_I__moon_e, 90f, 300f, 50f));
-    jumpPoint.setStandardWormholeToHyperspaceVisual();
-    system.addEntity(jumpPoint);
-    //
-    system.autogenerateHyperspaceJumpPoints(true, true);
-    
-    // relationships
-		FactionAPI nomads_faction = sector.getFaction( "nomads" );
-    for (FactionAPI cur_faction : sector.getAllFactions()) {
-    	if( "nomads".equals(cur_faction.getId())
-      ||  "independent".equals(cur_faction.getId())
-      ||  "scavengers".equals(cur_faction.getId())
-      ||  "neutral".equals(cur_faction.getId()) ) {
-				nomads_faction.setRelationship( cur_faction.getId(), 1.00f );
-      } else if( "pirates".equals(cur_faction.getId())) {
-				nomads_faction.setRelationship( cur_faction.getId(), -0.65f );
-      } else if( "hegemony".equals(cur_faction.getId())) {
-				nomads_faction.setRelationship( cur_faction.getId(), -0.65f );
+
+		// Create star system "Nur"
+		StarSystemAPI system = sector.createStarSystem("Nur");
+		system.setLightColor(new Color(185, 185, 240));
+		system.getLocation().set(18000f, -900f);
+
+		SectorEntityToken systemCenterOfMass = system.initNonStarCenter();
+
+		// Primary star
+		PlanetAPI starA = system.addPlanet(
+			"nur_a", systemCenterOfMass, "Nur-A", StarTypes.BLUE_GIANT,
+			90f, 1000f, 1500f, 30f
+		);
+		system.setStar(starA);
+		system.addCorona(starA, 300f, 5f, 0f, 1f);
+
+		// Secondary star
+		PlanetAPI starB = system.addPlanet(
+			"nur_b", systemCenterOfMass, "Nur-B", StarTypes.RED_GIANT,
+			270f, 300f, 600f, 30f
+		);
+		system.setSecondary(starB);
+		system.addCorona(starB, 50f, 5f, 0.05f, 0.5f);
+
+		// Main planet "Naera"
+		PlanetAPI planetI = system.addPlanet(
+			"nur_c", systemCenterOfMass, "Naera", "desert",
+			45f, 300f, 8000f, 199f
+		);
+		system.addRingBand(planetI, "misc", "rings_asteroids0", 256f, 0, Color.white, 256f, 630f, 30f);
+		planetI.setCustomDescriptionId("nom_planet_naera");
+		planetI.getSpec().setAtmosphereColor(new Color(160, 110, 45, 140));
+		planetI.getSpec().setCloudColor(new Color(255, 255, 255, 23));
+		planetI.getSpec().setTilt(15);
+		planetI.applySpecChanges();
+
+		// Moons of Naera
+		PlanetAPI moonA = system.addPlanet("nur_d", planetI, "Ixaith", "rocky_unstable", 0f, 60f, 800f, 67f);
+		PlanetAPI moonB = system.addPlanet("nur_e", planetI, "Ushaise", "rocky_ice", 45f, 45f, 1000f, 120f);
+		PlanetAPI moonC = system.addPlanet("nur_f", planetI, "Riaze", "barren", 90f, 100f, 1200f, 130f);
+		PlanetAPI moonD = system.addPlanet("nur_g", planetI, "Riaze-Tremn", "frozen", 135f, 35f, 1500f, 132f);
+		PlanetAPI moonE = system.addPlanet("nur_h", planetI, "Eufariz", "frozen", 180f, 65f, 1750f, 200f);
+		PlanetAPI moonF = system.addPlanet("nur_i", planetI, "Thumn", "rocky_ice", 225f, 100f, 2000f, 362f);
+
+		// Create the station entity
+		SectorEntityToken station = system.addCustomEntity(
+			"nur_fabricator_station",           // Unique ID for your station
+			"Naeran Orbital Storage & Resupply",           // Display name
+			"station_side02",                  // Type ID (vanilla type)
+			"nomads"                           // Faction ID
+		);
+
+		// Set the orbit around the planet
+		station.setCircularOrbit(moonE, 180f, 300f, 50f); // angle, radius, orbit days
+
+		// Add station tag so it's recognized by game systems
+		station.addTag("station");
+
+		// Add a market
+		MarketAPI market = Global.getFactory().createMarket(
+			"naera_station_market",
+			station.getName(),
+			6  // Market size
+		);
+		market.setSurveyLevel(MarketAPI.SurveyLevel.FULL);
+		market.setPrimaryEntity(station);
+		market.setFactionId("nomads");
+
+		// Add conditions and submarkets
+		market.addCondition(Conditions.POPULATION_5);
+		market.addSubmarket(Submarkets.SUBMARKET_OPEN);
+		market.addSubmarket(Submarkets.GENERIC_MILITARY);
+		market.addSubmarket(Submarkets.SUBMARKET_STORAGE);
+
+
+		station.setMarket(market);
+		Global.getSector().getEconomy().addMarket(market, true);
+
+		// Auto generate jump points
+		system.autogenerateHyperspaceJumpPoints(true, true);
+
+		// Faction relationships
+		FactionAPI nomadsFaction = sector.getFaction("nomads");
+		for (FactionAPI faction : sector.getAllFactions()) {
+			String factionId = faction.getId();
+			if ("nomads".equals(factionId) || "independent".equals(factionId)
+					|| "scavengers".equals(factionId) || "neutral".equals(factionId)) {
+				nomadsFaction.setRelationship(factionId, 1.00f);
+			} else if ("pirates".equals(factionId) || "hegemony".equals(factionId)) {
+				nomadsFaction.setRelationship(factionId, -0.65f);
 			} else {
-				nomads_faction.setRelationship( cur_faction.getId(), 0.00f );
+				nomadsFaction.setRelationship(factionId, 0.00f);
 			}
 		}
-		
-    // DEPRECATED
-    //// armada formation
-    //CampaignArmadaEscortFleetPositionerAPI armada_formation =
-    //  new CampaignArmadaFormationOrbit(
-    //    sector,
-    //    300.0f, // orbitRadius
-    //    1.0f, // orbitDirection
-    //    0.8f // orbitPeriodDays
-    //  );
-    
-		// armada (leader fleet + escorts) controller script
-		String[] escort_pool = { 
-			"scout", 
-			"longRangeScout", 
-			"battleGroup", 
-			"assassin", 
-			"royalGuard", 
-			"jihadFleet", 
-			"carrierGroup",
-			"royalCommandFleet"
+
+		// Escort Fleet Setup
+		String[] escortPool = {
+			"scout", "longRangeScout", "battleGroup", "assassin",
+			"royalGuard", "jihadFleet", "carrierGroup", "royalCommandFleet"
 		};
-		int[] escort_weights = {    
-			220,
-			200,
-			230,
-			185,
-			175,
-			125,
-			200,
-			100
+		int[] escortWeights = {
+			220, 200, 230, 185, 175, 125, 200, 100
 		};
-		CampaignArmadaController nomad_armada =
-			new CampaignArmadaController(
-        //////////////////////////
-        // spawn info
-				"nomads", // faction
-				"colonyFleet", // leader/VIP fleet
-				"nom_oasis", // flagship of flagships
-				sector, // global sector api
-				planet_I__moon_f, // spawn location
-        station.getMarket(), // market
-        //////////////////////////
-				// escort fleet info
-        8, // escort_fleet_count
-				escort_pool,
-				escort_weights,
-        500f, // "leash" length
-        //////////////////////////
-        // waypoint info
-				1, // waypoint_per_trip_minimum
-				6, // waypoint_per_trip_maximum
-				30 // dead_time_days (idle time per waypoint)
-        //////////////////////////
-			);
-		sector.addScript( nomad_armada );
-		nomad_armada.addListener( this );
-		
-		// armada resource pooling script
-		CampaignArmadaResourceSharingController armada_resource_pool = 
-			new CampaignArmadaResourceSharingController( 
-				sector, 
-				nomad_armada,
-				3.0f, // 3 days at fleet's current usage (whatever it happens to be)
-				0.10f, // skeleton crew requirement, plus 10%
-				3.0f, // 5 light-years worth of fuel at fleet's current fuel consumption rate
-				12.0f, // 12 days at fleet's current usage (whatever it happens to be)
-				0.50f, // skeleton crew requirement, plus 25%
-				20.0f // 15 light-years worth of fuel at fleet's current fuel consumption rate
-			);
-		sector.addScript( armada_resource_pool );
+
+		CampaignArmadaController nomadArmada = new CampaignArmadaController(
+			"nomads",
+			"colonyFleet",
+			"nom_oasis",
+			sector,
+			moonF,
+			station.getMarket(),
+			8,
+			escortPool,
+			escortWeights,
+			500f,
+			1,
+			6,
+			30
+		);
+		sector.addScript(nomadArmada);
+		nomadArmada.addListener(this);
+
+		// Resource sharing controller
+		CampaignArmadaResourceSharingController armadaResourcePool = new CampaignArmadaResourceSharingController(
+			sector,
+			nomadArmada,
+			3.0f,   // 3 days of resource usage
+			0.10f,  // 10% skeleton crew requirement
+			3.0f,   // 3 light-years fuel range
+			12.0f,  // 12 days of resource usage (extended)
+			0.50f,  // 50% skeleton crew requirement
+			20.0f   // 20 light-years fuel range
+		);
+		sector.addScript(armadaResourcePool);
         
 		// restocker script
 		StockDescriptor[] restock = {
@@ -288,7 +268,6 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 			if( count == 0 )
 			{
 				station_ships.addFleetMember( factory.createFleetMember( FleetMemberType.SHIP, "nom_oasis_standard" ));
-				TrylobotUtils.debug("added OASIS to station cargo");
 			}
 		}
 		// Oasis is in play; be patient! T_T
@@ -302,7 +281,6 @@ public class TheNomadsNur implements SectorGeneratorPlugin, CampaignArmadaContro
 				if( "nom_oasis".equals( ship.getHullId() ))
 				{
 					station_ships.removeFleetMember( ship );
-					TrylobotUtils.debug("removed OASIS from station cargo");
 				}
 			}
 		}

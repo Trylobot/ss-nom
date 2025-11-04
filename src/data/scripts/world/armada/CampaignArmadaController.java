@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 import com.fs.starfarer.api.EveryFrameScript;
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV3;
+import com.fs.starfarer.api.impl.campaign.fleets.FleetParamsV3;
 import com.fs.starfarer.api.campaign.CampaignClockAPI;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.FleetAssignment;
@@ -13,7 +15,7 @@ import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
-import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV2;
+import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV3;
 import com.fs.starfarer.api.impl.campaign.ids.Commodities;
 import com.fs.starfarer.api.loading.AbilitySpecAPI;
 import data.scripts.trylobot.TrylobotUtils;
@@ -162,16 +164,30 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	
 	private CampaignFleetAPI create_leader_fleet()
 	{
-    CampaignFleetAPI fleet = sector.createFleet( faction_id, leader_fleet_id );
-    flesh_out_fleet(fleet);
-    fleet.getCargo().addCommodity(Commodities.DRUGS, 250);
-    // let the escorts catch up if they fall behind
-    fleet.removeAbility("sustained_burn");
-    //
-    fleet.addScript( new CampaignArmadaOasisRemoteSurveyor( fleet ));
-    //
-    return fleet;
+		FleetParamsV3 params = new FleetParamsV3(
+			market,          // Use your actual market
+			null,            // No specific location needed
+			faction_id,
+			null,            // No quality override
+			leader_fleet_id, // fleetType
+			100f,            // combatPts
+			0f,              // freighterPts
+			0f,              // tankerPts
+			0f,              // transportPts
+			0f,              // linerPts
+			0f,              // utilityPts
+			1f               // qualityMod
+		);
+
+		CampaignFleetAPI fleet = FleetFactoryV3.createFleet(params);
+		flesh_out_fleet(fleet, params); // ✅ fixed
+		fleet.getCargo().addCommodity(Commodities.DRUGS, 250);
+		fleet.removeAbility("sustained_burn");
+		fleet.addScript(new CampaignArmadaOasisRemoteSurveyor(fleet));
+		return fleet;
 	}
+
+
 	
 	private CampaignFleetAPI[] create_escort_fleets(CampaignFleetAPI leader_fleet)
 	{
@@ -182,10 +198,27 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 				escort_fleet_composition_pool,
 				escort_fleet_composition_weights );
       //
-			CampaignFleetAPI fleet = sector.createFleet( faction_id, fleet_id );
-      fleet.setAI( new CampaignArmadaEscortFleetAI( fleet, leader_fleet, fleet.getAI() ));
+		FleetParamsV3 params = new FleetParamsV3(
+			market,
+			null,
+			faction_id,
+			null,
+			fleet_id, // This should be a valid fleetType string (like "combatSmall", "combatMedium", etc.)
+			50f, // combatPts or another value for escort size
+			0f,
+			0f,
+			0f,
+			0f,
+			0f,
+			1f
+		);
+
+		CampaignFleetAPI fleet = FleetFactoryV3.createFleet(params);
+
+		fleet.setAI( new CampaignArmadaEscortFleetAI( fleet, leader_fleet, fleet.getAI() ));
       //
-			flesh_out_fleet(fleet);
+		flesh_out_fleet(fleet, params);  //
+
       fleet.getCargo().addCommodity(Commodities.DRUGS, 30);
       // they should be able to use this to follow
       fleet.addAbility("fracture_jump");
@@ -200,24 +233,25 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 		return fleets;
 	}
   
-  private void flesh_out_fleet(CampaignFleetAPI fleet) {
-    //
-    fleet.setMarket(market);
-    //
-    for (String id : Global.getSettings().getSortedAbilityIds()) {
-      AbilitySpecAPI spec = Global.getSettings().getAbilitySpec(id);
-      if (spec.isAIDefault()) {
-        fleet.addAbility(id);
-      }
-    }
-    //
-    FleetFactoryV2.addCommanderAndOfficers(4, 5.0f,10.0f, fleet, null, random);
-    //
-    fleet.forceSync();
-    for (FleetMemberAPI member : fleet.getMembersWithFightersCopy()) {
+	private void flesh_out_fleet(CampaignFleetAPI fleet, FleetParamsV3 params) {
+		fleet.setMarket(market);
+
+		for (String id : Global.getSettings().getSortedAbilityIds()) {
+			AbilitySpecAPI spec = Global.getSettings().getAbilitySpec(id);
+			if (spec.isAIDefault()) {
+				fleet.addAbility(id);
+			}
+		}
+
+		// CORRECT METHOD CALL
+		FleetFactoryV3.addCommanderAndOfficers(fleet, params, random);
+
+		fleet.forceSync();
+
+		for (FleetMemberAPI member : fleet.getMembersWithFightersCopy()) {
 			member.getRepairTracker().setCR(member.getRepairTracker().getMaxCR());
 		}
-  }
+	}
 	
 	private boolean check_leader()
 	{
@@ -325,4 +359,3 @@ public class CampaignArmadaController implements EveryFrameScript, CampaignArmad
 	}
 	
 }
-
